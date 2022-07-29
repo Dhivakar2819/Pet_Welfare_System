@@ -1,4 +1,4 @@
-package com.chainsys.petwellfaresystem.pojo;
+package com.chainsys.petwelfaresystem.pojo;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
