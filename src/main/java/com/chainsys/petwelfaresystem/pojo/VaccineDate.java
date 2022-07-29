@@ -8,7 +8,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name="vaccine_date")
-public class Vaccine_date {
+public class VaccineDate {
 	@Id
 	private int pet_id;
 	private int vaccine_id;

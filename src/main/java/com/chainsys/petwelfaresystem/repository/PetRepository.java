@@ -13,5 +13,4 @@ public interface PetRepository extends CrudRepository<Pet,Integer> {
 	Pet save(Pet pet);
 	void deleteById(int id);
 	List<Pet>findAll();
-	int getNextId();
 }
