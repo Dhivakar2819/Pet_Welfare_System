@@ -11,9 +11,11 @@ import com.chainsys.petwelfaresystem.compositekey.VaccineDateCompositeKey;
 
 @Entity
 @Table(name="vaccine_date")
-public class VaccineDate {
+@IdClass(VaccineDateCompositeKey.class)
+public class VaccineDate2 {
 	@Id
 	private int pet_id;
+	@Id
 	private int vaccine_id;
 	private Date vaccine_date;
 	

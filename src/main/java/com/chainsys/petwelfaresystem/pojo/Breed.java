@@ -1,25 +1,42 @@
 package com.chainsys.petwelfaresystem.pojo;
 
+import java.util.List;
+
+import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
 @Table(name="breeds")
 public class Breed {
 	@Id
-	private int breed_id;
+	@Column(name="breed_id")
+	private int id;
 	private String breed_type;
-	public int getBreed_id() {
-		return breed_id;
+	
+	@OneToMany(mappedBy="breed", fetch= FetchType.LAZY)
+	private List<Pet> pets;
+	
+	public List<Pet> getPets() {
+		return pets;
 	}
-	public void setBreed_id(int breed_id) {
-		this.breed_id = breed_id;
+	public void setPets(List<Pet> pets) {
+		this.pets = pets;
 	}
-	public String getBreed() {
+	public int getId() {
+		return id;
+	}
+	public void setId(int breed_id) {
+		this.id = breed_id;
+	}
+	public String getBreed_type() {
 		return breed_type;
 	}
-	public void setBreed(String breed) {
+	public void setBreed_type(String breed) {
 		this.breed_type = breed;
 	}
+
 }

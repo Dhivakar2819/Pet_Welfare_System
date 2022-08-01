@@ -3,7 +3,10 @@ package com.chainsys.petwelfaresystem.pojo;
 import java.util.Date;
 
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -12,13 +15,22 @@ public class Pet {
 	@Id
 	private int pet_id;
 	private int user_id;
+	private int breed_id;
 	private String pet_type;
 	private String pet_name;
 	private Date dob;
 	private String gender;
-	private int breed_id;
 	private Date date_of_ownership;
+	@ManyToOne(fetch=FetchType.LAZY)
+	@JoinColumn(name="breed_id",nullable=false, insertable=false, updatable=false)
+	private Breed breed;
 	
+	public Breed getBreed() {
+		return breed;
+	}
+	public void setBreed(Breed breed) {
+		this.breed = breed;
+	}
 	public int getPet_id() {
 		return pet_id;
 	}

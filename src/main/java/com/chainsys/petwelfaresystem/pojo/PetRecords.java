@@ -15,6 +15,7 @@ public class PetRecords {
 	private Date date_observ;
 	private String observation;
 	private Date recover_date;
+	
 	public int getPet_id() {
 		return pet_id;
 	}
