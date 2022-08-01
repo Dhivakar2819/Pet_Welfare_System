@@ -5,22 +5,22 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Find by Id</title>
+<title>Add Breed</title>
 </head>
 <body>
 <div id="root">
 		<div id="form">
-			<form:form action="add" method="post" modelAttribute="addbreed">
+			<form:form action="add" method="post" modelAttribute="addbreeds">
 				<div>
-					<label for="breed_id">Breed id</label>
+					<label for="id">Breed id</label>
 					<div>
-						<form:input path="breed_id" />
+						<form:input path="id" />
 					</div>
 				</div>
 				<div>
-					<label for="breed_type">Breed Type</label>
+					<label for="breedType">Breed Type</label>
 					<div>
-						<form:input path="breed_type" />
+						<form:input path="breedType" />
 					</div>
 				</div>
 				<div>

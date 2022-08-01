@@ -13,33 +13,33 @@
 		<div id="form">
 			<form:form action="add" method="post" modelAttribute="addpet">
 				<div>
-					<label for="pet_id">Pet id</label>
+					<label for="id">Pet id</label>
 					<div>
-						<form:input path="pet_id" />
+						<form:input path="id" />
 					</div>
 				</div>
 				<div>
-					<label for="user_id">User Id</label>
+					<label for="userId">User Id</label>
 					<div>
-						<form:input path="user_id" />
+						<form:input path="userId" />
 					</div>
 				</div>
 				<div>
-					<label for="breed_id">Breed id</label>
+					<label for="breedId">Breed id</label>
 					<div>
-						<form:input path="breed_id" />
+						<form:input path="breedId" />
 					</div>
 				</div>
 				<div>
-					<label for="pet_type">Pet Type</label>
+					<label for="petType">Pet Type</label>
 					<div>
-						<form:input path="pet_type" />
+						<form:input path="petType" />
 					</div>
 				</div>
 				<div>
-					<label for="pet_name">Pet Name</label>
+					<label for="petName">Pet Name</label>
 					<div>
-						<form:input path="pet_name" />
+						<form:input path="petName" />
 					</div>
 				</div>
 				<div>
@@ -53,10 +53,11 @@
 					<div>
 						<form:input path="gender" />
 					</div>
+					</div>
 					<div>
-					<label for="date_of_ownership">Date of Ownership</label>
+					<label for="dateofOwnership">Date of Ownership</label>
 					<div>
-						<form:input path="date_of_ownership" />
+						<form:input path="dateofOwnership" />
 					</div>
 				</div>
 				<div>

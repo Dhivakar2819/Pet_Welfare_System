@@ -1,4 +1,4 @@
-package com.chainsys.petwelfaresystem.pojo;
+package com.chainsys.petwelfaresystem.model;
 
 import java.util.List;
 
@@ -15,7 +15,8 @@ public class Breed {
 	@Id
 	@Column(name="breed_id")
 	private int id;
-	private String breed_type;
+	@Column(name="breed_type")
+	private String breedType;
 	
 	@OneToMany(mappedBy="breed", fetch= FetchType.LAZY)
 	private List<Pet> pets;
@@ -29,14 +30,13 @@ public class Breed {
 	public int getId() {
 		return id;
 	}
-	public void setId(int breed_id) {
-		this.id = breed_id;
+	public void setId(int id) {
+		this.id = id;
 	}
-	public String getBreed_type() {
-		return breed_type;
+	public String getBreedType() {
+		return breedType;
 	}
-	public void setBreed_type(String breed) {
-		this.breed_type = breed;
+	public void setBreedType(String breedType) {
+		this.breedType = breedType;
 	}
-
 }

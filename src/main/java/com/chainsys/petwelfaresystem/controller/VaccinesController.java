@@ -12,22 +12,22 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.chainsys.petwelfaresystem.Services.VaccinesServices;
-import com.chainsys.petwelfaresystem.pojo.Vaccines;
+import com.chainsys.petwelfaresystem.model.Vaccines;
 
 @Controller
 @RequestMapping("/vaccine")
 public class VaccinesController {
 	@Autowired
-	VaccinesServices vaccine;
+	VaccinesServices vaccineservices;
 
 	@GetMapping("/list")
 	public String getFindAll(Model model) {
-		List<Vaccines> list = vaccine.getVaccines();
+		List<Vaccines> list = vaccineservices.getVaccines();
 		model.addAttribute("allvaccine", list);
 		return "list-vaccine";
 	}
 
-	@GetMapping("/addform")
+	@GetMapping("/addformvaccine")
 	public String showAddForm(Model model) {
 		Vaccines vac = new Vaccines();
 		model.addAttribute("addvaccine", vac);
@@ -36,32 +36,32 @@ public class VaccinesController {
 
 	@PostMapping("/add")
 	public String addNewVaccineDate(@ModelAttribute("addvdate") Vaccines vac) {
-		vaccine.save(vac);
+		vaccineservices.save(vac);
 		return "redirect:/vaccine/list";
 	}
 
-	@GetMapping("/updateform")
+	@GetMapping("/updateformvaccine")
 	public String showUpdateForm(@RequestParam("vacid") int id, Model model) {
-		Vaccines vac = vaccine.findById(id);
+		Vaccines vac = vaccineservices.findById(id);
 		model.addAttribute("updatevaccine", vac);
 		return "update-vaccine-form";
 	}
 
 	@PostMapping("/update")
 	public String UpdateVaccines(@ModelAttribute("updatevaccine") Vaccines vac) {
-		vaccine.save(vac);
+		vaccineservices.save(vac);
 		return "redirect:/vaccine/list";
 	}
 
-	@GetMapping("/delete")
+	@GetMapping("/deletevaccine")
 	public String deleteVaccines(@RequestParam("vacid") int id) {
-		vaccine.deleteById(id);
+		vaccineservices.deleteById(id);
 		return "redirect:/vaccine/list";
 	}
 
-	@GetMapping("/getbyid")
+	@GetMapping("/getvaccine")
 	public String getVaccines(@RequestParam("vacid") int id, Model model) {
-		Vaccines vac = vaccine.findById(id);
+		Vaccines vac = vaccineservices.findById(id);
 		model.addAttribute("findvaccinebyid", vac);
 		return "find-vaccine-by-id";
 	}

@@ -6,7 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.chainsys.petwelfaresystem.pojo.Vaccines;
+import com.chainsys.petwelfaresystem.model.Vaccines;
 import com.chainsys.petwelfaresystem.repository.VaccineRepository;
 
 @Service

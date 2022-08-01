@@ -5,7 +5,7 @@ import java.util.List;
 
 import org.springframework.data.repository.CrudRepository;
 
-import com.chainsys.petwelfaresystem.pojo.Pet;
+import com.chainsys.petwelfaresystem.model.Pet;
 
 
 public interface PetRepository extends CrudRepository<Pet,Integer> {
@@ -14,5 +14,6 @@ public interface PetRepository extends CrudRepository<Pet,Integer> {
 	Pet save(Pet pet);
 	void deleteById(int id);
 	List<Pet>findAll();
-	List<Pet> findByBreedId(int pet_id);
+	List<Pet> findByBreedId(int petid);
+	List<Pet> findByDiseaseId(int petid);
 }

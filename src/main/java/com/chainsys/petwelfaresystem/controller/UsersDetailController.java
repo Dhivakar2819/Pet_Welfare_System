@@ -12,21 +12,21 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.chainsys.petwelfaresystem.Services.UsersDetailServices;
-import com.chainsys.petwelfaresystem.pojo.UsersDetail;
+import com.chainsys.petwelfaresystem.model.UsersDetail;
 
 @Controller
 @RequestMapping("/usersdetail")
 public class UsersDetailController {
 	@Autowired
-	UsersDetailServices userdetail;
+	UsersDetailServices userdetailservices;
 	@GetMapping("/list")
 	public String getFindAll(Model model) {
-		List<UsersDetail> listud=userdetail.getUserDetail();
+		List<UsersDetail> listud=userdetailservices.getUserDetail();
 		model.addAttribute("alluserdetail",listud);
 		return "list-usersdetail";
 	}
 	
-	@GetMapping("/addform")
+	@GetMapping("/addformuser")
 	public String showAddForm(Model model) {
 		UsersDetail ud = new UsersDetail();
 		model.addAttribute("adduserdetail", ud);
@@ -35,34 +35,34 @@ public class UsersDetailController {
 
 	@PostMapping("/add")
 	public String addNewUsersDetail(@ModelAttribute("adduserdetail") UsersDetail ud) {
-		userdetail.save(ud);
+		userdetailservices.save(ud);
 		return "redirect:/usersdetail/list";
 	}
 	
-	@GetMapping("/updateform")
+	@GetMapping("/updateformuser")
 	public String showUpdateForm(@RequestParam("petid") int id, Model model ){
-		UsersDetail ud=userdetail.findById(id);
+		UsersDetail ud=userdetailservices.findById(id);
 		model.addAttribute("updateusersdetail", ud);
 		return "update-usersdetail-form";
 	}
 
 	@PostMapping("/update")
 	public String UpdateUsersDetail(@ModelAttribute("updateusersdetail") UsersDetail ud) {
-		userdetail.save(ud);
+		userdetailservices.save(ud);
 		return "redirect:/usersdetail/list";
 	}
 	
 	
 	@GetMapping("/deleteuserdetail")
 	public String deleteUsersDetail(@RequestParam("userid") int id) {
-		userdetail.deleteById(id);
+		userdetailservices.deleteById(id);
 		return "redirect:/usersdetail/list";
 	}
 	
 	@GetMapping("/getuserdetail")
 	public String getUsersDetail(@RequestParam("userid") int id,Model model)
 	{
-		UsersDetail us=userdetail.findById(id);
+		UsersDetail us=userdetailservices.findById(id);
 		model.addAttribute("findusersdetailbyid",us);
 		return "find-usersdetail-by-id";
 	}

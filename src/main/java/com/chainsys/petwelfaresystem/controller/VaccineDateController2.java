@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.chainsys.petwelfaresystem.Services.VaccineDateServices2;
 import com.chainsys.petwelfaresystem.compositekey.VaccineDateCompositeKey;
-import com.chainsys.petwelfaresystem.pojo.VaccineDate2;
+import com.chainsys.petwelfaresystem.model.VaccineDate2;
 
 @Controller
 @RequestMapping("/vaccinedate2")

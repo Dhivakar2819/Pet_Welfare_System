@@ -6,7 +6,7 @@ import java.util.Optional;
 import org.springframework.data.repository.CrudRepository;
 
 import com.chainsys.petwelfaresystem.compositekey.VaccineDateCompositeKey;
-import com.chainsys.petwelfaresystem.pojo.VaccineDate2;
+import com.chainsys.petwelfaresystem.model.VaccineDate2;
 
 public interface VaccineDateRepository2 extends CrudRepository<VaccineDate2,VaccineDateCompositeKey>{
 	Optional<VaccineDate2> findById(VaccineDateCompositeKey id);

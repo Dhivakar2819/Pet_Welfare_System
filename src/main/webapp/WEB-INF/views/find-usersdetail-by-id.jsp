@@ -12,31 +12,30 @@
 		<div id="form">
 			<form:form action="" method="post" modelAttribute="findusersdetailbyid">
 				<div>
-					<label for="user_id">User id</label>
+					<label for="userId">User id</label>
 					<div>
-						<form:input path="user_id" />
+						<form:input path="userId" readonly="true" />
 					</div>
 				</div>
 				<div>
-					<label for="user_name">User Name</label>
+					<label for="userName">User Name</label>
 					<div>
-						<form:input path="user_name" />
+						<form:input path="userName" readonly="true" />
 					</div>
 				</div>
 				<div>
-					<label for="e_mail">E Mail Id</label>
+					<label for="email">E Mail Id</label>
 					<div>
-						<form:input path="e_mail" />
+						<form:input path="email" readonly="true" />
 					</div>
 				</div>
 				<div>
 					<label for="password">Password</label>
 					<div>
-						<form:input path="password" />
+						<form:input path="password" readonly="true" />
 					</div>
 				</div>
 				
-				</div>
 			</form:form>
 		</div>
 	</div>

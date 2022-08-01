@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.chainsys.petwelfaresystem.compositekey.VaccineDateCompositeKey;
-import com.chainsys.petwelfaresystem.pojo.VaccineDate2;
+import com.chainsys.petwelfaresystem.model.VaccineDate2;
 import com.chainsys.petwelfaresystem.repository.VaccineDateRepository2;
 
 @Service

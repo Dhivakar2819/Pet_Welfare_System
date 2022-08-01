@@ -12,21 +12,21 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.chainsys.petwelfaresystem.Services.DiseaseServices;
-import com.chainsys.petwelfaresystem.pojo.Disease;
+import com.chainsys.petwelfaresystem.model.Disease;
 
 @Controller
 @RequestMapping("/disease")
 public class DiseaseController {
 	@Autowired
-	DiseaseServices disease;
+	DiseaseServices diseaseservice;
 	@GetMapping("/list")
 	public String getFindAll(Model model) {
-		List<Disease> list=disease.getDisease();
+		List<Disease> list=diseaseservice.getDisease();
 		model.addAttribute("alldisease",list);
 		return "list-disease";
 	}
 	
-	@GetMapping("/addform")
+	@GetMapping("/addformdisease")
 	public String showAddForm(Model model) {
 		Disease dis = new Disease();
 		model.addAttribute("adddisease", dis);
@@ -35,34 +35,34 @@ public class DiseaseController {
 
 	@PostMapping("/add")
 	public String addNewDisease(@ModelAttribute("adddisease") Disease dis) {
-		disease.save(dis);
+		diseaseservice.save(dis);
 		return "redirect:/disease/list";
 	}
 	
-	@GetMapping("/updateform")
+	@GetMapping("/updateformdisease")
 	public String showUpdateForm(@RequestParam("disid") int id, Model model ){
-		Disease dis=disease.findById(id);
+		Disease dis=diseaseservice.findById(id);
 		model.addAttribute("updatedisease", dis);
 		return "update-disease-form";
 	}
 
 	@PostMapping("/update")
 	public String UpdateDisease(@ModelAttribute("updatedisease") Disease dis) {
-		disease.save(dis);
+		diseaseservice.save(dis);
 		return "redirect:/disease/list";
 	}
 	
 	
-	@GetMapping("/delete")
+	@GetMapping("/deletedisease")
 	public String deleteDisease(@RequestParam("disid") int id) {
-		disease.deleteById(id);
+		diseaseservice.deleteById(id);
 		return "redirect:/disease/list";
 	}
 	
 	@GetMapping("/getdisease")
 	public String getDisease(@RequestParam("disid") int id,Model model)
 	{
-		Disease dis=disease.findById(id);
+		Disease dis=diseaseservice.findById(id);
 		model.addAttribute("finddiseasebyid",dis);
 		return "find-disease-by-id";
 	}

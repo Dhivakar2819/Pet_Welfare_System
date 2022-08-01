@@ -6,22 +6,22 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Add Breed</title>
+<title>Find Breed</title>
 </head>
 <body>
 <div id="root">
 		<div id="form">
 			<form:form action="" method="post" modelAttribute="findbreedbyid">
 				<div>
-					<label for="breed_id">Breed id</label>
+					<label for="id">Breed id</label>
 					<div>
-						<form:input path="breed_id" />
+						<form:input path="id" readonly="true" />
 					</div>
 				</div>
 				<div>
-					<label for="breed_type">Breed Type</label>
+					<label for="breedType">Breed Type</label>
 					<div>
-						<form:input path="breed_type" />
+						<form:input path="breedType" readonly="true" />
 					</div>
 				</div>
 			</form:form>

@@ -11,21 +11,21 @@
 <body>
 <div id="root">
 		<div id="form">
-			<form:form action="update" method="post" modelAttribute="updatebreed">
+			<form:form action="update" method="post" modelAttribute="updatebreeds">
 				<div>
-					<label for="breed_id">Breed id</label>
+					<label for="id">Breed id</label>
 					<div>
-						<form:input path="breed_id" />
+						<form:input path="id" readonly="true"/>
 					</div>
 				</div>
 				<div>
-					<label for="breed_type">Breed Type</label>
+					<label for="breedType">Breed Type</label>
 					<div>
-						<form:input path="breed_type" />
+						<form:input path="breedType" />
 					</div>
 				</div>
 				<div>
-					<form:button>Update New</form:button>
+					<form:button>Update</form:button>
 				</div>
 			</form:form>
 		</div>

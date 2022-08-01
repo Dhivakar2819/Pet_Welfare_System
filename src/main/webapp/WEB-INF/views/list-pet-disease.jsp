@@ -11,7 +11,7 @@
 <body>
 <div id="root">
 		<div id="form">
-			<form:form action="" method="post" modelAttribute="findpetbyid">
+			<form:form action="" method="post" modelAttribute="getpet">
 				<div>
 					<label for="id">Pet id</label>
 					<div>
@@ -63,6 +63,27 @@
 				
 			</form:form>
 		</div>
+		
+		<div id="table root">
+		<table>
+			<thead>
+				<tr>
+					<th>Disease Id</th>
+					<th>Disease Name</th>
+					<th>Medicine</th>
+				</tr>
+			</thead>
+			<tbody>
+				<c:forEach var="disease" items="${dieaselist}">
+					<tr>
+						<td>${disease.id}</td>
+						<td>${disease.diseaseName}</td>
+						<td>${disease.medicine}</td>
+					</tr>
+				</c:forEach>
+			</tbody>
+		</table>
+	</div>
 	</div>
 </body>
 </html>

@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.chainsys.petwelfaresystem.Services.PetRecordServices;
-import com.chainsys.petwelfaresystem.pojo.PetRecords;
+import com.chainsys.petwelfaresystem.model.PetRecords;
 
 @Controller
 @RequestMapping("/petrecord")
@@ -27,7 +27,7 @@ public class PetRecordsController {
 		return "list-petrecord";
 	}
 
-	@GetMapping("/addform")
+	@GetMapping("/addformpetrecord")
 	public String showAddForm(Model model) {
 		PetRecords pr = new PetRecords();
 		model.addAttribute("addpetrecord", pr);
@@ -40,7 +40,7 @@ public class PetRecordsController {
 		return "redirect:/petrecord/list";
 	}
 
-	@GetMapping("/updateform")
+	@GetMapping("/updateformpetrecord")
 	public String showUpdateForm(@RequestParam("prid") int id, Model model) {
 		PetRecords pr = petrecord.findById(id);
 		model.addAttribute("updatepetrecord", pr);
@@ -53,13 +53,13 @@ public class PetRecordsController {
 		return "redirect:/petrecord/list";
 	}
 
-	@GetMapping("/delete")
+	@GetMapping("/deletepetrecord")
 	public String deletePetRecords(@RequestParam("prid") int id) {
 		petrecord.deleteById(id);
 		return "redirect:/petrecord/list";
 	}
 
-	@GetMapping("/getbyid")
+	@GetMapping("/getpetrecord")
 	public String getPetRecords(@RequestParam("prid") int id, Model model) {
 		PetRecords pr = petrecord.findById(id);
 		model.addAttribute("findpetrecordbyid", pr);

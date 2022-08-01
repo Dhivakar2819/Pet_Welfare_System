@@ -8,14 +8,15 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.chainsys.petwelfaresystem.dto.PetBreedDTO;
-import com.chainsys.petwelfaresystem.pojo.Breed;
-import com.chainsys.petwelfaresystem.pojo.Pet;
+import com.chainsys.petwelfaresystem.model.Breed;
+import com.chainsys.petwelfaresystem.model.Pet;
 import com.chainsys.petwelfaresystem.repository.BreedRepository;
 import com.chainsys.petwelfaresystem.repository.PetRepository;
 @Service
 public class BreedServices {
 	@Autowired
 	private BreedRepository breed;
+	@Autowired
 	private PetRepository petr;
 	
 	public List<Breed> getBreed(){

@@ -22,9 +22,9 @@
 			<tbody>
 				<c:forEach var="usersdetail" items="${alluserdetail}">
 					<tr>
-						<td>${usersdetail.user_id}</td>
-						<td>${usersdetail.user_name}</td>
-						<td>${usersdetail.e_mail}</td>
+						<td>${usersdetail.userId}</td>
+						<td>${usersdetail.userName}</td>
+						<td>${usersdetail.email}</td>
 						<td>${usersdetail.password}</td>
 					</tr>
 				</c:forEach>

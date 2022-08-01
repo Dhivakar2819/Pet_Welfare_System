@@ -1,4 +1,4 @@
-package com.chainsys.petwelfaresystem.pojo;
+package com.chainsys.petwelfaresystem.model;
 
 import java.util.Date;
 

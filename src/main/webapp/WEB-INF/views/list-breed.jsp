@@ -20,8 +20,8 @@
 			<tbody>
 				<c:forEach var="breed" items="${allbreed}">
 					<tr>
-						<td>${breed.breed_id}</td>
-						<td>${breed.breed_type}</td>
+						<td>${breed.id}</td>
+						<td>${breed.breedType}</td>
 					</tr>
 				</c:forEach>
 			</tbody>

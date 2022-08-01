@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.chainsys.petwelfaresystem.Services.BreedServices;
 import com.chainsys.petwelfaresystem.dto.PetBreedDTO;
-import com.chainsys.petwelfaresystem.pojo.Breed;
+import com.chainsys.petwelfaresystem.model.Breed;
 
 @Controller
 @RequestMapping("/breed")
@@ -27,28 +27,28 @@ public class BreedController {
 		return "list-breed";
 	}
 	
-	@GetMapping("/addform")
+	@GetMapping("/addbreed")
 	public String showAddForm(Model model) {
 		Breed br = new Breed();
-		model.addAttribute("addbreed", br);
+		model.addAttribute("addbreeds", br);
 		return "add-breed-form";
 	}
 
 	@PostMapping("/add")
-	public String addNewBreed(@ModelAttribute("addbreed") Breed br) {
+	public String addNewBreed(@ModelAttribute("addbreeds") Breed br) {
 		breed.save(br);
 		return "redirect:/breed/list";
 	}
 	
-	@GetMapping("/updateform")
+	@GetMapping("/updatebreed")
 	public String showUpdateForm(@RequestParam("brid") int id, Model model ){
 		Breed br=breed.findById(id);
-		model.addAttribute("updatebreed", br);
+		model.addAttribute("updatebreeds", br);
 		return "update-breed-form";
 	}
 
 	@PostMapping("/update")
-	public String UpdateBreed(@ModelAttribute("updatebreed") Breed br) {
+	public String UpdateBreed(@ModelAttribute("updatebreeds") Breed br) {
 		breed.save(br);
 		return "redirect:/breed/list";
 	}

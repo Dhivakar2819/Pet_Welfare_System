@@ -12,22 +12,22 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.chainsys.petwelfaresystem.Services.VaccineDateServices;
-import com.chainsys.petwelfaresystem.pojo.VaccineDate;
+import com.chainsys.petwelfaresystem.model.VaccineDate;
 
 @Controller
 @RequestMapping("/vaccinedate")
 public class VaccineDateController {
 	@Autowired
-	VaccineDateServices vdate;
+	VaccineDateServices vaccinedateservices;
 
 	@GetMapping("/list")
 	public String getFindAll(Model model) {
-		List<VaccineDate> list = vdate.getVaccineDate();
+		List<VaccineDate> list = vaccinedateservices.getVaccineDate();
 		model.addAttribute("allvdate", list);
 		return "list-vaccinedate";
 	}
 
-	@GetMapping("/addform")
+	@GetMapping("/addvaccinedate")
 	public String showAddForm(Model model) {
 		VaccineDate vd = new VaccineDate();
 		model.addAttribute("addvdate", vd);
@@ -36,32 +36,32 @@ public class VaccineDateController {
 
 	@PostMapping("/add")
 	public String addNewVaccineDate(@ModelAttribute("addvdate") VaccineDate vd) {
-		vdate.save(vd);
+		vaccinedateservices.save(vd);
 		return "redirect:/vaccinedate/list";
 	}
 
-	@GetMapping("/updateform")
+	@GetMapping("/updatevaccinedate")
 	public String showUpdateForm(@RequestParam("vdid") int id, Model model) {
-		VaccineDate vda = vdate.findById(id);
+		VaccineDate vda = vaccinedateservices.findById(id);
 		model.addAttribute("updatevdate", vda);
 		return "update-vaccinedate-form";
 	}
 
 	@PostMapping("/update")
 	public String UpdateVaccineDate(@ModelAttribute("updatevdate") VaccineDate vd) {
-		vdate.save(vd);
+		vaccinedateservices.save(vd);
 		return "redirect:/vaccinedate/list";
 	}
 
-	@GetMapping("/delete")
+	@GetMapping("/deletevaccinedate")
 	public String deleteVaccineDate(@RequestParam("vdid") int id) {
-		vdate.deleteById(id);
+		vaccinedateservices.deleteById(id);
 		return "redirect:/vaccinedate/list";
 	}
 
-	@GetMapping("/getbyid")
+	@GetMapping("/getvaccinedate")
 	public String getVaccineDate(@RequestParam("vdid") int id, Model model) {
-		VaccineDate vd = vdate.findById(id);
+		VaccineDate vd = vaccinedateservices.findById(id);
 		model.addAttribute("findvdatebyid", vd);
 		return "find-vaccinedate-by-id";
 	}

@@ -12,21 +12,21 @@
 		<div id="form">
 			<form:form action="add" method="post" modelAttribute="addvdate">
 				<div>
-					<label for="pet_id">Pet Id</label>
+					<label for="petId">Pet Id</label>
 					<div>
-						<form:input path="pet_id" />
+						<form:input path="petId" />
 					</div>
 				</div>
 				<div>
-					<label for="vaccine_id">Vaccine Id</label>
+					<label for="vaccineId">Vaccine Id</label>
 					<div>
-						<form:input path="vaccine_id" />
+						<form:input path="vaccineId" />
 					</div>
 				</div>
 				<div>
-					<label for="vaccine_date">Vaccine Date</label>
+					<label for="vaccineDate">Vaccine Date</label>
 					<div>
-						<form:input path="vaccine_date" />
+						<form:input path="vaccineDate" />
 					</div>
 				</div>
 				<div>

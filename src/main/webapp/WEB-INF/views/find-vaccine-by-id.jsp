@@ -12,15 +12,15 @@
 		<div id="form">
 			<form:form action="" method="post" modelAttribute="findvaccinebyid">
 				<div>
-					<label for="vaccine_id">Vaccine Id</label>
+					<label for="vaccineId">Vaccine Id</label>
 					<div>
-						<form:input path="vaccine_id" />
+						<form:input path="vaccineId" readonly="true" />
 					</div>
 				</div>
 				<div>
-					<label for="vaccine_name">Vaccine Name</label>
+					<label for="vaccineName">Vaccine Name</label>
 					<div>
-						<form:input path="vaccine_name" />
+						<form:input path="vaccineName" readonly="true" />
 					</div>
 				</div>
 			</form:form>

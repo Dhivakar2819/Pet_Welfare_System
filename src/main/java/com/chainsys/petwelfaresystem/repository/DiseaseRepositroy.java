@@ -3,7 +3,8 @@ package com.chainsys.petwelfaresystem.repository;
 import java.util.List;
 
 import org.springframework.data.repository.CrudRepository;
-import com.chainsys.petwelfaresystem.pojo.Disease;
+
+import com.chainsys.petwelfaresystem.model.Disease;
 public interface DiseaseRepositroy extends CrudRepository<Disease,Integer>{
 	Disease findById(int id);
 
@@ -12,4 +13,5 @@ public interface DiseaseRepositroy extends CrudRepository<Disease,Integer>{
 	void deleteById(int id);
 
 	List<Disease> findAll();
+	List<Disease> findByPetId(int disease_id);
 }

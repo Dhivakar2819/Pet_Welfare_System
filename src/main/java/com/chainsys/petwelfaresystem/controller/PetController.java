@@ -12,7 +12,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.chainsys.petwelfaresystem.Services.PetServices;
-import com.chainsys.petwelfaresystem.pojo.Pet;
+import com.chainsys.petwelfaresystem.dto.PetAndDiseaseDTO;
+import com.chainsys.petwelfaresystem.dto.PetBreedDTO;
+import com.chainsys.petwelfaresystem.model.Pet;
 
 @Controller
 @RequestMapping("/pet")
@@ -36,7 +38,7 @@ public class PetController {
 		petservices.save(pet);
 		return "redirect:/pet/list";
 	}
-	@GetMapping("/updateform")
+	@GetMapping("/updateformpet")
 	public String showUpdateForm(@RequestParam("petid") int id, Model model ){
 		Pet pet=petservices.findById(id);
 		model.addAttribute("updatepet",pet);
@@ -48,7 +50,7 @@ public class PetController {
 		petservices.save(pet);
 		return "redirect:/pet/list";
 	}
-	@GetMapping("/deletedoctor")
+	@GetMapping("/deletepet")
 	public String deletePet(@RequestParam("petid") int id) {
 		petservices.deleteById(id);
 		return "redirect:/pet/list";
@@ -61,4 +63,11 @@ public class PetController {
 		model.addAttribute("findpetbyid",pet);
 		return "find-pet-by-id";
 	}
+//	@GetMapping("/getpetbydisease")
+//	public String GetPetDisease(@RequestParam("id") int id,Model model) {
+//		PetAndDiseaseDTO dto=petservices.getPetAndDisease(id);
+//		model.addAttribute("getpet",dto.getPet());
+//		model.addAttribute("dieaselist",dto.getDislist());
+//		return "list-pet-disease";
+//	}
 }

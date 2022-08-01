@@ -26,14 +26,14 @@
 			<tbody>
 				<c:forEach var="pet" items="${allPets}">
 					<tr>
-						<td>${pet.pet_id}</td>
-						<td>${pet.user_id}</td>
-						<td>${pet.breed_id}</td>
-						<td>${pet.pet_type}</td>
-						<td>${pet.pet_name}</td>
+						<td>${pet.id}</td>
+						<td>${pet.userId}</td>
+						<td>${pet.breedId}</td>
+						<td>${pet.petType}</td>
+						<td>${pet.petName}</td>
 						<td>${pet.dob}</td>
 						<td>${pet.gender}</td>
-						<td>${pet.date_of_ownership}</td>
+						<td>${pet.dateofOwnership}</td>
 					</tr>
 				</c:forEach>
 			</tbody>

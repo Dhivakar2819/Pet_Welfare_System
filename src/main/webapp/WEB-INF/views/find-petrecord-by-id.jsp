@@ -13,33 +13,33 @@
 		<div id="form">
 			<form:form action="" method="post" modelAttribute="findpetrecordbyid">
 				<div>
-					<label for="pet_id">Pet id</label>
+					<label for="id">Pet id</label>
 					<div>
-						<form:input path="pet_id" />
+						<form:input path="id" readonly="true"/>
 					</div>
 				</div>
 				<div>
-					<label for="disease_id">Disease Id</label>
+					<label for="diseaseId">Disease Id</label>
 					<div>
-						<form:input path="disease_id" />
+						<form:input path="diseaseId" readonly="true" />
 					</div>
 				</div>
 				<div>
-					<label for="date_observ">Observe date</label>
+					<label for="dateObserv">Observe date</label>
 					<div>
-						<form:input path="date_observ" />
+						<form:input path="dateObserv" readonly="true" />
 					</div>
 				</div>
 				<div>
 					<label for="observation">Observation</label>
 					<div>
-						<form:input path="observation" />
+						<form:input path="observation" readonly="true"/>
 					</div>
 				</div>
 				<div>
-					<label for="recover_date">Recover Date</label>
+					<label for="recoverDate">Recover Date</label>
 					<div>
-						<form:input path="recover_date" />
+						<form:input path="recoverDate"  readonly="true"/>
 					</div>
 				</div>
 			</form:form>

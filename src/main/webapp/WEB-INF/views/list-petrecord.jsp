@@ -23,11 +23,11 @@
 			<tbody>
 				<c:forEach var="petrecords" items="${allpetrecords}">
 					<tr>
-						<td>${petrecords.pet_id}</td>
-						<td>${petrecords.disease_id}</td>
-						<td>${petrecords.date_observ}</td>
+						<td>${petrecords.id}</td>
+						<td>${petrecords.diseaseId}</td>
+						<td>${petrecords.dateObserv}</td>
 						<td>${petrecords.observation}</td>
-						<td>${petrecords.recover_date}</td>
+						<td>${petrecords.recoverDate}</td>
 					</tr>
 				</c:forEach>
 			</tbody>

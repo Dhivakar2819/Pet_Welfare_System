@@ -21,9 +21,9 @@
 			<tbody>
 				<c:forEach var="vdate" items="${allvdate}">
 					<tr>
-						<td>${vdate.pet_id}</td>
-						<td>${vdate.vaccine_id}</td>
-						<td>${vdate.vaccine_date}</td>
+						<td>${vdate.petId}</td>
+						<td>${vdate.vaccineId}</td>
+						<td>${vdate.vaccineDate}</td>
 					</tr>
 				</c:forEach>
 			</tbody>

@@ -3,11 +3,15 @@ package com.chainsys.petwelfaresystem.dto;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.chainsys.petwelfaresystem.pojo.Breed;
-import com.chainsys.petwelfaresystem.pojo.Pet;
+import org.springframework.beans.factory.annotation.Autowired;
+
+import com.chainsys.petwelfaresystem.model.Breed;
+import com.chainsys.petwelfaresystem.model.Pet;
 
 public class PetBreedDTO {
+	@Autowired
 	private Breed breed;
+	
 	private List<Pet> petlist=new ArrayList<Pet>();
 	public Breed getBreed() {
 		return breed;

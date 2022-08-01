@@ -20,8 +20,8 @@
 			<tbody>
 				<c:forEach var="vaccine" items="${allvaccine}">
 					<tr>
-						<td>${vaccine.vaccine_id}</td>
-						<td>${vaccine.vaccine_name}</td>
+						<td>${vaccine.vaccineId}</td>
+						<td>${vaccine.vaccineName}</td>
 					</tr>
 				</c:forEach>
 			</tbody>
