@@ -1,0 +1,56 @@
+
+create table pets (
+Pet_id number  not null primary key,
+User_id number not null,
+breed_id number not null,
+pet_type varchar2(20) not null,
+pet_name varchar2(30),
+dob date,
+gender varchar2(6) not null,
+date_of_ownership date,
+foreign key(breed_id) references breeds(breed_id),
+foreign key(user_id) references Usersdetail(user_id)
+);
+
+create table breeds(
+breed_id number not null primary key,
+breed_type varchar2(30)
+);
+
+create table Usersdetail(
+User_id number not null primary key,
+User_name varchar2(30) not null,
+e_mail varchar2(50) not null unique,
+Password varchar2(15) not null
+);
+
+create table diseases(
+disease_id number not null primary key,
+disease_name varchar2(50),
+medicine varchar2(60)
+);
+
+create table vaccines(
+vaccine_id number not null primary key,
+vaccine_name varchar2(40)
+);
+
+create table petrecords(
+Pet_id number not null,
+disease_id number not null,
+date_observ date not null,
+observation varchar2(255),
+recover_date date,
+primary key(Pet_id,disease_id),
+foreign key(Pet_id) references pets(Pet_id),
+foreign key(disease_id) references diseases(disease_id)
+);
+
+create table vaccine_date(
+Pet_id number not null,
+vaccine_id number not null,
+Vaccine_date date not null,
+primary key(Pet_id,vaccine_id),
+foreign key(Pet_id) references pets(Pet_id),
+foreign key(vaccine_id) references vaccines(vaccine_id)
+);

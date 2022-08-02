@@ -1,6 +1,7 @@
 package com.chainsys.petwelfaresystem.model;
 
 import java.util.Date;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -9,6 +10,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -39,7 +41,25 @@ public class Pet {
 	public void setBreed(Breed breed) {
 		this.breed = breed;
 	}
+	@ManyToOne(fetch=FetchType.LAZY)
+	@JoinColumn(name="user_id",nullable=false, insertable=false, updatable=false)
+	private UsersDetail usersdetail;
 	
+	public UsersDetail getUsersdetail() {
+		return usersdetail;
+	}	
+	public void setUsersdetail(UsersDetail usersdetail) {
+		this.usersdetail = usersdetail;
+	}
+	@OneToMany(mappedBy="vaccineDate",fetch=FetchType.LAZY)
+	private List<VaccineDate> vaccineDate;
+	
+	public List<VaccineDate> getVaccineDate() {
+		return vaccineDate;
+	}
+	public void setVaccineDate(List<VaccineDate> vaccineDate) {
+		this.vaccineDate = vaccineDate;
+	}
 	public int getId() {
 		return id;
 	}

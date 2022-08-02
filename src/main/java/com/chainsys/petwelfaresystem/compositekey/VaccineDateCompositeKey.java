@@ -2,24 +2,30 @@ package com.chainsys.petwelfaresystem.compositekey;
 
 import java.io.Serializable;
 
+import javax.persistence.Column;
+
 public class VaccineDateCompositeKey implements Serializable{
-	private int pet_id;
-	private int vaccine_id;
-	public int getPet_id() {
-		return pet_id;
+	@Column(name="pet_id")
+	private int petId;
+	@Column(name="vaccine_id")
+	private int vaccineId;
+	VaccineDateCompositeKey() {
 	}
-	public void setPet_id(int pet_id) {
-		this.pet_id = pet_id;
+	public VaccineDateCompositeKey(int petId,int vaccineId) {
+		this.petId=petId;
+		this.vaccineId=vaccineId;
 	}
-	public int getVaccine_id() {
-		return vaccine_id;
+	public int getPetId() {
+		return petId;
 	}
-	public void setVaccine_id(int vaccine_id) {
-		this.vaccine_id = vaccine_id;
+	public void setPetId(int petId) {
+		this.petId = petId;
 	}
-	public VaccineDateCompositeKey(int pet_id,int vaccine_id) {
-		this.pet_id=pet_id;
-		this.vaccine_id=vaccine_id;
+	public int getVaccineId() {
+		return vaccineId;
+	}
+	public void setVaccineId(int vaccineId) {
+		this.vaccineId = vaccineId;
 	}
 	
 }

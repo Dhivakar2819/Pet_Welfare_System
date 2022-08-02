@@ -11,11 +11,11 @@
 <body>
 <div id="root">
 		<div id="form">
-			<form:form action="updateuser" method="post" modelAttribute="updateusersdetail">
+			<form:form action="" method="post" modelAttribute="getuser">
 				<div>
 					<label for="userId">User id</label>
 					<div>
-						<form:input path="userId" readonly="true" />
+						<form:input path="userId" />
 					</div>
 				</div>
 				<div>
@@ -36,12 +36,38 @@
 						<form:input path="password" />
 					</div>
 				</div>
-				<div>
-					<form:button>Update New</form:button>
+				</form:form>
 				</div>
-				
-			</form:form>
-		</div>
+				<div id="petlist">
+		<table>
+			<thead>
+				<tr>
+					<th>Pet Id</th>
+					<th>User Id</th>
+					<th>Breed Id</th>
+					<th>Pet Type</th>
+					<th>Pet Name</th>
+					<th>Date of Birth</th>
+					<th>Gender</th>
+					<th>Date of Ownership</th>
+				</tr>
+			</thead>
+			<tbody>
+				<c:forEach var="pet" items="${petlist}">
+					<tr>
+						<td>${pet.id}</td>
+						<td>${pet.userId}</td>
+						<td>${pet.breedId}</td>
+						<td>${pet.petType}</td>
+						<td>${pet.petName}</td>
+						<td>${pet.dob}</td>
+						<td>${pet.gender}</td>
+						<td>${pet.dateofOwnership}</td>
+					</tr>
+				</c:forEach>
+			</tbody>
+		</table>
 	</div>
+		</div>
 </body>
 </html>

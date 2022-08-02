@@ -1,8 +1,14 @@
 package com.chainsys.petwelfaresystem.model;
 
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -18,6 +24,15 @@ public class UsersDetail {
 	@Column(name="password")
 	private String password;
 	
+	@OneToMany(mappedBy="usersdetail",fetch=FetchType.LAZY)
+	private List<Pet> pet;
+	
+	public List<Pet> getPet() {
+		return pet;
+	}
+	public void setPet(List<Pet> pet) {
+		this.pet = pet;
+	}
 	public int getUserId() {
 		return userId;
 	}

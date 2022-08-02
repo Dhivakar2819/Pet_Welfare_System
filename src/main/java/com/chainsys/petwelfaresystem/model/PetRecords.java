@@ -5,14 +5,19 @@ import java.util.Date;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.IdClass;
 import javax.persistence.Table;
+
+import com.chainsys.petwelfaresystem.compositekey.PetRecordsCompositeKey;
 
 @Entity
 @Table(name="petrecords")
+@IdClass(PetRecordsCompositeKey.class)
 public class PetRecords {
 	@Id
 	@Column(name="pet_id")
 	private int id;
+	@Id
 	@Column(name="disease_id")
 	private int diseaseId;
 	@Column(name="date_observ")
@@ -21,6 +26,8 @@ public class PetRecords {
 	private String observation;
 	@Column(name="recover_date")
 	private Date recoverDate;
+	
+	
 	public int getId() {
 		return id;
 	}

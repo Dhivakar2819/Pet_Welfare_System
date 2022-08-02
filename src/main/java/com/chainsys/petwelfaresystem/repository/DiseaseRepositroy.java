@@ -13,5 +13,5 @@ public interface DiseaseRepositroy extends CrudRepository<Disease,Integer>{
 	void deleteById(int id);
 
 	List<Disease> findAll();
-	List<Disease> findByPetId(int disease_id);
+//	List<Disease> findByPetId(int disease_id);
 }

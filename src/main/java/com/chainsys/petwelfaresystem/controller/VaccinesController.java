@@ -18,51 +18,51 @@ import com.chainsys.petwelfaresystem.model.Vaccines;
 @RequestMapping("/vaccine")
 public class VaccinesController {
 	@Autowired
-	VaccinesServices vaccineservices;
+	VaccinesServices vaccineServices;
 
 	@GetMapping("/list")
-	public String getFindAll(Model model) {
-		List<Vaccines> list = vaccineservices.getVaccines();
-		model.addAttribute("allvaccine", list);
+	public String getFindAllVaccine(Model model) {
+		List<Vaccines> vaccinelist = vaccineServices.getVaccines();
+		model.addAttribute("allvaccine", vaccinelist);
 		return "list-vaccine";
 	}
 
 	@GetMapping("/addformvaccine")
-	public String showAddForm(Model model) {
-		Vaccines vac = new Vaccines();
-		model.addAttribute("addvaccine", vac);
+	public String showAddVaccine(Model model) {
+		Vaccines vaccine = new Vaccines();
+		model.addAttribute("addvaccine", vaccine);
 		return "add-vaccine-form";
 	}
 
-	@PostMapping("/add")
-	public String addNewVaccineDate(@ModelAttribute("addvdate") Vaccines vac) {
-		vaccineservices.save(vac);
+	@PostMapping("/addnewvaccine")
+	public String addNewVaccine(@ModelAttribute("addvaccine") Vaccines vac) {
+		vaccineServices.save(vac);
 		return "redirect:/vaccine/list";
 	}
 
 	@GetMapping("/updateformvaccine")
-	public String showUpdateForm(@RequestParam("vacid") int id, Model model) {
-		Vaccines vac = vaccineservices.findById(id);
-		model.addAttribute("updatevaccine", vac);
+	public String showUpdateVaccine(@RequestParam("vacid") int id, Model model) {
+		Vaccines vaccine = vaccineServices.findById(id);
+		model.addAttribute("updatevaccine", vaccine);
 		return "update-vaccine-form";
 	}
 
-	@PostMapping("/update")
+	@PostMapping("/updatevaccines")
 	public String UpdateVaccines(@ModelAttribute("updatevaccine") Vaccines vac) {
-		vaccineservices.save(vac);
+		vaccineServices.save(vac);
 		return "redirect:/vaccine/list";
 	}
 
 	@GetMapping("/deletevaccine")
 	public String deleteVaccines(@RequestParam("vacid") int id) {
-		vaccineservices.deleteById(id);
+		vaccineServices.deleteById(id);
 		return "redirect:/vaccine/list";
 	}
 
 	@GetMapping("/getvaccine")
 	public String getVaccines(@RequestParam("vacid") int id, Model model) {
-		Vaccines vac = vaccineservices.findById(id);
-		model.addAttribute("findvaccinebyid", vac);
+		Vaccines vaccine = vaccineServices.findById(id);
+		model.addAttribute("findvaccinebyid", vaccine);
 		return "find-vaccine-by-id";
 	}
 

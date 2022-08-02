@@ -1,20 +1,21 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Update Pet</title>
+<title>Add Pet</title>
 </head>
 <body>
 <div id="root">
 		<div id="form">
-			<form:form action="updatepets" method="post" modelAttribute="updatepet">
+			<form:form action="" method="post" modelAttribute="getpet">
 				<div>
 					<label for="id">Pet id</label>
 					<div>
-						<form:input path="id" readonly="true" />
+						<form:input path="id" />
 					</div>
 				</div>
 				<div>
@@ -52,6 +53,7 @@
 					<div>
 						<form:input path="gender" />
 					</div>
+					</div>
 					<div>
 					<label for="dateofOwnership">Date of Ownership</label>
 					<div>
@@ -59,10 +61,28 @@
 					</div>
 				</div>
 				<div>
-					<form:button>Update New</form:button>
+					<form:button>Add New</form:button>
 				</div>
 			</form:form>
 		</div>
+	<div id="vaccinelist">
+		<table>
+			<thead>
+				<tr>
+					<th>Vaccine Id</th>
+					<th>Vaccine Name</th>
+				</tr>
+			</thead>
+			<tbody>
+				<c:forEach var="vaccine" items="${vaccinelist}">
+					<tr>
+						<td>${vaccine.vaccineId}</td>
+						<td>${vaccine.vaccineName}</td>
+					</tr>
+				</c:forEach>
+			</tbody>
+		</table>
+	</div>		
 	</div>
 </body>
 </html>

@@ -1,33 +1,35 @@
 package com.chainsys.petwelfaresystem.Services;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.chainsys.petwelfaresystem.compositekey.PetRecordsCompositeKey;
 import com.chainsys.petwelfaresystem.model.PetRecords;
 import com.chainsys.petwelfaresystem.repository.PetRecordRepository;
 
 @Service
 public class PetRecordServices {
 	@Autowired
-	private PetRecordRepository petrecord;
+	private PetRecordRepository petRecordRepository;
 	
 	public List<PetRecords> getPetRecords(){
-		List<PetRecords> listpet=petrecord.findAll();
+		List<PetRecords> listpet=petRecordRepository.findAll();
 		return listpet;
 	}
-	public PetRecords save(PetRecords petre) {
-		return petrecord.save(petre);
+	public PetRecords save(PetRecords petRecord) {
+		return petRecordRepository.save(petRecord);
 	}
 
-	public PetRecords findById(int id) {
+	public Optional<PetRecords> findById(PetRecordsCompositeKey id) {
 
-		return petrecord.findById(id);
+		return petRecordRepository.findById(id);
 	}
 	@Transactional
-	public void deleteById(int id) {
-		petrecord.deleteById(id);
+	public void deleteById(PetRecordsCompositeKey id) {
+		petRecordRepository.deleteById(id);
 	}
 }

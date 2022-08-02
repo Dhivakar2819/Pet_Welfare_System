@@ -15,45 +15,45 @@ import com.chainsys.petwelfaresystem.repository.PetRepository;
 @Service
 public class BreedServices {
 	@Autowired
-	private BreedRepository breed;
+	private BreedRepository breedRepository;
 	@Autowired
-	private PetRepository petr;
+	private PetRepository petRepository;
 	
 	public List<Breed> getBreed(){
-		List<Breed> listbreed=breed.findAll();
+		List<Breed> listbreed=breedRepository.findAll();
 		return listbreed;
 	}
-	public Breed save(Breed br) {
-		return breed.save(br);
+	public Breed save(Breed breed) {
+		return breedRepository.save(breed);
 	}
 
 	public Breed findById(int id) {
 
-		return breed.findById(id);
+		return breedRepository.findById(id);
 	}
 	@Transactional
 	public void deleteById(int id) {
-		breed.deleteById(id);
+		breedRepository.deleteById(id);
 	}
 	public PetBreedDTO getPetAndBreed(int id) {
-		Breed br= findById(id);
+		Breed breed= findById(id);
 		PetBreedDTO dto=new PetBreedDTO();
-		dto.setBreed(br);
-		List<Pet> pet= petr.findByBreedId(id);
+		dto.setBreed(breed);
+		List<Pet> pet= petRepository.findByBreedId(id);
 		Iterator<Pet> itr=pet.iterator();
 		while(itr.hasNext()) {
 			dto.addPet((Pet) itr.next());
 		}
 		return dto;
 	}
-	@Transactional
-	public void addDPetAndAppointment(PetBreedDTO dto) {
-		Breed br=dto.getBreed();
-		save(br);
-		List<Pet>petlist=dto.getPetlist();
-		int count=petlist.size();
-		for(int i=0;i<count;i++) {
-			petr.save(petlist.get(i));
-		}
-	}
+//	@Transactional
+//	public void addDPetAndBreed(PetBreedDTO dto) {
+//		Breed br=dto.getBreed();
+//		save(br);
+//		List<Pet>petlist=dto.getPetlist();
+//		int count=petlist.size();
+//		for(int i=0;i<count;i++) {
+//			petr.save(petlist.get(i));
+//		}
+//	}
 }

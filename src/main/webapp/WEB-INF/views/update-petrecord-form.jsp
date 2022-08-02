@@ -11,7 +11,7 @@
 <body>
 <div id="root">
 		<div id="form">
-			<form:form action="update" method="post" modelAttribute="updatepetrecord">
+			<form:form action="updatenewrecord" method="post" modelAttribute="updatepetrecord">
 				<div>
 					<label for="id">Pet id</label>
 					<div>

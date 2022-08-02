@@ -18,51 +18,51 @@ import com.chainsys.petwelfaresystem.model.Disease;
 @RequestMapping("/disease")
 public class DiseaseController {
 	@Autowired
-	DiseaseServices diseaseservice;
+	DiseaseServices diseaseService;
 	@GetMapping("/list")
-	public String getFindAll(Model model) {
-		List<Disease> list=diseaseservice.getDisease();
-		model.addAttribute("alldisease",list);
+	public String getFindDisease(Model model) {
+		List<Disease> listDisease=diseaseService.getDisease();
+		model.addAttribute("alldisease",listDisease);
 		return "list-disease";
 	}
 	
 	@GetMapping("/addformdisease")
-	public String showAddForm(Model model) {
-		Disease dis = new Disease();
-		model.addAttribute("adddisease", dis);
+	public String showAddDisease(Model model) {
+		Disease disease = new Disease();
+		model.addAttribute("adddisease", disease);
 		return "add-disease-form";
 	}
 
-	@PostMapping("/add")
-	public String addNewDisease(@ModelAttribute("adddisease") Disease dis) {
-		diseaseservice.save(dis);
+	@PostMapping("/addnewdisease")
+	public String addNewDisease(@ModelAttribute("adddisease") Disease disease) {
+		diseaseService.save(disease);
 		return "redirect:/disease/list";
 	}
 	
 	@GetMapping("/updateformdisease")
-	public String showUpdateForm(@RequestParam("disid") int id, Model model ){
-		Disease dis=diseaseservice.findById(id);
-		model.addAttribute("updatedisease", dis);
+	public String showUpdateDisease(@RequestParam("disid") int id, Model model ){
+		Disease disease=diseaseService.findById(id);
+		model.addAttribute("updatedisease", disease);
 		return "update-disease-form";
 	}
 
-	@PostMapping("/update")
-	public String UpdateDisease(@ModelAttribute("updatedisease") Disease dis) {
-		diseaseservice.save(dis);
+	@PostMapping("/updatenewdisease")
+	public String UpdateDisease(@ModelAttribute("updatedisease") Disease disease) {
+		diseaseService.save(disease);
 		return "redirect:/disease/list";
 	}
 	
 	
 	@GetMapping("/deletedisease")
 	public String deleteDisease(@RequestParam("disid") int id) {
-		diseaseservice.deleteById(id);
+		diseaseService.deleteById(id);
 		return "redirect:/disease/list";
 	}
 	
 	@GetMapping("/getdisease")
 	public String getDisease(@RequestParam("disid") int id,Model model)
 	{
-		Disease dis=diseaseservice.findById(id);
+		Disease dis=diseaseService.findById(id);
 		model.addAttribute("finddiseasebyid",dis);
 		return "find-disease-by-id";
 	}

@@ -10,7 +10,7 @@
 <body>
 <div id="root">
 		<div id="form">
-			<form:form action="update" method="post" modelAttribute="updatevdate">
+			<form:form action="updatenewvaccinedate" method="post" modelAttribute="updatevdate">
 				<div>
 					<label for="petId">Pet Id</label>
 					<div>

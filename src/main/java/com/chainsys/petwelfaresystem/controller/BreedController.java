@@ -19,57 +19,57 @@ import com.chainsys.petwelfaresystem.model.Breed;
 @RequestMapping("/breed")
 public class BreedController {
 	@Autowired
-	BreedServices breed;
+	BreedServices breedController;
 	@GetMapping("/list")
 	public String getFindAll(Model model) {
-		List<Breed> listbr=breed.getBreed();
-		model.addAttribute("allbreed",listbr);
+		List<Breed> listBreed=breedController.getBreed();
+		model.addAttribute("allbreed",listBreed);
 		return "list-breed";
 	}
 	
 	@GetMapping("/addbreed")
-	public String showAddForm(Model model) {
-		Breed br = new Breed();
-		model.addAttribute("addbreeds", br);
+	public String showAddBreed(Model model) {
+		Breed breed = new Breed();
+		model.addAttribute("addbreeds", breed);
 		return "add-breed-form";
 	}
 
-	@PostMapping("/add")
-	public String addNewBreed(@ModelAttribute("addbreeds") Breed br) {
-		breed.save(br);
+	@PostMapping("/addbreed")
+	public String addNewBreed(@ModelAttribute("addbreeds") Breed breed) {
+		breedController.save(breed);
 		return "redirect:/breed/list";
 	}
 	
 	@GetMapping("/updatebreed")
-	public String showUpdateForm(@RequestParam("brid") int id, Model model ){
-		Breed br=breed.findById(id);
-		model.addAttribute("updatebreeds", br);
+	public String showUpdateBreed(@RequestParam("brid") int id, Model model ){
+		Breed breed=breedController.findById(id);
+		model.addAttribute("updatebreeds", breed);
 		return "update-breed-form";
 	}
 
-	@PostMapping("/update")
-	public String UpdateBreed(@ModelAttribute("updatebreeds") Breed br) {
-		breed.save(br);
+	@PostMapping("/updatebreed")
+	public String UpdateBreed(@ModelAttribute("updatebreeds") Breed breed) {
+		breedController.save(breed);
 		return "redirect:/breed/list";
 	}
 	
 	
 	@GetMapping("/deletebreed")
 	public String deleteBreed(@RequestParam("brid") int id) {
-		breed.deleteById(id);
+		breedController.deleteById(id);
 		return "redirect:/breed/list";
 	}
 	
 	@GetMapping("/getbreed")
 	public String getBreed(@RequestParam("brid") int id,Model model)
 	{
-		Breed br=breed.findById(id);
-		model.addAttribute("findbreedbyid",br);
+		Breed breed=breedController.findById(id);
+		model.addAttribute("findbreedbyid",breed);
 		return "find-breed-by-id";
 	}
-	@GetMapping("/getpetbreed")
-	public String GetPet(@RequestParam("id") int id,Model model) {
-		PetBreedDTO dto=breed.getPetAndBreed(id);
+	@GetMapping("/getbreedpet")
+	public String GetBreedAndPet(@RequestParam("id") int id,Model model) {
+		PetBreedDTO dto=breedController.getPetAndBreed(id);
 		model.addAttribute("getbreed",dto.getBreed());
 		model.addAttribute("petlist",dto.getPetlist());
 		return "list-breed-pet";

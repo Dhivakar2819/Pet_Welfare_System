@@ -12,22 +12,22 @@ import com.chainsys.petwelfaresystem.repository.VaccineRepository;
 @Service
 public class VaccinesServices {
 	@Autowired
-	private VaccineRepository vaccine;
+	private VaccineRepository vaccineRepository;
 	
 	public List<Vaccines> getVaccines(){
-		List<Vaccines> listpet=vaccine.findAll();
+		List<Vaccines> listpet=vaccineRepository.findAll();
 		return listpet;
 	}
-	public Vaccines save(Vaccines vac) {
-		return vaccine.save(vac);
+	public Vaccines save(Vaccines Vaccine) {
+		return vaccineRepository.save(Vaccine);
 	}
 
 	public Vaccines findById(int id) {
 
-		return vaccine.findById(id);
+		return vaccineRepository.findById(id);
 	}
 	@Transactional
 	public void deleteById(int id) {
-		vaccine.deleteById(id);
+		vaccineRepository.deleteById(id);
 	}
 }

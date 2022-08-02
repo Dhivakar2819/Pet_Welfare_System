@@ -12,60 +12,68 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.chainsys.petwelfaresystem.Services.UsersDetailServices;
+import com.chainsys.petwelfaresystem.dto.PetBreedDTO;
+import com.chainsys.petwelfaresystem.dto.UsersDetailPetDTO;
 import com.chainsys.petwelfaresystem.model.UsersDetail;
 
 @Controller
 @RequestMapping("/usersdetail")
 public class UsersDetailController {
 	@Autowired
-	UsersDetailServices userdetailservices;
+	UsersDetailServices userDetailServices;
 	@GetMapping("/list")
-	public String getFindAll(Model model) {
-		List<UsersDetail> listud=userdetailservices.getUserDetail();
-		model.addAttribute("alluserdetail",listud);
+	public String getFindAllUsersDetail(Model model) {
+		List<UsersDetail> listUserDetail=userDetailServices.getUserDetail();
+		model.addAttribute("alluserdetail",listUserDetail);
 		return "list-usersdetail";
 	}
 	
 	@GetMapping("/addformuser")
-	public String showAddForm(Model model) {
-		UsersDetail ud = new UsersDetail();
-		model.addAttribute("adduserdetail", ud);
+	public String showAddUsersDetail(Model model) {
+		UsersDetail userDetail = new UsersDetail();
+		model.addAttribute("adduserdetail", userDetail);
 		return "add-usersdetail-form";
 	}
 
-	@PostMapping("/add")
+	@PostMapping("/adduser")
 	public String addNewUsersDetail(@ModelAttribute("adduserdetail") UsersDetail ud) {
-		userdetailservices.save(ud);
+		userDetailServices.save(ud);
 		return "redirect:/usersdetail/list";
 	}
 	
 	@GetMapping("/updateformuser")
-	public String showUpdateForm(@RequestParam("petid") int id, Model model ){
-		UsersDetail ud=userdetailservices.findById(id);
-		model.addAttribute("updateusersdetail", ud);
+	public String showUpdateUsersDetail(@RequestParam("petid") int id, Model model ){
+		UsersDetail userDetail=userDetailServices.findById(id);
+		model.addAttribute("updateusersdetail", userDetail);
 		return "update-usersdetail-form";
 	}
 
-	@PostMapping("/update")
-	public String UpdateUsersDetail(@ModelAttribute("updateusersdetail") UsersDetail ud) {
-		userdetailservices.save(ud);
+	@PostMapping("/updateuser")
+	public String UpdateUsersDetail(@ModelAttribute("updateusersdetail") UsersDetail userDetail) {
+		userDetailServices.save(userDetail);
 		return "redirect:/usersdetail/list";
 	}
 	
 	
 	@GetMapping("/deleteuserdetail")
 	public String deleteUsersDetail(@RequestParam("userid") int id) {
-		userdetailservices.deleteById(id);
+		userDetailServices.deleteById(id);
 		return "redirect:/usersdetail/list";
 	}
 	
 	@GetMapping("/getuserdetail")
 	public String getUsersDetail(@RequestParam("userid") int id,Model model)
 	{
-		UsersDetail us=userdetailservices.findById(id);
-		model.addAttribute("findusersdetailbyid",us);
+		UsersDetail userDetail=userDetailServices.findById(id);
+		model.addAttribute("findusersdetailbyid",userDetail);
 		return "find-usersdetail-by-id";
 	}
-	
+	@GetMapping("/getuserpet")
+	public String GetUserDetailAndPet(@RequestParam("id") int id,Model model) {
+		UsersDetailPetDTO dto=userDetailServices.getUsersAndPet(id);
+		model.addAttribute("getuser",dto.getUsersdetail());
+		model.addAttribute("petlist",dto.getPetlist());
+		return "list-user-pet";
+	}
 	
 }

@@ -12,22 +12,22 @@ import com.chainsys.petwelfaresystem.repository.DiseaseRepositroy;
 @Service
 public class DiseaseServices {
 	@Autowired
-	private DiseaseRepositroy disease;
+	private DiseaseRepositroy diseaseRepository;
 	
 	public List<Disease> getDisease(){
-		List<Disease> listpet=disease.findAll();
+		List<Disease> listpet=diseaseRepository.findAll();
 		return listpet;
 	}
-	public Disease save(Disease ds) {
-		return disease.save(ds);
+	public Disease save(Disease disease) {
+		return diseaseRepository.save(disease);
 	}
 
 	public Disease findById(int id) {
 
-		return disease.findById(id);
+		return diseaseRepository.findById(id);
 	}
 	@Transactional
 	public void deleteById(int id) {
-		disease.deleteById(id);
+		diseaseRepository.deleteById(id);
 	}
 }

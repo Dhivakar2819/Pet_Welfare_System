@@ -10,7 +10,7 @@
 <body>
 <div id="root">
 		<div id="form">
-			<form:form action="add" method="post" modelAttribute="addbreeds">
+			<form:form action="addbreed" method="post" modelAttribute="addbreeds">
 				<div>
 					<label for="id">Breed id</label>
 					<div>

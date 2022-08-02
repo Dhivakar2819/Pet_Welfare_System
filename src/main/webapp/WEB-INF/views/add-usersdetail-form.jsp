@@ -11,7 +11,7 @@
 <body>
 <div id="root">
 		<div id="form">
-			<form:form action="add" method="post" modelAttribute="adduserdetail">
+			<form:form action="adduser" method="post" modelAttribute="adduserdetail">
 				<div>
 					<label for="userId">User id</label>
 					<div>
