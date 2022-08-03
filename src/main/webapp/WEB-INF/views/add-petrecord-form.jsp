@@ -13,9 +13,9 @@
 		<div id="form">
 			<form:form action="addnewpetrecord" method="post" modelAttribute="addpetrecord">
 				<div>
-					<label for="id">Pet id</label>
+					<label for="petId">Pet id</label>
 					<div>
-						<form:input path="id" />
+						<form:input path="petId" />
 					</div>
 				</div>
 				<div>

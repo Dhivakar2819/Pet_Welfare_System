@@ -21,7 +21,7 @@ import com.chainsys.petwelfaresystem.model.UsersDetail;
 public class UsersDetailController {
 	@Autowired
 	UsersDetailServices userDetailServices;
-	@GetMapping("/list")
+	@GetMapping("/userdetaillist")
 	public String getFindAllUsersDetail(Model model) {
 		List<UsersDetail> listUserDetail=userDetailServices.getUserDetail();
 		model.addAttribute("alluserdetail",listUserDetail);
@@ -42,7 +42,7 @@ public class UsersDetailController {
 	}
 	
 	@GetMapping("/updateformuser")
-	public String showUpdateUsersDetail(@RequestParam("petid") int id, Model model ){
+	public String showUpdateUsersDetail(@RequestParam("userid") int id, Model model ){
 		UsersDetail userDetail=userDetailServices.findById(id);
 		model.addAttribute("updateusersdetail", userDetail);
 		return "update-usersdetail-form";

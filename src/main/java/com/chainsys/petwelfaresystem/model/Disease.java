@@ -1,5 +1,7 @@
 package com.chainsys.petwelfaresystem.model;
 
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -19,15 +21,15 @@ public class Disease {
 	@Column(name="disease_name")
 	private String diseaseName;
 	private String medicine;
-//	@OneToMany(fetch=FetchType.LAZY)
-//	@JoinColumn(name="disease_id",nullable=false, insertable=false, updatable=false)
-//	private Pet pet;
-//	public Pet getPet() {
-//		return pet;
-//	}
-//	public void setPet(Pet pet) {
-//		this.pet = pet;
-//	}
+	@OneToMany(mappedBy="disease",fetch=FetchType.LAZY)
+	private List<PetRecords> petRecords;
+	
+	public List<PetRecords> getPetRecords() {
+		return petRecords;
+	}
+	public void setPetRecords(List<PetRecords> petRecords) {
+		this.petRecords = petRecords;
+	}
 	public int getId() {
 		return id;
 	}

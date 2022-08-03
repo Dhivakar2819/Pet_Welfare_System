@@ -13,7 +13,7 @@ import javax.persistence.Table;
 @Table(name="breeds")
 public class Breed {
 	@Id
-	@Column(name="breed_id")
+	@Column(name="breed_id") //primary key
 	private int id;
 	@Column(name="breed_type")
 	private String breedType;

@@ -4,8 +4,11 @@ import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.IdClass;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 import com.chainsys.petwelfaresystem.compositekey.PetRecordsCompositeKey;
@@ -16,7 +19,7 @@ import com.chainsys.petwelfaresystem.compositekey.PetRecordsCompositeKey;
 public class PetRecords {
 	@Id
 	@Column(name="pet_id")
-	private int id;
+	private int petId;
 	@Id
 	@Column(name="disease_id")
 	private int diseaseId;
@@ -26,13 +29,32 @@ public class PetRecords {
 	private String observation;
 	@Column(name="recover_date")
 	private Date recoverDate;
+	@ManyToOne(fetch=FetchType.LAZY)
+	@JoinColumn(name="disease_id",nullable=false,insertable=false,updatable=false)
+	private Disease disease;
 	
-	
-	public int getId() {
-		return id;
+	public Disease getDisease() {
+		return disease;
 	}
-	public void setId(int id) {
-		this.id = id;
+	public void setDisease(Disease disease) {
+		this.disease = disease;
+	}
+	@ManyToOne(fetch=FetchType.LAZY)
+	@JoinColumn(name="pet_id",nullable=false,insertable=false,updatable=false)
+	private Pet pet;
+	
+	public Pet getPet() {
+		return pet;
+	}
+	public void setPet(Pet pet) {
+		this.pet = pet;
+	}
+	
+	public int getPetId() {
+		return petId;
+	}
+	public void setPetId(int petId) {
+		this.petId = petId;
 	}
 	public int getDiseaseId() {
 		return diseaseId;

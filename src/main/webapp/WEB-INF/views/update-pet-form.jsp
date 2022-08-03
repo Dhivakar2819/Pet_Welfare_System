@@ -12,7 +12,7 @@
 		<div id="form">
 			<form:form action="updatepets" method="post" modelAttribute="updatepet">
 				<div>
-					<label for="id">Pet id</label>
+					<label for="petId">Pet id</label>
 					<div>
 						<form:input path="id" readonly="true" />
 					</div>

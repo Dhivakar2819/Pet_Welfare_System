@@ -12,6 +12,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.chainsys.petwelfaresystem.Services.DiseaseServices;
+import com.chainsys.petwelfaresystem.dto.PetBreedDTO;
+import com.chainsys.petwelfaresystem.dto.PetRecordDiseaseDto;
 import com.chainsys.petwelfaresystem.model.Disease;
 
 @Controller
@@ -19,7 +21,7 @@ import com.chainsys.petwelfaresystem.model.Disease;
 public class DiseaseController {
 	@Autowired
 	DiseaseServices diseaseService;
-	@GetMapping("/list")
+	@GetMapping("/diseaselist")
 	public String getFindDisease(Model model) {
 		List<Disease> listDisease=diseaseService.getDisease();
 		model.addAttribute("alldisease",listDisease);
@@ -66,6 +68,12 @@ public class DiseaseController {
 		model.addAttribute("finddiseasebyid",dis);
 		return "find-disease-by-id";
 	}
-	
+	@GetMapping("/getdiseasepetrecord")
+	public String getDiseaseIdInPetRecord(@RequestParam("id") int id,Model model) {
+		PetRecordDiseaseDto dto=diseaseService.getPetRecordDiseaseDto(id);
+		model.addAttribute("getdisease",dto.getDisease());
+		model.addAttribute("diseaselist",dto.getPetRecords());
+		return "diseaseid-petrecords";
+	}
 	
 }

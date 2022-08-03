@@ -36,6 +36,16 @@ public class VaccineDate {
 	public void setPet(Pet pet) {
 		this.pet = pet;
 	}
+	@ManyToOne(fetch=FetchType.LAZY)
+	@JoinColumn(name="vaccine_id",nullable=false, insertable=false, updatable=false)
+	private Vaccines vaccines;
+	
+	public Vaccines getVaccines() {
+		return vaccines;
+	}
+	public void setVaccines(Vaccines vaccines) {
+		this.vaccines = vaccines;
+	}
 	public int getPetId() {
 		return petId;
 	}

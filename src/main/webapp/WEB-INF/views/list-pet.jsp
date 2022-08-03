@@ -26,7 +26,7 @@
 			<tbody>
 				<c:forEach var="pet" items="${allPets}">
 					<tr>
-						<td>${pet.id}</td>
+						<td>${pet.petId}</td>
 						<td>${pet.userId}</td>
 						<td>${pet.breedId}</td>
 						<td>${pet.petType}</td>

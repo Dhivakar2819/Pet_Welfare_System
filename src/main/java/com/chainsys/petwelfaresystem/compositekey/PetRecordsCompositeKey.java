@@ -7,19 +7,19 @@ import javax.persistence.Id;
 
 public class PetRecordsCompositeKey implements Serializable{
 	@Column(name="pet_id")
-	private int id;
+	private int petId;
 	@Column(name="disease_id")
 	private int diseaseId;
 	PetRecordsCompositeKey(){}
 	public PetRecordsCompositeKey(int id,int diseaseId) {
-		this.id=id;
+		this.petId=id;
 		this.diseaseId=diseaseId;
 	}
-	public int getId() {
-		return id;
+	public int getPetId() {
+		return petId;
 	}
-	public void setId(int id) {
-		this.id = id;
+	public void setPetId(int petId) {
+		this.petId = petId;
 	}
 	public int getDiseaseId() {
 		return diseaseId;

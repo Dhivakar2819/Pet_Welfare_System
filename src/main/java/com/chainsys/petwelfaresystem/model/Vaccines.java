@@ -1,8 +1,12 @@
 package com.chainsys.petwelfaresystem.model;
 
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -26,5 +30,15 @@ public class Vaccines {
 	public void setVaccineName(String vaccineName) {
 		this.vaccineName = vaccineName;
 	}
+	@OneToMany(mappedBy="vaccineDate",fetch=FetchType.LAZY)
+	private List<VaccineDate> vaccineDate;
+	
+	public List<VaccineDate> getVaccineDate() {
+		return vaccineDate;
+	}
+	public void setVaccineDate(List<VaccineDate> vaccineDate) {
+		this.vaccineDate = vaccineDate;
+	}
+
 	
 }

@@ -14,4 +14,5 @@ public interface VaccineDateRepository extends CrudRepository<VaccineDate,Vaccin
 	void deleteById(VaccineDateCompositeKey id);
 	List<VaccineDate> findAll();
 	List<VaccineDate> findByPetId(int id);
+	List<VaccineDate> findByVaccineId(int id);
 }

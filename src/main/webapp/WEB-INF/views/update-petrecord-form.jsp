@@ -13,9 +13,9 @@
 		<div id="form">
 			<form:form action="updatenewrecord" method="post" modelAttribute="updatepetrecord">
 				<div>
-					<label for="id">Pet id</label>
+					<label for="petId">Pet id</label>
 					<div>
-						<form:input path="id" readonly="true" />
+						<form:input path="petId" readonly="true" />
 					</div>
 				</div>
 				<div>

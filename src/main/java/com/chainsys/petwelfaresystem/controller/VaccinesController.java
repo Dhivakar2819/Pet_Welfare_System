@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.chainsys.petwelfaresystem.Services.VaccinesServices;
+import com.chainsys.petwelfaresystem.dto.VaccinesVaccineDateDto;
 import com.chainsys.petwelfaresystem.model.Vaccines;
 
 @Controller
@@ -20,7 +21,7 @@ public class VaccinesController {
 	@Autowired
 	VaccinesServices vaccineServices;
 
-	@GetMapping("/list")
+	@GetMapping("/vaccinelist")
 	public String getFindAllVaccine(Model model) {
 		List<Vaccines> vaccinelist = vaccineServices.getVaccines();
 		model.addAttribute("allvaccine", vaccinelist);
@@ -64,6 +65,13 @@ public class VaccinesController {
 		Vaccines vaccine = vaccineServices.findById(id);
 		model.addAttribute("findvaccinebyid", vaccine);
 		return "find-vaccine-by-id";
+	}
+	@GetMapping("/getvaccineidbyvaccinedate")
+	public String getPetVaccine(@RequestParam("id") int id,Model model) {
+		VaccinesVaccineDateDto dto=vaccineServices.getVaccineAndVaccineDate(id);
+		model.addAttribute("getVaccine",dto.getVaccines());
+		model.addAttribute("vaccinedatelist",dto.getVaccineDateList());
+		return "vaccine-vaccinedate";
 	}
 
 }

@@ -6,10 +6,33 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Pet Record List</title>
+<title>Add Disease</title>
 </head>
 <body>
-	<div id="table root">
+<div id="root">
+		<div id="form">
+			<form:form action="" method="post" modelAttribute="getdisease">
+				<div>
+					<label for="id">Disease id</label>
+					<div>
+						<form:input path="id" />
+					</div>
+				</div>
+				<div>
+					<label for="diseaseName">Disease Name</label>
+					<div>
+						<form:input path="diseaseName" />
+					</div>
+				</div>
+				<div>
+					<label for="medicine">Medicine</label>
+					<div>
+						<form:input path="medicine" />
+					</div>
+				</div>
+			</form:form>
+		</div>
+		<div id="diseaselist">
 		<table>
 			<thead>
 				<tr>
@@ -21,7 +44,7 @@
 				</tr>
 			</thead>
 			<tbody>
-				<c:forEach var="petrecords" items="${allpetrecords}">
+				<c:forEach var="petrecords" items="${diseaselist}">
 					<tr>
 						<td>${petrecords.petId}</td>
 						<td>${petrecords.diseaseId}</td>
@@ -32,6 +55,7 @@
 				</c:forEach>
 			</tbody>
 		</table>
+	</div>
 	</div>
 </body>
 </html>

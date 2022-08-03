@@ -21,7 +21,7 @@ import com.chainsys.petwelfaresystem.model.Pet;
 public class PetController {
 	@Autowired
 	PetServices petServices;
-	@GetMapping("/listpet")
+	@GetMapping("/petlist")
 	public String getFindAllPet(Model model) {
 		List<Pet>pet=petServices.getPet();
 		model.addAttribute("allPets",pet);

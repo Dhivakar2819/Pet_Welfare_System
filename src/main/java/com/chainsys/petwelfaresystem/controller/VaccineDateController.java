@@ -23,7 +23,7 @@ public class VaccineDateController {
 	@Autowired
 	VaccineDateServices vaccineDateServices;
 
-	@GetMapping("/list")
+	@GetMapping("/vaccinedatelist")
 	public String getFindAllVaccineDate(Model model) {
 		List<VaccineDate> list = vaccineDateServices.getVaccineDate();
 		model.addAttribute("allvdate", list);

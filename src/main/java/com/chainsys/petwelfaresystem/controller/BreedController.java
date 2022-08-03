@@ -19,10 +19,10 @@ import com.chainsys.petwelfaresystem.model.Breed;
 @RequestMapping("/breed")
 public class BreedController {
 	@Autowired
-	BreedServices breedController;
-	@GetMapping("/list")
+	BreedServices breedServices;
+	@GetMapping("/breedlist")
 	public String getFindAll(Model model) {
-		List<Breed> listBreed=breedController.getBreed();
+		List<Breed> listBreed=breedServices.getBreed();
 		model.addAttribute("allbreed",listBreed);
 		return "list-breed";
 	}
@@ -36,40 +36,40 @@ public class BreedController {
 
 	@PostMapping("/addbreed")
 	public String addNewBreed(@ModelAttribute("addbreeds") Breed breed) {
-		breedController.save(breed);
+		breedServices.save(breed);
 		return "redirect:/breed/list";
 	}
 	
 	@GetMapping("/updatebreed")
 	public String showUpdateBreed(@RequestParam("brid") int id, Model model ){
-		Breed breed=breedController.findById(id);
+		Breed breed=breedServices.findById(id);
 		model.addAttribute("updatebreeds", breed);
 		return "update-breed-form";
 	}
 
 	@PostMapping("/updatebreed")
 	public String UpdateBreed(@ModelAttribute("updatebreeds") Breed breed) {
-		breedController.save(breed);
+		breedServices.save(breed);
 		return "redirect:/breed/list";
 	}
 	
 	
 	@GetMapping("/deletebreed")
 	public String deleteBreed(@RequestParam("brid") int id) {
-		breedController.deleteById(id);
+		breedServices.deleteById(id);
 		return "redirect:/breed/list";
 	}
 	
 	@GetMapping("/getbreed")
 	public String getBreed(@RequestParam("brid") int id,Model model)
 	{
-		Breed breed=breedController.findById(id);
+		Breed breed=breedServices.findById(id);
 		model.addAttribute("findbreedbyid",breed);
 		return "find-breed-by-id";
 	}
 	@GetMapping("/getbreedpet")
-	public String GetBreedAndPet(@RequestParam("id") int id,Model model) {
-		PetBreedDTO dto=breedController.getPetAndBreed(id);
+	public String getBreedAndPet(@RequestParam("id") int id,Model model) {
+		PetBreedDTO dto=breedServices.getPetAndBreed(id);
 		model.addAttribute("getbreed",dto.getBreed());
 		model.addAttribute("petlist",dto.getPetlist());
 		return "list-breed-pet";

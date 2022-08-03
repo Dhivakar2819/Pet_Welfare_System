@@ -18,10 +18,10 @@ import javax.persistence.Table;
 public class Pet {
 	@Id
 	@Column(name="pet_id")
-	private int id;
+	private int petId;
 	@Column(name="user_id")
 	private int userId;
-	@Column(name="breed_id")
+	@Column(name="breed_id") //fk
 	private int breedId;
 	@Column(name="pet_type")
 	private String petType;
@@ -60,11 +60,20 @@ public class Pet {
 	public void setVaccineDate(List<VaccineDate> vaccineDate) {
 		this.vaccineDate = vaccineDate;
 	}
-	public int getId() {
-		return id;
+	@OneToMany(mappedBy="pet",fetch=FetchType.LAZY)
+	private List<PetRecords> petRecords;
+	
+	public List<PetRecords> getPetRecords() {
+		return petRecords;
 	}
-	public void setId(int id) {
-		this.id = id;
+	public void setPetRecords(List<PetRecords> petRecords) {
+		this.petRecords = petRecords;
+	}
+	public int getPetId() {
+		return petId;
+	}
+	public void setPetId(int petId) {
+		this.petId = petId;
 	}
 	public int getUserId() {
 		return userId;

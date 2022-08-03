@@ -13,7 +13,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.chainsys.petwelfaresystem.Services.PetRecordServices;
+import com.chainsys.petwelfaresystem.Services.PetServices;
 import com.chainsys.petwelfaresystem.compositekey.PetRecordsCompositeKey;
+import com.chainsys.petwelfaresystem.dto.PetPetRecordsDto;
+import com.chainsys.petwelfaresystem.dto.PetVaccineDto;
 import com.chainsys.petwelfaresystem.model.PetRecords;
 
 @Controller
@@ -21,7 +24,9 @@ import com.chainsys.petwelfaresystem.model.PetRecords;
 public class PetRecordsController {
 	@Autowired
 	PetRecordServices petRecordServices;
-	@GetMapping("/list")
+	@Autowired
+	PetServices petServices;
+	@GetMapping("/petrecordlist")
 	public String getFindAllPetRecord(Model model) {
 		List<PetRecords> listPetRecord = petRecordServices.getPetRecords();
 		model.addAttribute("allpetrecords", listPetRecord);
@@ -68,6 +73,13 @@ public class PetRecordsController {
 		Optional<PetRecords> petRecord = petRecordServices.findById(petRecordsCompositeKey);
 		model.addAttribute("findpetrecordbyid", petRecord);
 		return "find-petrecord-by-id";
+	}
+	@GetMapping("/getpetidinpetrecords")
+	public String GetPetInPetRecords(@RequestParam("id") int id,Model model) {
+		PetPetRecordsDto dto=petServices.getPetPetRecordsDto(id);
+		model.addAttribute("getpet",dto.getPet());
+		model.addAttribute("petrecordslist",dto.getPetRecord());
+		return "pet-petrecords";
 	}
 
 }

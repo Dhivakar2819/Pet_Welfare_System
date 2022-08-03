@@ -6,7 +6,7 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Add Pet</title>
+<title>view Pet by Pet Records</title>
 </head>
 <body>
 <div id="root">
@@ -60,30 +60,32 @@
 						<form:input path="dateofOwnership" />
 					</div>
 				</div>
-				<div>
-					<form:button>Add New</form:button>
-				</div>
 			</form:form>
 		</div>
-	<div id="vaccinelist">
+		<div id="table root">
 		<table>
 			<thead>
 				<tr>
 					<th>Pet Id</th>
-					<th>Vaccine Id</th>
-					<th>Vaccine Date</th>
+					<th>Disease Id</th>
+					<th>Observe Date</th>
+					<th>Observation</th>
+					<th>Recover date</th>
 				</tr>
 			</thead>
 			<tbody>
-				<c:forEach var="vdate" items="${vaccinelist}">
+				<c:forEach var="petrecords" items="${petrecordslist}">
 					<tr>
-						<td>${vdate.petId}</td>
-						<td>${vdate.vaccineId}</td>
-						<td>${vdate.vaccineDate}</td>
+						<td>${petrecords.petId}</td>
+						<td>${petrecords.diseaseId}</td>
+						<td>${petrecords.dateObserv}</td>
+						<td>${petrecords.observation}</td>
+						<td>${petrecords.recoverDate}</td>
 					</tr>
 				</c:forEach>
 			</tbody>
 		</table>
+	</div>
 	</div>
 </body>
 </html>
