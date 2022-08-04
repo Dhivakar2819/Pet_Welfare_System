@@ -38,7 +38,7 @@ public class DiseaseController {
 	@PostMapping("/addnewdisease")
 	public String addNewDisease(@ModelAttribute("adddisease") Disease disease) {
 		diseaseService.save(disease);
-		return "redirect:/disease/list";
+		return "redirect:/disease/diseaselist";
 	}
 	
 	@GetMapping("/updateformdisease")
@@ -51,14 +51,14 @@ public class DiseaseController {
 	@PostMapping("/updatenewdisease")
 	public String UpdateDisease(@ModelAttribute("updatedisease") Disease disease) {
 		diseaseService.save(disease);
-		return "redirect:/disease/list";
+		return "redirect:/disease/diseaselist";
 	}
 	
 	
 	@GetMapping("/deletedisease")
 	public String deleteDisease(@RequestParam("disid") int id) {
 		diseaseService.deleteById(id);
-		return "redirect:/disease/list";
+		return "redirect:/disease/diseaselist";
 	}
 	
 	@GetMapping("/getdisease")

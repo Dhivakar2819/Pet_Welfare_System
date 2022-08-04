@@ -43,7 +43,7 @@ public class PetRecordsController {
 	@PostMapping("/addnewpetrecord")
 	public String addNewPetRecords(@ModelAttribute("addpetrecord") PetRecords petRecord) {
 		petRecordServices.save(petRecord);
-		return "redirect:/petrecord/list";
+		return "redirect:/petrecord/petrecordlist";
 	}
 
 	@GetMapping("/updateformpetrecord")
@@ -57,14 +57,14 @@ public class PetRecordsController {
 	@PostMapping("/updatenewrecord")
 	public String UpdatePetRecords(@ModelAttribute("updatepetrecord") PetRecords petRecord) {
 		petRecordServices.save(petRecord);
-		return "redirect:/petrecord/list";
+		return "redirect:/petrecord/petrecordlist";
 	}
 
 	@GetMapping("/deletepetrecord")
 	public String deletePetRecords(@RequestParam("prid") int id,@RequestParam("diseaseid") int disid) {
 		PetRecordsCompositeKey petRecordsCompositeKey=new PetRecordsCompositeKey(id,disid);
 		petRecordServices.deleteById(petRecordsCompositeKey);
-		return "redirect:/petrecord/list";
+		return "redirect:/petrecord/petrecordlist";
 	}
 
 	@GetMapping("/getpetrecord")

@@ -36,7 +36,7 @@ public class PetController {
 	@PostMapping("/addnewpet")
 	public String addNewPet(@ModelAttribute("addpet") Pet pet) {
 		petServices.save(pet);
-		return "redirect:/pet/list";
+		return "redirect:/pet/petlist";
 	}
 	@GetMapping("/updateformpet")
 	public String showUpdatePet(@RequestParam("petid") int id, Model model ){
@@ -48,12 +48,12 @@ public class PetController {
 	@PostMapping("/updatepets")
 	public String UpdatePet(@ModelAttribute("updatepet") Pet pet) {
 		petServices.save(pet);
-		return "redirect:/pet/list";
+		return "redirect:/pet/petlist";
 	}
 	@GetMapping("/deletepet")
 	public String deletePet(@RequestParam("petid") int id) {
 		petServices.deleteById(id);
-		return "redirect:/pet/list";
+		return "redirect:/pet/petlist";
 	}
 	
 	@GetMapping("/getpet")

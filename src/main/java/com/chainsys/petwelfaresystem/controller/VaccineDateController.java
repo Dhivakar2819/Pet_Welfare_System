@@ -41,7 +41,7 @@ public class VaccineDateController {
 	@PostMapping("/addnewvaccinedate")
 	public String addNewVaccineDate(@ModelAttribute("addvdate") VaccineDate vaccineDate) {
 		vaccineDateServices.save(vaccineDate);
-		return "redirect:/vaccinedate/list";
+		return "redirect:/vaccinedate/vaccinedatelist";
 	}
 
 	@GetMapping("/updateformvaccinedate")
@@ -55,14 +55,14 @@ public class VaccineDateController {
 	@PostMapping("/updatenewvaccinedate")
 	public String UpdateVaccineDate(@ModelAttribute("updatevdate") VaccineDate vaccineDate) {
 		vaccineDateServices.save(vaccineDate);
-		return "redirect:/vaccinedate/list";
+		return "redirect:/vaccinedate/vaccinedatelist";
 	}
 
 	@GetMapping("/deletevaccinedate")
 	public String deleteVaccineDate(@RequestParam("id") int id,@RequestParam("vid")int vid) {
 		VaccineDateCompositeKey vaccineDateCompositeKey=new VaccineDateCompositeKey(id, vid);
 		vaccineDateServices.deleteById(vaccineDateCompositeKey);
-		return "redirect:/vaccinedate/list";
+		return "redirect:/vaccinedate/vaccinedatelist";
 	}
 
 	@GetMapping("/getbyidvaccinedate")

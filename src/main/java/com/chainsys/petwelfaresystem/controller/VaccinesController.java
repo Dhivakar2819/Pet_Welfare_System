@@ -38,7 +38,7 @@ public class VaccinesController {
 	@PostMapping("/addnewvaccine")
 	public String addNewVaccine(@ModelAttribute("addvaccine") Vaccines vac) {
 		vaccineServices.save(vac);
-		return "redirect:/vaccine/list";
+		return "redirect:/vaccine/vaccinelist";
 	}
 
 	@GetMapping("/updateformvaccine")
@@ -51,13 +51,13 @@ public class VaccinesController {
 	@PostMapping("/updatevaccines")
 	public String UpdateVaccines(@ModelAttribute("updatevaccine") Vaccines vac) {
 		vaccineServices.save(vac);
-		return "redirect:/vaccine/list";
+		return "redirect:/vaccine/vaccinelist";
 	}
 
 	@GetMapping("/deletevaccine")
 	public String deleteVaccines(@RequestParam("vacid") int id) {
 		vaccineServices.deleteById(id);
-		return "redirect:/vaccine/list";
+		return "redirect:/vaccine/vaccinelist";
 	}
 
 	@GetMapping("/getvaccine")

@@ -15,25 +15,19 @@
 				<div>
 					<label for="userId">User id</label>
 					<div>
-						<form:input path="userId" />
+						<form:input path="userId" readonly="true"/>
 					</div>
 				</div>
 				<div>
 					<label for="userName">User Name</label>
 					<div>
-						<form:input path="userName" />
+						<form:input path="userName" readonly="true" />
 					</div>
 				</div>
 				<div>
 					<label for="email">E Mail Id</label>
 					<div>
-						<form:input path="email" />
-					</div>
-				</div>
-				<div>
-					<label for="password">Password</label>
-					<div>
-						<form:input path="password" />
+						<form:input path="email" readonly="true"/>
 					</div>
 				</div>
 				</form:form>

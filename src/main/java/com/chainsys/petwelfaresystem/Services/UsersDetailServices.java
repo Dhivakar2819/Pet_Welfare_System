@@ -36,6 +36,9 @@ public class UsersDetailServices {
 	public void deleteById(int id) {
 		usersDetailRepository.deleteById(id);
 	}
+	public UsersDetail getUserByEmailAndPassword(String email,String password) {
+		return usersDetailRepository.findByEmailAndPassword(email, password);
+	}
 	public UsersDetailPetDTO getUsersAndPet(int id) {
 		UsersDetail usersDetail=findById(id);
 		UsersDetailPetDTO dto=new UsersDetailPetDTO();

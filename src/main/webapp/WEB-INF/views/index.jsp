@@ -6,6 +6,8 @@
 <meta charset="ISO-8859-1">
 <title>Index</title>
 <body>
+<h1>Home</h1>
+<div><a href="/usersdetail/userloginpage">Login</a></div>
 <div><h1>Breed</h1></div>
 <div><a href="/breed/breedlist">List</a></div>
 <div><a href="/breed/addbreed">Add</a></div>
@@ -40,7 +42,7 @@
 <div></div>
 <div><h1>User Detail</h1></div>
 <div><a href="/usersdetail/userdetaillist">List</a></div>
-<div><a href="/usersdetail/addformuser">Add</a></div>
+<!-- <div><a href="/usersdetail/addformuser">Add</a></div> -->
 <div><a href="/usersdetail/updateformuser?userid=">Update</a></div>
 <div><a href="/usersdetail/deleteuserdetail?userid=">Delete</a></div>
 <div><a href="/usersdetail/getuserdetail?userid=">Find By Id</a></div>

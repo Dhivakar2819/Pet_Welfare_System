@@ -37,7 +37,7 @@ public class BreedController {
 	@PostMapping("/addbreed")
 	public String addNewBreed(@ModelAttribute("addbreeds") Breed breed) {
 		breedServices.save(breed);
-		return "redirect:/breed/list";
+		return "redirect:/breed/breedlist";
 	}
 	
 	@GetMapping("/updatebreed")
@@ -50,14 +50,14 @@ public class BreedController {
 	@PostMapping("/updatebreed")
 	public String UpdateBreed(@ModelAttribute("updatebreeds") Breed breed) {
 		breedServices.save(breed);
-		return "redirect:/breed/list";
+		return "redirect:/breed/breedlist";
 	}
 	
 	
 	@GetMapping("/deletebreed")
 	public String deleteBreed(@RequestParam("brid") int id) {
 		breedServices.deleteById(id);
-		return "redirect:/breed/list";
+		return "redirect:/breed/breedlist";
 	}
 	
 	@GetMapping("/getbreed")

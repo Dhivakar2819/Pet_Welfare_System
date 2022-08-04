@@ -38,7 +38,7 @@ public class UsersDetailController {
 	@PostMapping("/adduser")
 	public String addNewUsersDetail(@ModelAttribute("adduserdetail") UsersDetail ud) {
 		userDetailServices.save(ud);
-		return "redirect:/usersdetail/list";
+		return "redirect:/usersdetail/userloginpage";
 	}
 	
 	@GetMapping("/updateformuser")
@@ -51,14 +51,14 @@ public class UsersDetailController {
 	@PostMapping("/updateuser")
 	public String UpdateUsersDetail(@ModelAttribute("updateusersdetail") UsersDetail userDetail) {
 		userDetailServices.save(userDetail);
-		return "redirect:/usersdetail/list";
+		return "redirect:/usersdetail/userdetaillist";
 	}
 	
 	
 	@GetMapping("/deleteuserdetail")
 	public String deleteUsersDetail(@RequestParam("userid") int id) {
 		userDetailServices.deleteById(id);
-		return "redirect:/usersdetail/list";
+		return "redirect:/usersdetail/userdetaillist";
 	}
 	
 	@GetMapping("/getuserdetail")
@@ -75,5 +75,20 @@ public class UsersDetailController {
 		model.addAttribute("petlist",dto.getPetlist());
 		return "list-user-pet";
 	}
-	
+
+	@GetMapping("/userloginpage")
+	public String getUserLogin(Model model) {
+		UsersDetail userDetail = new UsersDetail();
+		model.addAttribute("loginform",userDetail);
+		return "userlogin";
+	}
+	@PostMapping("/userlogin")
+	public String checkingAccess(@ModelAttribute("loginform")UsersDetail usersDetail) {
+		UsersDetail userDetail = userDetailServices.getUserByEmailAndPassword(usersDetail.getEmail(),usersDetail.getPassword());
+        if (userDetail!= null){
+
+            return "redirect:/petrecord/petrecordlist";
+        } else
+            return "invalid-customer-error";
+    }
 }
