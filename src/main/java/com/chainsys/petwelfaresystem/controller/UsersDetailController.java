@@ -69,13 +69,24 @@ public class UsersDetailController {
 		return "find-usersdetail-by-id";
 	}
 	@GetMapping("/getuserpet")
-	public String GetUserDetailAndPet(@RequestParam("id") int id,Model model) {
+	public String getUserDetailAndPet(@RequestParam("id") int id,Model model) {
 		UsersDetailPetDTO dto=userDetailServices.getUsersAndPet(id);
 		model.addAttribute("getuser",dto.getUsersdetail());
 		model.addAttribute("petlist",dto.getPetlist());
 		return "list-user-pet";
 	}
-
+	@GetMapping("/adduseradd")
+	public String addUserDetailAndPet(@RequestParam("id") int id,Model model) {
+		UsersDetailPetDTO dto=userDetailServices.getUsersAndPet(id);
+		model.addAttribute("getuser",dto.getUsersdetail());
+		model.addAttribute("petlist",dto.getPetlist().get(id));
+		return "add-user-pet";
+	}
+	@PostMapping("/adduserpetform")
+	public String addNewUsersPet(@ModelAttribute("petlist") UsersDetail ud) {
+		userDetailServices.save(ud);
+		return "redirect:/usersdetail/userloginpage";
+	}
 	@GetMapping("/userloginpage")
 	public String getUserLogin(Model model) {
 		UsersDetail userDetail = new UsersDetail();
@@ -89,6 +100,6 @@ public class UsersDetailController {
 
             return "redirect:/petrecord/petrecordlist";
         } else
-            return "invalid-customer-error";
+            return "invalid-user-error";
     }
 }

@@ -44,6 +44,10 @@
 					<th>Date of Birth</th>
 					<th>Gender</th>
 					<th>Date of Ownership</th>
+					<th>Pet Records</th>
+					<th>Vaccine Date</th>
+					<th>update</th>
+					<th>Delete</th>
 				</tr>
 			</thead>
 			<tbody>
@@ -57,10 +61,17 @@
 						<td>${pet.dob}</td>
 						<td>${pet.gender}</td>
 						<td>${pet.dateofOwnership}</td>
-					</tr>
+						<td><a href="/petrecord/getpetidinpetrecords?id=${pet.petId}">Pet Records</a></td>
+						<td><a href="/pet/getvaccinebypetid?id=${pet.petId}">Vaccine detail</a></td>
+						<td><a href="/pet/updateformpet?petid=${pet.petId}">Update</a></td>
+						<td><a href="/pet/deletepet?petid=${pet.petId}">Delete</a></td>
+											</tr>
 				</c:forEach>
+				<%-- <td><a href="updateuserform?userId=${user.userid }"><input
+                                    onclick="change()" type="button" value="Update" id="myButton1"></input></a></td> --%>
 			</tbody>
 		</table>
+		<div><a href="/pet/addpet">Add</a></div>
 	</div>
 		</div>
 </body>

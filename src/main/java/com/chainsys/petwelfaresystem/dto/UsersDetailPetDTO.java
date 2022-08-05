@@ -19,6 +19,10 @@ public class UsersDetailPetDTO {
 	public List<Pet> getPetlist() {
 		return petlist;
 	}
+	
+	public void setPetlist(List<Pet> petlist) {
+		this.petlist = petlist;
+	}
 	public void addPet(Pet pet) {
 		petlist.add(pet);
 	}

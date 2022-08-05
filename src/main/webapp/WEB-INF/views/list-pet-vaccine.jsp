@@ -9,69 +9,33 @@
 <title>Add Pet</title>
 </head>
 <body>
-<div id="root">
-		<div id="form">
+<div id="root" align="center">
+		<div id="form" align="center">
 			<form:form action="" method="post" modelAttribute="getpet">
-				<div>
-					<label for="petId">Pet id</label>
-					<div>
-						<form:input path="petId" />
-					</div>
-				</div>
-				<div>
-					<label for="userId">User Id</label>
-					<div>
-						<form:input path="userId" />
-					</div>
-				</div>
-				<div>
-					<label for="breedId">Breed id</label>
-					<div>
-						<form:input path="breedId" />
-					</div>
-				</div>
-				<div>
+				<table><tr>
+				<td>
 					<label for="petType">Pet Type</label>
-					<div>
+					</td><td>
 						<form:input path="petType" />
-					</div>
-				</div>
-				<div>
-					<label for="petName">Pet Name</label>
-					<div>
-						<form:input path="petName" />
-					</div>
-				</div>
-				<div>
-					<label for="dob">Date of Birth</label>
-					<div>
-						<form:input path="dob" />
-					</div>
-				</div>
-				<div>
-					<label for="gender">Gender</label>
-					<div>
-						<form:input path="gender" />
-					</div>
-					</div>
-					<div>
-					<label for="dateofOwnership">Date of Ownership</label>
-					<div>
-						<form:input path="dateofOwnership" />
-					</div>
-				</div>
-				<div>
-					<form:button>Add New</form:button>
-				</div>
+					</td>
+				
+				<td>
+					<label for="petName">Pet Name</label></td>
+					<td>
+						<form:input path="petName" /></td></tr>
+					</table>
 			</form:form>
 		</div>
-	<div id="vaccinelist">
+	<div id="vaccinelist" align="center">
 		<table>
 			<thead>
 				<tr>
 					<th>Pet Id</th>
 					<th>Vaccine Id</th>
 					<th>Vaccine Date</th>
+					<!-- <th>Vaccine name</th> -->
+					<th>Update Vaccine date</th>
+					<th>Delete Vaccine Date</th>
 				</tr>
 			</thead>
 			<tbody>
@@ -80,10 +44,15 @@
 						<td>${vdate.petId}</td>
 						<td>${vdate.vaccineId}</td>
 						<td>${vdate.vaccineDate}</td>
+						<!-- <td>acti -->
+						<td><a href="/vaccinedate/updateformvaccinedate?id=${vdate.petId}&vid=${vdate.vaccineId}">Update</a></td>
+						<td><a href="/vaccinedate/deletevaccinedate?id=${vdate.petId}&vid=${vdate.vaccineId}">Delete</a></td>
 					</tr>
 				</c:forEach>
 			</tbody>
 		</table>
+		<form:button><a href="/vaccinedate/addformvaccinedate">Add vaccine Date</a></form:button>
+		<form:button><a href="/vaccine/vaccinelist">Vaccine Id Details</a></form:button>
 	</div>
 </body>
 </html>

@@ -48,7 +48,7 @@ public class PetController {
 	@PostMapping("/updatepets")
 	public String UpdatePet(@ModelAttribute("updatepet") Pet pet) {
 		petServices.save(pet);
-		return "redirect:/pet/petlist";
+		return "redirect:/usersdetail/getuserpet";
 	}
 	@GetMapping("/deletepet")
 	public String deletePet(@RequestParam("petid") int id) {

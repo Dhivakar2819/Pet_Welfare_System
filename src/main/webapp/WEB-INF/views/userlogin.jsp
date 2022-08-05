@@ -8,7 +8,7 @@
 <meta charset="ISO-8859-1">
 <title>Login</title>
 </head>
-<body>
+<body >
 	<div id="root">
 		<div id="form" align="center">
 			<form:form action="userlogin" method="post"
@@ -28,10 +28,6 @@
 							</td></tr>
 					</table>
 					<div>
-
-
-						<%-- <a href="/usersdetail/getuserpet?id=${userId}"><input
-                                    onclick="change()" type="button" value="Sign in" id="myButton1"></input></a> --%>
 					<tr>	<td><form:button>Sign in </form:button></td>
 						<td><form:button>
 							<a href="/usersdetail/addformuser">Sign Up</a>

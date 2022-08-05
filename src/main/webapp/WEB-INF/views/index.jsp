@@ -26,12 +26,12 @@
 <div></div>
 <div><h1>pet</h1></div>
 <div><a href="/pet/petlist">List</a></div>
-<div><a href="/pet/addpet">Add</a></div>
-<div><a href="/pet/updateformpet?petid=">Update</a></div>
-<div><a href="/pet/deletepet?petid=">Delete</a></div>
+<!-- <div><a href="/pet/addpet">Add</a></div> -->
+<!-- <div><a href="/pet/updateformpet?petid=">Update</a></div> -->
+<!-- <div><a href="/pet/deletepet?petid=">Delete</a></div> -->
 <div><a href="/pet/getpet?petid=">Find By Id</a></div>
-<div><a href="/pet/getvaccinebypetid?id=">Find By vaccine By Pet</a></div>1
-<div><a href="/petrecord/getpetidinpetrecords?id=">Find By Pet Records By Pet</a></div>
+<!-- <div><a href="/pet/getvaccinebypetid?id=">Find By vaccine By Pet</a></div> -->
+<!-- <div><a href="/petrecord/getpetidinpetrecords?id=">Find By Pet Records By Pet</a></div> -->
 <div></div>
 <div><h1>Pet Record</h1></div>
 <div><a href="/petrecord/petrecordlist">List</a></div>
@@ -50,13 +50,13 @@
 <div></div>
 <div><h1>Vaccine Date</h1></div>
 <div><a href="/vaccinedate/vaccinedatelist">List</a></div>
-<div><a href="/vaccinedate/addformvaccinedate">Add</a></div>
-<div><a href="/vaccinedate/updateformvaccinedate?id=">Update</a></div>
-<div><a href="/vaccinedate/deletevaccinedate?id=">Delete</a></div>
+<!-- <div><a href="/vaccinedate/addformvaccinedate">Add</a></div> -->
+<!-- <div><a href="/vaccinedate/updateformvaccinedate?id=">Update</a></div> -->
+<!-- <div><a href="/vaccinedate/deletevaccinedate?id=">Delete</a></div> -->
 <div><a href="/vaccinedate/getbyidvaccinedate?id=">Find By Id</a></div>
 <div></div>
 <div><h1>vaccine</h1></div>
-<div><a href="/vaccine/vaccinelist">List</a></div>
+<!-- <div><a href="/vaccine/vaccinelist">List</a></div> -->
 <div><a href="/vaccine/addnewvaccine">Add</a></div>
 <div><a href="/vaccine/updateformvaccine?vacid=">Update</a></div>
 <div><a href="/vaccine/deletevaccine?vacid=">Delete</a></div>

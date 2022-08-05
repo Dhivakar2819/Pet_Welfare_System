@@ -1,28 +1,32 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Update Pet</title>
+<title>Add Pet</title>
 </head>
 <body>
 <div id="root">
 		<div id="form">
-			<form:form action="updatepets" method="post" modelAttribute="updatepet">
-				<div>
-					<label for="petId">Pet id</label>
-					<div>
-						<form:input path="petId" readonly="true" />
-					</div>
-				</div>
-				<div>
+		<form:form action="adduserpetform" method="post" modelAttribute="getuser">
+		<div>
 					<label for="userId">User Id</label>
 					<div>
 						<form:input path="userId" readonly="true" />
 					</div>
 				</div>
+		</form:form>
+			<form:form action="adduserpetform" method="post" modelAttribute="petlist">
+				<div>
+					<label for="petId">Pet id</label>
+					<div>
+						<form:input path="petId" />
+					</div>
+				</div>
+				
 				<div>
 					<label for="breedId">Breed id</label>
 					<div>
@@ -52,6 +56,7 @@
 					<div>
 						<form:input path="gender" />
 					</div>
+					</div>
 					<div>
 					<label for="dateofOwnership">Date of Ownership</label>
 					<div>
@@ -59,7 +64,7 @@
 					</div>
 				</div>
 				<div>
-					<form:button>Update New</form:button>
+					<form:button>Add New</form:button>
 				</div>
 			</form:form>
 		</div>
