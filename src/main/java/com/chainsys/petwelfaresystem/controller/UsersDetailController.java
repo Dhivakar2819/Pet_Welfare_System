@@ -75,18 +75,18 @@ public class UsersDetailController {
 		model.addAttribute("petlist",dto.getPetlist());
 		return "list-user-pet";
 	}
-	@GetMapping("/adduseradd")
-	public String addUserDetailAndPet(@RequestParam("id") int id,Model model) {
-		UsersDetailPetDTO dto=userDetailServices.getUsersAndPet(id);
-		model.addAttribute("getuser",dto.getUsersdetail());
-		model.addAttribute("petlist",dto.getPetlist().get(id));
-		return "add-user-pet";
-	}
-	@PostMapping("/adduserpetform")
-	public String addNewUsersPet(@ModelAttribute("petlist") UsersDetail ud) {
-		userDetailServices.save(ud);
-		return "redirect:/usersdetail/userloginpage";
-	}
+//	@GetMapping("/adduseradd")
+//	public String addUserDetailAndPet(@RequestParam("id") int id,Model model) {
+//		UsersDetailPetDTO dto=userDetailServices.getUsersAndPet(id);
+//		model.addAttribute("getuser",dto.getUsersdetail());
+//		model.addAttribute("petlist",dto.getPetlist().get(id));
+//		return "add-user-pet";
+//	}
+//	@PostMapping("/adduserpetform")
+//	public String addNewUsersPet(@ModelAttribute("petlist") UsersDetail ud) {
+//		userDetailServices.save(ud);
+//		return "redirect:/usersdetail/userloginpage";
+//	}
 	@GetMapping("/userloginpage")
 	public String getUserLogin(Model model) {
 		UsersDetail userDetail = new UsersDetail();

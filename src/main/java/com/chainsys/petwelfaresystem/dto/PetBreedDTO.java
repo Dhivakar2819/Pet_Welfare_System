@@ -13,7 +13,7 @@ public class PetBreedDTO {
 	private Breed breed;
 	
 	private List<Pet> petlist=new ArrayList<Pet>();
-	public Breed getBreed() {
+	public Breed getBreed() {   
 		return breed;
 	}
 	public void setBreed(Breed breed) {

@@ -12,54 +12,19 @@
 <div id="root">
 		<div id="form">
 			<form:form action="" method="post" modelAttribute="getpet">
-				<div>
-					<label for="petId">Pet id</label>
-					<div>
-						<form:input path="petId" />
-					</div>
-				</div>
-				<div>
-					<label for="userId">User Id</label>
-					<div>
-						<form:input path="userId" />
-					</div>
-				</div>
-				<div>
-					<label for="breedId">Breed id</label>
-					<div>
-						<form:input path="breedId" />
-					</div>
-				</div>
-				<div>
-					<label for="petType">Pet Type</label>
-					<div>
-						<form:input path="petType" />
-					</div>
-				</div>
-				<div>
+				
+				<table><tr>
+					<td><label for="petType">Pet Type</label>
+					</td><td>
+						<form:input path="petType" readonly="true" />
+					</td>
+				<td>
 					<label for="petName">Pet Name</label>
-					<div>
-						<form:input path="petName" />
-					</div>
-				</div>
-				<div>
-					<label for="dob">Date of Birth</label>
-					<div>
-						<form:input path="dob" />
-					</div>
-				</div>
-				<div>
-					<label for="gender">Gender</label>
-					<div>
-						<form:input path="gender" />
-					</div>
-					</div>
-					<div>
-					<label for="dateofOwnership">Date of Ownership</label>
-					<div>
-						<form:input path="dateofOwnership" />
-					</div>
-				</div>
+					</td><td>
+						<form:input path="petName" readonly="true"/>
+					</td>
+				</tr>
+				</table>
 			</form:form>
 		</div>
 		<div id="table root">
@@ -71,6 +36,9 @@
 					<th>Observe Date</th>
 					<th>Observation</th>
 					<th>Recover date</th>
+					<th>disease</th>
+					<th>Update</th>
+					<th>Delete</th>
 				</tr>
 			</thead>
 			<tbody>
@@ -81,10 +49,15 @@
 						<td>${petrecords.dateObserv}</td>
 						<td>${petrecords.observation}</td>
 						<td>${petrecords.recoverDate}</td>
+						<td><a href="/disease/getdisease?disid=${petrecords.diseaseId}">Disease Detail</a></td>
+						<td><a href="/petrecord/updateformpetrecord?prid=${petrecords.petId}&diseaseid=${petrecords.diseaseId}">Update</a></td>
+						<td><a href="/petrecord/deletepetrecord?prid=${petrecords.petId}&diseaseid=${petrecords.diseaseId}">Delete</a></td>
 					</tr>
 				</c:forEach>
 			</tbody>
 		</table>
+		<a href="/petrecord/addformpetrecord">Add</a>
+		<a href="/disease/diseaselist">Disease List</a>
 	</div>
 	</div>
 </body>

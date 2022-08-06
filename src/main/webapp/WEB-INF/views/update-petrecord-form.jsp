@@ -27,7 +27,7 @@
 				<div>
 					<label for="dateObserv">Observe date</label>
 					<div>
-						<form:input path="dateObserv" />
+						<form:input path="dateObserv" type="date"/>
 					</div>
 				</div>
 				<div>
@@ -39,7 +39,7 @@
 				<div>
 					<label for="recoverDate">Recover Date</label>
 					<div>
-						<form:input path="recoverDate" />
+						<form:input path="recoverDate" type="date"/>
 					</div>
 				</div>
 				<div>

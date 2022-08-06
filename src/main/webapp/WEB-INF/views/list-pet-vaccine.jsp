@@ -11,18 +11,18 @@
 <body>
 <div id="root" align="center">
 		<div id="form" align="center">
-			<form:form action="" method="post" modelAttribute="getpet">
+			<form:form action="" method="post" modelAttribute="getpetid" >
 				<table><tr>
 				<td>
 					<label for="petType">Pet Type</label>
-					</td><td>
-						<form:input path="petType" />
+					
+						<form:input path="petType" readonly="true"/>
 					</td>
 				
 				<td>
-					<label for="petName">Pet Name</label></td>
-					<td>
-						<form:input path="petName" /></td></tr>
+					<label for="petName">Pet Name</label>
+					
+						<form:input path="petName" readonly="true"/></td></tr>
 					</table>
 			</form:form>
 		</div>
@@ -51,8 +51,8 @@
 				</c:forEach>
 			</tbody>
 		</table>
-		<form:button><a href="/vaccinedate/addformvaccinedate">Add vaccine Date</a></form:button>
-		<form:button><a href="/vaccine/vaccinelist">Vaccine Id Details</a></form:button>
-	</div>
+		<a href="/vaccinedate/addformvaccinedate">Add vaccine Date</a>
+		<a href="/vaccine/vaccinelist">Vaccine Id Details</a>
+	</div></div>
 </body>
 </html>

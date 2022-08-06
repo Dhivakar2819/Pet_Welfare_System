@@ -64,9 +64,9 @@ public class PetController {
 		return "find-pet-by-id";
 	}
 	@GetMapping("/getvaccinebypetid")
-	public String GetPetDisease(@RequestParam("id") int id,Model model) {
+	public String getPetDisease(@RequestParam("id") int id,Model model) {
 		PetVaccineDto dto=petServices.getPetAndVaccine(id);
-		model.addAttribute("getpet",dto.getPet());
+		model.addAttribute("getpetid",dto.getPet());
 		model.addAttribute("vaccinelist",dto.getVaccineDateList());
 		return "list-pet-vaccine";
 	}

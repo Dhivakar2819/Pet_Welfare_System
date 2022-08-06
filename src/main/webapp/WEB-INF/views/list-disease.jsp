@@ -16,6 +16,7 @@
 					<th>Disease Id</th>
 					<th>Disease Name</th>
 					<th>Medicine</th>
+					<th>Price</th>
 				</tr>
 			</thead>
 			<tbody>
@@ -24,6 +25,7 @@
 						<td>${disease.id}</td>
 						<td>${disease.diseaseName}</td>
 						<td>${disease.medicine}</td>
+						<td>${disease.price}</td>
 					</tr>
 				</c:forEach>
 			</tbody>

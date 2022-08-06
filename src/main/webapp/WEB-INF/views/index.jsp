@@ -8,20 +8,23 @@
 <body>
 <h1>Home</h1>
 <div><a href="/usersdetail/userloginpage">Login</a></div>
+
+<div><a href="/usersdetail/getuserpet?id=">Find By User Id</a></div>
+
 <div><h1>Breed</h1></div>
-<div><a href="/breed/breedlist">List</a></div>
+<!-- <div><a href="/breed/breedlist">List</a></div> -->
 <div><a href="/breed/addbreed">Add</a></div>
 <div><a href="/breed/updatebreed?brid=">Update</a></div>
 <div><a href="/breed/deletebreed?brid=">Delete</a></div>
-<div><a href="/breed/getbreed?brid=">Find By Id</a></div>
+<!-- <div><a href="/breed/getbreed?brid=">Find By Id</a></div> -->
 <div><a href="/breed/getbreedpet?id=">Find By Breet By Pet</a></div>
 <div></div>
 <div><h1>Disease</h1></div>
-<div><a href="/disease/diseaselist">List</a></div>
+<!-- <div><a href="/disease/diseaselist">List</a></div> -->
 <div><a href="/disease/addformdisease">Add</a></div>
 <div><a href="/disease/updateformdisease?disid=">Update</a></div>
 <div><a href="/disease/deletedisease?disid=">Delete</a></div>
-<div><a href="/disease/getdisease?disid=">Find By Id</a></div>
+<!-- <div><a href="/disease/getdisease?disid=">Find By Id</a></div> -->
 <div><a href="/disease/getdiseasepetrecord?id=">Find By Disease Id</a></div>
 <div></div>
 <div><h1>pet</h1></div>
@@ -35,9 +38,9 @@
 <div></div>
 <div><h1>Pet Record</h1></div>
 <div><a href="/petrecord/petrecordlist">List</a></div>
-<div><a href="/petrecord/addformpetrecord">Add</a></div>
-<div><a href="/petrecord/updateformpetrecord?prid=">Update</a></div>
-<div><a href="/petrecord/deletepetrecord?prid=">Delete</a></div>
+<!-- <div><a href="/petrecord/addformpetrecord">Add</a></div> -->
+<!-- <div><a href="/petrecord/updateformpetrecord?prid=">Update</a></div> -->
+<!-- <div><a href="/petrecord/deletepetrecord?prid=">Delete</a></div> -->
 <div><a href="/petrecord/getpetrecord?prid=">Find By Id</a></div>
 <div></div>
 <div><h1>User Detail</h1></div>

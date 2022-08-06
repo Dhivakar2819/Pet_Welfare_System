@@ -21,6 +21,7 @@ public class Disease {
 	@Column(name="disease_name")
 	private String diseaseName;
 	private String medicine;
+	private int price;
 	@OneToMany(mappedBy="disease",fetch=FetchType.LAZY)
 	private List<PetRecords> petRecords;
 	
@@ -47,6 +48,12 @@ public class Disease {
 	}
 	public void setMedicine(String medicine) {
 		this.medicine = medicine;
+	}
+	public int getPrice() {
+		return price;
+	}
+	public void setPrice(int price) {
+		this.price = price;
 	}
 	
 }

@@ -12,54 +12,19 @@
 <div id="root">
 		<div id="form">
 			<form:form action="" method="post" modelAttribute="getpet">
-				<div>
-					<label for="petId">Pet id</label>
-					<div>
-						<form:input path="petId" readonly="true" />
-					</div>
-				</div>
-				<div>
-					<label for="userId">User Id</label>
-					<div>
-						<form:input path="userId" readonly="true" />
-					</div>
-				</div>
-				<div>
-					<label for="breedId">Breed id</label>
-					<div>
-						<form:input path="breedId" readonly="true" />
-					</div>
-				</div>
-				<div>
-					<label for="petType">Pet Type</label>
-					<div>
+				
+				<table><tr>
+					<td><label for="petType">Pet Type</label>
+					</td><td>
 						<form:input path="petType" readonly="true" />
-					</div>
-				</div>
-				<div>
+					</td>
+				<td>
 					<label for="petName">Pet Name</label>
-					<div>
+					</td><td>
 						<form:input path="petName" readonly="true"/>
-					</div>
-				</div>
-				<div>
-					<label for="dob">Date of Birth</label>
-					<div>
-						<form:input path="dob" readonly="true" />
-					</div>
-				</div>
-				<div>
-					<label for="gender">Gender</label>
-					<div>
-						<form:input path="gender" readonly="true" />
-					</div>
-					</div>
-					<div>
-					<label for="dateofOwnership">Date of Ownership</label>
-					<div>
-						<form:input path="dateofOwnership" readonly="true" />
-					</div>
-				</div>
+					</td>
+				</tr>
+				</table>
 				
 			</form:form>
 		</div>
@@ -71,6 +36,7 @@
 					<th>Disease Id</th>
 					<th>Disease Name</th>
 					<th>Medicine</th>
+					<th>Price</th>
 				</tr>
 			</thead>
 			<tbody>
@@ -79,6 +45,7 @@
 						<td>${disease.id}</td>
 						<td>${disease.diseaseName}</td>
 						<td>${disease.medicine}</td>
+						<td>${disease.price}</td>
 					</tr>
 				</c:forEach>
 			</tbody>

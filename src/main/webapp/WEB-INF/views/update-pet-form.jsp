@@ -44,7 +44,7 @@
 				<div>
 					<label for="dob">Date of Birth</label>
 					<div>
-						<form:input path="dob" />
+						<form:input path="dob" type="date"/>
 					</div>
 				</div>
 				<div>
@@ -55,7 +55,7 @@
 					<div>
 					<label for="dateofOwnership">Date of Ownership</label>
 					<div>
-						<form:input path="dateofOwnership" />
+						<form:input path="dateofOwnership" type="date" />
 					</div>
 				</div>
 				<div>

@@ -32,6 +32,12 @@
 				</div>
 				</div>
 				<div>
+					<label for="price">Price </label>
+					<div>
+						<form:input path="price" />
+					</div>
+				</div>
+				<div>
 					<form:button>Update New</form:button>
 				</div>
 			</form:form>

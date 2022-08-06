@@ -26,7 +26,7 @@
 				<div>
 					<label for="vaccineDate">Vaccine Date</label>
 					<div>
-						<form:input path="vaccineDate" />
+						<form:input path="vaccineDate" type="date"/>
 					</div>
 				</div>
 				<div>

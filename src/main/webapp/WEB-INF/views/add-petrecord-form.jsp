@@ -9,8 +9,8 @@
 <title>Add Pet Records</title>
 </head>
 <body>
-<div id="root">
-		<div id="form">
+<div id="root"align="center">
+		<div id="form" align="center">
 			<form:form action="addnewpetrecord" method="post" modelAttribute="addpetrecord">
 				<div>
 					<label for="petId">Pet id</label>
@@ -27,7 +27,7 @@
 				<div>
 					<label for="dateObserv">Observe date</label>
 					<div>
-						<form:input path="dateObserv" />
+						<form:input path="dateObserv" type="date"/>
 					</div>
 				</div>
 				<div>
@@ -39,7 +39,7 @@
 				<div>
 					<label for="recoverDate">Recover Date</label>
 					<div>
-						<form:input path="recoverDate" />
+						<form:input path="recoverDate" type="date"/>
 					</div>
 				</div>
 				<div>
