@@ -20,13 +20,19 @@ import com.chainsys.petwelfaresystem.model.Breed;
 public class BreedController {
 	@Autowired
 	BreedServices breedServices;
+	
 	@GetMapping("/breedlist")
 	public String getFindAll(Model model) {
 		List<Breed> listBreed=breedServices.getBreed();
 		model.addAttribute("allbreed",listBreed);
 		return "list-breed";
 	}
-	
+	@GetMapping("/adminbreedlist")
+	public String getFindAllAdmin(Model model) {
+		List<Breed> listBreed=breedServices.getBreed();
+		model.addAttribute("allbreed",listBreed);
+		return "admin-list-breed";
+	}
 	@GetMapping("/addbreed")
 	public String showAddBreed(Model model) {
 		Breed breed = new Breed();
@@ -50,7 +56,7 @@ public class BreedController {
 	@PostMapping("/updatebreed")
 	public String UpdateBreed(@ModelAttribute("updatebreeds") Breed breed) {
 		breedServices.save(breed);
-		return "redirect:/breed/breedlist";
+		return "redirect:/breed/adminbreedlist";
 	}
 	
 	

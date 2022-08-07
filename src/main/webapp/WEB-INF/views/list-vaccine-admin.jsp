@@ -6,30 +6,29 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>User Detail</title>
+<title>Vaccine list</title>
 </head>
-<body>
-	<div id="table root">
+<body >
+	<div id="table root" align="center">
 		<table>
 			<thead>
 				<tr>
-					<th>User Id</th>
-					<th>user Name</th>
-					<th>E Mail</th>
-					
+					<th>Vaccine Id</th>
+					<th>Vaccine Name</th>
+					<th>Update</th>
 				</tr>
 			</thead>
 			<tbody>
-				<c:forEach var="usersdetail" items="${alluserdetail}">
+				<c:forEach var="vaccine" items="${allvaccine}">
 					<tr>
-						<td>${usersdetail.userId}</td>
-						<td>${usersdetail.userName}</td>
-						<td>${usersdetail.email}</td>
-						
+						<td>${vaccine.vaccineId}</td>
+						<td>${vaccine.vaccineName}</td>
+						<td><a href="/vaccine/updateformvaccine?vacid=${vaccine.vaccineId}">Update</a></td>
 					</tr>
 				</c:forEach>
 			</tbody>
 		</table>
+		<a href="/vaccine/addnewvaccine">Add</a>
 	</div>
 </body>
 </html>

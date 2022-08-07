@@ -11,16 +11,20 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.chainsys.petwelfaresystem.Services.BreedServices;
 import com.chainsys.petwelfaresystem.Services.PetServices;
 import com.chainsys.petwelfaresystem.dto.PetBreedDTO;
 import com.chainsys.petwelfaresystem.dto.PetVaccineDto;
 import com.chainsys.petwelfaresystem.model.Pet;
+import com.chainsys.petwelfaresystem.repository.BreedRepository;
 
 @Controller
 @RequestMapping("/pet")
 public class PetController {
 	@Autowired
 	PetServices petServices;
+	@Autowired
+	BreedRepository breedRepository;
 	@GetMapping("/petlist")
 	public String getFindAllPet(Model model) {
 		List<Pet>pet=petServices.getPet();
@@ -30,6 +34,7 @@ public class PetController {
 	@GetMapping("/addpet")
 	public String showAddPet(Model model){
 		Pet pet=new Pet();
+		model.addAttribute("breed",breedRepository.findAll());
 		model.addAttribute("addpet",pet);
 		return "add-pet-form";
 	}
@@ -41,6 +46,7 @@ public class PetController {
 	@GetMapping("/updateformpet")
 	public String showUpdatePet(@RequestParam("petid") int id, Model model ){
 		Pet pet=petServices.findById(id);
+		model.addAttribute("breed",breedRepository.findAll());
 		model.addAttribute("updatepet",pet);
 		return "update-pet-form";
 	}

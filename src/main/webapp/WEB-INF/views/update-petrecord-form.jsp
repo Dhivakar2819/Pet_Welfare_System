@@ -19,11 +19,14 @@
 					</div>
 				</div>
 				<div>
-					<label for="diseaseId">Disease Id</label>
-					<div>
-						<form:input path="diseaseId" />
-					</div>
-				</div>
+				<label for="diseaseId">Disease Name : </label></div> <form:select
+                                path="diseaseId">
+                                <c:forEach var="diseaseId" items="${disease}">
+                                    <form:option value="${diseaseId.id}"
+                                        label="${diseaseId.diseaseName}" />
+                                </c:forEach>
+                            </form:select></div>
+				<div>
 				<div>
 					<label for="dateObserv">Observe date</label>
 					<div>

@@ -1,12 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Find Pet Records</title>
+<title>Update Admin</title>
 <style>
 body {
   /* background-image: url("https://img.freepik.com/premium-photo/group-pets-posing-around-border-collie-dog-cat-ferret-rabbit-bird-fish-rodent_191971-22249.jpg?w=826" ); */
@@ -33,39 +32,29 @@ td{
 </style>
 </head>
 <body>
-<div id="root">
+<div id="root" align="center">
 		<div id="form">
-			<form:form action="" method="post" modelAttribute="findpetrecordbyid">
+			<form:form action="updateadmindetain" method="post" modelAttribute="updateadmin">
 				<div>
-					<label for="id">Pet id</label>
+					<label for="adminId">Admin Id</label>
 					<div>
-						<form:input path="id" readonly="true"/>
+						<form:input path="adminId" readonly="true"/>
 					</div>
 				</div>
 				<div>
-					<label for="diseaseId">Disease Id</label>
+					<label for="adminName">Admin Name</label>
 					<div>
-						<form:input path="diseaseId" readonly="true" />
-					</div>
-				</div>
-				
-				<div>
-					<label for="dateObserv">Observe date</label>
-					<div>
-						<form:input path="dateObserv" readonly="true" />
+						<form:input path="adminName" />
 					</div>
 				</div>
 				<div>
-					<label for="observation">Observation</label>
+					<label for="adminPassword">Password</label>
 					<div>
-						<form:input path="observation" readonly="true"/>
+						<form:input path="adminPassword" />
 					</div>
 				</div>
 				<div>
-					<label for="recoverDate">Recover Date</label>
-					<div>
-						<form:input path="recoverDate"  readonly="true"/>
-					</div>
+					<form:button>Update</form:button>
 				</div>
 			</form:form>
 		</div>

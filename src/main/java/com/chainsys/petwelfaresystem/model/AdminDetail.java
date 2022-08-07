@@ -3,8 +3,9 @@ package com.chainsys.petwelfaresystem.model;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.Table;
 @Entity
-@Table(name="adminDetail")
+@Table(name="ADMINDETAIL")
 public class AdminDetail {
 	@Id
 	@Column(name="admin_id")

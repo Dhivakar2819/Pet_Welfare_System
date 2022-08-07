@@ -1,31 +1,27 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1"%>
+    pageEncoding="ISO-8859-1"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>User Detail</title>
+<title>Admin List</title>
 </head>
 <body>
 	<div id="table root">
 		<table>
 			<thead>
 				<tr>
-					<th>User Id</th>
-					<th>user Name</th>
-					<th>E Mail</th>
-					
+					<th>Admin Id</th>
+					<th>Admin Name</th>
 				</tr>
 			</thead>
 			<tbody>
-				<c:forEach var="usersdetail" items="${alluserdetail}">
+				<c:forEach var="admin" items="${alladmin}">
 					<tr>
-						<td>${usersdetail.userId}</td>
-						<td>${usersdetail.userName}</td>
-						<td>${usersdetail.email}</td>
-						
+						<td>${admin.adminId}</td>
+						<td>${admin.adminName}</td>
 					</tr>
 				</c:forEach>
 			</tbody>

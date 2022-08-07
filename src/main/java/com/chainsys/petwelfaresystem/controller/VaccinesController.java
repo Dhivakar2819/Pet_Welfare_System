@@ -27,7 +27,12 @@ public class VaccinesController {
 		model.addAttribute("allvaccine", vaccinelist);
 		return "list-vaccine";
 	}
-
+	@GetMapping("/adminvaccinelist")
+	public String getFindAllVaccineAdmin(Model model) {
+		List<Vaccines> vaccinelist = vaccineServices.getVaccines();
+		model.addAttribute("allvaccine", vaccinelist);
+		return "list-vaccine-admin";
+	}
 	@GetMapping("/addformvaccine")
 	public String showAddVaccine(Model model) {
 		Vaccines vaccine = new Vaccines();

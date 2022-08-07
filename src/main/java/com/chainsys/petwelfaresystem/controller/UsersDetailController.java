@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.chainsys.petwelfaresystem.Services.BreedServices;
 import com.chainsys.petwelfaresystem.Services.UsersDetailServices;
 import com.chainsys.petwelfaresystem.dto.PetBreedDTO;
 import com.chainsys.petwelfaresystem.dto.UsersDetailPetDTO;
@@ -21,6 +22,8 @@ import com.chainsys.petwelfaresystem.model.UsersDetail;
 public class UsersDetailController {
 	@Autowired
 	UsersDetailServices userDetailServices;
+	@Autowired
+	private BreedServices breedServices;
 	@GetMapping("/userdetaillist")
 	public String getFindAllUsersDetail(Model model) {
 		List<UsersDetail> listUserDetail=userDetailServices.getUserDetail();
@@ -70,23 +73,13 @@ public class UsersDetailController {
 	}
 	@GetMapping("/getuserpet")
 	public String getUserDetailAndPet(@RequestParam("id") int id,Model model) {
+		
+		model.addAttribute("breedname", breedServices);
 		UsersDetailPetDTO dto=userDetailServices.getUsersAndPet(id);
 		model.addAttribute("getuser",dto.getUsersdetail());
 		model.addAttribute("petlist",dto.getPetlist());
 		return "list-user-pet";
 	}
-//	@GetMapping("/adduseradd")
-//	public String addUserDetailAndPet(@RequestParam("id") int id,Model model) {
-//		UsersDetailPetDTO dto=userDetailServices.getUsersAndPet(id);
-//		model.addAttribute("getuser",dto.getUsersdetail());
-//		model.addAttribute("petlist",dto.getPetlist().get(id));
-//		return "add-user-pet";
-//	}
-//	@PostMapping("/adduserpetform")
-//	public String addNewUsersPet(@ModelAttribute("petlist") UsersDetail ud) {
-//		userDetailServices.save(ud);
-//		return "redirect:/usersdetail/userloginpage";
-//	}
 	@GetMapping("/userloginpage")
 	public String getUserLogin(Model model) {
 		UsersDetail userDetail = new UsersDetail();
@@ -94,12 +87,13 @@ public class UsersDetailController {
 		return "userlogin";
 	}
 	@PostMapping("/userlogin")
-	public String checkingAccess(@ModelAttribute("loginform")UsersDetail usersDetail) {
+	public String checkingAccess(@ModelAttribute("loginform")UsersDetail usersDetail,Model model) {
 		UsersDetail userDetail = userDetailServices.getUserByEmailAndPassword(usersDetail.getEmail(),usersDetail.getPassword());
         if (userDetail!= null){
 
-            return "redirect:/petrecord/petrecordlist";
+            return "redirect:/usersdetail/getuserpet?id=";
         } else
-            return "invalid-user-error";
+            return "redirect:/usersdetail/userloginpage";
     }
+	
 }

@@ -48,12 +48,15 @@ td{
 						<form:input path="userId" />
 					</div>
 				</div>
+				
 				<div>
-					<label for="breedId">Breed id</label>
-					<div>
-						<form:input path="breedId" />
-					</div>
-				</div>
+				<label for="breedId">Breed Type : </label></div> <form:select
+                                path="breedId">
+                                <c:forEach var="BreedType" items="${breed}">
+                                    <form:option value="${BreedType.id}"
+                                        label="${BreedType.breedType}" />
+                                </c:forEach>
+                            </form:select></div>
 				<div>
 					<label for="petType">Pet Type</label>
 					<div>
@@ -75,7 +78,8 @@ td{
 				<div>
 					<label for="gender">Gender</label>
 					<div>
-						<form:input path="gender" />
+						<form:radiobutton path="gender" value="Male" />Male
+						<form:radiobutton path="gender" value="Female" />Female
 					</div>
 					</div>
 					<div>

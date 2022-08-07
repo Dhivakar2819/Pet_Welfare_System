@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -18,11 +19,13 @@
 					</div>
 				</div>
 				<div>
-					<label for="vaccineId">Vaccine Id</label>
-					<div>
-						<form:input path="vaccineId" />
-					</div>
-				</div>
+				<label for="vaccineId">Vaccine Id : </label></div> <form:select
+                                path="vaccineId">
+                                <c:forEach var="vaccine" items="${vaccine}">
+                                    <form:option value="${vaccine.vaccineId}"
+                                        label="${vaccine.vaccineName}" />
+                                </c:forEach>
+                                </form:select></div>
 				<div>
 					<label for="vaccineDate">Vaccine Date</label>
 					<div>
@@ -34,6 +37,6 @@
 				</div>
 			</form:form>
 		</div>
-	</div>
+	
 </body>
 </html>

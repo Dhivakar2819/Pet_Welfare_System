@@ -27,7 +27,12 @@ public class DiseaseController {
 		model.addAttribute("alldisease",listDisease);
 		return "list-disease";
 	}
-	
+	@GetMapping("/admindiseaselist")
+	public String getFindDiseaseAdmin(Model model) {
+		List<Disease> listDisease=diseaseService.getDisease();
+		model.addAttribute("alldisease",listDisease);
+		return "admin-list-disease";
+	}
 	@GetMapping("/addformdisease")
 	public String showAddDisease(Model model) {
 		Disease disease = new Disease();

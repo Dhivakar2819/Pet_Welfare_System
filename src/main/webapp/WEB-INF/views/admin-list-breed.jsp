@@ -1,35 +1,36 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1"%>
+    pageEncoding="ISO-8859-1"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>User Detail</title>
+<title>Breed List</title>
 </head>
 <body>
 	<div id="table root">
 		<table>
 			<thead>
 				<tr>
-					<th>User Id</th>
-					<th>user Name</th>
-					<th>E Mail</th>
+					<th>Breed Id</th>
+					<th>Breed Type</th>
+					<th>Update</th>
 					
 				</tr>
 			</thead>
 			<tbody>
-				<c:forEach var="usersdetail" items="${alluserdetail}">
+				<c:forEach var="breed" items="${allbreed}">
 					<tr>
-						<td>${usersdetail.userId}</td>
-						<td>${usersdetail.userName}</td>
-						<td>${usersdetail.email}</td>
+						<td>${breed.id}</td>
+						<td>${breed.breedType}</td>
+						<td><a href="/breed/updatebreed?brid=${breed.id}">Update</a></td>
 						
 					</tr>
 				</c:forEach>
 			</tbody>
 		</table>
+		<div><a href="/breed/addbreed">Add</a></div>
 	</div>
 </body>
 </html>

@@ -2,6 +2,7 @@
     pageEncoding="ISO-8859-1"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@page import="com.chainsys.petwelfaresystem.Services.BreedServices"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -93,7 +94,6 @@ td{
 						<td><a href="/pet/getvaccinebypetid?id=${pet.petId}">Vaccine detail</a></td>
 						<td><a href="/pet/updateformpet?petid=${pet.petId}">Update</a></td>
 						<td><a href="/pet/deletepet?petid=${pet.petId}">Delete</a></td>
-											</tr>
 				</c:forEach>
 				<%-- <td><a href="updateuserform?userId=${user.userid }"><input
                                     onclick="change()" type="button" value="Update" id="myButton1"></input></a></td> --%>
@@ -101,6 +101,7 @@ td{
 		</table>
 		<div><a href="/pet/addpet">Add</a></div>
 		<div><a href="/breed/breedlist">Breed List</a></div>
+		
 	</div>
 		</div>
 </body>

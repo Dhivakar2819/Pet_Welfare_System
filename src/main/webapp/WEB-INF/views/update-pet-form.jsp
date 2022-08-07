@@ -24,10 +24,13 @@
 					</div>
 				</div>
 				<div>
-					<label for="breedId">Breed id</label>
-					<div>
-						<form:input path="breedId" />
-					</div>
+				<label for="breedId">Breed Type : </label></div> <form:select
+                                path="breedId">
+                                <c:forEach var="BreedType" items="${breed}">
+                                    <form:option value="${BreedType.id}"
+                                        label="${BreedType.breedType}" />
+                                </c:forEach>
+                            </form:select></div>
 				</div>
 				<div>
 					<label for="petType">Pet Type</label>
@@ -47,10 +50,12 @@
 						<form:input path="dob" type="date"/>
 					</div>
 				</div>
-				<div>
+					<div>
 					<label for="gender">Gender</label>
 					<div>
-						<form:input path="gender" />
+						<form:radiobutton path="gender" value="Male" />Male
+						<form:radiobutton path="gender" value="Female" />Female
+					</div>
 					</div>
 					<div>
 					<label for="dateofOwnership">Date of Ownership</label>

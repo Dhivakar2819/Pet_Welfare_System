@@ -11,27 +11,25 @@
 <body >
 	<div id="root">
 		<div id="form" align="center">
-			<form:form action="userlogin" method="post"
-				modelAttribute="loginform">
-				<h1 align="center">User Login</h1>
+			<form:form action="adminloginpage" method="post"
+				modelAttribute="adminlogin">
+				<h1 align="center">Admin Login</h1>
 				
 					<table>
-						<tr><td><label for="email">Email :</label></td>
-						<td><form:input path="email" placeholder="example@gmail.com" />
+						<tr><td><label for="adminId">Admin Id :</label></td>
+						<td><form:input path="adminId" plcaeholder="example@gmail.com" />
 						</td><tr>
 						
 						<tr><td>
-							<label for="password">Password</label>
+							<label for="adminPassword">Password</label>
 							</td><td>
-								<form:input path="password" type="password"
+								<form:input path="adminPassword" type="password"
 									placeholder="password" />
 							</td></tr>
 					</table>
 					<div>
-					<tr>	<td><form:button>Sign in </form:button></td>
-						<td><form:button>
-							<a href="/usersdetail/addformuser">Sign Up</a>
-						</form:button></td></tr>
+						<form:button>Sign in </form:button>
+						
 					</div>
 			</form:form>
 

@@ -35,6 +35,10 @@ public class BreedServices {
 	public void deleteById(int id) {
 		breedRepository.deleteById(id);
 	}
+//	public  List<Breed> findAll(){
+//		List<Breed>breed=breedServices.findAll();
+//		return breed;
+//	}
 	public PetBreedDTO getPetAndBreed(int id) {
 		Breed breed= findById(id);
 		PetBreedDTO dto=new PetBreedDTO();
