@@ -2,9 +2,12 @@ package com.chainsys.petwelfaresystem.controller;
 
 import java.util.List;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -41,9 +44,13 @@ public class DiseaseController {
 	}
 
 	@PostMapping("/addnewdisease")
-	public String addNewDisease(@ModelAttribute("adddisease") Disease disease) {
+	public String addNewDisease(@Valid @ModelAttribute("adddisease") Disease disease,Errors error) {
+		if(error.hasErrors()) {
+			return "add-disease-form";
+		}
+		else {
 		diseaseService.save(disease);
-		return "redirect:/disease/diseaselist";
+		return "redirect:/disease/diseaselist";}
 	}
 	
 	@GetMapping("/updateformdisease")
@@ -54,9 +61,13 @@ public class DiseaseController {
 	}
 
 	@PostMapping("/updatenewdisease")
-	public String UpdateDisease(@ModelAttribute("updatedisease") Disease disease) {
+	public String UpdateDisease(@Valid @ModelAttribute("updatedisease") Disease disease,Errors error) {
+		if(error.hasErrors()) {
+			return "update-disease-form";
+		}
+		else {
 		diseaseService.save(disease);
-		return "redirect:/disease/diseaselist";
+		return "redirect:/disease/diseaselist";}
 	}
 	
 	

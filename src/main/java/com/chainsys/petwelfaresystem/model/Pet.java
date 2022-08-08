@@ -11,22 +11,44 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Pattern;
+import javax.validation.constraints.Size;
+
+import org.hibernate.validator.constraints.Range;
 
 @Entity
 @Table(name="pets")
 public class Pet {
 	@Id
 	@Column(name="pet_id")
+	@NotNull
+	@Range(min=1,message="*Greater then zero")
 	private int petId;
 	@Column(name="user_id")
+	@NotNull
+	@Range(min=1,message="*Greater then zero")
 	private int userId;
 	@Column(name="breed_id") //fk
+//	@NotNull
+//	@Range(min=1,message="*Greater then zero")
 	private int breedId;
 	@Column(name="pet_type")
+	@Size(max = 20, min = 3, message = "*Name length should be 3 to 20")
+	@NotBlank(message = "*Name can't be Empty")
+	@Pattern(regexp = "^[A-Za-z]\\w{3,20}$", message = "*Enter valid breed type ")
 	private String petType;
 	@Column(name="pet_name")
+	@Size(max = 20, min = 3, message = "*Name length should be 3 to 20")
+	@NotBlank(message = "*Name can't be Empty")
+	@Pattern(regexp = "^[A-Za-z]\\w{3,20}$", message = "*Enter valid breed type ")
 	private String petName;
+	@NotNull(message="Not in date format")
 	private Date dob;
+	@Size(max = 6, min = 3, message = "*Name length should be 3 to 6")
+	@NotBlank(message = "*Gender can't be Empty")
+	@Pattern(regexp = "^[A-Za-z]\\w{3,20}$", message = "*Enter valid Gender ")
 	private String gender;
 	@Column(name="date_of_ownership")
 	private Date dateofOwnership;

@@ -7,6 +7,10 @@
 <meta charset="ISO-8859-1">
 <title>Add Vaccine</title>
 <style>
+.text-danger {
+    color: #e80c4d;
+    font-size: 0.9em;
+}
 body {
   /* background-image: url("https://img.freepik.com/premium-photo/group-pets-posing-around-border-collie-dog-cat-ferret-rabbit-bird-fish-rodent_191971-22249.jpg?w=826" ); */
   background-image: url("https://img.freepik.com/free-vector/cute-pets-illustration_53876-112522.jpg?w=2000"); 
@@ -32,20 +36,27 @@ td{
 </style>
 </head>
 <body>
-<div id="root">
+<div id="root" align="center">
 		<div id="form">
 			<form:form action="addnewvaccine" method="post" modelAttribute="addvaccine">
 				<div>
 					<label for="vaccineId">Vaccine Id</label>
 					<div>
-						<form:input path="vaccineId" />
+						<form:input path="vaccineId" 
+						title="Id must be number" 
+						pattern="^[0-9]+$"
+						 required="true" />
 					</div>
+					 <form:errors path="vaccineId" cssClass="text-danger" />
 				</div>
 				<div>
 					<label for="vaccineName">Vaccine Name</label>
 					<div>
-						<form:input path="vaccineName" />
+						<form:input path="vaccineName" 
+						title="Name can't be empty And must be in String"
+						pattern="^[A-Za-z]\\w{3,20}$" required="true"/>
 					</div>
+					 <form:errors path="vaccineName" cssClass="text-danger" />
 				</div>
 				<div>
 					<form:button>Add New</form:button>

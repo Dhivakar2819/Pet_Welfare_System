@@ -8,14 +8,25 @@ import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Pattern;
+import javax.validation.constraints.Size;
+
+import org.hibernate.validator.constraints.Range;
 
 @Entity
 @Table(name="vaccines")
 public class Vaccines {
 	@Id
 	@Column(name="vaccine_id")
+	@NotNull
+	@Range(min=1,message="*Greater then zero")
 	private int vaccineId;
 	@Column(name="vaccine_name")
+	@Size(max = 20, min = 3, message = "*Vaccine name length should be 3 to 20")
+	@NotBlank(message = "*Vaccine name can't be Empty")
+	@Pattern(regexp = "^[A-Za-z]\\w{3,20}$", message = "*Enter valid Vaccine name ")
 	private String vaccineName;
 	
 	public int getVaccineId() {

@@ -2,9 +2,12 @@ package com.chainsys.petwelfaresystem.controller;
 
 import java.util.List;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -38,9 +41,13 @@ public class AdminDetailController {
 	}
 
 	@PostMapping("/addadmindetail")
-	public String addNewAdminDetail(@ModelAttribute("addbreeds") AdminDetail admin) {
+	public String addNewAdminDetail(@Valid @ModelAttribute("addbreeds") AdminDetail admin,Errors errors) {
+		if(errors.hasErrors()) {
+			return "add-admin-form";
+		}
+		else {
 		adminDetailServices.save(admin);
-		return "redirect:/admin/adminlist";
+		return "redirect:/admin/adminlist";}
 	}
 	
 	@GetMapping("/updateadmin")
@@ -51,9 +58,13 @@ public class AdminDetailController {
 	}
 
 	@PostMapping("/updateadmindetain")
-	public String UpdateAdminDetail(@ModelAttribute("updateadmin") AdminDetail admin) {
+	public String UpdateAdminDetail(@Valid @ModelAttribute("updateadmin") AdminDetail admin,Errors errors) {
+		if(errors.hasErrors()) {
+			return "update-admin-form";
+		}
+		else {
 		adminDetailServices.save(admin);
-		return "redirect:/admin/adminlist";
+		return "redirect:/admin/adminlist";}
 	}
 	
 	

@@ -7,6 +7,12 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Update Vaccine Date</title>
+<style>
+.text-danger {
+    color: #e80c4d;
+    font-size: 0.9em;
+}
+</style>
 </head>
 <body>
 <div id="root">
@@ -15,8 +21,12 @@
 				<div>
 					<label for="petId">Pet Id</label>
 					<div>
-						<form:input path="petId" readonly="true" />
+						<form:input path="petId" 
+						title="Id must be number" 
+						pattern="^[0-9]+$"
+						 readonly="true" />/>
 					</div>
+					<form:errors path="petId" cssClass="text-danger" />
 				</div>
 				<div>
 				<label for="vaccineId">Vaccine Id : </label></div> <form:select
@@ -26,11 +36,14 @@
                                         label="${vaccine.vaccineName}" />
                                 </c:forEach>
                                 </form:select></div>
+                                <form:errors path="vaccineId" cssClass="text-danger" />
+                                </div>
 				<div>
 					<label for="vaccineDate">Vaccine Date</label>
 					<div>
-						<form:input path="vaccineDate" type="date"/>
+						<form:input path="vaccineDate" type="date" />
 					</div>
+					<form:errors path="vaccineDate" cssClass="text-danger" required="required"/>
 				</div>
 				<div>
 					<form:button>Update New</form:button>

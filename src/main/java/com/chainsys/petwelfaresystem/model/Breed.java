@@ -8,14 +8,25 @@ import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Pattern;
+import javax.validation.constraints.Size;
+
+import org.hibernate.validator.constraints.Range;
 
 @Entity
 @Table(name="breeds")
 public class Breed {
 	@Id
 	@Column(name="breed_id") //primary key
+	@NotNull
+	@Range(min=1,message="*Greater then zero")
 	private int id;
 	@Column(name="breed_type")
+	@Size(max = 20, min = 3, message = "*Name length should be 3 to 20")
+	@NotBlank(message = "*Name can't be Empty")
+	@Pattern(regexp = "^[A-Za-z]\\w{3,20}$", message = "*Enter valid breed type ")
 	private String breedType;
 	
 	@OneToMany(mappedBy="breed", fetch= FetchType.LAZY)

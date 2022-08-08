@@ -8,6 +8,10 @@
 <meta charset="ISO-8859-1">
 <title>Add Vaccine Date</title>
 <style>
+.text-danger {
+    color: #e80c4d;
+    font-size: 0.9em;
+}
 body {
   /* background-image: url("https://img.freepik.com/premium-photo/group-pets-posing-around-border-collie-dog-cat-ferret-rabbit-bird-fish-rodent_191971-22249.jpg?w=826" ); */
   background-image: url("https://img.freepik.com/free-vector/cute-pets-illustration_53876-112522.jpg?w=2000"); 
@@ -39,15 +43,13 @@ td{
 				<div>
 					<label for="petId">Pet Id</label>
 					<div>
-						<form:input path="petId" />
+						<form:input path="petId" 
+						title="Id must be number" 
+						pattern="^[0-9]+$"
+						 required="true" />/>
 					</div>
+					<form:errors path="petId" cssClass="text-danger" />
 				</div>
-				<%-- <div>
-					<label for="vaccineId">Vaccine Id</label>
-					<div>
-						<form:input path="vaccineId" />
-					</div>
-				</div> --%>
 				<div>
 				<label for="vaccineId">Vaccine Id : </label></div> <form:select
                                 path="vaccineId">
@@ -56,11 +58,14 @@ td{
                                         label="${vaccine.vaccineName}" />
                                 </c:forEach>
                                 </form:select></div>
+                                <form:errors path="vaccineId" cssClass="text-danger" />
+                                </div>
 				<div>
 					<label for="vaccineDate">Vaccine Date</label>
 					<div>
 						<form:input path="vaccineDate" type="date" />
 					</div>
+					<form:errors path="vaccineDate" cssClass="text-danger" required="required"/>
 				</div>
 				<div>
 					<form:button>Add New</form:button>

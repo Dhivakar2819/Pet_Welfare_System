@@ -7,6 +7,12 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Update Breed</title>
+<style>
+.text-danger {
+    color: #e80c4d;
+    font-size: 0.9em;
+}
+</style>
 </head>
 <body>
 <div id="root">
@@ -15,14 +21,19 @@
 				<div>
 					<label for="id">Breed id</label>
 					<div>
-						<form:input path="id" readonly="true"/>
+						<form:input path="id" title="Id must be number" 
+						pattern="^[0-9]+$"  readonly="true" />
 					</div>
+					<form:errors path="id" cssClass="text-danger" />
 				</div>
 				<div>
 					<label for="breedType">Breed Type</label>
 					<div>
-						<form:input path="breedType" />
+						<form:input path="breedType" 
+						title="Breed type can't be empty And must be in String"
+						pattern="^[A-Za-z]\\w{3,20}$" required="true"/>
 					</div>
+					<form:errors path="breedType" cssClass="text-danger" />
 				</div>
 				<div>
 					<form:button>Update</form:button>

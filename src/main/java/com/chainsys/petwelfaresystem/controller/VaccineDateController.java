@@ -4,9 +4,12 @@ import java.util.List;
 
 import java.util.Optional;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -42,9 +45,13 @@ public class VaccineDateController {
 	}
 
 	@PostMapping("/addnewvaccinedate")
-	public String addNewVaccineDate(@ModelAttribute("addvdate") VaccineDate vaccineDate) {
+	public String addNewVaccineDate(@Valid @ModelAttribute("addvdate") VaccineDate vaccineDate,Errors error) {
+		if(error.hasErrors()) {
+			return "add-vaccinedate-form";
+		}
+		else {
 		vaccineDateServices.save(vaccineDate);
-		return "redirect:/vaccinedate/vaccinedatelist";
+		return "redirect:/vaccinedate/vaccinedatelist";}
 	}
 
 	@GetMapping("/updateformvaccinedate")
@@ -57,9 +64,13 @@ public class VaccineDateController {
 	}
 
 	@PostMapping("/updatenewvaccinedate")
-	public String UpdateVaccineDate(@ModelAttribute("updatevdate") VaccineDate vaccineDate) {
+	public String UpdateVaccineDate(@Valid @ModelAttribute("updatevdate") VaccineDate vaccineDate,Errors error) {
+		if(error.hasErrors()) {
+			return "update-vaccinedate-form";
+		}
+		else {
 		vaccineDateServices.save(vaccineDate);
-		return "redirect:/vaccinedate/vaccinedatelist";
+		return "redirect:/vaccinedate/vaccinedatelist";}
 	}
 
 	@GetMapping("/deletevaccinedate")

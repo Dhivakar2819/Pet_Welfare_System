@@ -8,6 +8,10 @@
 <meta charset="ISO-8859-1">
 <title>Add Pet</title>
 <style>
+.text-danger {
+    color: #e80c4d;
+    font-size: 0.9em;
+}
 body {
   /* background-image: url("https://img.freepik.com/premium-photo/group-pets-posing-around-border-collie-dog-cat-ferret-rabbit-bird-fish-rodent_191971-22249.jpg?w=826" ); */
   background-image: url("https://img.freepik.com/free-vector/cute-pets-illustration_53876-112522.jpg?w=2000"); 
@@ -39,14 +43,22 @@ td{
 				<div>
 					<label for="petId">Pet id</label>
 					<div>
-						<form:input path="petId" />
+						<form:input path="petId" 
+						title="Id must be number" 
+						pattern="^[0-9]+$"
+						 required="true"/>
 					</div>
+					<form:errors path="petId" cssClass="text-danger" />
 				</div>
 				<div>
 					<label for="userId">User Id</label>
 					<div>
-						<form:input path="userId" />
+						<form:input path="userId" 
+						title="Id must be number" 
+						pattern="^[0-9]+$"
+						 required="true"/>
 					</div>
+					<form:errors path="userId" cssClass="text-danger" />
 				</div>
 				
 				<div>
@@ -60,39 +72,48 @@ td{
 				<div>
 					<label for="petType">Pet Type</label>
 					<div>
-						<form:input path="petType" />
+						<form:input path="petType" 
+						title="Type can't be empty And must be in String"
+						pattern="^[A-Za-z]\\w{3,20}$" required="true"/>
 					</div>
+					<form:errors path="petType" cssClass="text-danger" />
 				</div>
 				<div>
 					<label for="petName">Pet Name</label>
 					<div>
-						<form:input path="petName" />
+						<form:input path="petName" 
+						title="Name can't be empty And Name must be in String"
+						pattern="^[A-Za-z]\\w{3,20}$" />
 					</div>
+					<form:errors path="petName" cssClass="text-danger" />
 				</div>
 				<div>
 					<label for="dob">Date of Birth</label>
 					<div>
 						<form:input path="dob" type="date"/>
 					</div>
+					<form:errors path="dob" cssClass="text-danger" />
 				</div>
 				<div>
 					<label for="gender">Gender</label>
 					<div>
-						<form:radiobutton path="gender" value="Male" />Male
+						<form:radiobutton path="gender" value="Male" required="required"/>Male
 						<form:radiobutton path="gender" value="Female" />Female
 					</div>
+					<form:errors path="gender" cssClass="text-danger" />
 					</div>
 					<div>
 					<label for="dateofOwnership">Date of Ownership</label>
 					<div>
 						<form:input path="dateofOwnership" type="date" />
 					</div>
+					<form:errors path="dateofOwnership" cssClass="text-danger" />
 				</div>
 				<div>
 					<form:button>Add New</form:button>
 				</div>
 			</form:form>
 		</div>
-	</div>
+		
 </body>
 </html>

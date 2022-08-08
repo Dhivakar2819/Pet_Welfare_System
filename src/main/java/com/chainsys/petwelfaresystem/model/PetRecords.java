@@ -11,6 +11,12 @@ import javax.persistence.IdClass;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Pattern;
+
+import org.hibernate.validator.constraints.Range;
 
 import com.chainsys.petwelfaresystem.compositekey.PetRecordsCompositeKey;
 
@@ -20,13 +26,19 @@ import com.chainsys.petwelfaresystem.compositekey.PetRecordsCompositeKey;
 public class PetRecords {
 	@Id
 	@Column(name="pet_id")
+	@NotNull
+	@Range(min=1,message="*Greater then zero")
 	private int petId;
 	@Id
 	@Column(name="disease_id")
+	@NotNull
+	@Range(min=1,message="*Greater then zero")
 	private int diseaseId;
 	@Column(name="date_observ")
+	
 	private Date dateObserv;
 	@Column(name="observation")
+	@NotBlank(message = "*Observation can't be Empty")
 	private String observation;
 	@Column(name="recover_date")
 	private Date recoverDate;

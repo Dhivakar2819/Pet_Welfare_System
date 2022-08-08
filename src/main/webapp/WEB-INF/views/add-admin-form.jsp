@@ -7,6 +7,10 @@
 <meta charset="ISO-8859-1">
 <title>Add Breed</title>
 <style>
+.text-danger {
+    color: #e80c4d;
+    font-size: 0.9em;
+}
 body {
   /* background-image: url("https://img.freepik.com/premium-photo/group-pets-posing-around-border-collie-dog-cat-ferret-rabbit-bird-fish-rodent_191971-22249.jpg?w=826" ); */
   background-image: url("https://img.freepik.com/free-vector/cute-pets-illustration_53876-112522.jpg?w=2000"); 
@@ -38,20 +42,28 @@ td{
 				<div>
 					<label for="adminId">Admin Id</label>
 					<div>
-						<form:input path="adminId" />
+						<form:input path="adminId" title="Id must be number" pattern="^[0-9]+$"/>
 					</div>
+					<form:errors path="adminId" cssClass="text-danger" />
 				</div>
 				<div>
 					<label for="adminName">Name</label>
 					<div>
-						<form:input path="adminName" />
+						<form:input path="adminName" 
+						title="Name can't be empty And Admin Name must be in String"
+						pattern="^[A-Za-z]\\w{3,20}$" required="true"/>
 					</div>
+					<form:errors path="adminName" cssClass="text-danger" />
 				</div>
 				<div>
 					<label for="adminPassword">Password</label>
 					<div>
-						<form:input path="adminPassword" />
+						<form:input path="adminPassword" 
+						title='password must begin with letter and contain atleast one number and must have atleast 8 characters'
+						pattern="^(?=.*[A-Za-z])(?=.*\\d)(?=.*[@$!%*#?&])[A-Za-z\\d@$!%*#?&]{8,}$"
+						required="true"/>
 					</div>
+					<form:errors path="adminPassword" cssClass="text-danger" />
 				</div>
 				<div>
 					<form:button>Add New</form:button>

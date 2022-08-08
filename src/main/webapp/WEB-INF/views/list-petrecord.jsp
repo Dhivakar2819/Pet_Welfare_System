@@ -25,27 +25,30 @@
 					<th>Observe Date</th>
 					<th>Observation</th>
 					<th>Recover date</th>
-					<th>Price</th>
+					
 				</tr>
 			</thead>
 			<tbody>
 			<tr>
 				<c:forEach var="petrecords" items="${allpetrecords}">
-					
+				
 						<td>${petrecords.petId}</td>
 						<td id="id1">${petrecords.diseaseId}</td>
 						<td>${petrecords.dateObserv}</td>
 						<td>${petrecords.observation}</td>
 						<td>${petrecords.recoverDate}</td>
-						<td>
 						
-						<td id="summa"></td>
+				</c:forEach>	
+					
+				
+				<%-- <c:forEach var="diseasePrice" items="${diseasePrice}">
+					<td>${diseasePrice.price}</td>
 				</c:forEach>
-				<c:forEach var="diseasePrice" items="${diseasePrice}">
-					<td>${diseasePrice.Price}</td>
-				</c:forEach>
-				</tr>
+				</tr>  --%>
+				
 			</tbody>
+			<%-- <c:forEach var="total" items="${totalAmount}"></c:forEach>
+			<tr>${total}</tr> --%>
 		</table>
 	</div>
 </body>

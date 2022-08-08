@@ -2,9 +2,12 @@ package com.chainsys.petwelfaresystem.controller;
 
 import java.util.List;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -39,9 +42,13 @@ public class PetController {
 		return "add-pet-form";
 	}
 	@PostMapping("/addnewpet")
-	public String addNewPet(@ModelAttribute("addpet") Pet pet) {
+	public String addNewPet(@Valid @ModelAttribute("addpet") Pet pet,Errors error) {
+		if(error.hasErrors()) {
+			return "add-pet-form";
+		}
+		else {
 		petServices.save(pet);
-		return "redirect:/pet/petlist";
+		return "redirect:/pet/petlist";}
 	}
 	@GetMapping("/updateformpet")
 	public String showUpdatePet(@RequestParam("petid") int id, Model model ){
@@ -52,9 +59,14 @@ public class PetController {
 	}
 
 	@PostMapping("/updatepets")
-	public String UpdatePet(@ModelAttribute("updatepet") Pet pet) {
+	public String UpdatePet(@Valid @ModelAttribute("updatepet") Pet pet,Errors error) {
+		if(error.hasErrors()) {
+			return "update-pet-form";
+		}
+		else {
 		petServices.save(pet);
-		return "redirect:/usersdetail/getuserpet";
+		return "redirect:/usersdetail/getuserpet";	
+		}
 	}
 	@GetMapping("/deletepet")
 	public String deletePet(@RequestParam("petid") int id) {

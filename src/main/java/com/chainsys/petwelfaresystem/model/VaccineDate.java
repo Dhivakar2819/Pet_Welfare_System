@@ -11,6 +11,9 @@ import javax.persistence.IdClass;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
+
+import org.hibernate.validator.constraints.Range;
 
 import com.chainsys.petwelfaresystem.compositekey.VaccineDateCompositeKey;
 
@@ -20,9 +23,13 @@ import com.chainsys.petwelfaresystem.compositekey.VaccineDateCompositeKey;
 public class VaccineDate {
 	@Id
 	@Column(name="pet_id")
+	@NotNull
+	@Range(min=1,message="*Greater then zero")
 	private int petId;
 	@Id
 	@Column(name="vaccine_id")
+	@NotNull
+	@Range(min=1,message="*Greater then zero")
 	private int vaccineId;
 	@Column(name="vaccine_date")
 	private Date vaccineDate;

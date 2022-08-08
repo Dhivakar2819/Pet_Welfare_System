@@ -5,11 +5,12 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Optional;
 
-
+import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -39,21 +40,25 @@ public class PetRecordsController {
 
 	@GetMapping("/petrecordlist")
 	public String getFindAllPetRecord(Model model) {
-		List<PetRecords> listPetRecord = petRecordServices.getPetRecords();
-		List<Disease> lDiseaselist = diseaseServicesS.getDisease();
 		List<PetRecords> petRecordsList=petRecordServices.getPetRecords();
-		Iterator<PetRecords>itrpet=petRecordsList.iterator();
-		Iterator<Disease>itr=lDiseaselist.iterator();
-		List<Integer> diseasePrice=new ArrayList<>();
-		while(itr.hasNext()){
-			while(itrpet.hasNext()){
-			if(itr.next().getId()==itrpet.next().getDiseaseId()){
-				diseasePrice.add(itr.next().getPrice());
-			}
-			}
-		}
-		model.addAttribute("diseasePrice",diseasePrice);
-		model.addAttribute("allpetrecords", listPetRecord);
+		model.addAttribute("allpetrecords", petRecordsList);
+//		List<Disease> lDiseaselist = diseaseServicesS.getDisease();
+//		List<Integer> diseasePrice=new ArrayList<>();
+//		Iterator<PetRecords>itrpet=petRecordsList.iterator();
+//		Iterator<Disease>itr=lDiseaselist.iterator();
+//	
+//		float totalAmount=0;
+//		while(itrpet.hasNext()){
+//			while(itr.hasNext()){
+//			if(itr.next().getId()==itrpet.next().getDiseaseId()){
+//				diseasePrice.add(itr.next().getPrice());
+//				totalAmount+=itr.next().getPrice();
+//			}
+//			}
+//			itr=lDiseaselist.iterator();
+//		}
+//		model.addAttribute("totalAmount", totalAmount);
+		model.addAttribute("diseasePrice",petRecordsList);
 		return "list-petrecord";
 	}
 
@@ -66,9 +71,13 @@ public class PetRecordsController {
 	}
 
 	@PostMapping("/addnewpetrecord")
-	public String addNewPetRecords(@ModelAttribute("addpetrecord") PetRecords petRecord) {
+	public String addNewPetRecords(@Valid @ModelAttribute("addpetrecord") PetRecords petRecord,Errors error) {
+		if(error.hasErrors()) {
+			return "add-petrecord-form";
+		}
+		else {
 		petRecordServices.save(petRecord);
-		return "redirect:/petrecord/petrecordlist";
+		return "redirect:/petrecord/petrecordlist";}
 	}
 
 	@GetMapping("/updateformpetrecord")
@@ -81,9 +90,13 @@ public class PetRecordsController {
 	}
 
 	@PostMapping("/updatenewrecord")
-	public String UpdatePetRecords(@ModelAttribute("updatepetrecord") PetRecords petRecord) {
+	public String UpdatePetRecords(@Valid @ModelAttribute("updatepetrecord") PetRecords petRecord,Errors error) {
+		if(error.hasErrors()) {
+			return "update-petrecord-form";
+		}
+		else {
 		petRecordServices.save(petRecord);
-		return "redirect:/petrecord/petrecordlist";
+		return "redirect:/petrecord/petrecordlist";}
 	}
 
 	@GetMapping("/deletepetrecord")

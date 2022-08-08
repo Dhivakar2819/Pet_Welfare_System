@@ -2,9 +2,12 @@ package com.chainsys.petwelfaresystem.controller;
 
 import java.util.List;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -39,9 +42,14 @@ public class UsersDetailController {
 	}
 
 	@PostMapping("/adduser")
-	public String addNewUsersDetail(@ModelAttribute("adduserdetail") UsersDetail ud) {
+	public String addNewUsersDetail(@Valid @ModelAttribute("adduserdetail") UsersDetail ud, Errors errors) {
+		if(errors.hasErrors()) {
+			return "add-usersdetail-form";
+		}
+		else {
 		userDetailServices.save(ud);
 		return "redirect:/usersdetail/userloginpage";
+		}
 	}
 	
 	@GetMapping("/updateformuser")
@@ -52,9 +60,13 @@ public class UsersDetailController {
 	}
 
 	@PostMapping("/updateuser")
-	public String UpdateUsersDetail(@ModelAttribute("updateusersdetail") UsersDetail userDetail) {
+	public String UpdateUsersDetail(@Valid @ModelAttribute("updateusersdetail") UsersDetail userDetail ,Errors errors) {
+		if(errors.hasErrors()) {
+			return "update-usersdetail-form";
+		}
+		else {
 		userDetailServices.save(userDetail);
-		return "redirect:/usersdetail/userdetaillist";
+		return "redirect:/usersdetail/userdetaillist";}
 	}
 	
 	

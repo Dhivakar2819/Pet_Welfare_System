@@ -2,9 +2,12 @@ package com.chainsys.petwelfaresystem.controller;
 
 import java.util.List;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -41,9 +44,13 @@ public class VaccinesController {
 	}
 
 	@PostMapping("/addnewvaccine")
-	public String addNewVaccine(@ModelAttribute("addvaccine") Vaccines vac) {
+	public String addNewVaccine(@Valid @ModelAttribute("addvaccine") Vaccines vac,Errors error) {
+		if(error.hasErrors()) {
+			return "add-vaccine-form";
+		}
+		else {
 		vaccineServices.save(vac);
-		return "redirect:/vaccine/vaccinelist";
+		return "redirect:/vaccine/vaccinelist";}
 	}
 
 	@GetMapping("/updateformvaccine")
@@ -54,9 +61,12 @@ public class VaccinesController {
 	}
 
 	@PostMapping("/updatevaccines")
-	public String UpdateVaccines(@ModelAttribute("updatevaccine") Vaccines vac) {
+	public String UpdateVaccines(@Valid @ModelAttribute("updatevaccine") Vaccines vac,Errors error) {
+		if(error.hasErrors()) {
+			return "update-vaccine-form";
+		}else {
 		vaccineServices.save(vac);
-		return "redirect:/vaccine/vaccinelist";
+		return "redirect:/vaccine/vaccinelist";}
 	}
 
 	@GetMapping("/deletevaccine")
