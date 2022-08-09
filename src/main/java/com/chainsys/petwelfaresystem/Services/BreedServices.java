@@ -31,7 +31,6 @@ public class BreedServices {
 
 		return breedRepository.findById(id);
 	}
-	@Transactional
 	public void deleteById(int id) {
 		breedRepository.deleteById(id);
 	}

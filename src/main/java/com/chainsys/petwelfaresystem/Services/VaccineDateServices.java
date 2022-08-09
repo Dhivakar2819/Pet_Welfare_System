@@ -28,8 +28,10 @@ public class VaccineDateServices {
 
 		return vaccineDateRepository.findById(id);
 	}
-	@Transactional
 	public void deleteById(VaccineDateCompositeKey id) {
 		vaccineDateRepository.deleteById(id);
 	}
+	public List<VaccineDate> getAllVaccineDate() {
+        return vaccineDateRepository.findAll();
+    }
 }

@@ -26,10 +26,8 @@ public class Disease {
 	@Range(min=1,message="*Greater then zero")
 	private int  id;
 	@Column(name="disease_name")
-	@Size(max = 20, min = 3, message = "*Disease name length should be 3 to 20")
 	@NotBlank(message = "*Disease name can't be Empty")
 	private String diseaseName;
-	@Size(max = 20, min = 3, message = "*Medicine length should be 3 to 20")
 	@NotBlank(message = "*Medicine can't be Empty")
 	private String medicine;
 	@NotNull

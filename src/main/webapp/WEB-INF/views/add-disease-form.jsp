@@ -13,26 +13,28 @@
     font-size: 0.9em;
 }
 body {
-  /* background-image: url("https://img.freepik.com/premium-photo/group-pets-posing-around-border-collie-dog-cat-ferret-rabbit-bird-fish-rodent_191971-22249.jpg?w=826" ); */
   background-image: url("https://img.freepik.com/free-vector/cute-pets-illustration_53876-112522.jpg?w=2000"); 
   background-height: 786px;
   background-width: 1366px;
 	background-attachment: fixed;
   background-size: cover;
 }
-table,th, td {
-  table, th, td {
-  border: 1px solid black;
-  border-collapse: collapse;
-}
-
-}
-th {
+table             { 
+  border-spacing: 1; 
+  border-collapse: collapse; 
+  background:white;
+  border-radius:6px;
+  overflow:hidden;
+  max-width:1000px; 
+  width:100%;
+  margin:0 auto;
+  position:relative;
+  front-size:15px;
+  padding:15px;
+  }
+  th {
   background-color: #04AA6D;
   color: white;
-}
-td{
-	backgoung-colour: #c4f5dc;
 }
 </style>
 </head>
@@ -54,7 +56,7 @@ td{
 					<div>
 						<form:input path="diseaseName" 
 						title="Name can't be empty And must be in String"
-						pattern="^[A-Za-z]\\w{3,20}$" required="true"/>
+						 required="true"/>
 					</div>
 					<form:errors path="diseaseName" cssClass="text-danger" />
 				</div>
@@ -63,7 +65,7 @@ td{
 					<div>
 						<form:input path="medicine" 
 						title="Name can't be empty And must be in String"
-						pattern="^[A-Za-z]\\w{3,20}$" required="true"/>
+						 required="true"/>
 						
 					</div>
 					<form:errors path="medicine" cssClass="text-danger" />
@@ -77,7 +79,7 @@ td{
 					</div>
 					<form:errors path="price" cssClass="text-danger" />
 				</div>
-				<div>
+				<div align="center">
 					<form:button>Add New</form:button>
 				</div>
 			</form:form>

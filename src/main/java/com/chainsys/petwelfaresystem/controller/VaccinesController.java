@@ -50,7 +50,7 @@ public class VaccinesController {
 		}
 		else {
 		vaccineServices.save(vac);
-		return "redirect:/vaccine/vaccinelist";}
+		return "redirect:/vaccine/adminvaccinelist";}
 	}
 
 	@GetMapping("/updateformvaccine")
@@ -66,7 +66,7 @@ public class VaccinesController {
 			return "update-vaccine-form";
 		}else {
 		vaccineServices.save(vac);
-		return "redirect:/vaccine/vaccinelist";}
+		return "redirect:/vaccine/adminvaccinelist";}
 	}
 
 	@GetMapping("/deletevaccine")

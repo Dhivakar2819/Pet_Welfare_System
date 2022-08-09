@@ -37,7 +37,6 @@ public class PetServices {
 
 		return petRepository.findById(id);
 	}
-	@Transactional
 	public void deleteById(int id) {
 		petRepository.deleteById(id);
 	}

@@ -34,30 +34,12 @@ public class PetRecordsController {
 	@Autowired
 	PetServices petServices;
 	@Autowired
-	DiseaseServices diseaseServicesS;
-	@Autowired
-	DiseaseRepositroy diseaseRepository;
+	DiseaseServices diseaseServices;
 
 	@GetMapping("/petrecordlist")
 	public String getFindAllPetRecord(Model model) {
 		List<PetRecords> petRecordsList=petRecordServices.getPetRecords();
 		model.addAttribute("allpetrecords", petRecordsList);
-//		List<Disease> lDiseaselist = diseaseServicesS.getDisease();
-//		List<Integer> diseasePrice=new ArrayList<>();
-//		Iterator<PetRecords>itrpet=petRecordsList.iterator();
-//		Iterator<Disease>itr=lDiseaselist.iterator();
-//	
-//		float totalAmount=0;
-//		while(itrpet.hasNext()){
-//			while(itr.hasNext()){
-//			if(itr.next().getId()==itrpet.next().getDiseaseId()){
-//				diseasePrice.add(itr.next().getPrice());
-//				totalAmount+=itr.next().getPrice();
-//			}
-//			}
-//			itr=lDiseaselist.iterator();
-//		}
-//		model.addAttribute("totalAmount", totalAmount);
 		model.addAttribute("diseasePrice",petRecordsList);
 		return "list-petrecord";
 	}
@@ -65,7 +47,7 @@ public class PetRecordsController {
 	@GetMapping("/addformpetrecord")
 	public String showAddPetRecord(Model model) {
 		PetRecords petRecord = new PetRecords();
-		model.addAttribute("disease", diseaseRepository.findAll());
+		model.addAttribute("disease", diseaseServices.getAllDisease());
 		model.addAttribute("addpetrecord", petRecord);
 		return "add-petrecord-form";
 	}
@@ -83,7 +65,7 @@ public class PetRecordsController {
 	@GetMapping("/updateformpetrecord")
 	public String showUpdatePetRecord(@RequestParam("prid") int id, @RequestParam("diseaseid") int disid, Model model) {
 		PetRecordsCompositeKey petRecordsCompositeKey = new PetRecordsCompositeKey(id, disid);
-		model.addAttribute("disease", diseaseRepository.findAll());
+		model.addAttribute("disease", diseaseServices.getAllDisease());
 		Optional<PetRecords> petRecord = petRecordServices.findById(petRecordsCompositeKey);
 		model.addAttribute("updatepetrecord", petRecord);
 		return "update-petrecord-form";
@@ -115,10 +97,11 @@ public class PetRecordsController {
 	}
 
 	@GetMapping("/getpetidinpetrecords")
-	public String GetPetInPetRecords(@RequestParam("id") int id, Model model) {
+	public String getPetInPetRecords(@RequestParam("id") int id, Model model) {
 		PetPetRecordsDto dto = petServices.getPetPetRecordsDto(id);
 		model.addAttribute("getpet", dto.getPet());
 		model.addAttribute("petrecordslist", dto.getPetRecord());
+		
 		return "pet-petrecords";
 	}
 

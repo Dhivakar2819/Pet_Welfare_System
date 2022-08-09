@@ -36,7 +36,6 @@
 					<th>Observe Date</th>
 					<th>Observation</th>
 					<th>Recover date</th>
-					<th>disease</th>
 					<th>Update</th>
 					<th>Delete</th>
 				</tr>
@@ -49,6 +48,7 @@
 						<td>${petrecords.dateObserv}</td>
 						<td>${petrecords.observation}</td>
 						<td>${petrecords.recoverDate}</td>
+						
 						<td><a href="/disease/getdisease?disid=${petrecords.diseaseId}">Disease Detail</a></td>
 						<td><a href="/petrecord/updateformpetrecord?prid=${petrecords.petId}&diseaseid=${petrecords.diseaseId}">Update</a></td>
 						<td><a href="/petrecord/deletepetrecord?prid=${petrecords.petId}&diseaseid=${petrecords.diseaseId}">Delete</a></td>

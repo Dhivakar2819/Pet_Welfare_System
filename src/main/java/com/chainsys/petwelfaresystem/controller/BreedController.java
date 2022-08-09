@@ -30,7 +30,7 @@ public class BreedController {
 	@GetMapping("/adminbreedlist")
 	public String getFindAllAdmin(Model model) {
 		List<Breed> listBreed=breedServices.getBreed();
-		model.addAttribute("allbreed",listBreed);
+		model.addAttribute("allbreeds",listBreed);
 		return "admin-list-breed";
 	}
 	@GetMapping("/addbreed")
@@ -43,7 +43,7 @@ public class BreedController {
 	@PostMapping("/addbreed")
 	public String addNewBreed(@ModelAttribute("addbreeds") Breed breed) {
 		breedServices.save(breed);
-		return "redirect:/breed/breedlist";
+		return "redirect:/breed/adminbreedlist";
 	}
 	
 	@GetMapping("/updatebreed")

@@ -14,6 +14,36 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Pet Record List</title>
+<style>
+.text-danger {
+    color: #e80c4d;
+    font-size: 0.9em;
+}
+body {
+  background-image: url("https://img.freepik.com/free-vector/cute-pets-illustration_53876-112522.jpg?w=2000"); 
+  background-height: 786px;
+  background-width: 1366px;
+	background-attachment: fixed;
+  background-size: cover;
+}
+table             { 
+  border-spacing: 1; 
+  border-collapse: collapse; 
+  background:white;
+  border-radius:6px;
+  overflow:hidden;
+  max-width:1000px; 
+  width:100%;
+  margin:0 auto;
+  position:relative;
+  front-size:15px;
+  padding:15px;
+  }
+  th {
+  background-color: #04AA6D;
+  color: white;
+}
+</style>
 </head>
 <body>
 	<div id="table root">
@@ -29,26 +59,17 @@
 				</tr>
 			</thead>
 			<tbody>
-			<tr>
+			
 				<c:forEach var="petrecords" items="${allpetrecords}">
-				
+				<tr>
 						<td>${petrecords.petId}</td>
-						<td id="id1">${petrecords.diseaseId}</td>
+						<td>${petrecords.diseaseId}</td>
 						<td>${petrecords.dateObserv}</td>
 						<td>${petrecords.observation}</td>
 						<td>${petrecords.recoverDate}</td>
-						
+						<tr>
 				</c:forEach>	
-					
-				
-				<%-- <c:forEach var="diseasePrice" items="${diseasePrice}">
-					<td>${diseasePrice.price}</td>
-				</c:forEach>
-				</tr>  --%>
-				
 			</tbody>
-			<%-- <c:forEach var="total" items="${totalAmount}"></c:forEach>
-			<tr>${total}</tr> --%>
 		</table>
 	</div>
 </body>

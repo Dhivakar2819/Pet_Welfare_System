@@ -98,7 +98,7 @@ public class AdminDetailController {
     }
 	@GetMapping("/index")
 	public String getIndex(Model model) {
-		model.addAttribute("buttom");
+//		model.addAttribute("buttom");
 		return "admin-index";
 	}
 }

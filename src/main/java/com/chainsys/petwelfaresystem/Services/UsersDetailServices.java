@@ -32,7 +32,6 @@ public class UsersDetailServices {
 
 		return usersDetailRepository.findById(id);
 	}
-	@Transactional
 	public void deleteById(int id) {
 		usersDetailRepository.deleteById(id);
 	}
@@ -50,18 +49,8 @@ public class UsersDetailServices {
 		}
 		return dto;
 	}
-	//public void addDPetAndBreed(PetBreedDTO dto) {
-//		Breed br=dto.getBreed();
-//		save(br);
-//		List<Pet>petlist=dto.getPetlist();
-//		int count=petlist.size();
-//		for(int i=0;i<count;i++) {
-//			petr.save(petlist.get(i));
-//		}
-//	}
 	public void addUserByPet(int id) {
 		UsersDetail usersDetail=findById(id);
-//		save(usersDetail);
 		UsersDetailPetDTO dto=new UsersDetailPetDTO();
 		dto.setUsersdetail(usersDetail);
 		List<Pet>pet=dto.getPetlist();

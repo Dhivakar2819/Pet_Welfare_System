@@ -30,25 +30,17 @@ public class Pet {
 	@NotNull
 	@Range(min=1,message="*Greater then zero")
 	private int userId;
-	@Column(name="breed_id") //fk
-//	@NotNull
-//	@Range(min=1,message="*Greater then zero")
+	@Column(name="breed_id") 
 	private int breedId;
 	@Column(name="pet_type")
-	@Size(max = 20, min = 3, message = "*Name length should be 3 to 20")
 	@NotBlank(message = "*Name can't be Empty")
-	@Pattern(regexp = "^[A-Za-z]\\w{3,20}$", message = "*Enter valid breed type ")
 	private String petType;
 	@Column(name="pet_name")
-	@Size(max = 20, min = 3, message = "*Name length should be 3 to 20")
 	@NotBlank(message = "*Name can't be Empty")
-	@Pattern(regexp = "^[A-Za-z]\\w{3,20}$", message = "*Enter valid breed type ")
 	private String petName;
-	@NotNull(message="Not in date format")
+	@Column(name="dob")
 	private Date dob;
-	@Size(max = 6, min = 3, message = "*Name length should be 3 to 6")
 	@NotBlank(message = "*Gender can't be Empty")
-	@Pattern(regexp = "^[A-Za-z]\\w{3,20}$", message = "*Enter valid Gender ")
 	private String gender;
 	@Column(name="date_of_ownership")
 	private Date dateofOwnership;

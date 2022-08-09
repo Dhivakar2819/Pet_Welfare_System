@@ -28,7 +28,6 @@ public class PetRecordServices {
 
 		return petRecordRepository.findById(id);
 	}
-	@Transactional
 	public void deleteById(PetRecordsCompositeKey id) {
 		petRecordRepository.deleteById(id);
 	}

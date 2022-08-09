@@ -46,6 +46,7 @@
 						<td>${disease.diseaseName}</td>
 						<td>${disease.medicine}</td>
 						<td>${disease.price}</td>
+						
 					</tr>
 				</c:forEach>
 			</tbody>

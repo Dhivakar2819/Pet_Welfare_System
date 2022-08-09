@@ -16,13 +16,26 @@ body {
   background-image: url("https://img.freepik.com/free-vector/cute-pets-illustration_53876-112522.jpg?w=2000"); 
   background-height: 786px;
   background-width: 1366px;
-  background-attachment: fixed;
+	background-attachment: fixed;
   background-size: cover;
 }
-
-
+table             { 
+  border-spacing: 1; 
+  border-collapse: collapse; 
+  background:white;
+  border-radius:6px;
+  overflow:hidden;
+  max-width:1000px; 
+  width:100%;
+  margin:0 auto;
+  position:relative;
+  front-size:15px;
+  padding:15px;
+  }
+  th {
+  background-color: #04AA6D;
+  color: white;
 }
-
 </style>
 </head>
 <body>
@@ -43,7 +56,7 @@ body {
 					<div>
 						<form:input path="userName" 
 						title="Name can't be empty And User Name must be in String"
-						pattern="^[A-Za-z]\\w{3,20}$" required="true"/>
+						 required="true"/>
 					</div>
 					<form:errors path="userName" cssClass="text-danger" />
 				</div>

@@ -26,7 +26,6 @@ public class AdminDetailServices {
 
 		return adminDetailRepository.findById(id);
 	}
-	@Transactional
 	public void deleteById(int id) {
 		adminDetailRepository.deleteById(id);
 	}

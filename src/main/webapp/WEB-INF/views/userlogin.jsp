@@ -7,12 +7,23 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Login</title>
+<style>
+html {
+  background-color: #56baed;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  height: 100vh;
+}
+</style>
 </head>
 <body >
 	<div id="root">
 		<div id="form" align="center">
 			<form:form action="userlogin" method="post"
 				modelAttribute="loginform">
+				<table>
 				<h1 align="center">User Login</h1>
 				
 					<table>
@@ -33,6 +44,7 @@
 							<a href="/usersdetail/addformuser">Sign Up</a>
 						</form:button></td></tr>
 					</div>
+					</table>
 			</form:form>
 
 		</div>

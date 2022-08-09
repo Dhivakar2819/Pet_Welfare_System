@@ -28,16 +28,13 @@ public class UsersDetail {
 	@Range(min=1,message="*Greater then zero")
 	private int userId;
 	@Column(name="user_name")
-	@Size(max = 20, min = 3, message = "*Name length should be 3 to 20")
 	@NotBlank(message = "*Name can't be Empty")
-	@Pattern(regexp = "^[A-Za-z]\\w{3,20}$", message = "*Enter valid name ")
 	private String userName;
 	@Column(name="e_mail")
 	@Email(message = "*mail id is not in correct format")
 	@NotEmpty(message = "*Please enter email")
 	private String email;
 	@Column(name="password")
-	@Size(max = 20, min = 8, message = "*Minimum eight characters ")
 	@NotBlank(message = "*Password can't be Empty")
 	@Pattern(regexp = "^(?=.*[A-Za-z])(?=.*\\d)(?=.*[@$!%*#?&])[A-Za-z\\d@$!%*#?&]{8,}$", message = "*at least one letter, one number and one special character ")
 	private String password;

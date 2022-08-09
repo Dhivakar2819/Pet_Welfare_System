@@ -42,7 +42,7 @@ public class PetController {
 		return "add-pet-form";
 	}
 	@PostMapping("/addnewpet")
-	public String addNewPet(@Valid @ModelAttribute("addpet") Pet pet,Errors error) {
+	public String addNewPet(@Valid@ModelAttribute("addpet") Pet pet,Errors error) {
 		if(error.hasErrors()) {
 			return "add-pet-form";
 		}
@@ -59,13 +59,13 @@ public class PetController {
 	}
 
 	@PostMapping("/updatepets")
-	public String UpdatePet(@Valid @ModelAttribute("updatepet") Pet pet,Errors error) {
+	public String UpdatePet(@Valid@ModelAttribute("updatepet") Pet pet,Errors error) {
 		if(error.hasErrors()) {
 			return "update-pet-form";
 		}
 		else {
 		petServices.save(pet);
-		return "redirect:/usersdetail/getuserpet";	
+		return "redirect:/pet/petlist";	
 		}
 	}
 	@GetMapping("/deletepet")

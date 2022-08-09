@@ -32,10 +32,12 @@ public class DiseaseServices {
 
 		return diseaseRepository.findById(id);
 	}
-	@Transactional
 	public void deleteById(int id) {
 		diseaseRepository.deleteById(id);
 	}
+	public List<Disease> getAllDisease() {
+        return diseaseRepository.findAll();
+    }
 	public PetRecordDiseaseDto getPetRecordDiseaseDto(int id) {
 		Disease disease=findById(id);
 		PetRecordDiseaseDto dto=new PetRecordDiseaseDto();

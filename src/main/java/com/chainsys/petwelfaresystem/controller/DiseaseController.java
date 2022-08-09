@@ -50,7 +50,7 @@ public class DiseaseController {
 		}
 		else {
 		diseaseService.save(disease);
-		return "redirect:/disease/diseaselist";}
+		return "redirect:/disease/admindiseaselist";}
 	}
 	
 	@GetMapping("/updateformdisease")
@@ -67,7 +67,7 @@ public class DiseaseController {
 		}
 		else {
 		diseaseService.save(disease);
-		return "redirect:/disease/diseaselist";}
+		return "redirect:/disease/admindiseaselist";}
 	}
 	
 	

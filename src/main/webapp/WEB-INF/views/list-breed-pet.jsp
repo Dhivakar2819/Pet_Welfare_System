@@ -7,6 +7,36 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Find by Id</title>
+<style>
+.text-danger {
+    color: #e80c4d;
+    font-size: 0.9em;
+}
+body {
+  background-image: url("https://img.freepik.com/free-vector/cute-pets-illustration_53876-112522.jpg?w=2000"); 
+  background-height: 786px;
+  background-width: 1366px;
+	background-attachment: fixed;
+  background-size: cover;
+}
+table             { 
+  border-spacing: 1; 
+  border-collapse: collapse; 
+  background:white;
+  border-radius:6px;
+  overflow:hidden;
+  max-width:1000px; 
+  width:100%;
+  margin:0 auto;
+  position:relative;
+  front-size:15px;
+  padding:15px;
+  }
+  th {
+  background-color: #04AA6D;
+  color: white;
+}
+</style>
 </head>
 <body>
 <div id="root">
@@ -30,9 +60,9 @@
 		<table>
 			<thead>
 				<tr>
-					<th>Pet Id</th>
+					<!-- <th>Pet Id</th>
 					<th>User Id</th>
-					<th>Breed Id</th>
+					<th>Breed Id</th> -->
 					<th>Pet Type</th>
 					<th>Pet Name</th>
 					<th>Date of Birth</th>
@@ -43,9 +73,9 @@
 			<tbody>
 				<c:forEach var="pet" items="${petlist}">
 					<tr>
-						<td>${pet.id}</td>
+						<%-- <td>${pet.id}</td>
 						<td>${pet.userId}</td>
-						<td>${pet.breedId}</td>
+						<td>${pet.breedId}</td> --%>
 						<td>${pet.petType}</td>
 						<td>${pet.petName}</td>
 						<td>${pet.dob}</td>

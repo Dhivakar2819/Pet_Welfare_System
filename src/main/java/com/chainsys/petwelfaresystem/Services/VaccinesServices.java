@@ -32,10 +32,12 @@ public class VaccinesServices {
 
 		return vaccineRepository.findById(id);
 	}
-	@Transactional
 	public void deleteById(int id) {
 		vaccineRepository.deleteById(id);
 	}
+	public List<Vaccines> getAllVaccines() {
+        return vaccineRepository.findAll();
+    }
 	public VaccinesVaccineDateDto getVaccineAndVaccineDate(int id) {
 		Vaccines vaccines=findById(id);
 		VaccinesVaccineDateDto dto=new VaccinesVaccineDateDto();
