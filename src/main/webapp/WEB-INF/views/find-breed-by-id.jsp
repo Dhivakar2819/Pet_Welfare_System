@@ -42,12 +42,6 @@ table             {
 		<div id="form">
 			<form:form action="" method="post" modelAttribute="findbreedbyid">
 				<div>
-					<label for="id">Breed id</label>
-					<div>
-						<form:input path="id" readonly="true" />
-					</div>
-				</div>
-				<div>
 					<label for="breedType">Breed Type</label>
 					<div>
 						<form:input path="breedType" readonly="true" />

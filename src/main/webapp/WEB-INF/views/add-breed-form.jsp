@@ -42,24 +42,17 @@ table             {
 		<div id="form">
 			<form:form action="addbreed" method="post" modelAttribute="addbreeds">
 				<div>
-					<label for="id">Breed id</label>
-					<div>
-						<form:input path="id" title="Id must be number" 
-						pattern="^[0-9]+$"  required="true" />
-					</div>
-					<form:errors path="id" cssClass="text-danger" />
-				</div>
-				<div>
 					<label for="breedType">Breed Type</label>
 					<div>
 						<form:input path="breedType" 
-						title="Breed type can't be empty And must be in String"
-						 required="true"/>
+						title="Breed type can't be empty"
+						 required="true" placeholder="Enter the breed type"/>
 					</div>
 					<form:errors path="breedType" cssClass="text-danger" />
 				</div>
+				<br>
 				<div>
-					<form:button>Add New</form:button>
+					<form:button>Add Breed</form:button>
 				</div>
 			</form:form>
 		</div>

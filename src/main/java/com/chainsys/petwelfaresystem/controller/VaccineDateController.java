@@ -16,11 +16,11 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import com.chainsys.petwelfaresystem.Services.VaccineDateServices;
-import com.chainsys.petwelfaresystem.Services.VaccinesServices;
 import com.chainsys.petwelfaresystem.compositekey.VaccineDateCompositeKey;
 import com.chainsys.petwelfaresystem.model.VaccineDate;
 import com.chainsys.petwelfaresystem.repository.VaccineRepository;
+import com.chainsys.petwelfaresystem.services.VaccineDateServices;
+import com.chainsys.petwelfaresystem.services.VaccinesServices;
 
 @Controller
 @RequestMapping("/vaccinedate")
@@ -65,7 +65,7 @@ public class VaccineDateController {
 	}
 
 	@PostMapping("/updatenewvaccinedate")
-	public String UpdateVaccineDate(@Valid @ModelAttribute("updatevdate") VaccineDate vaccineDate,Errors error) {
+	public String updateVaccineDate(@Valid @ModelAttribute("updatevdate") VaccineDate vaccineDate,Errors error) {
 		if(error.hasErrors()) {
 			return "update-vaccinedate-form";
 		}

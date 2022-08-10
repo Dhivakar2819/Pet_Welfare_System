@@ -40,22 +40,22 @@ table             {
 </head>
 <body>
 	<div id="table root">
-		<table>
+		<table align="center">
 			<thead>
 				<tr align="center">
-					<th>User Id</th>
 					<th>User Name</th>
 					<th>E Mail</th>
-					
+					<th>Phone no</th>
+					<th>Address</th>
 				</tr>
 			</thead>
 			<tbody>
 				<c:forEach var="usersdetail" items="${alluserdetail}">
 					<tr align="center">
-						<td>${usersdetail.userId}</td>
 						<td>${usersdetail.userName}</td>
 						<td>${usersdetail.email}</td>
-						
+						<td>${usersdetail.phoneNo}</td>
+						<td>${usersdetail.address}</td>
 					</tr>
 				</c:forEach>
 			</tbody>

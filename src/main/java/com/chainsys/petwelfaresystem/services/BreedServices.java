@@ -1,11 +1,10 @@
-package com.chainsys.petwelfaresystem.Services;
+package com.chainsys.petwelfaresystem.services;
 
 import java.util.Iterator;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 
 import com.chainsys.petwelfaresystem.dto.PetBreedDTO;
 import com.chainsys.petwelfaresystem.model.Breed;
@@ -20,8 +19,7 @@ public class BreedServices {
 	private PetRepository petRepository;
 	
 	public List<Breed> getBreed(){
-		List<Breed> listbreed=breedRepository.findAll();
-		return listbreed;
+		return breedRepository.findAll();
 	}
 	public Breed save(Breed breed) {
 		return breedRepository.save(breed);
@@ -34,10 +32,9 @@ public class BreedServices {
 	public void deleteById(int id) {
 		breedRepository.deleteById(id);
 	}
-//	public  List<Breed> findAll(){
-//		List<Breed>breed=breedServices.findAll();
-//		return breed;
-//	}
+	public List<Breed> getAllBreed() {
+        return breedRepository.findAll();
+    }
 	public PetBreedDTO getPetAndBreed(int id) {
 		Breed breed= findById(id);
 		PetBreedDTO dto=new PetBreedDTO();
@@ -45,18 +42,8 @@ public class BreedServices {
 		List<Pet> pet= petRepository.findByBreedId(id);
 		Iterator<Pet> itr=pet.iterator();
 		while(itr.hasNext()) {
-			dto.addPet((Pet) itr.next());
+			dto.addPet(itr.next());
 		}
 		return dto;
 	}
-//	@Transactional
-//	public void addDPetAndBreed(PetBreedDTO dto) {
-//		Breed br=dto.getBreed();
-//		save(br);
-//		List<Pet>petlist=dto.getPetlist();
-//		int count=petlist.size();
-//		for(int i=0;i<count;i++) {
-//			petr.save(petlist.get(i));
-//		}
-//	}
 }

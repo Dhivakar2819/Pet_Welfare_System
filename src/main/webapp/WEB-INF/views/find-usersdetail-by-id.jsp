@@ -64,6 +64,20 @@ table             {
 					<div>
 						<form:input path="password" readonly="true" />
 					</div>
+					<div>
+					<label for="phoneNo">Phone no</label>
+					<div>
+						<form:input path="phoneNo" 
+						 required="true" />
+					</div>
+				</div>
+				<div>
+					<label for="address">Address</label>
+					<div>
+						<form:input path="address" 
+						 required="true" />
+					</div>
+				</div>
 				</div>
 				
 			</form:form>

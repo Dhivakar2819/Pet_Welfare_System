@@ -79,7 +79,7 @@ table             {
 					<th>Recover date</th>
 				</tr>
 			</thead>
-			<tbody>
+			<tbody align="center">
 				<c:forEach var="petrecords" items="${diseaselist}">
 					<tr>
 						<td>${petrecords.petId}</td>

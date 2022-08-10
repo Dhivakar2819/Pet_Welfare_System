@@ -40,17 +40,15 @@ table             {
 </head>
 <body>
 	<div id="table root">
-		<table>
+		<table align="center">
 			<thead>
 				<tr>
-					<th>Admin Id</th>
 					<th>Admin Name</th>
 				</tr>
 			</thead>
-			<tbody>
+			<tbody align="center">
 				<c:forEach var="admin" items="${alladmin}">
 					<tr>
-						<td>${admin.adminId}</td>
 						<td>${admin.adminName}</td>
 					</tr>
 				</c:forEach>

@@ -5,10 +5,13 @@ import java.util.List;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
@@ -26,6 +29,8 @@ public class UsersDetail {
 	@Column(name="user_id")
 	@NotNull
 	@Range(min=1,message="*Greater then zero")
+	@GeneratedValue(strategy = GenerationType.AUTO, generator = "user_id")
+    @SequenceGenerator(name = "user_id", sequenceName = "user_id",  allocationSize = 1)
 	private int userId;
 	@Column(name="user_name")
 	@NotBlank(message = "*Name can't be Empty")
@@ -36,8 +41,12 @@ public class UsersDetail {
 	private String email;
 	@Column(name="password")
 	@NotBlank(message = "*Password can't be Empty")
-	@Pattern(regexp = "^(?=.*[A-Za-z])(?=.*\\d)(?=.*[@$!%*#?&])[A-Za-z\\d@$!%*#?&]{8,}$", message = "*at least one letter, one number and one special character ")
 	private String password;
+	@Column(name="phone_no")
+	private long phoneNo;
+	@Column(name="address")
+	@NotBlank
+	private String address;
 	
 	@OneToMany(mappedBy="usersdetail",fetch=FetchType.LAZY)
 	private List<Pet> pet;
@@ -71,6 +80,18 @@ public class UsersDetail {
 	}
 	public void setPassword(String password) {
 		this.password = password;
+	}
+	public long getPhoneNo() {
+		return phoneNo;
+	}
+	public void setPhoneNo(long phoneNo) {
+		this.phoneNo = phoneNo;
+	}
+	public String getAddress() {
+		return address;
+	}
+	public void setAddress(String address) {
+		this.address = address;
 	}
 	
 	

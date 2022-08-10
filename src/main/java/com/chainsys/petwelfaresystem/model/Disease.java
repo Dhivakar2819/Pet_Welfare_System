@@ -5,11 +5,14 @@ import java.util.List;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
@@ -24,6 +27,8 @@ public class Disease {
 	@Column(name="disease_id")
 	@NotNull
 	@Range(min=1,message="*Greater then zero")
+	@GeneratedValue(strategy = GenerationType.AUTO, generator = "disease_id")
+    @SequenceGenerator(name = "disease_id", sequenceName = "disease_id",  allocationSize = 1)
 	private int  id;
 	@Column(name="disease_name")
 	@NotBlank(message = "*Disease name can't be Empty")

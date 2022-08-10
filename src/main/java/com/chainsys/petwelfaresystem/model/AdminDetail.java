@@ -2,7 +2,10 @@ package com.chainsys.petwelfaresystem.model;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
@@ -17,6 +20,8 @@ public class AdminDetail {
 	@Column(name="admin_id")
 	@NotNull
 	@Range(min=1,message="*Greater then zero")
+	@GeneratedValue(strategy = GenerationType.AUTO, generator = "admin_id")
+    @SequenceGenerator(name = "admin_id", sequenceName = "admin_id",  allocationSize = 1)
 	private int adminId;
 	@Column(name="admin_name")
 	@Size(max = 20, min = 3, message = "*Name length should be 3 to 20")

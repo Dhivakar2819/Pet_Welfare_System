@@ -48,29 +48,29 @@ table             {
 						<form:input path="petId" 
 						title="Id must be number" 
 						pattern="^[0-9]+$"
-						 required="true" />/>
+						 required="true" />
 					</div>
 					<form:errors path="petId" cssClass="text-danger" />
 				</div>
 				<div>
-				<label for="vaccineId">Vaccine Id : </label></div> <form:select
+				<label for="vaccineId">Vaccine Name </label> <form:select
                                 path="vaccineId">
                                 <c:forEach var="vaccine" items="${vaccine}">
                                     <form:option value="${vaccine.vaccineId}"
                                         label="${vaccine.vaccineName}" />
                                 </c:forEach>
-                                </form:select></div>
+                                </form:select>
                                 <form:errors path="vaccineId" cssClass="text-danger" />
                                 </div>
 				<div>
-					<label for="vaccineDate">Vaccine Date</label>
+					<label for="vaccinationDate">Vaccine Date</label>
 					<div>
-						<form:input path="vaccineDate" type="date" />
+						<form:input path="vaccinationDate" type="date" />
 					</div>
-					<form:errors path="vaccineDate" cssClass="text-danger" required="required"/>
-				</div>
+					<form:errors path="vaccinationDate" cssClass="text-danger" required="required"/>
+				</div><br>
 				<div>
-					<form:button>Add New</form:button>
+					<form:button>Add New Vaccine Date</form:button>
 				</div>
 			</form:form>
 		</div>

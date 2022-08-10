@@ -40,18 +40,16 @@ table             {
 </head>
 <body >
 	<div id="table root" align="center">
-		<table>
+		<table align="center">
 			<thead>
 				<tr>
-					<th>Vaccine Id</th>
 					<th>Vaccine Name</th>
 					<th>Update</th>
 				</tr>
 			</thead>
 			<tbody>
 				<c:forEach var="vaccine" items="${allvaccine}">
-					<tr>
-						<td>${vaccine.vaccineId}</td>
+					<tr align="center">
 						<td>${vaccine.vaccineName}</td>
 						<td><a href="/vaccine/updateformvaccine?vacid=${vaccine.vaccineId}">Update</a></td>
 					</tr>

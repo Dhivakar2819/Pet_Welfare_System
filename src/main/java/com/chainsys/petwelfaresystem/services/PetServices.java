@@ -1,4 +1,4 @@
-package com.chainsys.petwelfaresystem.Services;
+package com.chainsys.petwelfaresystem.services;
 
 import java.util.Iterator;
 import java.util.List;
@@ -10,6 +10,7 @@ import org.springframework.transaction.annotation.Transactional;
 import com.chainsys.petwelfaresystem.compositekey.VaccineDateCompositeKey;
 import com.chainsys.petwelfaresystem.dto.PetPetRecordsDto;
 import com.chainsys.petwelfaresystem.dto.PetVaccineDto;
+import com.chainsys.petwelfaresystem.model.Breed;
 import com.chainsys.petwelfaresystem.model.Pet;
 import com.chainsys.petwelfaresystem.model.PetRecords;
 import com.chainsys.petwelfaresystem.model.VaccineDate;
@@ -26,8 +27,7 @@ public class PetServices {
 	@Autowired
 	private PetRecordRepository petRecordRepository;
 	public List<Pet> getPet(){
-		List<Pet> listpet=petRepository.findAll();
-		return listpet;
+		return petRepository.findAll();
 	}
 	public Pet save(Pet pet) {
 		return petRepository.save(pet);
@@ -40,6 +40,9 @@ public class PetServices {
 	public void deleteById(int id) {
 		petRepository.deleteById(id);
 	}
+	public List<Pet> findAllPet() {
+        return petRepository.findAll();
+    }
 	public PetVaccineDto getPetAndVaccine(int id) {
 		Pet pet=findById(id);
 		PetVaccineDto dto=new PetVaccineDto();
@@ -47,7 +50,7 @@ public class PetServices {
 		List<VaccineDate> vaccineDate=vaccineDateRepository.findByPetId(id);
 		Iterator<VaccineDate> itr=vaccineDate.iterator();
 		while(itr.hasNext()) {
-			dto.addVaccineDate((VaccineDate) itr.next());
+			dto.addVaccineDate(itr.next());
 		}
 		return dto;
 	}
@@ -58,7 +61,7 @@ public class PetServices {
 		List<PetRecords> petRecord=petRecordRepository.findByPetPetId(id);
 		Iterator<PetRecords> itr=petRecord.iterator();
 		while(itr.hasNext()) {
-			dto.addPetRecords((PetRecords)itr.next());
+			dto.addPetRecords(itr.next());
 		}
 		return dto; 
 	}

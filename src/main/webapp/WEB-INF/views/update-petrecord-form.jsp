@@ -48,7 +48,7 @@ table             {
 						<form:input path="petId" 
 						title="Id must be number" 
 						pattern="^[0-9]+$"
-						 readonly="true"/>
+						 required="true"/>
 					</div>
 					<form:errors path="petId" cssClass="text-danger" />
 				</div>
@@ -59,9 +59,8 @@ table             {
                                     <form:option value="${diseaseId.id}"
                                         label="${diseaseId.diseaseName}" />
                                 </c:forEach>
-                            </form:select></div>
+                            </form:select>
                             <form:errors path="diseaseId" cssClass="text-danger" />
-				<div>
 				<div>
 					<label for="dateObserv">Observe date</label>
 					<div>
@@ -72,7 +71,7 @@ table             {
 				<div>
 					<label for="observation">Observation</label>
 					<div>
-						<form:input path="observation" required="required"/>
+						<form:input path="observation" placeholder="Enter the observation"/>
 					</div>
 					<form:errors path="observation" cssClass="text-danger" />
 				</div>
@@ -83,8 +82,9 @@ table             {
 					</div>
 					<form:errors path="recoverDate" cssClass="text-danger" />
 				</div>
+				<br>
 				<div>
-					<form:button>Update New</form:button>
+					<form:button>Update</form:button>
 				</div>
 			</form:form>
 		</div>

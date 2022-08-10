@@ -62,7 +62,7 @@ table             {
 					</tr>
 				</c:forEach>
 			</tbody>
-		</table>
+		</table><br>
 		<div align="center"><a href="/disease/addformdisease"><button>Add</button></a></div>
 	</div>
 </body>

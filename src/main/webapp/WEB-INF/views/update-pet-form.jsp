@@ -43,40 +43,32 @@ table             {
 		<div id="form">
 			<form:form action="updatepets" method="post" modelAttribute="updatepet">
 				<div>
-					<label for="petId">Pet id</label>
-					<div>
-						<form:input path="petId" 
-						title="Id must be number" 
-						pattern="^[0-9]+$"
-						 required="true"/>
-					</div>
-					<form:errors path="petId" cssClass="text-danger" />
-				</div>
-				<div>
 					<label for="userId">User Id</label>
 					<div>
 						<form:input path="userId" 
 						title="Id must be number" 
 						pattern="^[0-9]+$"
-						 readonly="true"/>
+						 required="true"/>
 					</div>
 					<form:errors path="userId" cssClass="text-danger" />
 				</div>
 				
 				<div>
-				<label for="breedId">Breed Type : </label></div> <form:select
+				<label for="breedId">Breed Type  </label></div><div> <form:select
                                 path="breedId">
                                 <c:forEach var="BreedType" items="${breed}">
                                     <form:option value="${BreedType.id}"
                                         label="${BreedType.breedType}" />
                                 </c:forEach>
-                            </form:select>
+                            </form:select></div>
 				<div>
 					<label for="petType">Pet Type</label>
 					<div>
 						<form:input path="petType" 
-						title="Type can't be empty And must be in String"
-						required="true"/>
+						title="Type can't be empty"
+						 required="true"
+						 placeholder="Enter the pet type"
+						 />
 					</div>
 					<form:errors path="petType" cssClass="text-danger" />
 				</div>
@@ -84,7 +76,8 @@ table             {
 					<label for="petName">Pet Name</label>
 					<div>
 						<form:input path="petName" 
-						title="Name can't be empty And Name must be in String"
+						title="Name can't be empty"
+						placeholder="Enter the pet name"
 						 />
 					</div>
 					<form:errors path="petName" cssClass="text-danger" />
@@ -111,8 +104,9 @@ table             {
 					</div>
 					<form:errors path="dateofOwnership" cssClass="text-danger" />
 				</div>
+				<br>
 				<div>
-					<form:button>Update New</form:button>
+					<form:button>Update</form:button>
 				</div>
 			</form:form>
 		</div>

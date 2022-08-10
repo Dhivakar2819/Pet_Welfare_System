@@ -8,7 +8,7 @@ import com.chainsys.petwelfaresystem.model.UsersDetail;
 
 public class UsersDetailPetDTO {
 	private UsersDetail usersDetail;
-	private List<Pet> petlist=new ArrayList<Pet>();
+	private List<Pet> petlist=new ArrayList<>();
 	
 	public UsersDetail getUsersdetail() {
 		return usersDetail;

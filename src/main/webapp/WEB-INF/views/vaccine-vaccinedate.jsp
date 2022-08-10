@@ -43,12 +43,6 @@ table             {
 		<div id="form">
 			<form:form action="" method="post" modelAttribute="getVaccine">
 				<div>
-					<label for="vaccineId">Vaccine Id</label>
-					<div>
-						<form:input path="vaccineId" />
-					</div>
-				</div>
-				<div>
 					<label for="vaccineName">Vaccine Name</label>
 					<div>
 						<form:input path="vaccineName" />
@@ -61,17 +55,13 @@ table             {
 		<table>
 			<thead>
 				<tr>
-					<th>Pet Id</th>
-					<th>Vaccine Id</th>
 					<th>Vaccine Date</th>
 				</tr>
 			</thead>
 			<tbody>
 				<c:forEach var="vdate" items="${vaccinedatelist}">
 					<tr>
-						<td>${vdate.petId}</td>
-						<td>${vdate.vaccineId}</td>
-						<td>${vdate.vaccineDate}</td>
+						<td>${vdate.vaccinationDate}</td>
 					</tr>
 				</c:forEach>
 			</tbody>

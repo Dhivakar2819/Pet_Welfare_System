@@ -42,12 +42,6 @@ table             {
 		<div id="form">
 			<form:form action="" method="post" modelAttribute="findvaccinebyid">
 				<div>
-					<label for="vaccineId">Vaccine Id</label>
-					<div>
-						<form:input path="vaccineId" readonly="true" />
-					</div>
-				</div>
-				<div>
 					<label for="vaccineName">Vaccine Name</label>
 					<div>
 						<form:input path="vaccineName" readonly="true" />

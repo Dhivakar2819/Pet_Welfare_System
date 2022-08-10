@@ -43,28 +43,20 @@ table             {
 		<div id="form">
 			<form:form action="updateuser" method="post" modelAttribute="updateusersdetail">
 				<div>
-					<label for="userId">User id</label>
-					<div>
-						<form:input path="userId" title="Id must be number" pattern="^[0-9]+$" readonly="true"/>
-					</div>
-					<form:errors path="userId" cssClass="text-danger" />
-				</div>
-				<div>
 					<label for="userName">User Name</label>
 					<div>
 						<form:input path="userName" 
-						title="Name can't be empty And User Name must be in String"
-						 required="true"/>
+						title="User name can't be empty "
+						 required="true" placeholder="Enter the user name"/>
 					</div>
 					<form:errors path="userName" cssClass="text-danger" />
 				</div>
-				<form:errors />
 				<div>
 					<label for="email">E Mail Id</label>
 					<div>
 						<form:input path="email" 
-						title="Mail Id is not in correct formet"
-						pattern="^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+$" required="true"/>
+						title="Mail Id is not in correct format"
+						pattern="^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+$" required="true" placeholder="example@domain.com"/>
 					</div>
 					<form:errors path="email" cssClass="text-danger" />
 				</div>
@@ -72,20 +64,40 @@ table             {
 					<label for="password">Password</label>
 					<div>
 						<form:input path="password" 
-						title='password must begin with letter and contain atleast one number and must have atleast 8 characters'
+						title='Password must begin with letter and contain atleast one number and must have atleast 8 characters'
 						pattern="^(?=.*[A-Za-z])(?=.*\\d)(?=.*[@$!%*#?&])[A-Za-z\\d@$!%*#?&]{8,}$"
-						required="true"/>
+						required="true"
+						placeholder="Enter the password"/>
 					</div>
 					<form:errors path="password" cssClass="text-danger" />
 				</div>
-				
+				<div>
+					<label for="phoneNo">Phone no</label>
+					<div>
+						<form:input path="phoneNo" 
+						title="Phone no can't be empty "
+						 required="true" placeholder="Enter the phone number"/>
+					</div>
+					<form:errors path="phoneNo" cssClass="text-danger" />
 				</div>
 				<div>
-					<form:button>Update New</form:button>
+					<label for="address">Address</label>
+					<div>
+						<form:input path="address" 
+						title="Address no can't be empty "
+						 required="true" placeholder="Enter the address"/>
+					</div>
+					<form:errors path="address" cssClass="text-danger" />
+				</div>
+				<br>
+				<div>
+					<form:button>Update</form:button>
 				</div>
 				
 			</form:form>
 		</div>
 	</div>
+	
+		
 </body>
 </html>

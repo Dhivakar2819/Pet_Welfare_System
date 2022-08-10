@@ -42,22 +42,14 @@ table             {
 		<div id="form">
 			<form:form action="updatebreed" method="post" modelAttribute="updatebreeds">
 				<div>
-					<label for="id">Breed id</label>
-					<div>
-						<form:input path="id" title="Id must be number" 
-						pattern="^[0-9]+$"  readonly="true" />
-					</div>
-					<form:errors path="id" cssClass="text-danger" />
-				</div>
-				<div>
 					<label for="breedType">Breed Type</label>
 					<div>
 						<form:input path="breedType" 
-						title="Breed type can't be empty And must be in String"
-						pattern="^[A-Za-z]\\w{3,20}$" required="true"/>
+						title="Breed type can't be empty"
+						 required="true" placeholder="Enter the breed type"/>
 					</div>
 					<form:errors path="breedType" cssClass="text-danger" />
-				</div>
+				</div><br>
 				<div>
 					<form:button>Update</form:button>
 				</div>

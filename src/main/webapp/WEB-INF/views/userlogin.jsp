@@ -39,7 +39,7 @@ body {
 							</td></tr>
 					</table>
 					<div>
-					<tr>	<td><form:button>Sign in </form:button></td>
+					<tr>	<td><form:button>Sign in</form:button></td>
 						<td><form:button>
 							<a href="/usersdetail/addformuser">Sign Up</a>
 						</form:button></td></tr>

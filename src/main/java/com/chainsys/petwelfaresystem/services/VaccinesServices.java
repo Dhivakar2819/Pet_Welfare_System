@@ -1,4 +1,4 @@
-package com.chainsys.petwelfaresystem.Services;
+package com.chainsys.petwelfaresystem.services;
 
 import java.util.Iterator;
 import java.util.List;
@@ -21,11 +21,10 @@ public class VaccinesServices {
 	private VaccineDateRepository vaccineDateRepository;
 	
 	public List<Vaccines> getVaccines(){
-		List<Vaccines> listpet=vaccineRepository.findAll();
-		return listpet;
+		return vaccineRepository.findAll();
 	}
-	public Vaccines save(Vaccines Vaccine) {
-		return vaccineRepository.save(Vaccine);
+	public Vaccines save(Vaccines vaccine) {
+		return vaccineRepository.save(vaccine);
 	}
 
 	public Vaccines findById(int id) {
@@ -45,7 +44,7 @@ public class VaccinesServices {
 		List<VaccineDate> vaccineDate=vaccineDateRepository.findByVaccineId(id);
 		Iterator<VaccineDate> itr=vaccineDate.iterator();
 		while(itr.hasNext()) {
-			dto.addVaccineDate((VaccineDate) itr.next());
+			dto.addVaccineDate(itr.next());
 		}
 		return dto;
 	}

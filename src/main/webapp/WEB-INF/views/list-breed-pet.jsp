@@ -42,11 +42,6 @@ table             {
 <div id="root">
 		<div id="form">
 			<form:form action="" method="post" modelAttribute="getbreed">
-				<div>
-					<label for="id">Breed id</label>
-					<div>
-						<form:input path="id" />
-					</div>
 				</div>
 				<div>
 					<label for="breedType">Breed Type</label>
@@ -57,12 +52,9 @@ table             {
 			</form:form>
 		</div>
 		<div id="table root">
-		<table>
+		<table align="center">
 			<thead>
 				<tr>
-					<!-- <th>Pet Id</th>
-					<th>User Id</th>
-					<th>Breed Id</th> -->
 					<th>Pet Type</th>
 					<th>Pet Name</th>
 					<th>Date of Birth</th>
@@ -72,10 +64,7 @@ table             {
 			</thead>
 			<tbody>
 				<c:forEach var="pet" items="${petlist}">
-					<tr>
-						<%-- <td>${pet.id}</td>
-						<td>${pet.userId}</td>
-						<td>${pet.breedId}</td> --%>
+					<tr align="center">
 						<td>${pet.petType}</td>
 						<td>${pet.petName}</td>
 						<td>${pet.dob}</td>

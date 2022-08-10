@@ -8,7 +8,7 @@ import com.chainsys.petwelfaresystem.model.VaccineDate;
 
 public class PetVaccineDto {
 	private Pet pet;
-	private List<VaccineDate> vaccineDateList=new ArrayList<VaccineDate>();
+	private List<VaccineDate> vaccineDateList=new ArrayList<>();
 	public Pet getPet() {
 		return pet;
 	}

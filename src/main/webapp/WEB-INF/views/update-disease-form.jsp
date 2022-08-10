@@ -43,20 +43,11 @@ table             {
 		<div id="form">
 			<form:form action="updatenewdisease" method="post" modelAttribute="updatedisease">
 				<div>
-					<label for="id">Disease id</label>
-					<div>
-						<form:input path="id" title="Id must be number" 
-						pattern="^[0-9]+$"
-						 readonly="true" />
-					</div>
-					<form:errors path="id" cssClass="text-danger" />
-				</div>
-				<div>
 					<label for="diseaseName">Disease Name</label>
 					<div>
 						<form:input path="diseaseName" 
-						title="Name can't be empty And must be in String"
-						pattern="^[A-Za-z]\\w{3,20}$" required="true"/>
+						title="Disease name can't be empty"
+						 required="true" placeholder="Enter the medicine name"/>
 					</div>
 					<form:errors path="diseaseName" cssClass="text-danger" />
 				</div>
@@ -64,8 +55,8 @@ table             {
 					<label for="medicine">Medicine</label>
 					<div>
 						<form:input path="medicine" 
-						title="Name can't be empty And must be in String"
-						pattern="^[A-Za-z]\\w{3,20}$" required="true"/>
+						title="Medicine can't be empty"
+						 required="true" placeholder="Enter the medicine"/>
 						
 					</div>
 					<form:errors path="medicine" cssClass="text-danger" />
@@ -75,10 +66,10 @@ table             {
 					<div>
 						<form:input path="price"
 						title="Amount must be number" 
-						pattern="^[0-9]+$" />
+						pattern="^[0-9]+$" placeholder="Enter the price" />
 					</div>
 					<form:errors path="price" cssClass="text-danger" />
-				</div>
+				</div><br>
 				<div>
 					<form:button>Update New</form:button>
 				</div>

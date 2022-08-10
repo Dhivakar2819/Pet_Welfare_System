@@ -40,17 +40,15 @@ table             {
 </head>
 <body>
 	<div id="table root">
-		<table>
+		<table align="center">
 			<thead>
 				<tr>
-					<th>Breed Id</th>
 					<th>Breed Type</th>
 				</tr>
 			</thead>
 			<tbody>
 				<c:forEach var="breed" items="${allbreed}">
-					<tr>
-						<td>${breed.id}</td>
+					<tr align="center">
 						<td>${breed.breedType}</td>
 					</tr>
 				</c:forEach>

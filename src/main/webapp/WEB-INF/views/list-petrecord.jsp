@@ -2,13 +2,6 @@
     pageEncoding="ISO-8859-1"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@ page import="org.springframework.ui.Model" %>
-<%@ page import="com.chainsys.petwelfaresystem.Services.DiseaseServices" %>
-<%@ page import="com.chainsys.petwelfaresystem.Services.PetRecordServices" %>
-<%@ page import="com.chainsys.petwelfaresystem.model.Disease" %>
-<%@ page import="com.chainsys.petwelfaresystem.model.PetRecords" %>
-<%@ page import="java.util.List" %>
-<%@ page import="java.util.Iterator" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -47,11 +40,9 @@ table             {
 </head>
 <body>
 	<div id="table root">
-		<table>
+		<table align="center">
 			<thead>
 				<tr>
-					<th>Pet Id</th>
-					<th>Disease Id</th>
 					<th>Observe Date</th>
 					<th>Observation</th>
 					<th>Recover date</th>
@@ -61,9 +52,7 @@ table             {
 			<tbody>
 			
 				<c:forEach var="petrecords" items="${allpetrecords}">
-				<tr>
-						<td>${petrecords.petId}</td>
-						<td>${petrecords.diseaseId}</td>
+				<tr align="center">
 						<td>${petrecords.dateObserv}</td>
 						<td>${petrecords.observation}</td>
 						<td>${petrecords.recoverDate}</td>

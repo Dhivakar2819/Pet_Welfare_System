@@ -60,6 +60,7 @@ table             {
 				</c:forEach>
 			</tbody>
 		</table>
+		<br>
 		<div><a href="/breed/addbreed"><button>Add</button></a></div>
 	</div>
 </body>

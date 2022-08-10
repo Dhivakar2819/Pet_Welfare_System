@@ -1,7 +1,6 @@
 package com.chainsys.petwelfaresystem.controller;
 
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 import java.util.Optional;
 
@@ -17,14 +16,13 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import com.chainsys.petwelfaresystem.Services.DiseaseServices;
-import com.chainsys.petwelfaresystem.Services.PetRecordServices;
-import com.chainsys.petwelfaresystem.Services.PetServices;
 import com.chainsys.petwelfaresystem.compositekey.PetRecordsCompositeKey;
 import com.chainsys.petwelfaresystem.dto.PetPetRecordsDto;
 import com.chainsys.petwelfaresystem.model.Disease;
 import com.chainsys.petwelfaresystem.model.PetRecords;
-import com.chainsys.petwelfaresystem.repository.DiseaseRepositroy;
+import com.chainsys.petwelfaresystem.services.DiseaseServices;
+import com.chainsys.petwelfaresystem.services.PetRecordServices;
+import com.chainsys.petwelfaresystem.services.PetServices;
 
 @Controller
 @RequestMapping("/petrecord")
@@ -72,7 +70,7 @@ public class PetRecordsController {
 	}
 
 	@PostMapping("/updatenewrecord")
-	public String UpdatePetRecords(@Valid @ModelAttribute("updatepetrecord") PetRecords petRecord,Errors error) {
+	public String updatePetRecords(@Valid @ModelAttribute("updatepetrecord") PetRecords petRecord,Errors error) {
 		if(error.hasErrors()) {
 			return "update-petrecord-form";
 		}
@@ -102,6 +100,18 @@ public class PetRecordsController {
 		model.addAttribute("getpet", dto.getPet());
 		model.addAttribute("petrecordslist", dto.getPetRecord());
 		
+		List<Disease> disease=diseaseServices.getAllDisease();
+		List<Disease> diseaseList= new ArrayList<>();
+		int totalAmount=0;
+		for(int i=0;i<dto.getPetRecord().size();i++) {
+			for(int j=0;j<disease.size();j++) {
+		if(dto.getPetRecord().get(i).getDiseaseId()==disease.get(j).getId()) {
+			diseaseList.add(disease.get(j));
+			totalAmount+=disease.get(j).getPrice();
+		}
+		}}
+		model.addAttribute("totalAmount", totalAmount);
+		model.addAttribute("diseasePrice",diseaseList);
 		return "pet-petrecords";
 	}
 

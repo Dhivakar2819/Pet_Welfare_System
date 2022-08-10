@@ -6,10 +6,13 @@ import java.util.List;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
@@ -25,6 +28,8 @@ public class Pet {
 	@Column(name="pet_id")
 	@NotNull
 	@Range(min=1,message="*Greater then zero")
+	@GeneratedValue(strategy = GenerationType.AUTO, generator = "pet_id")
+    @SequenceGenerator(name = "pet_id", sequenceName = "pet_id",  allocationSize = 1)
 	private int petId;
 	@Column(name="user_id")
 	@NotNull
@@ -33,7 +38,6 @@ public class Pet {
 	@Column(name="breed_id") 
 	private int breedId;
 	@Column(name="pet_type")
-	@NotBlank(message = "*Name can't be Empty")
 	private String petType;
 	@Column(name="pet_name")
 	@NotBlank(message = "*Name can't be Empty")

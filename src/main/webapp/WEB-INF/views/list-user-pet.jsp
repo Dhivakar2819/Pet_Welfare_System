@@ -2,7 +2,7 @@
     pageEncoding="ISO-8859-1"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@page import="com.chainsys.petwelfaresystem.Services.BreedServices"%>
+<%@page import="com.chainsys.petwelfaresystem.services.BreedServices"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -42,12 +42,6 @@ table             {
 		<div id="form">
 			<form:form action="" method="post" modelAttribute="getuser">
 				<div>
-					<label for="userId"></label>
-					<div>
-						<form:input path="userId" type="hidden" readonly="true"/>
-					</div>
-				</div>
-				<div>
 					<label for="userName">User Name</label>
 					<div>
 						<form:input path="userName" readonly="true" />
@@ -65,10 +59,7 @@ table             {
 		<table style="width:90%" align="center">
 
 			<thead>
-				<tr>
-					<!-- <th>Pet Id</th>
-					<th>User Id</th>
-					<th>Breed Id</th> -->
+				<tr align="center">
 					<th>Pet Type</th>
 					<th>Pet Name</th>
 					<th>Date of Birth</th>

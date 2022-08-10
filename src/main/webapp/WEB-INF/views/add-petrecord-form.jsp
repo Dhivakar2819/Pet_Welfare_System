@@ -59,9 +59,8 @@ table             {
                                     <form:option value="${diseaseId.id}"
                                         label="${diseaseId.diseaseName}" />
                                 </c:forEach>
-                            </form:select></div>
+                            </form:select>
                             <form:errors path="diseaseId" cssClass="text-danger" />
-				<div>
 				<div>
 					<label for="dateObserv">Observe date</label>
 					<div>
@@ -72,7 +71,7 @@ table             {
 				<div>
 					<label for="observation">Observation</label>
 					<div>
-						<form:input path="observation" required="required"/>
+						<form:input path="observation" placeholder="Enter the observation"/>
 					</div>
 					<form:errors path="observation" cssClass="text-danger" />
 				</div>
@@ -83,8 +82,9 @@ table             {
 					</div>
 					<form:errors path="recoverDate" cssClass="text-danger" />
 				</div>
+				<br>
 				<div>
-					<form:button>Add New</form:button>
+					<form:button>Add New Pet Record</form:button>
 				</div>
 			</form:form>
 		</div>

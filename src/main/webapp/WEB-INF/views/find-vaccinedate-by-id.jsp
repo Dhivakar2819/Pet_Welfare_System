@@ -42,21 +42,9 @@ table             {
 		<div id="form">
 			<form:form action="" method="post" modelAttribute="findvdatebyid">
 				<div>
-					<label for="petId">Pet Id</label>
+					<label for="vaccinationDate">Vaccine Date</label>
 					<div>
-						<form:input path="petId" readonly="true" />
-					</div>
-				</div>
-				<div>
-					<label for="vaccineId">Vaccine Id</label>
-					<div>
-						<form:input path="vaccineId" readonly="true" />
-					</div>
-				</div>
-				<div>
-					<label for="vaccineDate">Vaccine Date</label>
-					<div>
-						<form:input path="vaccineDate" readonly="true" />
+						<form:input path="vaccinationDate" readonly="true" />
 					</div>
 				</div>
 			</form:form>

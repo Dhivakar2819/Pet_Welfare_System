@@ -57,13 +57,9 @@ table             {
 			</form:form>
 		</div>
 	<div id="vaccinelist" align="center">
-		<table>
+		<table align="center">
 			<thead>
-				<tr>
-					<th>Pet Id</th>
-					<th>Vaccine Id</th>
-					<th>Vaccine Date</th>
-					<!-- <th>Vaccine name</th> -->
+				<tr align="center">
 					<th>Update Vaccine date</th>
 					<th>Delete Vaccine Date</th>
 				</tr>
@@ -71,10 +67,7 @@ table             {
 			<tbody>
 				<c:forEach var="vdate" items="${vaccinelist}">
 					<tr>
-						<td>${vdate.petId}</td>
-						<td>${vdate.vaccineId}</td>
 						<td>${vdate.vaccineDate}</td>
-						<!-- <td>acti -->
 						<td><a href="/vaccinedate/updateformvaccinedate?id=${vdate.petId}&vid=${vdate.vaccineId}">Update</a></td>
 						<td><a href="/vaccinedate/deletevaccinedate?id=${vdate.petId}&vid=${vdate.vaccineId}">Delete</a></td>
 					</tr>

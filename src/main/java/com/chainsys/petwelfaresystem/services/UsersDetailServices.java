@@ -1,4 +1,4 @@
-package com.chainsys.petwelfaresystem.Services;
+package com.chainsys.petwelfaresystem.services;
 
 import java.util.Iterator;
 import java.util.List;
@@ -21,8 +21,7 @@ public class UsersDetailServices {
 	private PetRepository petRepository;
 	
 	public List<UsersDetail> getUserDetail(){
-		List<UsersDetail> listpet=usersDetailRepository.findAll();
-		return listpet;
+		return usersDetailRepository.findAll();
 	}
 	public UsersDetail save(UsersDetail usersDetail) {
 		return usersDetailRepository.save(usersDetail);
@@ -45,7 +44,7 @@ public class UsersDetailServices {
 		List<Pet>pet=petRepository.findByUserId(id);
 		Iterator<Pet> itr=pet.iterator();
 		while(itr.hasNext()) {
-			dto.addPet((Pet) itr.next());
+			dto.addPet(itr.next());
 		}
 		return dto;
 	}

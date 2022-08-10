@@ -1,4 +1,4 @@
-package com.chainsys.petwelfaresystem.Services;
+package com.chainsys.petwelfaresystem.services;
 
 import java.util.List;
 import java.util.Optional;
@@ -17,8 +17,7 @@ public class PetRecordServices {
 	private PetRecordRepository petRecordRepository;
 	
 	public List<PetRecords> getPetRecords(){
-		List<PetRecords> listpet=petRecordRepository.findAll();
-		return listpet;
+		return petRecordRepository.findAll();
 	}
 	public PetRecords save(PetRecords petRecord) {
 		return petRecordRepository.save(petRecord);

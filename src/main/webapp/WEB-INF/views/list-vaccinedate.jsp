@@ -40,20 +40,16 @@ table             {
 </head>
 <body>
 	<div id="table root">
-		<table>
+		<table align="center">
 			<thead>
 				<tr>
-					<th>Pet Id</th>
-					<th>Vaccine Id</th>
 					<th>Vaccine Date</th>
 				</tr>
 			</thead>
 			<tbody>
 				<c:forEach var="vdate" items="${allvdate}">
-					<tr>
-						<td>${vdate.petId}</td>
-						<td>${vdate.vaccineId}</td>
-						<td>${vdate.vaccineDate}</td>
+					<tr align="center">
+						<td>${vdate.vaccinationDate}</td>
 					</tr>
 				</c:forEach>
 			</tbody>

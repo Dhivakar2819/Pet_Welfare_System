@@ -14,12 +14,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import com.chainsys.petwelfaresystem.Services.AdminDetailServices;
-import com.chainsys.petwelfaresystem.Services.BreedServices;
-import com.chainsys.petwelfaresystem.dto.PetBreedDTO;
 import com.chainsys.petwelfaresystem.model.AdminDetail;
-import com.chainsys.petwelfaresystem.model.Breed;
-import com.chainsys.petwelfaresystem.model.UsersDetail;
+import com.chainsys.petwelfaresystem.services.AdminDetailServices;
 
 @Controller
 @RequestMapping("/admin")
@@ -58,7 +54,7 @@ public class AdminDetailController {
 	}
 
 	@PostMapping("/updateadmindetain")
-	public String UpdateAdminDetail(@Valid @ModelAttribute("updateadmin") AdminDetail admin,Errors errors) {
+	public String updateAdminDetail(@Valid @ModelAttribute("updateadmin") AdminDetail admin,Errors errors) {
 		if(errors.hasErrors()) {
 			return "update-admin-form";
 		}
@@ -98,7 +94,6 @@ public class AdminDetailController {
     }
 	@GetMapping("/index")
 	public String getIndex(Model model) {
-//		model.addAttribute("buttom");
 		return "admin-index";
 	}
 }

@@ -1,4 +1,4 @@
-package com.chainsys.petwelfaresystem.Services;
+package com.chainsys.petwelfaresystem.services;
 
 import java.util.List;
 import java.util.Optional;
@@ -17,8 +17,7 @@ public class VaccineDateServices {
 	private VaccineDateRepository vaccineDateRepository;
 	
 	public List<VaccineDate> getVaccineDate(){
-		List<VaccineDate> listpet=vaccineDateRepository.findAll();
-		return listpet;
+		return vaccineDateRepository.findAll();
 	}
 	public VaccineDate save(VaccineDate vaccineDate) {
 		return vaccineDateRepository.save(vaccineDate);

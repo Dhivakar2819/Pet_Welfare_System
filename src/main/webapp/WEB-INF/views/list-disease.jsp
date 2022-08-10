@@ -40,10 +40,9 @@ table             {
 </head>
 <body>
 	<div id="table root">
-		<table>
+		<table align="center">
 			<thead>
 				<tr>
-					<th>Disease Id</th>
 					<th>Disease Name</th>
 					<th>Medicine</th>
 					<th>Price</th>
@@ -51,8 +50,7 @@ table             {
 			</thead>
 			<tbody>
 				<c:forEach var="disease" items="${alldisease}">
-					<tr>
-						<td>${disease.id}</td>
+					<tr align="center">
 						<td>${disease.diseaseName}</td>
 						<td>${disease.medicine}</td>
 						<td>${disease.price}</td>

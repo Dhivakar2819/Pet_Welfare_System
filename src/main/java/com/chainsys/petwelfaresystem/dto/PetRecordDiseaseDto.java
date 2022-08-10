@@ -11,7 +11,7 @@ import com.chainsys.petwelfaresystem.model.PetRecords;
 public class PetRecordDiseaseDto {
 	@Autowired
 	private Disease disease;
-	private List<PetRecords> petRecords=new ArrayList<PetRecords>();
+	private List<PetRecords> petRecords=new ArrayList<>();
 	public Disease getDisease() {
 		return disease;
 	}

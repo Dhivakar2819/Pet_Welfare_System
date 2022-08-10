@@ -17,16 +17,16 @@
 				
 					<table>
 						<tr><td><label for="adminId">Admin Id :</label></td>
-						<td><form:input path="adminId" plcaeholder="example@gmail.com" />
+						<td><form:input path="adminId" plcaeholder="example@domain.com" />
 						</td><tr>
 						
 						<tr><td>
 							<label for="adminPassword">Password</label>
 							</td><td>
 								<form:input path="adminPassword" type="password"
-									placeholder="password" />
+									placeholder="Password" />
 							</td></tr>
-					</table>
+					</table><br>
 					<div>
 						<form:button>Sign in </form:button>
 						

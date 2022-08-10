@@ -41,18 +41,6 @@ table             {
 <div id="root">
 		<div id="form">
 			<form:form action="" method="post" modelAttribute="findpetrecordbyid">
-				<div>
-					<label for="id">Pet id</label>
-					<div>
-						<form:input path="id" readonly="true"/>
-					</div>
-				</div>
-				<div>
-					<label for="diseaseId">Disease Id</label>
-					<div>
-						<form:input path="diseaseId" readonly="true" />
-					</div>
-				</div>
 				
 				<div>
 					<label for="dateObserv">Observe date</label>

@@ -42,26 +42,17 @@ table             {
 		<div id="form">
 			<form:form action="updatevaccines" method="post" modelAttribute="updatevaccine">
 				<div>
-					<label for="vaccineId">Vaccine Id</label>
-					<div>
-						<form:input path="vaccineId" 
-						title="Id must be number" 
-						pattern="^[0-9]+$"
-						 readonly="true" />
-					</div>
-					 <form:errors path="vaccineId" cssClass="text-danger" />
-				</div>
-				<div>
 					<label for="vaccineName">Vaccine Name</label>
 					<div>
 						<form:input path="vaccineName" 
-						title="Name can't be empty And must be in String"
-						 required="true"/>
+						title="Name can't be empty "
+						 required="true"
+						 placeholder="Enter the vaccine name"/>
 					</div>
 					 <form:errors path="vaccineName" cssClass="text-danger" />
-				</div>
+				</div><br>
 				<div>
-					<form:button>Update New</form:button>
+					<form:button>Update</form:button>
 				</div>
 			</form:form>
 		</div>

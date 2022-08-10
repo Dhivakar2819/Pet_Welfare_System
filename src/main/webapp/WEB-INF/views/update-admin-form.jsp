@@ -70,18 +70,11 @@ td{
 		<div id="form">
 			<form:form action="updateadmindetain" method="post" modelAttribute="updateadmin">
 				<div>
-					<label for="adminId">Admin Id</label>
-					<div>
-						<form:input path="adminId" title="Id must be number" pattern="^[0-9]+$" readonly="true"/>
-					</div>
-					<form:errors path="adminId" cssClass="text-danger" />
-				</div>
-				<div>
 					<label for="adminName">Name</label>
 					<div>
 						<form:input path="adminName" 
-						title="Name can't be empty And Admin Name must be in String"
-						pattern="^[A-Za-z]\\w{3,20}$" required="true"/>
+						title="Name can't be empty"
+						pattern="^[A-Za-z]\\w{3,20}$" required="true" placeholder="Enter admin name"/>
 					</div>
 					<form:errors path="adminName" cssClass="text-danger" />
 				</div>
@@ -89,13 +82,13 @@ td{
 					<label for="adminPassword">Password</label>
 					<div>
 						<form:input path="adminPassword" 
-						title='password must begin with letter and contain atleast one number and must have atleast 8 characters'
+						title='password atleast have letter, one number, one special character and must have atleast 8 characters'
 						pattern="^(?=.*[A-Za-z])(?=.*\\d)(?=.*[@$!%*#?&])[A-Za-z\\d@$!%*#?&]{8,}$"
-						required="true"/>
+						required="true" placeholder="Password "/>
 					</div>
 					<form:errors path="adminPassword" cssClass="text-danger" />
 				</div>
-				<div>
+				<br>
 				<div>
 					<form:button>Update</form:button>
 				</div>

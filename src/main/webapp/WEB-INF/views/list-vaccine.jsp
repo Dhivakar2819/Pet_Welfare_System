@@ -40,17 +40,15 @@ table             {
 </head>
 <body>
 	<div id="table root">
-		<table>
+		<table align="center">
 			<thead>
 				<tr>
-					<th>Vaccine Id</th>
 					<th>Vaccine Name</th>
 				</tr>
 			</thead>
 			<tbody>
 				<c:forEach var="vaccine" items="${allvaccine}">
-					<tr>
-						<td>${vaccine.vaccineId}</td>
+					<tr align="center">
 						<td>${vaccine.vaccineName}</td>
 					</tr>
 				</c:forEach>

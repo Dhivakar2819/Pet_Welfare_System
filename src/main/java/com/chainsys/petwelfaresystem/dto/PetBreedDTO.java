@@ -12,7 +12,7 @@ public class PetBreedDTO {
 	@Autowired
 	private Breed breed;
 	
-	private List<Pet> petlist=new ArrayList<Pet>();
+	private List<Pet> petlist=new ArrayList<>();
 	public Breed getBreed() {   
 		return breed;
 	}

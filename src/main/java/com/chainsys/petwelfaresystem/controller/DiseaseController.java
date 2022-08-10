@@ -14,10 +14,9 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import com.chainsys.petwelfaresystem.Services.DiseaseServices;
-import com.chainsys.petwelfaresystem.dto.PetBreedDTO;
 import com.chainsys.petwelfaresystem.dto.PetRecordDiseaseDto;
 import com.chainsys.petwelfaresystem.model.Disease;
+import com.chainsys.petwelfaresystem.services.DiseaseServices;
 
 @Controller
 @RequestMapping("/disease")
@@ -61,7 +60,7 @@ public class DiseaseController {
 	}
 
 	@PostMapping("/updatenewdisease")
-	public String UpdateDisease(@Valid @ModelAttribute("updatedisease") Disease disease,Errors error) {
+	public String updateDisease(@Valid @ModelAttribute("updatedisease") Disease disease,Errors error) {
 		if(error.hasErrors()) {
 			return "update-disease-form";
 		}

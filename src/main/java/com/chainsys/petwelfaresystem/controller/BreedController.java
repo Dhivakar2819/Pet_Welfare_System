@@ -11,9 +11,9 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import com.chainsys.petwelfaresystem.Services.BreedServices;
 import com.chainsys.petwelfaresystem.dto.PetBreedDTO;
 import com.chainsys.petwelfaresystem.model.Breed;
+import com.chainsys.petwelfaresystem.services.BreedServices;
 
 @Controller
 @RequestMapping("/breed")
@@ -54,7 +54,7 @@ public class BreedController {
 	}
 
 	@PostMapping("/updatebreed")
-	public String UpdateBreed(@ModelAttribute("updatebreeds") Breed breed) {
+	public String updateBreed(@ModelAttribute("updatebreeds") Breed breed) {
 		breedServices.save(breed);
 		return "redirect:/breed/adminbreedlist";
 	}

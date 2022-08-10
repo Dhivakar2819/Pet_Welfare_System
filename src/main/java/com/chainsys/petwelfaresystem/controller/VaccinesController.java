@@ -14,9 +14,9 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import com.chainsys.petwelfaresystem.Services.VaccinesServices;
 import com.chainsys.petwelfaresystem.dto.VaccinesVaccineDateDto;
 import com.chainsys.petwelfaresystem.model.Vaccines;
+import com.chainsys.petwelfaresystem.services.VaccinesServices;
 
 @Controller
 @RequestMapping("/vaccine")
@@ -61,7 +61,7 @@ public class VaccinesController {
 	}
 
 	@PostMapping("/updatevaccines")
-	public String UpdateVaccines(@Valid @ModelAttribute("updatevaccine") Vaccines vac,Errors error) {
+	public String updateVaccines(@Valid @ModelAttribute("updatevaccine") Vaccines vac,Errors error) {
 		if(error.hasErrors()) {
 			return "update-vaccine-form";
 		}else {

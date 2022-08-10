@@ -32,7 +32,7 @@ public class VaccineDate {
 	@Range(min=1,message="*Greater then zero")
 	private int vaccineId;
 	@Column(name="vaccine_date")
-	private Date vaccineDate;
+	private Date vaccinationDate;
 	
 	@ManyToOne(fetch=FetchType.LAZY)
 	@JoinColumn(name="pet_id",nullable=false, insertable=false, updatable=false)
@@ -66,12 +66,10 @@ public class VaccineDate {
 	public void setVaccineId(int vaccineId) {
 		this.vaccineId = vaccineId;
 	}
-	public Date getVaccineDate() {
-		return vaccineDate;
+	public Date getVaccinationDate() {
+		return vaccinationDate;
 	}
-	public void setVaccineDate(Date vaccineDate) {
-		this.vaccineDate = vaccineDate;
+	public void setVaccinationDate(Date vaccinationDate) {
+		this.vaccinationDate = vaccinationDate;
 	}
-	
-	
 }

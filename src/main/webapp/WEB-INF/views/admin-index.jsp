@@ -45,12 +45,14 @@ width:25%;
 <body>
 <div id="index" align="center">
 <br>
-		<div><a href="/usersdetail/userdetaillist"><button >User Detail</button></a></div><br>
-		<div><a href="/petrecord/petrecordlist"><button>Pet Records</button></a></div><br>
-		<div><a href="/vaccine/adminvaccinelist"><button>Vaccine</button></a></div><br>
+<br>
+<br>
 		<div><a href="/pet/petlist"><button>Pet</button></a></div><br>
-		<div><a href="/disease/admindiseaselist"><button>Disease</button></a></div><br>
 		<div><a href="/breed/adminbreedlist"><button>Breed</button></a></div><br>
+		<div><a href="/disease/admindiseaselist"><button>Disease</button></a></div><br>
+		<div><a href="/vaccine/adminvaccinelist"><button>Vaccine</button></a></div><br>
+		<div><a href="/petrecord/petrecordlist"><button>Pet Records</button></a></div><br>
+		<div><a href="/usersdetail/userdetaillist"><button >User Detail</button></a></div><br>
 	</div>
 </body>
 </html>
