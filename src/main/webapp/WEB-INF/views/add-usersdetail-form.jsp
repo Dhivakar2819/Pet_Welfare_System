@@ -43,7 +43,7 @@ th {
 </style>
 </head>
 <body>
-	<div id="root" align="center">
+	<div id="root">
 		<div id="form">
 			<form:form action="adduser" method="post"
 				modelAttribute="adduserdetail">
@@ -60,7 +60,7 @@ th {
 					<div>
 						<form:input path="email" title="Mail Id is not in correct format"
 							required="true" placeholder="example@domain.com"
-							/>
+							pattern="^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+$"/>
 					</div>
 					<form:errors path="email" cssClass="text-danger" />
 				</div>
@@ -70,7 +70,7 @@ th {
 						<form:input path="password"
 							title='Password must begin with letter and contain atleast one number and must have atleast 8 characters'
 							required="true" placeholder="Enter the password"
-							/>
+							pattern="^(?=.*[A-Za-z])(?=.*\\d)(?=.*[@$!%*#?&])[A-Za-z\\d@$!%*#?&]{8,}$"/>
 					</div>
 					<form:errors path="password" cssClass="text-danger" />
 				</div>
@@ -93,10 +93,12 @@ th {
 				<br>
 				<div>
 					<form:button>Registration</form:button>
-				</div>
+				</div><br>
+				<${result}>
 				<div cssClass="text-danger">${message}</div>
 			</form:form>
-		</div>
+		</div><br>
+		<div><a href="/usersdetail/userloginpage"><button>Back</button></a></div>
 	</div>
 </body>
 </html>

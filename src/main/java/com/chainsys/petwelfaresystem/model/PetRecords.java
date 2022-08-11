@@ -17,6 +17,7 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 
 import org.hibernate.validator.constraints.Range;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import com.chainsys.petwelfaresystem.compositekey.PetRecordsCompositeKey;
 
@@ -31,16 +32,15 @@ public class PetRecords {
 	private int petId;
 	@Id
 	@Column(name="disease_id")
-	@NotNull
-	@Range(min=1,message="*Greater then zero")
 	private int diseaseId;
 	@Column(name="date_observ")
-	
+	@DateTimeFormat 
 	private Date dateObserv;
 	@Column(name="observation")
 	@NotBlank(message = "*Observation can't be Empty")
 	private String observation;
 	@Column(name="recover_date")
+	@DateTimeFormat
 	private Date recoverDate;
 	@ManyToOne(fetch=FetchType.LAZY)
 	@JoinColumn(name="disease_id",nullable=false,insertable=false,updatable=false)

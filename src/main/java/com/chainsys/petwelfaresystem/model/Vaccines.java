@@ -39,7 +39,7 @@ public class Vaccines {
 	public void setVaccineName(String vaccineName) {
 		this.vaccineName = vaccineName;
 	}
-	@OneToMany(mappedBy="vaccineDate",fetch=FetchType.LAZY)
+	@OneToMany(mappedBy="vaccines",fetch=FetchType.LAZY)
 	private List<VaccineDate> vaccineDate;
 	
 	public List<VaccineDate> getVaccineDate() {

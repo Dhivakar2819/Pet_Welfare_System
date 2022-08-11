@@ -107,7 +107,8 @@ th {
 				<a href="/breed/breedlist"><button>Breed List</button></a>
 			</div>
 
-		</div>
+		</div><br>
+		<div><a href="/usersdetail/userloginpage"><button>Log Out</button></a></div>
 	</div>
 </body>
 </html>

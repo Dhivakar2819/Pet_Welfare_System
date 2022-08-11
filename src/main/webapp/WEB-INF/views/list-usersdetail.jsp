@@ -63,7 +63,8 @@ table             {
 					</tr>
 				</c:forEach>
 			</tbody>
-		</table>
+		</table><br>
+		<div><a href="/admin/index"><button>Back</button></a></div>
 	</div>
 </body>
 </html>

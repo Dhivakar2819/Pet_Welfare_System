@@ -60,13 +60,11 @@ table             {
                                         label="${diseaseId.diseaseName}" />
                                 </c:forEach>
                             </form:select>
-                            <form:errors path="diseaseId" cssClass="text-danger" />
 				<div>
 					<label for="dateObserv">Observe date</label>
 					<div>
 						<form:input path="dateObserv" type="date"/>
 					</div>
-					<form:errors path="dateObserv" cssClass="text-danger" />
 				</div>
 				<div>
 					<label for="observation">Observation</label>
@@ -80,7 +78,6 @@ table             {
 					<div>
 						<form:input path="recoverDate" type="date"/>
 					</div>
-					<form:errors path="recoverDate" cssClass="text-danger" />
 				</div>
 				<br>
 				<div>

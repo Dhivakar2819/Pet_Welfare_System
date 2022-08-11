@@ -44,12 +44,17 @@ public class UsersDetailController {
 	@PostMapping("/adduser")
 	public String addNewUsersDetail(@Valid @ModelAttribute("adduserdetail") UsersDetail userDetail, Errors errors,
 			Model model) {
-		try {
+		if (errors.hasErrors()) {
+			return "add-usersdetail-form";
+		} else {
+			try {
 				userDetailServices.save(userDetail);
-				return "redirect:/usersdetail/userloginpage";}
-		catch(Exception er)
-		{model.addAttribute("message", "this email is already exist");
-		return "add-usersdetail-form";
+				model.addAttribute("result", "Registration completed successfully");
+				return "add-usersdetail-form";
+			} catch (Exception er) {
+				model.addAttribute("message", "this email is already exist");
+				return "add-usersdetail-form";
+			}
 		}
 	}
 
@@ -61,12 +66,19 @@ public class UsersDetailController {
 	}
 
 	@PostMapping("/updateuser")
-	public String updateUsersDetail(@Valid @ModelAttribute("updateusersdetail") UsersDetail userDetail, Errors errors) {
+	public String updateUsersDetail(@Valid @ModelAttribute("updateusersdetail") UsersDetail userDetail, Model model,
+			Errors errors) {
 		if (errors.hasErrors()) {
 			return "update-usersdetail-form";
 		} else {
-			userDetailServices.save(userDetail);
-			return "redirect:/usersdetail/userdetaillist";
+			try {
+				userDetailServices.save(userDetail);
+				model.addAttribute("result", "Update completed successfully");
+				return "redirect:/usersdetail/userloginpage";
+			} catch (Exception er) {
+				model.addAttribute("message", "this email is already exist");
+				return "redirect:/usersdetail/userdetaillist";
+			}
 		}
 	}
 
@@ -105,8 +117,8 @@ public class UsersDetailController {
 		UsersDetail userDetail = userDetailServices.getUserByEmailAndPassword(usersDetail.getEmail(),
 				usersDetail.getPassword());
 		if (userDetail != null) {
-				int id=userDetail.getUserId();
-			return "redirect:/usersdetail/getuserpet?id="+id;
+			int id = userDetail.getUserId();
+			return "redirect:/usersdetail/getuserpet?id=" + id;
 		} else
 			return "redirect:/usersdetail/userloginpage";
 	}

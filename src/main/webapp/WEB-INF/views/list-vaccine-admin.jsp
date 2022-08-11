@@ -60,7 +60,8 @@ table             {
 				</c:forEach>
 			</tbody>
 		</table>
-		<a href="/vaccine/addformvaccine">Add</a>
+		<a href="/vaccine/addformvaccine">Add</a><br>
+		<div><a href="/admin/index"><button>Back</button></a></div>
 	</div>
 </body>
 </html>

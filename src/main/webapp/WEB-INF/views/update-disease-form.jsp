@@ -77,7 +77,8 @@ table             {
 					<form:button>Update New</form:button>
 				</div>
 			</form:form>
-		</div>
+		</div><br>
+		<div><a href="/disease/admindiseaselist"><button>Back</button></a></div>
 	</div>
 </body>
 </html>

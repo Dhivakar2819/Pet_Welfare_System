@@ -58,7 +58,8 @@ table             {
 					<form:button>Add Breed</form:button>
 				</div>
 			</form:form>
-		</div>
+		</div><br>
+		<div><a href="/breed/adminbreedlist"><button>Back</button></a></div>
 	</div>
 </body>
 </html>

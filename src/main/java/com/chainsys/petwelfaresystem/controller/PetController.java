@@ -42,13 +42,14 @@ public class PetController {
 		return "add-pet-form";
 	}
 	@PostMapping("/addnewpet")
-	public String addNewPet(@Valid @ModelAttribute("addpet") Pet pet,Errors error) {
+	public String addNewPet(@Valid @ModelAttribute("addpet") Pet pet,Model model,Errors error) {
 		if(error.hasErrors()) {
 			return "add-pet-form";
 		}
 		else {
 		petServices.save(pet);
-		return "redirect:/pet/petlist";}
+		model.addAttribute("result","Pet records added successfully");
+		return "add-pet-form";}
 	}
 	@GetMapping("/updateformpet")
 	public String showUpdatePet(@RequestParam("petid") int id, Model model ){

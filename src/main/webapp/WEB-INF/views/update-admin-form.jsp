@@ -80,6 +80,15 @@ td{
 					<form:errors path="adminName" cssClass="text-danger" />
 				</div>
 				<div>
+					<label for="email">E Mail Id</label>
+					<div>
+						<form:input path="email" title="Mail Id is not in correct format"
+							required="true" placeholder="example@domain.com"
+							pattern="^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+$"/>
+					</div>
+					<form:errors path="email" cssClass="text-danger" />
+				</div>
+				<div>
 					<label for="adminPassword">Password</label>
 					<div>
 						<form:input path="adminPassword" 
@@ -94,6 +103,8 @@ td{
 					<form:button>Update</form:button>
 				</div>
 			</form:form>
+			<a href="/admin/adminlist">Back</a>
+			<div>${result}</div>
 		</div>
 	</div>
 </body>

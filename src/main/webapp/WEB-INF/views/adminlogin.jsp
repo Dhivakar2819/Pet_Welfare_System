@@ -10,14 +10,15 @@
 </head>
 <body >
 	<div id="root">
-		<div id="form" align="center">
+		<div id="form">
 			<form:form action="adminloginpage" method="post"
-				modelAttribute="adminlogin">
-				<h1 align="center">Admin Login</h1>
+				modelAttribute="adminDetail">
+				<h1 >Admin Login</h1>
 				
 					<table>
-						<tr><td><label for="adminId">Admin Id :</label></td>
-						<td><form:input path="adminId" plcaeholder="example@domain.com" />
+					<caption>login</caption>
+						<tr><td><label for="email">Admin Mail Id</label></td>
+						<td><form:input path="email" plcaeholder="example@domain.com" />
 						</td><tr>
 						
 						<tr><td>
@@ -30,7 +31,8 @@
 					<div>
 						<form:button>Sign in </form:button>
 						
-					</div>
+					</div><br>
+					${signin}
 			</form:form>
 
 		</div>

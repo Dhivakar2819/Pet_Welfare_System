@@ -18,8 +18,7 @@ import org.hibernate.validator.constraints.Range;
 public class AdminDetail {
 	@Id
 	@Column(name="admin_id")
-	@NotNull
-	@Range(min=1,message="*Greater then zero")
+	@NotNull(message="*Greater then zero")
 	@GeneratedValue(strategy = GenerationType.AUTO, generator = "admin_id")
     @SequenceGenerator(name = "admin_id", sequenceName = "admin_id",  allocationSize = 1)
 	private int adminId;
@@ -28,6 +27,8 @@ public class AdminDetail {
 	@NotBlank(message = "*Name can't be Empty")
 	@Pattern(regexp = "^[A-Za-z]\\w{3,20}$", message = "*Enter valid name ")
 	private String adminName;
+	@NotBlank
+	private String email;
 	@Column(name="admin_password")
 	@Size(max = 20, min = 8, message = "*Minimum eight characters ")
 	@NotBlank(message = "*Password can't be Empty")
@@ -44,6 +45,12 @@ public class AdminDetail {
 	}
 	public void setAdminName(String adminName) {
 		this.adminName = adminName;
+	}
+	public String getEmail() {
+		return email;
+	}
+	public void setEmail(String email) {
+		this.email = email;
 	}
 	public String getAdminPassword() {
 		return adminPassword;

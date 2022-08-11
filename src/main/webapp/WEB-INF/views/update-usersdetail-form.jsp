@@ -42,7 +42,7 @@ table             {
 </style>
 </head>
 <body>
-<div id="root" align="center">
+<div id="root" >
 		<div id="form">
 			<form:form action="updateuser" method="post" modelAttribute="updateusersdetail">
 				<div>
@@ -96,7 +96,8 @@ table             {
 				<div>
 					<form:button>Update</form:button>
 				</div>
-				
+				<${result}>
+				<div cssClass="text-danger">${message}</div>
 			</form:form>
 		</div>
 	</div>

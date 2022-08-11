@@ -38,13 +38,19 @@ table             {
 </style>
 </head>
 <body>
-<div id="root" align="center">
+<div id="root">
 		<div id="form">
-			<form:form action="" method="post" modelAttribute="findbreedbyid">
+			<form:form action="" method="post" modelAttribute="findadminSbyid">
 				<div>
 					<label for="adminName">Name</label>
 					<div>
 						<form:input path="adminName" readonly="true" />
+					</div>
+				</div>
+				<div>
+					<label for="email">Password</label>
+					<div>
+						<form:input path="email" readonly="true"/>
 					</div>
 				</div>
 				<div>

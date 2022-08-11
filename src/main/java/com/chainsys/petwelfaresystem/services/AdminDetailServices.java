@@ -25,7 +25,7 @@ public class AdminDetailServices {
 	public void deleteById(int id) {
 		adminDetailRepository.deleteById(id);
 	}
-	public AdminDetail getAdminIdAndAdminPassword(int id,String password) {
-		return adminDetailRepository.findByAdminIdAndAdminPassword(id, password);
+	public AdminDetail getEmailAndAdminPassword(String email,String password) {
+		return adminDetailRepository.findByEmailAndAdminPassword(email, password);
 	}
 }

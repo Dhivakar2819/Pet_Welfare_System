@@ -58,7 +58,8 @@ table             {
 					<form:button>Update</form:button>
 				</div>
 			</form:form>
-		</div>
+		</div><br>
+		<div><a href="/vaccine/adminvaccinelist"><button>Back</button></a></div>
 	</div>
 </body>
 </html>

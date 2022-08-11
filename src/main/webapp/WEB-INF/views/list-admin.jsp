@@ -48,16 +48,23 @@ table             {
 			<thead>
 				<tr>
 					<th>Admin Name</th>
+					<th>Update</th>
+					<th>Delete</th>
 				</tr>
 			</thead>
 			<tbody >
 				<c:forEach var="admin" items="${alladmin}">
 					<tr>
 						<td>${admin.adminName}</td>
+						<td><a href="/admin/updateadmin?adid=${admin.adminId}">Update</a></td>
+						<td><a href="/admin/deleteadmin?adid=${admin.adminId}">Delete</a></td>
 					</tr>
 				</c:forEach>
 			</tbody>
 		</table>
+		<a href="/admin/addadmin"><button>Add Admin</button></a>
+		<div>${delete}</div>
+		<div><a href="/admin/index"><button>Back</button></a></div>
 	</div>
 </body>
 </html>

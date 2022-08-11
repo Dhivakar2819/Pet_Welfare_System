@@ -16,18 +16,18 @@ import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Null;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 
 import org.hibernate.validator.constraints.Range;
-
+import org.springframework.format.annotation.DateTimeFormat;
 @Entity
 @Table(name="pets")
 public class Pet {
 	@Id
 	@Column(name="pet_id")
 	@NotNull
-	@Range(min=1,message="*Greater then zero")
 	@GeneratedValue(strategy = GenerationType.AUTO, generator = "pet_id")
     @SequenceGenerator(name = "pet_id", sequenceName = "pet_id",  allocationSize = 1)
 	private int petId;
@@ -43,10 +43,12 @@ public class Pet {
 	@NotBlank(message = "*Name can't be Empty")
 	private String petName;
 	@Column(name="dob")
+	@DateTimeFormat
 	private Date dob;
 	@NotBlank(message = "*Gender can't be Empty")
 	private String gender;
 	@Column(name="date_of_ownership")
+	@DateTimeFormat
 	private Date dateofOwnership;
 	@ManyToOne(fetch=FetchType.LAZY)
 	@JoinColumn(name="breed_id",nullable=false, insertable=false, updatable=false)
@@ -68,7 +70,7 @@ public class Pet {
 	public void setUsersdetail(UsersDetail usersdetail) {
 		this.usersdetail = usersdetail;
 	}
-	@OneToMany(mappedBy="vaccineDate",fetch=FetchType.LAZY)
+	@OneToMany(mappedBy="pet",fetch=FetchType.LAZY)
 	private List<VaccineDate> vaccineDate;
 	
 	public List<VaccineDate> getVaccineDate() {

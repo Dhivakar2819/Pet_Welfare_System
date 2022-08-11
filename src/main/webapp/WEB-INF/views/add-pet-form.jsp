@@ -39,7 +39,7 @@ table             {
 </style>
 </head>
 <body>
-<div id="root" align="center">
+<div id="root">
 		<div id="form">
 			<form:form action="addnewpet" method="post" modelAttribute="addpet">
 				<div>
@@ -77,7 +77,8 @@ table             {
 					<div>
 						<form:input path="petName" 
 						title="Name can't be empty"
-						placeholder="Enter the pet name"/>
+						placeholder="Enter the pet name"
+						required="true"/>
 					</div>
 					<form:errors path="petName" cssClass="text-danger" />
 				</div>
@@ -86,7 +87,6 @@ table             {
 					<div>
 						<form:input path="dob" type="date"/>
 					</div>
-					<form:errors path="dob" cssClass="text-danger" />
 				</div>
 				<div>
 					<label for="gender">Gender</label>
@@ -101,13 +101,13 @@ table             {
 					<div>
 						<form:input path="dateofOwnership" type="date" />
 					</div>
-					<form:errors path="dateofOwnership" cssClass="text-danger" />
 				</div>
 				<br>
 				<div>
 					<form:button>Add New Pet</form:button>
 				</div>
-			</form:form>
-		</div>
+			</form:form><br>
+			<div>${result}</div>
+		</div></div>
 </body>
 </html>

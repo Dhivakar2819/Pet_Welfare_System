@@ -43,7 +43,7 @@ width:25%;
 </style>
 </head>
 <body>
-<div id="index" align="center">
+<div id="index" >
 <br>
 <br>
 <br>
@@ -53,6 +53,8 @@ width:25%;
 		<div><a href="/vaccine/adminvaccinelist"><button>Vaccine</button></a></div><br>
 		<div><a href="/petrecord/petrecordlist"><button>Pet Records</button></a></div><br>
 		<div><a href="/usersdetail/userdetaillist"><button >User Detail</button></a></div><br>
-	</div>
+		<div><a href="/admin/adminlist"><button>Admin</button></a></div>
+	</div><br>
+	<div><a href="/admin/adminlogin"><button>Log out</button></a></div>
 </body>
 </html>

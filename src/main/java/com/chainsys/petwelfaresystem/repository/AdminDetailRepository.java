@@ -11,5 +11,5 @@ public interface AdminDetailRepository extends CrudRepository<AdminDetail,Intege
 	AdminDetail save(AdminDetail ad);
 	void deleteById(int id);
 	List<AdminDetail> findAll();
-	AdminDetail findByAdminIdAndAdminPassword(int id,String password); 
+	AdminDetail findByEmailAndAdminPassword(String email,String password); 
 }
