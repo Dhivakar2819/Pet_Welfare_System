@@ -43,19 +43,22 @@ public class PetRecordsController {
 	}
 
 	@GetMapping("/addformpetrecord")
-	public String showAddPetRecord(Model model) {
+	public String showAddPetRecord(@RequestParam("id")int id, Model model) {
 		PetRecords petRecord = new PetRecords();
 		model.addAttribute("disease", diseaseServices.getAllDisease());
 		model.addAttribute("addpetrecord", petRecord);
+		model.addAttribute("petId",petRecord.getPetId());
+		petRecord.setPetId(id);
 		return "add-petrecord-form";
 	}
 
 	@PostMapping("/addnewpetrecord")
-	public String addNewPetRecords(@Valid @ModelAttribute("addpetrecord") PetRecords petRecord,Errors error) {
+	public String addNewPetRecords(@Valid @ModelAttribute("addpetrecord") PetRecords petRecord,Model model,Errors error) {
 		if(error.hasErrors()) {
 			return "add-petrecord-form";
 		}
 		else {
+		model.addAttribute("petId",petRecord.getPet());
 		petRecordServices.save(petRecord);
 		return "redirect:/petrecord/petrecordlist";}
 	}
@@ -112,6 +115,7 @@ public class PetRecordsController {
 		}}
 		model.addAttribute("totalAmount", totalAmount);
 		model.addAttribute("diseasePrice",diseaseList);
+		model.addAttribute("petId", dto.getPet().getPetId());
 		return "pet-petrecords";
 	}
 

@@ -5,12 +5,9 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 
-import com.chainsys.petwelfaresystem.compositekey.VaccineDateCompositeKey;
 import com.chainsys.petwelfaresystem.dto.PetPetRecordsDto;
 import com.chainsys.petwelfaresystem.dto.PetVaccineDto;
-import com.chainsys.petwelfaresystem.model.Breed;
 import com.chainsys.petwelfaresystem.model.Pet;
 import com.chainsys.petwelfaresystem.model.PetRecords;
 import com.chainsys.petwelfaresystem.model.VaccineDate;

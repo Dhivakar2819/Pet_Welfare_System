@@ -101,7 +101,7 @@ th {
 
 			<br>
 			<div>
-				<a href="/pet/addpet"><button>Add</button></a>
+				<a href="/pet/addpet?userId=${userId}"><button>Add</button></a>
 			</div>
 			<div>
 				<a href="/breed/breedlist"><button>Breed List</button></a>

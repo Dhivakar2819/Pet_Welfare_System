@@ -81,7 +81,7 @@ table             {
 				</div>
 				<br>
 				<div>
-					<form:button>Add New Pet Record</form:button>
+					<form:button></a>Add New Pet Record</form:button>
 				</div>
 			</form:form>
 		</div>

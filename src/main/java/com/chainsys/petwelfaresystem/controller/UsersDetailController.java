@@ -102,6 +102,7 @@ public class UsersDetailController {
 		UsersDetailPetDTO dto = userDetailServices.getUsersAndPet(id);
 		model.addAttribute("getuser", dto.getUsersdetail());
 		model.addAttribute("petlist", dto.getPetlist());
+		model.addAttribute("userId",dto.getUsersdetail().getUserId());
 		return "list-user-pet";
 	}
 

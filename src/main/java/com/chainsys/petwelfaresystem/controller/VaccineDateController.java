@@ -18,7 +18,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.chainsys.petwelfaresystem.compositekey.VaccineDateCompositeKey;
 import com.chainsys.petwelfaresystem.model.VaccineDate;
-import com.chainsys.petwelfaresystem.repository.VaccineRepository;
 import com.chainsys.petwelfaresystem.services.VaccineDateServices;
 import com.chainsys.petwelfaresystem.services.VaccinesServices;
 
@@ -38,19 +37,22 @@ public class VaccineDateController {
 	
 
 	@GetMapping("/addformvaccinedate")
-	public String showAddVaccineDate(Model model) {
+	public String showAddVaccineDate(@RequestParam("id") int id,Model model) {
 		VaccineDate vaccineDate = new VaccineDate();
 		model.addAttribute("vaccine",vaccineService.getAllVaccines());
 		model.addAttribute("addvdate", vaccineDate);
+		model.addAttribute("vaccineId",vaccineDate.getPetId());
+		vaccineDate.setPetId(id);
 		return "add-vaccinedate-form";
 	}
 
 	@PostMapping("/addnewvaccinedate")
-	public String addNewVaccineDate(@Valid @ModelAttribute("addvdate") VaccineDate vaccineDate,Errors error) {
+	public String addNewVaccineDate(@Valid @ModelAttribute("addvdate") VaccineDate vaccineDate,Errors error,Model model) {
 		if(error.hasErrors()) {
 			return "add-vaccinedate-form";
 		}
 		else {
+			model.addAttribute("petId", vaccineDate.getPetId());
 		vaccineDateServices.save(vaccineDate);
 		return "redirect:/vaccinedate/vaccinedatelist";}
 	}

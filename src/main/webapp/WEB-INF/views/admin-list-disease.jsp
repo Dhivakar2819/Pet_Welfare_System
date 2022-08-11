@@ -40,7 +40,7 @@ table             {
 </head>
 <body>
 	<div id="table root">
-		<table>
+		<table><caption>disease</caption>
 			<thead>
 				<tr>
 					<th>Disease Id</th>
@@ -53,7 +53,7 @@ table             {
 			</thead>
 			<tbody>
 				<c:forEach var="disease" items="${alldisease}">
-					<tr align="center">
+					<tr>
 						<td>${disease.id}</td>
 						<td>${disease.diseaseName}</td>
 						<td>${disease.medicine}</td>

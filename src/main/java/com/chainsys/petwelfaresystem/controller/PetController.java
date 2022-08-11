@@ -35,10 +35,11 @@ public class PetController {
 		return "list-pet";
 	}
 	@GetMapping("/addpet")
-	public String showAddPet(Model model){
+	public String showAddPet(@RequestParam("userId") int id,Model model){
 		Pet pet=new Pet();
 		model.addAttribute("breed",breedServices.getAllBreed());
 		model.addAttribute("addpet",pet);
+		pet.setUserId(id);
 		return "add-pet-form";
 	}
 	@PostMapping("/addnewpet")
@@ -48,6 +49,7 @@ public class PetController {
 		}
 		else {
 		petServices.save(pet);
+		model.addAttribute("userId", pet.getUserId());
 		model.addAttribute("result","Pet records added successfully");
 		return "add-pet-form";}
 	}
@@ -60,12 +62,13 @@ public class PetController {
 	}
 
 	@PostMapping("/updatepets")
-	public String updatePet(@Valid@ModelAttribute("updatepet") Pet pet,Errors error) {
+	public String updatePet(@Valid@ModelAttribute("updatepet") Pet pet,Errors error,Model model) {
 		if(error.hasErrors()) {
 			return "update-pet-form";
 		}
 		else {
 		petServices.save(pet);
+		model.addAttribute("userId", pet.getUserId());
 		return "redirect:/pet/petlist";	
 		}
 	}
@@ -87,6 +90,9 @@ public class PetController {
 		PetVaccineDto dto=petServices.getPetAndVaccine(id);
 		model.addAttribute("getpetid",dto.getPet());
 		model.addAttribute("vaccinelist",dto.getVaccineDateList());
+		model.addAttribute("petId",dto.getPet().getPetId());
+		model.addAttribute("petId", dto.getPet().getUserId());
+		dto.getPet().setUserId(id);
 		return "list-pet-vaccine";
 	}
 }

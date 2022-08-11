@@ -100,7 +100,7 @@ table             {
 			</tbody>
 		</table><br>
 		<br><div>
-		<a href="/petrecord/addformpetrecord">Add</a><br>
+		<a href="/petrecord/addformpetrecord?id=${petId}">Add</a><br>
 		<a href="/disease/diseaselist">Disease List</a></div>
 	</div>
 	</div>

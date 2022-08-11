@@ -23,24 +23,21 @@ body {
 </head>
 <body >
 	<div id="root">
-		<div id="form" align="center">
+		<div id="form" >
 			<form:form action="userlogin" method="post"
 				modelAttribute="loginform">
-				<table>
-				<h1 align="center">User Login</h1>
+				<h1>User Login</h1>
 				
-					<table>
-						<tr><td><label for="email">Email :</label></td>
-						<td><form:input path="email" placeholder="example@gmail.com" />
-						</td><tr>
+						<div><label for="email">Email :</label></div>
+						<div></div><form:input path="email" placeholder="example@gmail.com" />
+						</div>
 						
-						<tr><td>
+						<div>
 							<label for="password">Password</label>
-							</td><td>
+							</div>
 								<form:input path="password" type="password"
 									placeholder="password" />
 							</td></tr>
-					</table>
 					<div>
 					<tr>	<td><form:button>Sign in</form:button></td>
 						<td><form:button>
