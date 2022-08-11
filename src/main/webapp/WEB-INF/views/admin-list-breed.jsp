@@ -3,11 +3,14 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 <meta charset="ISO-8859-1">
 <title>Breed List</title>
 <style>
+*
+{
+align :center;}
 .text-danger {
     color: #e80c4d;
     font-size: 0.9em;
@@ -36,11 +39,13 @@ table             {
   background-color: #04AA6D;
   color: white;
 }
+
 </style>
 </head>
 <body>
-	<div id="table root" align ="center">
+	<div id="table root" >
 		<table>
+		<caption>Breed</caption>
 			<thead>
 				<tr>
 					<th>Breed Id</th>
@@ -51,7 +56,7 @@ table             {
 			</thead>
 			<tbody>
 				<c:forEach var="breed" items="${allbreeds}">
-					<tr align="center">
+					<tr>
 						<td>${breed.id}</td>
 						<td>${breed.breedType}</td>
 						<td><a href="/breed/updatebreed?brid=${breed.id}">Update</a></td>

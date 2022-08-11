@@ -3,11 +3,14 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 <meta charset="ISO-8859-1">
 <title>view Pet by Pet Records</title>
 <style>
+*
+{
+align :center;}
 .text-danger {
     color: #e80c4d;
     font-size: 0.9em;
@@ -60,9 +63,10 @@ table             {
 			</form:form>
 		</div>
 		<div id="table root">
-		<table align="center">
+		<table>
+		<caption></caption>
 			<thead>
-				<tr align="center">
+				<tr>
 					<th>Observe Date</th>
 					<th>Observation</th>
 					<th>Recover date</th>
@@ -73,7 +77,7 @@ table             {
 			</thead>
 			<tbody>
 				<c:forEach var="petrecords" items="${petrecordslist}">
-					<tr align="center">
+					<tr>
 						<td>${petrecords.dateObserv}</td>
 						<td>${petrecords.observation}</td>
 						<td>${petrecords.recoverDate}</td>
@@ -83,18 +87,19 @@ table             {
 						<td><a href="/petrecord/deletepetrecord?prid=${petrecords.petId}&diseaseid=${petrecords.diseaseId}">Delete</a></td>
 					</tr>
 				</c:forEach>
-				</table><br><table align="center">	<thead>
+				</table><br><table>
+				<caption>Disease</caption>	<thead>
 				<tr><th>Medicine Name</th>
 				<th>Price</th></tr></thead>
 					<c:forEach var="diseasePrice" items="${diseasePrice}">
-					<br><tr align="center"><td>${diseasePrice.medicine}</td>
+					<br><tr><td>${diseasePrice.medicine}</td>
 					<td>${diseasePrice.price}</td></tr>
 					
 				</c:forEach>
-				<tr><td align="right">total Amount</td><td align="center">${totalAmount}</td></tr>
+				<tr><td>total Amount</td><td >${totalAmount}</td></tr>
 			</tbody>
 		</table><br>
-		<br><div align="center">
+		<br><div>
 		<a href="/petrecord/addformpetrecord">Add</a><br>
 		<a href="/disease/diseaselist">Disease List</a></div>
 	</div>

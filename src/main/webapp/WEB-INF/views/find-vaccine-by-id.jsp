@@ -2,11 +2,14 @@
     pageEncoding="ISO-8859-1"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 <meta charset="ISO-8859-1">
 <title>Find Vaccine</title>
 <style>
+*
+{
+align :center;}
 .text-danger {
     color: #e80c4d;
     font-size: 0.9em;

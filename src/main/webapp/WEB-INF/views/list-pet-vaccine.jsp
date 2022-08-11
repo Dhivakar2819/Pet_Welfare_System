@@ -3,11 +3,14 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 <meta charset="ISO-8859-1">
 <title>Add Pet</title>
 <style>
+*
+{
+align :center;}
 .text-danger {
     color: #e80c4d;
     font-size: 0.9em;
@@ -39,8 +42,8 @@ table             {
 </style>
 </head>
 <body>
-<div id="root" align="center">
-		<div id="form" align="center">
+<div id="root" >
+		<div id="form">
 			<form:form action="" method="post" modelAttribute="getpetid" >
 				<table><tr>
 				<td>
@@ -56,10 +59,11 @@ table             {
 					</table>
 			</form:form>
 		</div>
-	<div id="vaccinelist" align="center">
-		<table align="center">
+	<div id="vaccinelist">
+		<table>
+		<caption>Vaccine Date</caption>
 			<thead>
-				<tr align="center">
+				<tr >
 					<th>Update Vaccine date</th>
 					<th>Delete Vaccine Date</th>
 				</tr>

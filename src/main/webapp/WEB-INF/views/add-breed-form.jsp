@@ -2,11 +2,14 @@
     pageEncoding="ISO-8859-1"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 <meta charset="ISO-8859-1">
 <title>Add Breed</title>
 <style>
+*{
+ align:center;
+}
 .text-danger {
     color: #e80c4d;
     font-size: 0.9em;
@@ -38,7 +41,7 @@ table             {
 </style>
 </head>
 <body>
-<div id="root" align="center">
+<div id="root">
 		<div id="form">
 			<form:form action="addbreed" method="post" modelAttribute="addbreeds">
 				<div>

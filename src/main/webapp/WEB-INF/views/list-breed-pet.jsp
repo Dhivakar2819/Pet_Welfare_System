@@ -3,11 +3,14 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 <meta charset="ISO-8859-1">
 <title>Find by Id</title>
 <style>
+*
+{
+align :center;}
 .text-danger {
     color: #e80c4d;
     font-size: 0.9em;
@@ -42,7 +45,6 @@ table             {
 <div id="root">
 		<div id="form">
 			<form:form action="" method="post" modelAttribute="getbreed">
-				</div>
 				<div>
 					<label for="breedType">Breed Type</label>
 					<div>
@@ -52,7 +54,8 @@ table             {
 			</form:form>
 		</div>
 		<div id="table root">
-		<table align="center">
+		<table>
+		<caption>Pet Details</caption>
 			<thead>
 				<tr>
 					<th>Pet Type</th>
@@ -64,7 +67,7 @@ table             {
 			</thead>
 			<tbody>
 				<c:forEach var="pet" items="${petlist}">
-					<tr align="center">
+					<tr >
 						<td>${pet.petType}</td>
 						<td>${pet.petName}</td>
 						<td>${pet.dob}</td>

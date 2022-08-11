@@ -3,11 +3,14 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 <meta charset="ISO-8859-1">
 <title>Pet Record List</title>
 <style>
+*
+{
+align :center;}
 .text-danger {
     color: #e80c4d;
     font-size: 0.9em;
@@ -40,7 +43,8 @@ table             {
 </head>
 <body>
 	<div id="table root">
-		<table align="center">
+		<table>
+		<caption>Pet Records</caption>
 			<thead>
 				<tr>
 					<th>Observe Date</th>
@@ -52,7 +56,7 @@ table             {
 			<tbody>
 			
 				<c:forEach var="petrecords" items="${allpetrecords}">
-				<tr align="center">
+				<tr>
 						<td>${petrecords.dateObserv}</td>
 						<td>${petrecords.observation}</td>
 						<td>${petrecords.recoverDate}</td>

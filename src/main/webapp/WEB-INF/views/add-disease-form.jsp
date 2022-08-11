@@ -3,11 +3,14 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 <meta charset="ISO-8859-1">
 <title>Add Disease</title>
 <style>
+*{
+ align:center;
+}
 .text-danger {
     color: #e80c4d;
     font-size: 0.9em;
@@ -39,7 +42,7 @@ table             {
 </style>
 </head>
 <body>
-<div id="root" align="center">
+<div id="root" >
 		<div id="form">
 			<form:form action="addnewdisease" method="post" modelAttribute="adddisease">
 				<div>
@@ -71,7 +74,7 @@ table             {
 					<form:errors path="price" cssClass="text-danger" />
 				</div>
 				<br>
-				<div align="center">
+				<div >
 					<form:button>Add Disease</form:button>
 				</div>
 			</form:form>

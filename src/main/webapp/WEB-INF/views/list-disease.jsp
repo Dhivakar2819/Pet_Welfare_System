@@ -3,11 +3,14 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 <meta charset="ISO-8859-1">
 <title>Disease List</title>
 <style>
+*
+{
+align :center;}
 .text-danger {
     color: #e80c4d;
     font-size: 0.9em;
@@ -40,7 +43,8 @@ table             {
 </head>
 <body>
 	<div id="table root">
-		<table align="center">
+		<table>
+		<caption>Disease DetailsS</caption>
 			<thead>
 				<tr>
 					<th>Disease Name</th>
@@ -50,7 +54,7 @@ table             {
 			</thead>
 			<tbody>
 				<c:forEach var="disease" items="${alldisease}">
-					<tr align="center">
+					<tr>
 						<td>${disease.diseaseName}</td>
 						<td>${disease.medicine}</td>
 						<td>${disease.price}</td>
