@@ -12,6 +12,11 @@
 		<div id="form">
 			<form:form action="updatevaccines" method="post" modelAttribute="updatevaccine">
 				<div>
+						<form:input path="vaccineId" 
+						title="Name can't be empty"
+						required="true" type="hidden"/>
+					</div>
+				<div>
 					<label for="vaccineName">Vaccine Name</label>
 					<div>
 						<form:input path="vaccineName" 

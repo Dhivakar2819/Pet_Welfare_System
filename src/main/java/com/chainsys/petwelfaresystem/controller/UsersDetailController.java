@@ -110,14 +110,15 @@ public class UsersDetailController {
 	public String getUserLogin(Model model) {
 		UsersDetail userDetail = new UsersDetail();
 		model.addAttribute("loginform", userDetail);
-		return "userlogin";
+		return "userlogin2";
 	}
 
 	@PostMapping("/userlogin")
 	public String checkingAccess(@ModelAttribute("loginform") UsersDetail usersDetail, Model model) {
 		UsersDetail userDetail = userDetailServices.getUserByEmailAndPassword(usersDetail.getEmail(),
 				usersDetail.getPassword());
-		if (userDetail != null) {
+		if
+		(userDetail != null) {
 			int id = userDetail.getUserId();
 			return "redirect:/usersdetail/getuserpet?id=" + id;
 		} else

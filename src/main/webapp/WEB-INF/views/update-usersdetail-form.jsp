@@ -13,6 +13,11 @@
 		<div id="form">
 			<form:form action="updateuser" method="post" modelAttribute="updateusersdetail">
 				<div>
+						<form:input path="userId" 
+						title="Name can't be empty"
+						required="true" type="hidden"/>
+					</div>
+				<div>
 					<label for="userName">User Name</label>
 					<div>
 						<form:input path="userName" 

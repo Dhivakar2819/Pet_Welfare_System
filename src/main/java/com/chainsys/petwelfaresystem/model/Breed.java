@@ -48,6 +48,7 @@ public class Breed {
 	public void setId(int id) {
 		this.id = id;
 	}
+	
 	public String getBreedType() {
 		return breedType;
 	}

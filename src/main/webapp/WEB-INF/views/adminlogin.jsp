@@ -12,7 +12,7 @@
 	<div id="root">
 		<div id="form">
 			<form:form action="adminloginpage" method="post"
-				modelAttribute="adminDetail">
+				modelAttribute="adminlogin">
 				<h1 >Admin Login</h1>
 				
 					<table>

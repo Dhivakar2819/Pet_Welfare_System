@@ -13,6 +13,11 @@
 		<div id="form">
 			<form:form action="updatenewdisease" method="post" modelAttribute="updatedisease">
 				<div>
+						<form:input path="id" 
+						title="Name can't be empty"
+						required="true" type="hidden"/>
+					</div>
+				<div>
 					<label for="diseaseName">Disease Name</label>
 					<div>
 						<form:input path="diseaseName" 

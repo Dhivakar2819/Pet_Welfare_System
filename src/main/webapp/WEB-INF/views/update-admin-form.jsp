@@ -12,6 +12,11 @@
 		<div id="form">
 			<form:form action="updateadmindetain" method="post" modelAttribute="updateadmin">
 				<div>
+						<form:input path="adminId" 
+						title="Name can't be empty"
+						required="true" type="hidden"/>
+					</div>
+				<div>
 					<label for="adminName">Name</label>
 					<div>
 						<form:input path="adminName" 

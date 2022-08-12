@@ -10,7 +10,8 @@
 </head>
 <body>
 	<div id="table root">
-		<table><caption>disease</caption>
+		<table>
+		<caption>disease</caption>
 			<thead>
 				<tr>
 					<th>Disease Id</th>

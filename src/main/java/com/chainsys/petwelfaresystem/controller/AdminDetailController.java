@@ -95,7 +95,7 @@ public class AdminDetailController {
 	@GetMapping("/adminlogin")
 	public String getAdminLogin(Model model) {
 		AdminDetail adminDetail = new AdminDetail();
-		model.addAttribute("adminDetail", adminDetail);
+		model.addAttribute("adminlogin", adminDetail);
 		return "adminlogin";
 	}
 

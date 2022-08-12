@@ -44,7 +44,8 @@
 					<label for="phoneNo">Phone no</label>
 					<div>
 						<form:input path="phoneNo" title="Phone no can't be empty "
-							required="true" placeholder="Enter the phone number" />
+							required="true" placeholder="Enter the phone number" 
+							pattern="^[0-9]{4}[0-9]{4}[0-9]{2}$"/>
 					</div>
 					<form:errors path="phoneNo" cssClass="text-danger" />
 				</div>

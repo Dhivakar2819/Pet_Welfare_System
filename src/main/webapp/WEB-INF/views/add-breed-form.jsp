@@ -6,6 +6,7 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Add Breed</title>
+<style><%@include file="/WEB-INF/css/style.css"%></s</style>
 </head>
 <body>
 <div id="root">

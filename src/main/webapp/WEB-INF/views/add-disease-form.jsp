@@ -7,6 +7,7 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Add Disease</title>
+<style><%@include file="/WEB-INF/css/style.css"%></s</style>
 </head>
 <body>
 <div id="root" >

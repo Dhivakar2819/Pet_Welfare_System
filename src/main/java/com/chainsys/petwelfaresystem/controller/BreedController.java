@@ -71,6 +71,7 @@ public class BreedController {
 	{
 		Breed breed=breedServices.findById(id);
 		model.addAttribute("findbreedbyid",breed);
+//		model.addAttribute("userId", breed.)
 		return "find-breed-by-id";
 	}
 	@GetMapping("/getbreedpet")

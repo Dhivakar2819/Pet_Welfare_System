@@ -18,7 +18,7 @@
 						<form:input path="petId" 
 						title="Id must be number" 
 						pattern="^[0-9]+$"
-						 required="true" />
+						 required="true" type="hidden"/>
 					</div>
 					<form:errors path="petId" cssClass="text-danger" />
 				</div>

@@ -12,13 +12,13 @@
 <div id="root">
 		<div id="form">
 			<form:form action="updatenewrecord" method="post" modelAttribute="updatepetrecord">
+				
 				<div>
-					<label for="petId">Pet id</label>
 					<div>
 						<form:input path="petId" 
 						title="Id must be number" 
 						pattern="^[0-9]+$"
-						 required="true"/>
+						 required="true" type="hidden"/>
 					</div>
 					<form:errors path="petId" cssClass="text-danger" />
 				</div>
