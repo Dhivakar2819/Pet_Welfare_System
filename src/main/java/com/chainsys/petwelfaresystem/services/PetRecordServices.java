@@ -29,4 +29,7 @@ public class PetRecordServices {
 	public void deleteById(PetRecordsCompositeKey id) {
 		petRecordRepository.deleteById(id);
 	}
+	public List<PetRecords> getPetRecordsOrderByObservDate(){
+		return petRecordRepository.findByOrderByDateObserv();
+	}
 }

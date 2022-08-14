@@ -18,7 +18,7 @@
 					<div>
 						<form:input path="adminName" 
 						title="Name can't be empty"
-						pattern="^[A-Za-z]\\w{3,20}$" required="true" placeholder="Enter admin name"/>
+						pattern="^[a-zA-z\s]+$" required="true" placeholder="Enter admin name"/>
 					</div>
 					<form:errors path="adminName" cssClass="text-danger" />
 				</div>

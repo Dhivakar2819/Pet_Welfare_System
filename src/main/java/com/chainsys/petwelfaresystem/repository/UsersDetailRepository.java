@@ -11,4 +11,5 @@ public interface UsersDetailRepository extends CrudRepository<UsersDetail,Intege
 	void deleteById(int id);
 	List<UsersDetail> findAll();
 	UsersDetail findByEmailAndPassword(String email, String password);
+	List<UsersDetail> findByOrderByUserName();
 }

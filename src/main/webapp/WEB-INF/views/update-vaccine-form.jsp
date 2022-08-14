@@ -21,7 +21,7 @@
 					<div>
 						<form:input path="vaccineName" 
 						title="Name can't be empty "
-						 required="true"
+						 required="true" pattern="^[a-zA-z\s]+$"
 						 placeholder="Enter the vaccine name"/>
 					</div>
 					 <form:errors path="vaccineName" cssClass="text-danger" />

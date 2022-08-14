@@ -36,6 +36,9 @@ public class UsersDetailServices {
 	public UsersDetail getUserByEmailAndPassword(String email,String password) {
 		return usersDetailRepository.findByEmailAndPassword(email, password);
 	}
+	public List<UsersDetail> getUserDetailByOrder(){
+		return usersDetailRepository.findByOrderByUserName();
+	}
 	public UsersDetailPetDTO getUsersAndPet(int id) {
 		UsersDetail usersDetail=findById(id);
 		UsersDetailPetDTO dto=new UsersDetailPetDTO();

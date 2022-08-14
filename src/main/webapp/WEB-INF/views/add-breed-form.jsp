@@ -16,7 +16,7 @@
 					<label for="breedType">Breed Type</label>
 					<div>
 						<form:input path="breedType" 
-						title="Breed type can't be empty"
+						title="Breed type can't be empty" pattern="^[a-zA-z\s]+$"
 						 required="true" placeholder="Enter the breed type"/>
 					</div>
 					<form:errors path="breedType" cssClass="text-danger" />

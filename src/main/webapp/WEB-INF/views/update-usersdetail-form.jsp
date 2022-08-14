@@ -21,7 +21,7 @@
 					<label for="userName">User Name</label>
 					<div>
 						<form:input path="userName" 
-						title="User name can't be empty "
+						title="User name can't be empty " pattern="^[a-zA-z\s]+$"
 						 required="true" placeholder="Enter the user name"/>
 					</div>
 					<form:errors path="userName" cssClass="text-danger" />
@@ -51,7 +51,8 @@
 					<div>
 						<form:input path="phoneNo" 
 						title="Phone no can't be empty "
-						 required="true" placeholder="Enter the phone number"/>
+						 required="true" pattern='[0-9]{3}-[0-9]{3}-[0-9]{4}'
+				placeholder='123-456-7890'/>
 					</div>
 					<form:errors path="phoneNo" cssClass="text-danger" />
 				</div>
@@ -59,7 +60,7 @@
 					<label for="address">Address</label>
 					<div>
 						<form:input path="address" 
-						title="Address no can't be empty "
+						title="Address no can't be empty " pattern="^[a-zA-Z0-9\s,. '-]{3,}$"
 						 required="true" placeholder="Enter the address"/>
 					</div>
 					<form:errors path="address" cssClass="text-danger" />

@@ -1,6 +1,5 @@
 package com.chainsys.petwelfaresystem.model;
 
-import java.sql.Date;
 import java.util.List;
 
 import javax.persistence.Column;
@@ -18,7 +17,7 @@ import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 
 import org.hibernate.validator.constraints.Range;
-import org.springframework.format.annotation.DateTimeFormat;
+
 @Entity
 @Table(name="pets")
 public class Pet {
@@ -40,13 +39,12 @@ public class Pet {
 	@NotBlank(message = "*Name can't be Empty")
 	private String petName;
 	@Column(name="dob")
-	@DateTimeFormat
-	private Date dob;
+	private String dob;
 	@NotBlank(message = "*Gender can't be Empty")
 	private String gender;
 	@Column(name="date_of_ownership")
-	@DateTimeFormat
-	private Date dateofOwnership;
+
+	private String dateofOwnership;
 	@ManyToOne(fetch=FetchType.LAZY)
 	@JoinColumn(name="breed_id",nullable=false, insertable=false, updatable=false)
 	private Breed breed;
@@ -115,10 +113,10 @@ public class Pet {
 	public void setPetName(String petName) {
 		this.petName = petName;
 	}
-	public Date getDob() {
+	public String getDob() {
 		return dob;
 	}
-	public void setDob(Date dob) {
+	public void setDob(String dob) {
 		this.dob = dob;
 	}
 	public String getGender() {
@@ -127,10 +125,10 @@ public class Pet {
 	public void setGender(String gender) {
 		this.gender = gender;
 	}
-	public Date getDateofOwnership() {
+	public String getDateofOwnership() {
 		return dateofOwnership;
 	}
-	public void setDateofOwnership(Date dateofOwnership) {
+	public void setDateofOwnership(String dateofOwnership) {
 		this.dateofOwnership = dateofOwnership;
 	}
 	

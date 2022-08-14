@@ -1,5 +1,7 @@
 package com.chainsys.petwelfaresystem.controller;
 
+import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 import javax.validation.Valid;
@@ -8,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.Errors;
+import org.springframework.validation.ObjectError;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -16,8 +19,12 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.chainsys.petwelfaresystem.dto.PetVaccineDto;
 import com.chainsys.petwelfaresystem.model.Pet;
+import com.chainsys.petwelfaresystem.model.VaccineDate;
+import com.chainsys.petwelfaresystem.model.Vaccines;
 import com.chainsys.petwelfaresystem.services.BreedServices;
 import com.chainsys.petwelfaresystem.services.PetServices;
+import com.chainsys.petwelfaresystem.services.UsersDetailServices;
+import com.chainsys.petwelfaresystem.services.VaccinesServices;
 
 @Controller
 @RequestMapping("/pet")
@@ -26,73 +33,93 @@ public class PetController {
 	PetServices petServices;
 	@Autowired
 	BreedServices breedServices;
-	
+	@Autowired
+	UsersDetailServices userDetailServices;
+	@Autowired
+	VaccinesServices vaccineServices;
 	
 	@GetMapping("/petlist")
 	public String getFindAllPet(Model model) {
-		List<Pet>pet=petServices.getPet();
-		model.addAttribute("allPets",pet);
+		List<Pet> pet = petServices.getPet();
+		model.addAttribute("allPets", pet);
 		return "list-pet";
 	}
+
 	@GetMapping("/addpet")
-	public String showAddPet(@RequestParam("userId") int id,Model model){
-		Pet pet=new Pet();
-		model.addAttribute("breed",breedServices.getAllBreed());
-		model.addAttribute("addpet",pet);
+	public String showAddPet(@RequestParam("userId") int id, Model model) {
+		Pet pet = new Pet();
+		model.addAttribute("breed", breedServices.getAllBreed());
+		model.addAttribute("addpet", pet);
 		pet.setUserId(id);
+		model.addAttribute("userId", pet.getUserId());
 		return "add-pet-form";
 	}
+
 	@PostMapping("/addnewpet")
-	public String addNewPet(@Valid @ModelAttribute("addpet") Pet pet,Model model,Errors error) {
-		if(error.hasErrors()) {
+	public String addNewPet(@ModelAttribute("addpet") Pet pet, Model model) {
+		try {
+			model.addAttribute("userId", pet.getUserId());
+			petServices.save(pet);
+			model.addAttribute("result", "Pet records added successfully");
+			return "add-pet-form";
+		}catch(Exception er) {
 			return "add-pet-form";
 		}
-		else {
-		petServices.save(pet);
-		model.addAttribute("userId", pet.getUserId());
-		model.addAttribute("result","Pet records added successfully");
-		return "add-pet-form";}
 	}
+
 	@GetMapping("/updateformpet")
-	public String showUpdatePet(@RequestParam("petid") int id, Model model ){
-		Pet pet=petServices.findById(id);
-		model.addAttribute("breed",breedServices.getAllBreed());
-		model.addAttribute("updatepet",pet);
+	public String showUpdatePet(@RequestParam("petid") int id, Model model) {
+		Pet pet = petServices.findById(id);
+		model.addAttribute("breed", breedServices.getAllBreed());
+		model.addAttribute("updatepet", pet);
+		model.addAttribute("userId", pet.getUserId());
 		return "update-pet-form";
 	}
 
 	@PostMapping("/updatepets")
-	public String updatePet(@Valid@ModelAttribute("updatepet") Pet pet,Errors error,Model model) {
-		if(error.hasErrors()) {
+	public String updatePet(@ModelAttribute("updatepet") Pet pet, Model model) {
+		try {
+			petServices.save(pet);
+			model.addAttribute("userId", pet.getUserId());
 			return "update-pet-form";
-		}
-		else {
-		petServices.save(pet);
-		model.addAttribute("userId", pet.getUserId());
-		return "redirect:/pet/petlist";	
+		}catch(Exception er) {
+			return "update-pet-form"; 
 		}
 	}
+
 	@GetMapping("/deletepet")
-	public String deletePet(@RequestParam("petid") int id) {
+	public String deletePet(@RequestParam("petid") int id, Model model) {
+		Pet pet = petServices.findById(id);
 		petServices.deleteById(id);
-		return "redirect:/pet/petlist";
+		return "redirect:/usersdetail/getuserpet?id=" + pet.getUserId();
 	}
-	
+
 	@GetMapping("/getpet")
-	public String getpet(@RequestParam("petid") int id,Model model)
-	{
-		Pet pet=petServices.findById(id);
-		model.addAttribute("findpetbyid",pet);
+	public String getpet(@RequestParam("petid") int id, Model model) {
+		Pet pet = petServices.findById(id);
+		model.addAttribute("findpetbyid", pet);
 		return "find-pet-by-id";
 	}
+
 	@GetMapping("/getvaccinebypetid")
-	public String getPetDisease(@RequestParam("id") int id,Model model) {
-		PetVaccineDto dto=petServices.getPetAndVaccine(id);
-		model.addAttribute("getpetid",dto.getPet());
-		model.addAttribute("vaccinelist",dto.getVaccineDateList());
-		model.addAttribute("petId",dto.getPet().getPetId());
-		model.addAttribute("petId", dto.getPet().getUserId());
+	public String getPetDisease(@RequestParam("id") int id, Model model) {
+		PetVaccineDto dto = petServices.getPetAndVaccine(id);
+		model.addAttribute("getpetid", dto.getPet());
+		model.addAttribute("vaccinelist", dto.getVaccineDateList());
+		model.addAttribute("petId", dto.getPet().getPetId());
+		model.addAttribute("userId", dto.getPet().getUserId());
+		List<Vaccines> vaccine= vaccineServices.getAllVaccines();
+		List<Vaccines> vaccinelist=new ArrayList<>();
+			for(int i=0;i<dto.getVaccineDateList().size();i++) {
+				for(int j=0;j<vaccine.size();j++) {
+					if(dto.getVaccineDateList().get(i).getVaccineId()==vaccine.get(j).getVaccineId()) {
+						vaccinelist.add(vaccine.get(j));
+						break;
+					}
+				}
+			}
 		dto.getPet().setUserId(id);
+		model.addAttribute("vaccineName", vaccinelist);
 		return "list-pet-vaccine";
 	}
 }

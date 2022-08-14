@@ -44,13 +44,14 @@ public class VaccinesController {
 	}
 
 	@PostMapping("/addnewvaccine")
-	public String addNewVaccine(@Valid @ModelAttribute("addvaccine") Vaccines vac,Errors error) {
+	public String addNewVaccine(@Valid @ModelAttribute("addvaccine") Vaccines vac,Errors error,Model model) {
 		if(error.hasErrors()) {
 			return "add-vaccine-form";
 		}
 		else {
 		vaccineServices.save(vac);
-		return "redirect:/vaccine/adminvaccinelist";}
+		model.addAttribute("addresult", "Added successfully");
+		return "add-vaccine-form";}
 	}
 
 	@GetMapping("/updateformvaccine")
@@ -61,18 +62,20 @@ public class VaccinesController {
 	}
 
 	@PostMapping("/updatevaccines")
-	public String updateVaccines(@Valid @ModelAttribute("updatevaccine") Vaccines vac,Errors error) {
+	public String updateVaccines(@Valid @ModelAttribute("updatevaccine") Vaccines vac,Errors error,Model model) {
 		if(error.hasErrors()) {
 			return "update-vaccine-form";
 		}else {
 		vaccineServices.save(vac);
-		return "redirect:/vaccine/adminvaccinelist";}
+		model.addAttribute("updateresult", "Updated successfully");
+		return "update-vaccine-form";}
 	}
 
 	@GetMapping("/deletevaccine")
-	public String deleteVaccines(@RequestParam("vacid") int id) {
+	public String deleteVaccines(@RequestParam("vacid") int id,Model model) {
 		vaccineServices.deleteById(id);
-		return "redirect:/vaccine/vaccinelist";
+		model.addAttribute("delete","Deletes successfully");
+		return "list-pet-vaccine";
 	}
 
 	@GetMapping("/getvaccine")

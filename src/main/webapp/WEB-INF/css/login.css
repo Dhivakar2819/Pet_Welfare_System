@@ -7,7 +7,7 @@
     box-sizing: border-box;
 }
 body{
-    background-image: url(https://photobest1.com/wp-content/uploads/2017/03/Dog-backgrounds-full-hd-free-download-10.jpg);
+    background-image: url(https://www.riddle.com/imageservice/q_80,f_auto,c_fill,w_715,h_402/o1aax5etmtbj8hbzybar);
     background-size:1366px 768px;
 }
 .background{
@@ -25,7 +25,7 @@ form{
     position: absolute;
     transform: translate(-50%,-50%);
     top: 50%;
-    left: 50%;
+    left: 30%;
     border-radius: 10px;
     backdrop-filter: blur(10px);
     border: 2px solid rgba(255,255,255,0.1);

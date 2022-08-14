@@ -8,6 +8,7 @@ import org.springframework.stereotype.Repository;
 
 import com.chainsys.petwelfaresystem.compositekey.PetRecordsCompositeKey;
 import com.chainsys.petwelfaresystem.model.PetRecords;
+import com.chainsys.petwelfaresystem.model.VaccineDate;
 @Repository
 public interface PetRecordRepository extends CrudRepository<PetRecords,PetRecordsCompositeKey>{
 	Optional<PetRecords> findById(PetRecordsCompositeKey id);
@@ -16,4 +17,5 @@ public interface PetRecordRepository extends CrudRepository<PetRecords,PetRecord
 	List<PetRecords> findAll();
 	List<PetRecords> findByDiseaseId(int id);
 	List<PetRecords> findByPetPetId(int id);
+	List<PetRecords> findByOrderByDateObserv();
 }

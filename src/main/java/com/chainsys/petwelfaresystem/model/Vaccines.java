@@ -8,7 +8,6 @@ import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
-import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 
 import org.hibernate.validator.constraints.Range;
@@ -22,7 +21,6 @@ public class Vaccines {
 	@Range(min=1,message="*Greater then zero")
 	private int vaccineId;
 	@Column(name="vaccine_name")
-	@NotBlank(message = "*Vaccine name can't be Empty")
 	private String vaccineName;
 	
 	public int getVaccineId() {

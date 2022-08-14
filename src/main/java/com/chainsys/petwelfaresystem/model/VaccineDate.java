@@ -1,7 +1,6 @@
 package com.chainsys.petwelfaresystem.model;
 
 
-import java.sql.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -32,7 +31,7 @@ public class VaccineDate {
 	@Range(min=1,message="*Greater then zero")
 	private int vaccineId;
 	@Column(name="vaccine_date")
-	private Date vaccinationDate;
+	private String vaccinationDate;
 	
 	@ManyToOne(fetch=FetchType.LAZY)
 	@JoinColumn(name="pet_id",nullable=false, insertable=false, updatable=false)
@@ -66,10 +65,10 @@ public class VaccineDate {
 	public void setVaccineId(int vaccineId) {
 		this.vaccineId = vaccineId;
 	}
-	public Date getVaccinationDate() {
+	public String getVaccinationDate() {
 		return vaccinationDate;
 	}
-	public void setVaccinationDate(Date vaccinationDate) {
+	public void setVaccinationDate(String vaccinationDate) {
 		this.vaccinationDate = vaccinationDate;
 	}
 }

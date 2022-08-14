@@ -1,7 +1,6 @@
 package com.chainsys.petwelfaresystem.model;
 
 
-import java.sql.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -15,7 +14,6 @@ import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 
 import org.hibernate.validator.constraints.Range;
-import org.springframework.format.annotation.DateTimeFormat;
 
 import com.chainsys.petwelfaresystem.compositekey.PetRecordsCompositeKey;
 
@@ -32,14 +30,12 @@ public class PetRecords {
 	@Column(name="disease_id")
 	private int diseaseId;
 	@Column(name="date_observ")
-	@DateTimeFormat 
-	private Date dateObserv;
+	private String dateObserv;
 	@Column(name="observation")
 	@NotBlank(message = "*Observation can't be Empty")
 	private String observation;
 	@Column(name="recover_date")
-	@DateTimeFormat
-	private Date recoverDate;
+	private String recoverDate;
 	@ManyToOne(fetch=FetchType.LAZY)
 	@JoinColumn(name="disease_id",nullable=false,insertable=false,updatable=false)
 	private Disease disease;
@@ -73,10 +69,10 @@ public class PetRecords {
 	public void setDiseaseId(int diseaseId) {
 		this.diseaseId = diseaseId;
 	}
-	public Date getDateObserv() {
+	public String getDateObserv() {
 		return dateObserv;
 	}
-	public void setDateObserv(Date dateObserv) {
+	public void setDateObserv(String dateObserv) {
 		this.dateObserv = dateObserv;
 	}
 	public String getObservation() {
@@ -85,10 +81,10 @@ public class PetRecords {
 	public void setObservation(String observation) {
 		this.observation = observation;
 	}
-	public Date getRecoverDate() {
+	public String getRecoverDate() {
 		return recoverDate;
 	}
-	public void setRecoverDate(Date recoverDate) {
+	public void setRecoverDate(String recoverDate) {
 		this.recoverDate = recoverDate;
 	}
 	

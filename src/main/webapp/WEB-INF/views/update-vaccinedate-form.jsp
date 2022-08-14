@@ -42,6 +42,7 @@
 				<div>
 					<form:button>Update</form:button>
 				</div>
+				${updateresult}
 			</form:form>
 		</div>
 	</div>

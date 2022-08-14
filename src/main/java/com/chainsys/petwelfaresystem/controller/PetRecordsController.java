@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.Errors;
+import org.springframework.validation.ObjectError;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -36,7 +37,7 @@ public class PetRecordsController {
 
 	@GetMapping("/petrecordlist")
 	public String getFindAllPetRecord(Model model) {
-		List<PetRecords> petRecordsList=petRecordServices.getPetRecords();
+		List<PetRecords> petRecordsList=petRecordServices.getPetRecordsOrderByObservDate();
 		model.addAttribute("allpetrecords", petRecordsList);
 		model.addAttribute("diseasePrice",petRecordsList);
 		return "list-petrecord";
@@ -49,6 +50,7 @@ public class PetRecordsController {
 		model.addAttribute("addpetrecord", petRecord);
 		model.addAttribute("petId",petRecord.getPetId());
 		petRecord.setPetId(id);
+		model.addAttribute("petId",petRecord.getPet());
 		return "add-petrecord-form";
 	}
 
@@ -60,7 +62,8 @@ public class PetRecordsController {
 		else {
 		model.addAttribute("petId",petRecord.getPet());
 		petRecordServices.save(petRecord);
-		return "redirect:/petrecord/petrecordlist";}
+		model.addAttribute("addresult","Added successfully");
+		return "add-petrecord-form";}
 	}
 
 	@GetMapping("/updateformpetrecord")
@@ -73,20 +76,22 @@ public class PetRecordsController {
 	}
 
 	@PostMapping("/updatenewrecord")
-	public String updatePetRecords(@Valid @ModelAttribute("updatepetrecord") PetRecords petRecord,Errors error) {
-		if(error.hasErrors()) {
-			return "update-petrecord-form";
-		}
-		else {
+	public String updatePetRecords( @ModelAttribute("updatepetrecord") PetRecords petRecord,Model model) {
+//		if(error.hasErrors()) {
+//			return "update-petrecord-form";
+//		}
+//		else {
 		petRecordServices.save(petRecord);
-		return "redirect:/petrecord/petrecordlist";}
+		model.addAttribute("updateresult","Updated successfully");
+		return "redirect:/petrecord/petrecordlist";
 	}
 
 	@GetMapping("/deletepetrecord")
-	public String deletePetRecords(@RequestParam("prid") int id, @RequestParam("diseaseid") int disid) {
+	public String deletePetRecords(@RequestParam("prid") int id, @RequestParam("diseaseid") int disid,Model model) {
 		PetRecordsCompositeKey petRecordsCompositeKey = new PetRecordsCompositeKey(id, disid);
 		petRecordServices.deleteById(petRecordsCompositeKey);
-		return "redirect:/petrecord/petrecordlist";
+		model.addAttribute("delete", "Deleted successfully");
+		return "pet-petrecords";
 	}
 
 	@GetMapping("/getpetrecord")
@@ -99,7 +104,7 @@ public class PetRecordsController {
 
 	@GetMapping("/getpetidinpetrecords")
 	public String getPetInPetRecords(@RequestParam("id") int id, Model model) {
-		PetPetRecordsDto dto = petServices.getPetPetRecordsDto(id);
+		try{PetPetRecordsDto dto = petServices.getPetPetRecordsDto(id);
 		model.addAttribute("getpet", dto.getPet());
 		model.addAttribute("petrecordslist", dto.getPetRecord());
 		
@@ -116,7 +121,12 @@ public class PetRecordsController {
 		model.addAttribute("totalAmount", totalAmount);
 		model.addAttribute("diseasePrice",diseaseList);
 		model.addAttribute("petId", dto.getPet().getPetId());
-		return "pet-petrecords";
+		return "pet-petrecords";}
+		catch(Exception er) {
+			model.addAttribute("null", "No record found.Kindly add your pet details");
+			return "/petrecords/addformpetrecord";
+		}
+		
 	}
 
 }

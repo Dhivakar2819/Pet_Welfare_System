@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.Errors;
+import org.springframework.validation.ObjectError;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -29,7 +30,7 @@ public class UsersDetailController {
 
 	@GetMapping("/userdetaillist")
 	public String getFindAllUsersDetail(Model model) {
-		List<UsersDetail> listUserDetail = userDetailServices.getUserDetail();
+		List<UsersDetail> listUserDetail = userDetailServices.getUserDetailByOrder();
 		model.addAttribute("alluserdetail", listUserDetail);
 		return "list-usersdetail";
 	}
@@ -42,11 +43,9 @@ public class UsersDetailController {
 	}
 
 	@PostMapping("/adduser")
-	public String addNewUsersDetail(@Valid @ModelAttribute("adduserdetail") UsersDetail userDetail, Errors errors,
+	public String addNewUsersDetail( @ModelAttribute("adduserdetail") UsersDetail userDetail,
 			Model model) {
-		if (errors.hasErrors()) {
-			return "add-usersdetail-form";
-		} else {
+		
 			try {
 				userDetailServices.save(userDetail);
 				model.addAttribute("result", "Registration completed successfully");
@@ -54,7 +53,7 @@ public class UsersDetailController {
 			} catch (Exception er) {
 				model.addAttribute("message", "this email is already exist");
 				return "add-usersdetail-form";
-			}
+			
 		}
 	}
 
@@ -110,7 +109,7 @@ public class UsersDetailController {
 	public String getUserLogin(Model model) {
 		UsersDetail userDetail = new UsersDetail();
 		model.addAttribute("loginform", userDetail);
-		return "userlogin2";
+		return "userlogin";
 	}
 
 	@PostMapping("/userlogin")
@@ -119,8 +118,7 @@ public class UsersDetailController {
 				usersDetail.getPassword());
 		if
 		(userDetail != null) {
-			int id = userDetail.getUserId();
-			return "redirect:/usersdetail/getuserpet?id=" + id;
+			return "redirect:/usersdetail/getuserpet?id=" + userDetail.getUserId();
 		} else
 			return "redirect:/usersdetail/userloginpage";
 	}

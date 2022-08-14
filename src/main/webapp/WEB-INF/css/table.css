@@ -1,0 +1,53 @@
+@charset "ISO-8859-1";
+
+html, body {
+	height: 100%;
+}
+
+/* body {
+	margin: 0;
+	background: linear-gradient(45deg, #49a09d, #5f2c82);
+	font-family: sans-serif;
+	font-weight: 100;
+} */
+ 
+ body {
+  background-image: url(https://i0.wp.com/post.healthline.com/wp-content/uploads/2020/08/6289-old_dog_732x549-thumb-732x549.jpg?w=756&h=567); 
+  background-size:1366px 768px;
+  background-attachment: fixed;
+  background-size: cover;
+  text-align: center;
+}
+.container {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+}
+
+table {
+	width: 80%;
+	border-collapse: collapse;
+	overflow: hidden;
+	box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+}
+
+th, td ,tr{
+	padding: 15px;
+	background-color: rgba(255, 255, 255, 0.2);
+	color: #fff;
+	text-align: center;
+}
+
+
+#button{
+	position: absolute;
+     bottom: 10%;
+    right: 50%;
+}
+.back{
+	position: absolute;
+     top:5%;
+    right: 5%;
+	
+}

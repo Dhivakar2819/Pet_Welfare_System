@@ -7,47 +7,30 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Login</title>
-<style>
-*{
-align:center;
-}
-html {
-  background-color: #56baed;
-}
-
-body {
-  font-family: "Poppins", sans-serif;
-  height: 100vh;
-}
-</style>
+<!-- <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600&display=swap"> -->
+<style><%@include file="/WEB-INF/css/login.css"%></s</style>
 </head>
-<body >
-	<div id="root">
-		<div id="form" >
-			<form:form action="userlogin" method="post"
-				modelAttribute="loginform">
-				<h1>User Login</h1>
-				
-						<div><label for="email">Email :</label></div>
-						<div></div><form:input path="email" placeholder="example@gmail.com" />
-						</div>
-						
-						<div>
-							<label for="password">Password</label>
-							</div>
-								<form:input path="password" type="password"
-									placeholder="password" />
-							</td></tr>
-					<div>
-					<tr>	<td><form:button>Sign in</form:button></td>
-						<td><form:button>
-							<a href="/usersdetail/addformuser">Sign Up</a>
-						</form:button></td></tr>
-					</div>
-					</table>
-			</form:form>
+<body>
 
-		</div>
-	</div>
+    <div class="background">
+        <div class="shape"></div>
+        <div class="shape"></div>
+    </div>
+    <form:form action="userlogin" method="post"
+				modelAttribute="loginform">
+        <h3>User Login</h3>
+
+        <label for="email">E mail</label>
+        <form:input path="email" type="text" placeholder="Email" id="email"/>
+
+        <label for="password">Password</label>
+        <form:input path="password" type="password" placeholder="Password" id="password"/>
+
+        <form:button>Log In</form:button>
+        <form:button><a href="/usersdetail/addformuser">Sign Up</a></form:button>
+    </form:form>
+   
 </body>
 </html>

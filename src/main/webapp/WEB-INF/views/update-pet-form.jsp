@@ -12,13 +12,14 @@
 <div id="root">
 		<div id="form">
 			<form:form action="updatepets" method="post" modelAttribute="updatepet">
+				
 				<div>
 					
 					<div>
 						<form:input path="petId" 
 						title="Id must be number" 
 						pattern="^[0-9]+$"
-						 required="true" type="hidden"/>
+						 required="true"/>
 					</div>
 					<form:errors path="petId" cssClass="text-danger" />
 				</div>
@@ -27,7 +28,7 @@
 						<form:input path="userId" 
 						title="Id must be number" 
 						pattern="^[0-9]+$"
-						 required="true" type="hidden"/>
+						 required="true" />
 					</div>
 					<form:errors path="userId" cssClass="text-danger" />
 				</div>
@@ -45,7 +46,7 @@
 					<div>
 						<form:input path="petType" 
 						title="Type can't be empty"
-						 required="true"
+						 required="true" pattern="^[a-zA-z\s]+$"
 						 placeholder="Enter the pet type"
 						 />
 					</div>
@@ -55,7 +56,7 @@
 					<label for="petName">Pet Name</label>
 					<div>
 						<form:input path="petName" 
-						title="Name can't be empty"
+						title="Name can't be empty" pattern="^[a-zA-z\s]+$"
 						placeholder="Enter the pet name"
 						 />
 					</div>
@@ -87,6 +88,7 @@
 				<div>
 					<form:button>Update</form:button>
 				</div>
+				<form:button><a href="/usersdetail/getuserpet?id=${userId}">Back</a></form:button>
 			</form:form>
 		</div>
 	</div>

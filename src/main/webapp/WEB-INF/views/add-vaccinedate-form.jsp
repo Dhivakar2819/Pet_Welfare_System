@@ -42,6 +42,8 @@
 				<div>
 					<form:button>Add New Vaccine Date</form:button>
 				</div>
+				${addresult}
+				<form:button><a href="/pet/getvaccinebypetid?id=${petId}">Back</a></form:button>
 			</form:form>
 		</div>
 	</div>

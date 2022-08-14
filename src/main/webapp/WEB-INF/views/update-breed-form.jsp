@@ -13,14 +13,14 @@
 			<form:form action="updatebreed" method="post" modelAttribute="updatebreeds">
 				<div>
 						<form:input path="id" 
-						title="Name can't be empty"
+						title="Name can't be empty" 
 						required="true" type="hidden"/>
 					</div>
 				<div>
 					<label for="breedType">Breed Type</label>
 					<div>
 						<form:input path="breedType" 
-						title="Breed type can't be empty"
+						title="Breed type can't be empty" pattern="^[a-zA-z\s]+$"
 						 required="true" placeholder="Enter the breed type"/>
 					</div>
 					<form:errors path="breedType" cssClass="text-danger" />

@@ -17,7 +17,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.chainsys.petwelfaresystem.compositekey.VaccineDateCompositeKey;
+import com.chainsys.petwelfaresystem.model.UsersDetail;
 import com.chainsys.petwelfaresystem.model.VaccineDate;
+import com.chainsys.petwelfaresystem.services.PetServices;
+import com.chainsys.petwelfaresystem.services.UsersDetailServices;
 import com.chainsys.petwelfaresystem.services.VaccineDateServices;
 import com.chainsys.petwelfaresystem.services.VaccinesServices;
 
@@ -28,6 +31,8 @@ public class VaccineDateController {
 	VaccineDateServices vaccineDateServices;
 	@Autowired
 	VaccinesServices vaccineService;
+	@Autowired
+	private PetServices petServices;
 	@GetMapping("/vaccinedatelist")
 	public String getFindAllVaccineDate(Model model) {
 		List<VaccineDate> list = vaccineDateServices.getVaccineDate();
@@ -41,7 +46,7 @@ public class VaccineDateController {
 		VaccineDate vaccineDate = new VaccineDate();
 		model.addAttribute("vaccine",vaccineService.getAllVaccines());
 		model.addAttribute("addvdate", vaccineDate);
-		model.addAttribute("vaccineId",vaccineDate.getPetId());
+//		model.addAttribute("vaccineId",vaccineDate.getPetId());
 		vaccineDate.setPetId(id);
 		return "add-vaccinedate-form";
 	}
@@ -52,9 +57,10 @@ public class VaccineDateController {
 			return "add-vaccinedate-form";
 		}
 		else {
-			model.addAttribute("petId", vaccineDate.getPetId());
+		model.addAttribute("petId", vaccineDate.getPetId());
 		vaccineDateServices.save(vaccineDate);
-		return "redirect:/vaccinedate/vaccinedatelist";}
+		model.addAttribute("addresult", "Added successfully");
+		return "add-vaccinedate-form";}
 	}
 
 	@GetMapping("/updateformvaccinedate")
@@ -67,13 +73,14 @@ public class VaccineDateController {
 	}
 
 	@PostMapping("/updatenewvaccinedate")
-	public String updateVaccineDate(@Valid @ModelAttribute("updatevdate") VaccineDate vaccineDate,Errors error) {
+	public String updateVaccineDate(@Valid @ModelAttribute("updatevdate") VaccineDate vaccineDate,Errors error,Model model) {
 		if(error.hasErrors()) {
 			return "update-vaccinedate-form";
 		}
 		else {
 		vaccineDateServices.save(vaccineDate);
-		return "redirect:/vaccinedate/vaccinedatelist";}
+		model.addAttribute("updateresult", "Updated successfully");
+		return "update-vaccinedate-form";}
 	}
 
 	@GetMapping("/deletevaccinedate")

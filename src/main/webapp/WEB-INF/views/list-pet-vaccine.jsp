@@ -7,6 +7,8 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Add Pet</title>
+<style><%@include file="/WEB-INF/css/table.css"%></s
+</style>
 </head>
 <body>
 <div id="root" >
@@ -46,9 +48,23 @@
 				</c:forEach>
 			</tbody>
 		</table>
+		<table>
+		<thead>
+		<tr><th>Vaccine name</th></tr>
+		</thead>
+		<tbody>
+		<c:forEach var="vname" items="${vaccineName}">
+					<tr>
+						<td>${vname.vaccineName}</td>
+						</tr></c:forEach>
+						
+		</tbody>
+		</table>
 		<a href="/vaccinedate/addformvaccinedate?id=${petId}">Add vaccine Date</a>
 		<a href="/vaccine/vaccinelist">Vaccine Id Details</a>
 		<a href="/pet/getvaccinebypetid?id=${userId}">Back</a>
-	</div></div>
+	</div>
+	${delete}
+	</div>
 </body>
 </html>

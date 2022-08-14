@@ -7,6 +7,8 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Pet Record List</title>
+<style><%@include file="/WEB-INF/css/table.css"%></s
+</style>
 </head>
 <body>
 	<div id="table root">

@@ -52,7 +52,9 @@
 				<br>
 				<div>
 					<form:button>Add New Pet Record</form:button>
+					<form:button><a href="/petrecord/getpetidinpetrecords?id=${petId}"></a></form:button>
 				</div>
+				${addresult}${null}
 			</form:form>
 		</div>
 	</div>

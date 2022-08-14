@@ -17,7 +17,7 @@
 					<label for="diseaseName">Disease Name</label>
 					<div>
 						<form:input path="diseaseName" 
-						title="Disease name can't be empty"
+						title="Disease name can't be empty" pattern="^[a-zA-z\s]+$"
 						 required="true" placeholder="Enter the medicine name"/>
 					</div>
 					<form:errors path="diseaseName" cssClass="text-danger" />
@@ -26,7 +26,7 @@
 					<label for="medicine">Medicine</label>
 					<div>
 						<form:input path="medicine" 
-						title="Medicine can't be empty"
+						title="Medicine can't be empty" pattern="^[a-zA-z\s]+$"
 						 required="true" placeholder="Enter the medicine"/>
 						
 					</div>
