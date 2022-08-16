@@ -7,7 +7,8 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Update Pet</title>
-<style><%@include file="/WEB-INF/css/form.css"%></s</style>
+<style><%@include file="/WEB-INF/css/form.css"%></style>
+<script><%@include file="/WEB-INF/js/pet.js"%></script>
 </head>
 <body>
 <div id="root">
@@ -83,20 +84,6 @@
 			</form:form>
 		</div>
 	</div>
-	<script type="text/javascript">
-	 var petNameCheck = function() {
-		 var nameRegex = new RegExp("^[a-zA-z\s]+$");
-		 if(!document.form.petName.value.match(nameRegex)){
-				if(alert("Pet name can't be empty and must contain only alphabets")){ 
-					 document.form.petName.focus();
-			    }
-				else
-					document.activeElement.blur();
-			}
-	    else{
-	        return false;
-	    } 
-	   
-	}</script>
+	
 </body>
 </html>

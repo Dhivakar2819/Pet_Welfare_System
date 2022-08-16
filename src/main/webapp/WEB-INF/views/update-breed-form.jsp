@@ -7,7 +7,8 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Update Breed</title>
-<style><%@include file="/WEB-INF/css/form.css"%></s</style>
+<style><%@include file="/WEB-INF/css/form.css"%></style>
+<script><%@include file="/WEB-INF/js/breed.js"%></script>
 <body>
 <div id="root">
 		<div id="form">
@@ -30,20 +31,5 @@
 			</form:form>
 		</div>
 	</div>
-	<script type="text/javascript">
-	 var breedTypeCheck = function() {
-		 var nameRegex = new RegExp("^[a-zA-z\s]+$");
-		 if(!document.form.breedType.value.match(nameRegex)){
-				if(alert("Name can't be empty and must contain only alphabets")){ 
-					 document.form.breedType.focus();
-			    }
-				else
-					document.activeElement.blur();
-			}
-	    else{
-	        return false;
-	    } 
-	   
-	}</script>
 </body>
 </html>

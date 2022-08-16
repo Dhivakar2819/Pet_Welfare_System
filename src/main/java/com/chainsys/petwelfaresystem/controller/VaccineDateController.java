@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.chainsys.petwelfaresystem.compositekey.VaccineDateCompositeKey;
+import com.chainsys.petwelfaresystem.model.Pet;
 import com.chainsys.petwelfaresystem.model.UsersDetail;
 import com.chainsys.petwelfaresystem.model.VaccineDate;
 import com.chainsys.petwelfaresystem.services.PetServices;
@@ -44,9 +45,10 @@ public class VaccineDateController {
 	@GetMapping("/addformvaccinedate")
 	public String showAddVaccineDate(@RequestParam("id") int id,Model model) {
 		VaccineDate vaccineDate = new VaccineDate();
+		Pet pet=petServices.findById(id);
 		model.addAttribute("vaccine",vaccineService.getAllVaccines());
 		model.addAttribute("addvdate", vaccineDate);
-//		model.addAttribute("vaccineId",vaccineDate.getPetId());
+		model.addAttribute("petId",pet.getPetId());
 		vaccineDate.setPetId(id);
 		return "add-vaccinedate-form";
 	}
@@ -67,8 +69,10 @@ public class VaccineDateController {
 	public String showUpdateVaccineDate(@RequestParam("id") int id,@RequestParam("vid")int vid, Model model) {
 		VaccineDateCompositeKey vaccineDateCompositeKey=new VaccineDateCompositeKey(id, vid);
 		model.addAttribute("vaccine",vaccineService.getAllVaccines());
+		model.addAttribute("petId",vaccineDateCompositeKey.getPetId());
 		Optional<VaccineDate> vaccineDate = vaccineDateServices.findById(vaccineDateCompositeKey);
 		model.addAttribute("updatevdate", vaccineDate);
+		vaccineDateCompositeKey.setPetId(id);
 		return "update-vaccinedate-form";
 	}
 
@@ -78,6 +82,7 @@ public class VaccineDateController {
 			return "update-vaccinedate-form";
 		}
 		else {
+		model.addAttribute("petId", vaccineDate.getPetId());	
 		vaccineDateServices.save(vaccineDate);
 		model.addAttribute("updateresult", "Updated successfully");
 		return "update-vaccinedate-form";}

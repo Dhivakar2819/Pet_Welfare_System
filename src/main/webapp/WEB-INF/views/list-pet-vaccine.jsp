@@ -61,7 +61,7 @@
 		</tbody>
 		</table>
 		<a href="/vaccinedate/addformvaccinedate?id=${petId}"><button>Add</button></a>
-		<a href="/pet/getvaccinebypetid?id=${userId}"><button>Back</button></a>
+		<a href="/usersdetail/getuserpet?id=${userId}"><button>Back</button></a>
 	</div>
 	${delete}
 	</div>

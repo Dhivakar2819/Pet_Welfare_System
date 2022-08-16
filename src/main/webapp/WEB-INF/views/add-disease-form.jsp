@@ -7,7 +7,9 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Add Disease</title>
-<style><%@include file="/WEB-INF/css/form.css"%></s</style></head>
+<style><%@include file="/WEB-INF/css/form.css"%></style>
+<script><%@include file="/WEB-INF/js/disease.js"%></script>
+</head>
 <body>
 <div id="root" >
 		<div id="form">
@@ -41,45 +43,6 @@
 		</div><br>
 		<div><a href="/disease/admindiseaselist"><button>Back</button></a></div>
 	</div>
-	<script type="text/javascript">
-	 var diseaseNameCheck = function() {
-		 var nameRegex = new RegExp("^[a-zA-z\s]+$");
-		 if(!document.form.diseaseName.value.match(nameRegex)){
-				if(alert("Disease name can't be empty and must contain only alphabets")){ 
-					 document.form.diseaseName.focus();
-			    }
-				else
-					document.activeElement.blur();
-			}
-	    else{
-	        return false;
-	    } 
-	}
-	 var medicineCheck = function() {
-		 var nameRegex = new RegExp("^[a-zA-z\s]+$");
-		 if(!document.form.medicine.value.match(nameRegex)){
-				if(alert("Medicine can't be empty or must contain only alphabets")){ 
-					 document.form.medicine.focus();
-			    }
-				else
-					document.activeElement.blur();
-			}
-	    else{
-	        return false;
-	    } 
-	}
-	 var priceCheck = function() {
-		 var nameRegex = new RegExp("^\d*\.?\d*$);
-		 if(!document.form.price.value.match(nameRegex)){
-				if(alert("Price can't be empty or must contain only alphabets")){ 
-					 document.form.price.focus();
-			    }
-				else
-					document.activeElement.blur();
-			}
-	    else{
-	        return false;
-	    } 
-	}</script>
+	
 </body>
 </html>

@@ -7,7 +7,8 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Update Pet Records</title>
-<style><%@include file="/WEB-INF/css/form.css"%></s</style>
+<style><%@include file="/WEB-INF/css/form.css"%></style>
+<script><%@include file="/WEB-INF/js/petrecord.js"%></script>
 </head>
 <body>
 <div id="root">

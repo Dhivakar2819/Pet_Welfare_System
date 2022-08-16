@@ -20,6 +20,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import com.chainsys.petwelfaresystem.compositekey.PetRecordsCompositeKey;
 import com.chainsys.petwelfaresystem.dto.PetPetRecordsDto;
 import com.chainsys.petwelfaresystem.model.Disease;
+import com.chainsys.petwelfaresystem.model.Pet;
 import com.chainsys.petwelfaresystem.model.PetRecords;
 import com.chainsys.petwelfaresystem.services.DiseaseServices;
 import com.chainsys.petwelfaresystem.services.PetRecordServices;
@@ -46,10 +47,11 @@ public class PetRecordsController {
 	@GetMapping("/addformpetrecord")
 	public String showAddPetRecord(@RequestParam("id")int id, Model model) {
 		PetRecords petRecord = new PetRecords();
+		Pet pet=petServices.findById(id);
 		model.addAttribute("disease", diseaseServices.getAllDisease());
 		model.addAttribute("addpetrecord", petRecord);
-		model.addAttribute("petId",petRecord.getPetId());
-		petRecord.setPetId(id);
+		model.addAttribute("petId",pet.getPetId());
+		pet.setPetId(id);
 		model.addAttribute("petId",petRecord.getPet());
 		return "add-petrecord-form";
 	}
@@ -61,7 +63,7 @@ public class PetRecordsController {
 			return "add-petrecord-form";
 		}
 		else {
-		model.addAttribute("petId",petRecord.getPet());
+		model.addAttribute("petId",petRecord.getPetId());
 		petRecordServices.save(petRecord);
 		model.addAttribute("addresult","Added successfully");
 		return "add-petrecord-form";}
@@ -109,7 +111,7 @@ public class PetRecordsController {
 		try{PetPetRecordsDto dto = petServices.getPetPetRecordsDto(id);
 		model.addAttribute("getpet", dto.getPet());
 		model.addAttribute("petrecordslist", dto.getPetRecord());
-		
+		model.addAttribute("userId", dto.getPet().getUserId());
 		List<Disease> disease=diseaseServices.getAllDisease();
 		List<Disease> diseaseList= new ArrayList<>();
 		int totalAmount=0;

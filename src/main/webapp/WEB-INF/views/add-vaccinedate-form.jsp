@@ -7,7 +7,7 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Add Vaccine Date</title>
-<style><%@include file="/WEB-INF/css/form.css"%></s</style>
+<style><%@include file="/WEB-INF/css/form.css"%></style>
 </head>
 <body>
 <div id="root">
@@ -39,8 +39,9 @@
 				<div>
 					<form:button>Add New Vaccine Date</form:button>
 				</div>
+				
+				<form:button><a href="/pet/getvaccinebypetid?id=${petId}">Back</a></form:button><br>
 				${addresult}
-				<form:button><a href="/pet/getvaccinebypetid?id=${petId}">Back</a></form:button>
 			</form:form>
 		</div>
 	</div>

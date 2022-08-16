@@ -52,6 +52,7 @@ public class PetController {
 		model.addAttribute("addpet", pet);
 		pet.setUserId(id);
 		model.addAttribute("userId", pet.getUserId());
+		model.addAttribute("petId", pet.getPetId());
 		return "add-pet-form";
 	}
 

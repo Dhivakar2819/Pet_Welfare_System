@@ -7,6 +7,7 @@
 <meta charset="ISO-8859-1">
 <title>Update Vaccine</title>
 <style><%@include file="/WEB-INF/css/form.css"%></s</style>
+<script><%@include file="/WEB-INF/js/vaccine.js"%></script>
 </head>
 <body>
 <div >
@@ -32,20 +33,6 @@
 		</div><br>
 		<div><a href="/vaccine/adminvaccinelist"><button>Back</button></a></div>
 	</div>
-	<script type="text/javascript">
-	 var vaccineNameCheck = function() {
-		 var nameRegex = new RegExp("^[a-zA-z\s]+$");
-		 if(!document.form.vaccineName.value.match(nameRegex)){
-				if(alert("Vaccine name can't be empty and must contain only alphabets")){ 
-					 document.form.vaccineName.focus();
-			    }
-				else
-					document.activeElement.blur();
-			}
-	    else{
-	        return false;
-	    } 
-	   
-	}</script>
+	
 </body>
 </html>

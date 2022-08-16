@@ -85,7 +85,8 @@
 			<br> <br>
 			<div>
 				<a href="/petrecord/addformpetrecord?id=${petId}"><button>Add</button></a><br> <a
-					href="/disease/diseaselist">Disease List</a>
+					href="/disease/diseaselist"><button>Disease List</button></a>
+					<a href="/usersdetail/getuserpet?id=${userId}"><button>Back</button></a>
 			</div>
 		
 		${delete}
