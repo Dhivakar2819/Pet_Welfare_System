@@ -10,6 +10,7 @@ import org.springframework.ui.Model;
 import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -38,7 +39,7 @@ public class AdminDetailController {
 	}
 
 	@PostMapping("/addadmindetail")
-	public String addNewAdminDetail(@Valid @ModelAttribute("addadmin") AdminDetail adminDetail, Model model, Errors errors) {
+	public String addNewAdminDetail(@Valid @ModelAttribute("addadmin") @PathVariable AdminDetail adminDetail, Model model, Errors errors) {
 		if (errors.hasErrors()) {
 			return "add-admin-form";
 		} else {
@@ -61,7 +62,7 @@ public class AdminDetailController {
 	}
 
 	@PostMapping("/updateadmindetain")
-	public String updateAdminDetail(@Valid @ModelAttribute("updateadmin") AdminDetail adminDetail, Model model,
+	public String updateAdminDetail(@Valid @ModelAttribute("updateadmin") @PathVariable AdminDetail adminDetail, Model model,
 			Errors errors) {
 		if (errors.hasErrors()) {
 			return "update-admin-form";
@@ -100,7 +101,7 @@ public class AdminDetailController {
 	}
 
 	@PostMapping("/adminloginpage")
-	public String checkingAccess(@ModelAttribute("adminlogin") AdminDetail admin, Model model) {
+	public String checkingAccess(@ModelAttribute("adminlogin") @PathVariable AdminDetail admin, Model model) {
 		AdminDetail adminDetail = adminDetailServices.getEmailAndAdminPassword(admin.getEmail(),
 				admin.getAdminPassword());
 		if (adminDetail != null) {
