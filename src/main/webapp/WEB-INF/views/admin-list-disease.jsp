@@ -7,11 +7,13 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Disease List</title>
+<style><%@include file="/WEB-INF/css/table.css"%></s
+</style>
 </head>
 <body>
 	<div id="table root">
-		<table>
-		<caption>disease</caption>
+		<table  class="container">
+		<caption></caption>
 			<thead>
 				<tr>
 					<th>Disease Id</th>

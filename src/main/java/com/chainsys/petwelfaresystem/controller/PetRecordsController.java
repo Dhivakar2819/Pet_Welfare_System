@@ -57,6 +57,7 @@ public class PetRecordsController {
 	@PostMapping("/addnewpetrecord")
 	public String addNewPetRecords(@Valid @ModelAttribute("addpetrecord") PetRecords petRecord,Model model,Errors error) {
 		if(error.hasErrors()) {
+			model.addAttribute("addresult","Failed");
 			return "add-petrecord-form";
 		}
 		else {
@@ -77,13 +78,14 @@ public class PetRecordsController {
 
 	@PostMapping("/updatenewrecord")
 	public String updatePetRecords( @ModelAttribute("updatepetrecord") PetRecords petRecord,Model model) {
-//		if(error.hasErrors()) {
-//			return "update-petrecord-form";
-//		}
-//		else {
+		try {
 		petRecordServices.save(petRecord);
 		model.addAttribute("updateresult","Updated successfully");
-		return "redirect:/petrecord/petrecordlist";
+		return "update-petrecord-form";}
+		catch(Exception er) {
+			model.addAttribute("updateresult","Failed");
+			return "update-petrecord-form";
+		}
 	}
 
 	@GetMapping("/deletepetrecord")
@@ -91,7 +93,7 @@ public class PetRecordsController {
 		PetRecordsCompositeKey petRecordsCompositeKey = new PetRecordsCompositeKey(id, disid);
 		petRecordServices.deleteById(petRecordsCompositeKey);
 		model.addAttribute("delete", "Deleted successfully");
-		return "pet-petrecords";
+		return "redirect:/petrecord/getpetidinpetrecords?id="+petRecordsCompositeKey.getPetId();
 	}
 
 	@GetMapping("/getpetrecord")

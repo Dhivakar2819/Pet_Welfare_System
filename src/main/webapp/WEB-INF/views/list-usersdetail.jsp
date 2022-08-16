@@ -12,8 +12,8 @@
 </head>
 <body>
 	<div id="table root">
-		<table >
-		<caption>User Details</caption>
+		<table class="container">
+		<caption></caption>
 			<thead>
 				<tr>
 					<th>User Name</th>

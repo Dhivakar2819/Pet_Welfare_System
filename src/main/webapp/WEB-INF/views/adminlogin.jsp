@@ -7,27 +7,22 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Login</title>
+<style><%@include file="/WEB-INF/css/login.css"%></s
+</style>
 </head>
 <body >
-	<div id="root">
+	<div class="background">
 		<div id="form">
 			<form:form action="adminloginpage" method="post"
 				modelAttribute="adminlogin">
-				<h1 >Admin Login</h1>
+				<h3>Admin Login</h3>
 				
-					<table>
-					<caption>login</caption>
-						<tr><td><label for="email">Admin Mail Id</label></td>
-						<td><form:input path="email" plcaeholder="example@domain.com" />
-						</td><tr>
+						<label for="email">Admin Mail Id</label>
+						<form:input path="email" plcaeholder="example@domain.com" id="email" />
 						
-						<tr><td>
 							<label for="adminPassword">Password</label>
-							</td><td>
 								<form:input path="adminPassword" type="password"
-									placeholder="Password" />
-							</td></tr>
-					</table><br>
+									placeholder="Password" id="password"/>
 					<div>
 						<form:button>Sign in </form:button>
 						

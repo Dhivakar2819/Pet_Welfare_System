@@ -32,8 +32,8 @@
 		</div>
 		
 		<div id="table root">
-		<table >
-		<caption>Disease</caption>
+		<table class="container">
+		<caption></caption>
 			<thead>
 				<tr>
 					<th>Disease Name</th>

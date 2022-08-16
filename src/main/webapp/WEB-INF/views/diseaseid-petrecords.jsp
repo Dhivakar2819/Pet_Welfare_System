@@ -7,9 +7,11 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Add Disease</title>
+<style><%@include file="/WEB-INF/css/table.css"%></s
+</style>
 </head>
 <body>
-<div id="root">
+<div >
 		<div id="form">
 			<form:form action="" method="post" modelAttribute="getdisease">
 				<div>
@@ -39,7 +41,8 @@
 			</form:form>
 		</div>
 		<div id="diseaselist">
-		<table>
+		<table class="container">
+		<caption></caption>
 			<thead>
 				<tr>
 					<th>Pet Id</th>

@@ -12,8 +12,8 @@
 </head>
 <body>
 	<div id="table root">
-		<table>
-		<caption>Vaccine</caption>
+		<table class="container">
+		<caption></caption>
 			<thead>
 				<tr>
 					<th>Vaccine Date</th>

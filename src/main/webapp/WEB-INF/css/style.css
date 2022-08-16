@@ -1,17 +1,17 @@
 @charset "ISO-8859-1";
-*
-{
-float: center;
-}
 .text-danger {
     color: #e80c4d;
     font-size: 0.9em;
 }
 body {
-  background-image: url("https://www.healthline.com/health/pet-therapy"); 
+  background-image: url("https://img.freepik.com/free-vector/cute-pets-illustration_53876-112522.jpg?w=2000"); 
   background-size:1366px 768px;
-  background-attachment: fixed;
+	background-attachment: fixed;
   background-size: cover;
+  font-family: cursive;
+}
+.index{
+text-align:center;
 }
 table             { 
   border-spacing: 1; 
@@ -29,4 +29,15 @@ table             {
   th {
   background-color: #04AA6D;
   color: white;
+}
+button{
+font-size:30px;
+width:25%;
+}
+.logout{
+	font-size:10px;
+width:5%;
+position: absolute;
+     top:5%;
+    left: 5%;
 }

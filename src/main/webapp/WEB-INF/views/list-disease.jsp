@@ -12,8 +12,8 @@
 </head>
 <body>
 	<div id="table root">
-		<table>
-		<caption>Disease DetailsS</caption>
+		<table class="container">
+		<caption></caption>
 			<thead>
 				<tr>
 					<th>Disease Name</th>

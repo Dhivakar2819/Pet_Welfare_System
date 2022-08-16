@@ -11,11 +11,14 @@
 </style>
 </head>
 <body>
-	<div id="root">
+	<div class="container">
 		<div id="form">
+		<div  >
 			<form:form action="" method="post" modelAttribute="getpet">
 
+				
 				<table>
+				<caption></caption>
 					<tr>
 						<td><label for="petType">Pet Type</label></td>
 						<td><form:input path="petType" readonly="true" /></td>
@@ -27,7 +30,7 @@
 			</form:form>
 		</div>
 		<div id="table root">
-			<table>
+			<table >
 				<caption></caption>
 				<thead>
 					<tr>
@@ -58,7 +61,7 @@
 			</table>
 			<br>
 			<table>
-				<caption>Disease</caption>
+				<caption><h5>Medicine Cost</h5></caption>
 				<thead>
 					<tr>
 						<th>Medicine Name</th>
@@ -78,15 +81,15 @@
 					<td>${totalAmount}</td>
 				</tr>
 				</tbody>
-			</table>
+			</table></div>
 			<br> <br>
 			<div>
-				<a href="/petrecord/addformpetrecord?id=${petId}">Add</a><br> <a
+				<a href="/petrecord/addformpetrecord?id=${petId}"><button>Add</button></a><br> <a
 					href="/disease/diseaselist">Disease List</a>
 			</div>
-		</div>
+		
 		${delete}
-	</div>
+	</div></div>
 	<script type="text/javascript">
 		function ConfirmDelete() {
 			return confirm("Are you sure you want to delete?");

@@ -22,8 +22,8 @@
 			</form:form>
 		</div>
 		<div id="vaccinedatelist">
-		<table>
-		<caption>vaccine</caption>
+		<table  class="container">
+		<caption></caption>
 			<thead>
 				<tr>
 					<th>Vaccine Date</th>

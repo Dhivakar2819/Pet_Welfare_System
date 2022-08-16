@@ -87,7 +87,7 @@ public class VaccineDateController {
 	public String deleteVaccineDate(@RequestParam("id") int id,@RequestParam("vid")int vid) {
 		VaccineDateCompositeKey vaccineDateCompositeKey=new VaccineDateCompositeKey(id, vid);
 		vaccineDateServices.deleteById(vaccineDateCompositeKey);
-		return "redirect:/vaccinedate/vaccinedatelist";
+		return "redirect:/pet/getvaccinebypetid?id="+vaccineDateCompositeKey.getPetId();
 	}
 
 	@GetMapping("/getbyidvaccinedate")

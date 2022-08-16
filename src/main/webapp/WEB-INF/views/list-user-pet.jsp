@@ -34,9 +34,9 @@
 			<br>
 		</form:form>
 	</div>
-	<div id="petlist">
+	<div>
 		<table style="width: 90%" class="container">
-			<caption>Pet</caption>
+			<caption></caption>
 			<thead>
 				<tr>
 					<th>Pet Type</th>

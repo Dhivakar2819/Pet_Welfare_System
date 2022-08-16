@@ -12,8 +12,8 @@
 </head>
 <body>
 	<div id="table root">
-		<table>
-		<caption>Vaccine Details</caption>
+		<table class="container">
+		<caption></caption>
 			<thead>
 				<tr>
 					<th>Vaccine Name</th>

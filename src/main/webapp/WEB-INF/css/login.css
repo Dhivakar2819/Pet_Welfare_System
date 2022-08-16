@@ -9,6 +9,7 @@
 body{
     background-image: url(https://www.riddle.com/imageservice/q_80,f_auto,c_fill,w_715,h_402/o1aax5etmtbj8hbzybar);
     background-size:1366px 768px;
+    font-family: cursive;
 }
 .background{
     width: 430px;
@@ -64,7 +65,7 @@ input{
     font-weight: 300;
 }
 ::placeholder{
-    color: #e5e5e5;
+    color: #8590a1;
 }
 a,button{
     margin-top: 50px;

@@ -7,11 +7,12 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Update Pet</title>
+<style><%@include file="/WEB-INF/css/form.css"%></s</style>
 </head>
 <body>
 <div id="root">
 		<div id="form">
-			<form:form action="updatepets" method="post" modelAttribute="updatepet">
+			<form:form action="updatepets" method="post" modelAttribute="updatepet" class="container" name="form">
 				
 				<div>
 					
@@ -19,69 +20,59 @@
 						<form:input path="petId" 
 						title="Id must be number" 
 						pattern="^[0-9]+$"
-						 required="true"/>
+						 required="true" type="hidden"/>
 					</div>
 					<form:errors path="petId" cssClass="text-danger" />
 				</div>
-				<div>
-					<div>
+				<div class="form-control">
 						<form:input path="userId" 
 						title="Id must be number" 
 						pattern="^[0-9]+$"
-						 required="true" />
-					</div>
+						 required="true" type="hidden" />
 					<form:errors path="userId" cssClass="text-danger" />
 				</div>
 				
-				<div>
-				<label for="breedId">Breed Type  </label></div><div> <form:select
+				<div class="form-control">
+				<label for="breedId">Breed Type  </label> <form:select
                                 path="breedId">
                                 <c:forEach var="BreedType" items="${breed}">
                                     <form:option value="${BreedType.id}"
                                         label="${BreedType.breedType}" />
                                 </c:forEach>
                             </form:select></div>
-				<div>
+				<div class="form-control">
 					<label for="petType">Pet Type</label>
-					<div>
-						<form:input path="petType" 
-						title="Type can't be empty"
-						 required="true" pattern="^[a-zA-z\s]+$"
-						 placeholder="Enter the pet type"
-						 />
-					</div>
+						<form:select path="petType">
+                    <form:option value="Cow" reqired="required">Cow</form:option>
+                    <form:option value="Cat">Cat</form:option>
+                    <form:option value="Dog">Dog</form:option>
+                    <form:option value="Goat">Goat</form:option>
+                    <form:option value="Horse">Horse</form:option>
+                </form:select>
 					<form:errors path="petType" cssClass="text-danger" />
 				</div>
-				<div>
+				<div class="form-control">
 					<label for="petName">Pet Name</label>
-					<div>
-						<form:input path="petName" 
+						<form:input path="petName" name="petname" onblur="petNameCheck();"
 						title="Name can't be empty" pattern="^[a-zA-z\s]+$"
 						placeholder="Enter the pet name"
 						 />
-					</div>
 					<form:errors path="petName" cssClass="text-danger" />
 				</div>
-				<div>
+				<div class="form-control">
 					<label for="dob">Date of Birth</label>
-					<div>
 						<form:input path="dob" type="date"/>
-					</div>
 					<form:errors path="dob" cssClass="text-danger" />
 				</div>
-				<div>
+				<div class="form-control">
 					<label for="gender">Gender</label>
-					<div>
 						<form:radiobutton path="gender" value="Male" required="required"/>Male
 						<form:radiobutton path="gender" value="Female" />Female
-					</div>
 					<form:errors path="gender" cssClass="text-danger" />
 					</div>
-					<div>
+					<div class="form-control">
 					<label for="dateofOwnership">Date of Ownership</label>
-					<div>
 						<form:input path="dateofOwnership" type="date" />
-					</div>
 					<form:errors path="dateofOwnership" cssClass="text-danger" />
 				</div>
 				<br>
@@ -92,5 +83,20 @@
 			</form:form>
 		</div>
 	</div>
+	<script type="text/javascript">
+	 var petNameCheck = function() {
+		 var nameRegex = new RegExp("^[a-zA-z\s]+$");
+		 if(!document.form.petName.value.match(nameRegex)){
+				if(alert("Pet name can't be empty and must contain only alphabets")){ 
+					 document.form.petName.focus();
+			    }
+				else
+					document.activeElement.blur();
+			}
+	    else{
+	        return false;
+	    } 
+	   
+	}</script>
 </body>
 </html>

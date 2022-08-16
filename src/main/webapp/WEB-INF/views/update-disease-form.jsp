@@ -7,42 +7,36 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Update Disease</title>
+<style><%@include file="/WEB-INF/css/form.css"%></s</style>
 </head>
 <body>
 <div id="root">
 		<div id="form">
-			<form:form action="updatenewdisease" method="post" modelAttribute="updatedisease">
+			<form:form action="updatenewdisease" method="post" modelAttribute="updatedisease" class="container" name="form">
 				<div>
 						<form:input path="id" 
 						title="Name can't be empty"
 						required="true" type="hidden"/>
 					</div>
-				<div>
+				<div class="form-control">
 					<label for="diseaseName">Disease Name</label>
-					<div>
-						<form:input path="diseaseName" 
+						<form:input path="diseaseName" name="diseaseName" onblur="diseaseNameCheck();"
 						title="Disease name can't be empty" pattern="^[a-zA-z\s]+$"
 						 required="true" placeholder="Enter the medicine name"/>
-					</div>
 					<form:errors path="diseaseName" cssClass="text-danger" />
 				</div>
-				<div>
+				<div class="form-control">
 					<label for="medicine">Medicine</label>
-					<div>
-						<form:input path="medicine" 
+						<form:input path="medicine" name="medicine" onblur="medicineCheck();"
 						title="Medicine can't be empty" pattern="^[a-zA-z\s]+$"
 						 required="true" placeholder="Enter the medicine"/>
-						
-					</div>
 					<form:errors path="medicine" cssClass="text-danger" />
 				</div>
-				<div>
+				<div class="form-control">
 					<label for="price">Price </label>
-					<div>
-						<form:input path="price"
+						<form:input path="price" name="price" onblur="priceCheck();"
 						title="Amount must be number" 
-						pattern="^[0-9]+$" placeholder="Enter the price" />
-					</div>
+						pattern="^\d*\.?\d*$" placeholder="Enter the price" />
 					<form:errors path="price" cssClass="text-danger" />
 				</div><br>
 				<div>
@@ -52,5 +46,45 @@
 		</div><br>
 		<div><a href="/disease/admindiseaselist"><button>Back</button></a></div>
 	</div>
+	<script type="text/javascript">
+	 var diseaseNameCheck = function() {
+		 var nameRegex = new RegExp("^[a-zA-z\s]+$");
+		 if(!document.form.diseaseName.value.match(nameRegex)){
+				if(alert("Disease name can't be empty or must contain only alphabets")){ 
+					 document.form.diseaseName.focus();
+			    }
+				else
+					document.activeElement.blur();
+			}
+	    else{
+	        return false;
+	    } 
+	}
+	 var medicineCheck = function() {
+		 var nameRegex = new RegExp("^[a-zA-z\s]+$");
+		 if(!document.form.medicine.value.match(nameRegex)){
+				if(alert("Medicine can't be empty or must contain only alphabets")){ 
+					 document.form.medicine.focus();
+			    }
+				else
+					document.activeElement.blur();
+			}
+	    else{
+	        return false;
+	    } 
+	}
+	 var priceCheck = function() {
+		 var nameRegex = new RegExp("^\d*\.?\d*$);
+		 if(!document.form.price.value.match(nameRegex)){
+				if(alert("Price can't be empty and must contain only alphabets")){ 
+					 document.form.price.focus();
+			    }
+				else
+					document.activeElement.blur();
+			}
+	    else{
+	        return false;
+	    } 
+	}</script>
 </body>
 </html>

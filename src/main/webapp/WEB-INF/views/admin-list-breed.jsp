@@ -6,12 +6,14 @@
 <html lang="en">
 <head>
 <meta charset="ISO-8859-1">
+<style><%@include file="/WEB-INF/css/table.css"%></s
+</style>
 <title>Breed List</title>
 </head>
 <body>
 	<div id="table root" >
-		<table>
-		<caption>Breed</caption>
+		<table  class="container">
+		<caption></caption>
 			<thead>
 				<tr>
 					<th>Breed Id</th>

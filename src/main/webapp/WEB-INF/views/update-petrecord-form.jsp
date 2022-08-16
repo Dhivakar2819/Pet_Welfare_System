@@ -7,49 +7,42 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Update Pet Records</title>
+<style><%@include file="/WEB-INF/css/form.css"%></s</style>
 </head>
 <body>
 <div id="root">
 		<div id="form">
-			<form:form action="updatenewrecord" method="post" modelAttribute="updatepetrecord">
+			<form:form action="updatenewrecord" method="post" modelAttribute="updatepetrecord" class="container" name="form">
 				
 				<div>
-					<div>
 						<form:input path="petId" 
 						title="Id must be number" 
 						pattern="^[0-9]+$"
 						 required="true" type="hidden"/>
-					</div>
 					<form:errors path="petId" cssClass="text-danger" />
 				</div>
-				<div>
-				<label for="diseaseId">Disease Name : </label></div> <form:select
+				<div class="form-control">
+				<label for="diseaseId">Disease Name : </label> <form:select
                                 path="diseaseId">
                                 <c:forEach var="diseaseId" items="${disease}">
                                     <form:option value="${diseaseId.id}"
                                         label="${diseaseId.diseaseName}" />
                                 </c:forEach>
                             </form:select>
-                            <form:errors path="diseaseId" cssClass="text-danger" />
-				<div>
+                            <form:errors path="diseaseId" cssClass="text-danger" /></div>
+				<div class="form-control">
 					<label for="dateObserv">Observe date</label>
-					<div>
 						<form:input path="dateObserv" type="date"/>
-					</div>
 					<form:errors path="dateObserv" cssClass="text-danger" />
 				</div>
-				<div>
+				<div class="form-control">
 					<label for="observation">Observation</label>
-					<div>
 						<form:input path="observation" placeholder="Enter the observation"/>
-					</div>
 					<form:errors path="observation" cssClass="text-danger" />
 				</div>
-				<div>
+				<div class="form-control">
 					<label for="recoverDate">Recover Date</label>
-					<div>
 						<form:input path="recoverDate" type="date"/>
-					</div>
 					<form:errors path="recoverDate" cssClass="text-danger" />
 				</div>
 				<br>

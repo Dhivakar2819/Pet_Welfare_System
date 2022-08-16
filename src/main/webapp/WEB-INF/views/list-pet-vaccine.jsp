@@ -11,7 +11,7 @@
 </style>
 </head>
 <body>
-<div id="root" >
+<div  class="container" >
 		<div id="form">
 			<form:form action="" method="post" modelAttribute="getpetid" >
 				<table><tr>
@@ -25,12 +25,12 @@
 					<label for="petName">Pet Name</label>
 					
 						<form:input path="petName" readonly="true"/></td></tr>
-					</table>
+					</table><br>
 			</form:form>
 		</div>
 	<div id="vaccinelist">
-		<table>
-		<caption>Vaccine Date</caption>
+		<table >
+		<caption></caption>
 			<thead>
 				<tr >
 					<th>Vaccine Date</th>
@@ -47,7 +47,7 @@
 					</tr>
 				</c:forEach>
 			</tbody>
-		</table>
+		</table><br>
 		<table>
 		<thead>
 		<tr><th>Vaccine name</th></tr>
@@ -60,9 +60,8 @@
 						
 		</tbody>
 		</table>
-		<a href="/vaccinedate/addformvaccinedate?id=${petId}">Add vaccine Date</a>
-		<a href="/vaccine/vaccinelist">Vaccine Id Details</a>
-		<a href="/pet/getvaccinebypetid?id=${userId}">Back</a>
+		<a href="/vaccinedate/addformvaccinedate?id=${petId}"><button>Add</button></a>
+		<a href="/pet/getvaccinebypetid?id=${userId}"><button>Back</button></a>
 	</div>
 	${delete}
 	</div>

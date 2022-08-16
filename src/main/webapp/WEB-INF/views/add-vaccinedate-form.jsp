@@ -7,22 +7,21 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Add Vaccine Date</title>
+<style><%@include file="/WEB-INF/css/form.css"%></s</style>
 </head>
 <body>
 <div id="root">
 		<div id="form">
-			<form:form action="addnewvaccinedate" method="post" modelAttribute="addvdate">
-				<div>
+			<form:form action="addnewvaccinedate" method="post" modelAttribute="addvdate" class="container" name="form">
+				<div class="form-control">
 					<label for="petId">Pet Id</label>
-					<div>
 						<form:input path="petId" 
 						title="Id must be number" 
 						pattern="^[0-9]+$"
-						 required="true" />
-					</div>
+						 required="true" type="hidden"/>
 					<form:errors path="petId" cssClass="text-danger" />
 				</div>
-				<div>
+				<div class="form-control">
 				<label for="vaccineId">Vaccine Name </label> <form:select
                                 path="vaccineId">
                                 <c:forEach var="vaccine" items="${vaccine}">
@@ -32,11 +31,9 @@
                                 </form:select>
                                 <form:errors path="vaccineId" cssClass="text-danger" />
                                 </div>
-				<div>
+				<div class="form-control">
 					<label for="vaccinationDate">Vaccine Date</label>
-					<div>
 						<form:input path="vaccinationDate" type="date" />
-					</div>
 					<form:errors path="vaccinationDate" cssClass="text-danger" required="required"/>
 				</div><br>
 				<div>

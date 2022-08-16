@@ -12,8 +12,8 @@
 </head>
 <body>
 	<div id="table root">
-		<table >
-		<caption>Pet</caption>
+		<table  class="container">
+		<caption></caption>
 			<thead>
 				<tr>
 					<th>Pet Type</th>

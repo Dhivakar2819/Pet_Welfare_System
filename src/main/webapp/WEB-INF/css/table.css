@@ -12,11 +12,12 @@ html, body {
 } */
  
  body {
-  background-image: url(https://i0.wp.com/post.healthline.com/wp-content/uploads/2020/08/6289-old_dog_732x549-thumb-732x549.jpg?w=756&h=567); 
+  background-image: url(https://www.petexperience.com.br/source/files/c/11573/BG_base_0003-215854_1920-1080-0-0.jpg); 
   background-size:1366px 768px;
   background-attachment: fixed;
   background-size: cover;
   text-align: center;
+  font-family: cursive;
 }
 .container {
 	position: absolute;
@@ -35,7 +36,7 @@ table {
 th, td ,tr{
 	padding: 15px;
 	background-color: rgba(255, 255, 255, 0.2);
-	color: #fff;
+	color: black;
 	text-align: center;
 }
 
@@ -50,4 +51,7 @@ th, td ,tr{
      top:5%;
     right: 5%;
 	
+}
+label{
+	font-family: cursive;
 }

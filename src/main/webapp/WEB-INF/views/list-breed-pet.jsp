@@ -23,8 +23,8 @@
 			</form:form>
 		</div>
 		<div id="table root">
-		<table>
-		<caption>Pet Details</caption>
+		<table class="container">
+		<caption></caption>
 			<thead>
 				<tr>
 					<th>Pet Type</th>

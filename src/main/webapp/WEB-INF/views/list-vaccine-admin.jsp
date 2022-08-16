@@ -12,8 +12,8 @@
 </head>
 <body >
 	<div id="table root" >
-		<table >
-		<caption>Vaccine</caption>
+		<table class="container">
+		<caption></caption>
 			<thead>
 				<tr>
 					<th>Vaccine Name</th>
@@ -29,7 +29,7 @@
 				</c:forEach>
 			</tbody>
 		</table>
-		<a href="/vaccine/addformvaccine">Add</a><br>
+		<a href="/vaccine/addformvaccine"><button>Add</button></a><br>
 		<div><a href="/admin/index"><button>Back</button></a></div>
 	</div>
 </body>
