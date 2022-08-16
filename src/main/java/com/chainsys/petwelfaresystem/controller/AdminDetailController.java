@@ -23,7 +23,8 @@ import com.chainsys.petwelfaresystem.services.AdminDetailServices;
 public class AdminDetailController {
 	@Autowired
 	AdminDetailServices adminDetailServices;
-
+	private static final String ADDFORM="add-admin-form";
+	private static final String UPDATEFORM="update-admin-form";
 	@GetMapping("/adminlist")
 	public String getFindAll(Model model) {
 		List<AdminDetail> listAdmin = adminDetailServices.getAdminDetail();
@@ -35,21 +36,21 @@ public class AdminDetailController {
 	public String showAddAdminDetail(Model model) {
 		AdminDetail admin = new AdminDetail();
 		model.addAttribute("addadmin", admin);
-		return "add-admin-form";
+		return ADDFORM;
 	}
 
 	@PostMapping("/addadmindetail")
 	public String addNewAdminDetail(@Valid @ModelAttribute("addadmin") @PathVariable AdminDetail adminDetail, Model model, Errors errors) {
 		if (errors.hasErrors()) {
-			return "add-admin-form";
+			return ADDFORM;
 		} else {
 			try {
 				adminDetailServices.save(adminDetail);
 				model.addAttribute("result", "Admin registration completed successfully");
-				return "add-admin-form";
+				return ADDFORM;
 			} catch (Exception er) {
 				model.addAttribute("message", "this email is already exist");
-				return "add-admin-form";
+				return ADDFORM;
 			}
 		}
 	}
@@ -58,22 +59,22 @@ public class AdminDetailController {
 	public String showUpdateBreed(@RequestParam("adid") int id, Model model) {
 		AdminDetail admin = adminDetailServices.findById(id);
 		model.addAttribute("updateadmin", admin);
-		return "update-admin-form";
+		return UPDATEFORM;
 	}
 
 	@PostMapping("/updateadmindetain")
 	public String updateAdminDetail(@Valid @ModelAttribute("updateadmin") @PathVariable AdminDetail adminDetail, Model model,
 			Errors errors) {
 		if (errors.hasErrors()) {
-			return "update-admin-form";
+			return UPDATEFORM;
 		} else {
 			try {
 				adminDetailServices.save(adminDetail);
 				model.addAttribute("result", "Admin registration completed successfully");
-				return "update-admin-form";
+				return UPDATEFORM;
 			} catch (Exception er) {
 				model.addAttribute("message", "this email is already exist");
-				return "update-admin-form";
+				return UPDATEFORM;
 			}
 		}
 
