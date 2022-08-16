@@ -18,7 +18,7 @@
 					<label for="adminName">Name</label>
 						<form:input path="adminName" name="adminName"
 						title="Name can't be empty" onblur="adminNameCheck();"
-						pattern="^[a-zA-z\s]+$" required="true" placeholder="Enter admin name"/>
+						pattern="^[a-zA-Z\s]+$" required="true" placeholder="Enter admin name"/>
 					<form:errors path="adminName" cssClass="text-danger" />
 				</div>
 				<div class="form-control">

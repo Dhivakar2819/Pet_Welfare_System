@@ -19,7 +19,7 @@
 				<div class="form-control">
 					<label for="userName">User Name</label>
 					<form:input path="userName" name="userName" title="User name can't be empty "
-						required="true" placeholder="Enter the user name" pattern="^[a-zA-z\s]+$"
+						required="true" placeholder="Enter the user name" pattern="^[a-zA-Z\s]+$"
 						onblur="userNameCheck();" />
 				</div>
 				

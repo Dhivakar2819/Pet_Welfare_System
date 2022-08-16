@@ -16,7 +16,7 @@
 				<div class="form-control">
 					<label for="breedType">Breed Type</label>
 						<form:input path="breedType" name="breedType" onblur="breedTypeCheck();"
-						title="Breed type can't be empty" pattern="^[a-zA-z\s]+$"
+						title="Breed type can't be empty" pattern="^[a-zA-Z\s]+$"
 						 required="true" placeholder="Enter the breed type"/>
 					<form:errors path="breedType" cssClass="text-danger" />
 				</div>

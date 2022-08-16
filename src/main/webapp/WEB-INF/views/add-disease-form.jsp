@@ -22,14 +22,14 @@
 				<div class="form-control">
 					<label for="diseaseName">Disease Name</label>
 						<form:input path="diseaseName" name="diseaseName" onblur="diseaseNameCheck();"
-						title="Disease name can't be empty" pattern="^[a-zA-z\s]+$"
+						title="Disease name can't be empty" pattern="^[a-zA-Z\s]+$"
 						 required="true" placeholder="Enter the medicine name"/>
 					<form:errors path="diseaseName" cssClass="text-danger" />
 				</div>
 				<div class="form-control">
 					<label for="medicine">Medicine</label>
 						<form:input path="medicine" name="medicine" onblur="medicineCheck();"
-						title="Medicine can't be empty" pattern="^[a-zA-z\s]+$"
+						title="Medicine can't be empty" pattern="^[a-zA-Z\s]+$"
 						 required="true" placeholder="Enter the medicine"/>
 					<form:errors path="medicine" cssClass="text-danger" />
 				</div>
@@ -37,7 +37,7 @@
 					<label for="price">Price </label>
 						<form:input path="price" name="price" onblur="priceCheck();"
 						title="Amount must be number" 
-						pattern="^\d*\.?\d*$" placeholder="Enter the price" />
+						pattern="\d+\.?\d" placeholder="Enter the price" />
 					<form:errors path="price" cssClass="text-danger" />
 				</div>
 				<br>

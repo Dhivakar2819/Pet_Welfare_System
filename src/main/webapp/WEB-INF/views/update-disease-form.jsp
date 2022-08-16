@@ -37,7 +37,7 @@
 					<label for="price">Price </label>
 						<form:input path="price" name="price" onblur="priceCheck();"
 						title="Amount must be number" 
-						pattern="^\d*\.?\d*$" placeholder="Enter the price" />
+						pattern="\d+\.?\d" placeholder="Enter the price" />
 					<form:errors path="price" cssClass="text-danger" />
 				</div><br>
 				<div>

@@ -44,7 +44,7 @@
 				</div>
 				<div class="form-control">
 					<label for="petName">Pet Name</label>
-						<form:input path="petName" title="Name can't be empty" pattern="^[a-zA-z\s]+$"
+						<form:input path="petName" title="Name can't be empty" pattern="^[a-zA-Z\s]+$"
 							placeholder="Enter the pet name" required="true" name="petName" onblur="petNameCheck();"/>
 					<form:errors path="petName" cssClass="text-danger" />
 				</div>

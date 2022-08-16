@@ -19,7 +19,7 @@
 					<label for="vaccineName">Vaccine Name</label>
 						<form:input path="vaccineName" name="vaccineName" onblur="vaccineNameCheck();"
 						title="Name can't be empty "
-						 required="true" pattern="^[a-zA-z\s]+$"
+						 required="true" pattern="^[a-zA-Z\s]+$"
 						 placeholder="Enter the vaccine name"/>
 					 <form:errors path="vaccineName" cssClass="text-danger" />
 				</div><br>

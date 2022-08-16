@@ -2,7 +2,7 @@
  * 
  */
  var breedTypeCheck = function() {
-    var nameRegex = new RegExp("^[a-zA-z\s]+$");
+    var nameRegex = new RegExp("^[a-zA-Z\s]+$");
     if(!document.form.breedType.value.match(nameRegex)){
            if(alert("Name can't be empty and must contain only alphabets")){ 
                 document.form.breedType.focus();

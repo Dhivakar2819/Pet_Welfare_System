@@ -2,7 +2,7 @@
  * 
  */
  var userNameCheck = function() {
-    var nameRegex = new RegExp("^[a-zA-z\s]+$");
+    var nameRegex = new RegExp("^[a-zA-Z\s]+$");
     if(!document.form.userName.value.match(nameRegex)){
            if(alert("Name can't be empty and must contain only alphabets")){ 
                 document.form.userName.focus();
