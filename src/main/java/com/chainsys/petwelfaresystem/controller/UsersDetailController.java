@@ -43,7 +43,7 @@ public class UsersDetailController {
 	}
 
 	@PostMapping("/adduser")
-	public String addNewUsersDetail( @ModelAttribute("adduserdetail") @PathVariable UsersDetail userDetail,
+	public String addNewUsersDetail( @ModelAttribute("adduserdetail")  UsersDetail userDetail,
 			Model model) {
 		
 			try {
@@ -65,7 +65,7 @@ public class UsersDetailController {
 	}
 
 	@PostMapping("/updateuser")
-	public String updateUsersDetail(@Valid @ModelAttribute("updateusersdetail") @PathVariable UsersDetail userDetail, Model model,
+	public String updateUsersDetail(@Valid @ModelAttribute("updateusersdetail")  UsersDetail userDetail, Model model,
 			Errors errors) {
 		if (errors.hasErrors()) {
 			return "update-usersdetail-form";
@@ -113,7 +113,7 @@ public class UsersDetailController {
 	}
 
 	@PostMapping("/userlogin")
-	public String checkingAccess(@ModelAttribute("loginform") @PathVariable UsersDetail usersDetail, Model model) {
+	public String checkingAccess(@ModelAttribute("loginform")  UsersDetail usersDetail, Model model) {
 		UsersDetail userDetail = userDetailServices.getUserByEmailAndPassword(usersDetail.getEmail(),
 				usersDetail.getPassword());
 		if

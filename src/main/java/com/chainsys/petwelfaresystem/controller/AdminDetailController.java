@@ -25,6 +25,7 @@ public class AdminDetailController {
 	AdminDetailServices adminDetailServices;
 	private static final String ADDFORM="add-admin-form";
 	private static final String UPDATEFORM="update-admin-form";
+	private static final String ADMINLOGIN="adminlogin";
 	@GetMapping("/adminlist")
 	public String getFindAll(Model model) {
 		List<AdminDetail> listAdmin = adminDetailServices.getAdminDetail();
@@ -40,7 +41,7 @@ public class AdminDetailController {
 	}
 
 	@PostMapping("/addadmindetail")
-	public String addNewAdminDetail(@Valid @ModelAttribute("addadmin") @PathVariable AdminDetail adminDetail, Model model, Errors errors) {
+	public String addNewAdminDetail(@Valid @ModelAttribute("addadmin")  AdminDetail adminDetail, Model model, Errors errors) {
 		if (errors.hasErrors()) {
 			return ADDFORM;
 		} else {
@@ -63,7 +64,7 @@ public class AdminDetailController {
 	}
 
 	@PostMapping("/updateadmindetain")
-	public String updateAdminDetail(@Valid @ModelAttribute("updateadmin") @PathVariable AdminDetail adminDetail, Model model,
+	public String updateAdminDetail(@Valid @ModelAttribute("updateadmin")  AdminDetail adminDetail, Model model,
 			Errors errors) {
 		if (errors.hasErrors()) {
 			return UPDATEFORM;
@@ -97,20 +98,20 @@ public class AdminDetailController {
 	@GetMapping("/adminlogin")
 	public String getAdminLogin(Model model) {
 		AdminDetail adminDetail = new AdminDetail();
-		model.addAttribute("adminlogin", adminDetail);
-		return "adminlogin";
+		model.addAttribute("adminlogins", adminDetail);
+		return ADMINLOGIN;
 	}
 
 	@PostMapping("/adminloginpage")
-	public String checkingAccess(@ModelAttribute("adminlogin") @PathVariable AdminDetail admin, Model model) {
-		AdminDetail adminDetail = adminDetailServices.getEmailAndAdminPassword(admin.getEmail(),
-				admin.getAdminPassword());
-		if (adminDetail != null) {
+	public String checkingAccess(@ModelAttribute("adminlogins")  AdminDetail adminDetail, Model model) {
+		AdminDetail adminDetails = adminDetailServices.getEmailAndAdminPassword(adminDetail.getEmail(),
+				adminDetail.getAdminPassword());
+		if (adminDetails != null) {
 
 			return "redirect:/admin/index";
 		} else 
 			model.addAttribute("signin", "Log in failed");
-		return "adminlogin";
+		return ADMINLOGIN;
 	}
 
 	@GetMapping("/index")

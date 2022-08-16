@@ -45,7 +45,7 @@ public class VaccinesController {
 	}
 
 	@PostMapping("/addnewvaccine")
-	public String addNewVaccine(@Valid @ModelAttribute("addvaccine") @PathVariable Vaccines vac,Errors error,Model model) {
+	public String addNewVaccine(@Valid @ModelAttribute("addvaccine")  Vaccines vac,Errors error,Model model) {
 		if(error.hasErrors()) {
 			return "add-vaccine-form";
 		}
@@ -63,7 +63,7 @@ public class VaccinesController {
 	}
 
 	@PostMapping("/updatevaccines")
-	public String updateVaccines(@Valid @ModelAttribute("updatevaccine") @PathVariable Vaccines vac,Errors error,Model model) {
+	public String updateVaccines(@Valid @ModelAttribute("updatevaccine")  Vaccines vac,Errors error,Model model) {
 		if(error.hasErrors()) {
 			return "update-vaccine-form";
 		}else {

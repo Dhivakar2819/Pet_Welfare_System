@@ -14,7 +14,7 @@
 	<div class="background">
 		<div id="form">
 			<form:form action="adminloginpage" method="post"
-				modelAttribute="adminlogin">
+				modelAttribute="adminlogins">
 				<h3>Admin Login</h3>
 				
 						<label for="email">Admin Mail Id</label>

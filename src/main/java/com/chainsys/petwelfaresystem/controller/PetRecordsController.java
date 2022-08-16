@@ -57,7 +57,7 @@ public class PetRecordsController {
 	}
 
 	@PostMapping("/addnewpetrecord")
-	public String addNewPetRecords(@Valid @ModelAttribute("addpetrecord") @PathVariable PetRecords petRecord,Model model,Errors error) {
+	public String addNewPetRecords(@Valid @ModelAttribute("addpetrecord")  PetRecords petRecord,Model model,Errors error) {
 		if(error.hasErrors()) {
 			model.addAttribute("addresult","Failed");
 			return "add-petrecord-form";
@@ -79,7 +79,7 @@ public class PetRecordsController {
 	}
 
 	@PostMapping("/updatenewrecord")
-	public String updatePetRecords( @ModelAttribute("updatepetrecord") @PathVariable PetRecords petRecord,Model model) {
+	public String updatePetRecords( @ModelAttribute("updatepetrecord")  PetRecords petRecord,Model model) {
 		try {
 		petRecordServices.save(petRecord);
 		model.addAttribute("updateresult","Updated successfully");

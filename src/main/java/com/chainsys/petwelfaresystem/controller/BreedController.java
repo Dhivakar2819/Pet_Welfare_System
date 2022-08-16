@@ -42,7 +42,7 @@ public class BreedController {
 	}
 
 	@PostMapping("/addbreed")
-	public String addNewBreed(@ModelAttribute("addbreeds") @PathVariable Breed breed) {
+	public String addNewBreed(@ModelAttribute("addbreeds")  Breed breed) {
 		breedServices.save(breed);
 		return "redirect:/breed/adminbreedlist";
 	}
@@ -55,7 +55,7 @@ public class BreedController {
 	}
 
 	@PostMapping("/updatebreed")
-	public String updateBreed(@ModelAttribute("updatebreeds") @PathVariable Breed breed) {
+	public String updateBreed(@ModelAttribute("updatebreeds")  Breed breed) {
 		breedServices.save(breed);
 		return "redirect:/breed/adminbreedlist";
 	}

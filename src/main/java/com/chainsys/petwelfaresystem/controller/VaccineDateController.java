@@ -53,7 +53,7 @@ public class VaccineDateController {
 	}
 
 	@PostMapping("/addnewvaccinedate")
-	public String addNewVaccineDate(@Valid @ModelAttribute("addvdate") @PathVariable VaccineDate vaccineDate,Errors error,Model model) {
+	public String addNewVaccineDate(@Valid @ModelAttribute("addvdate")  VaccineDate vaccineDate,Errors error,Model model) {
 		if(error.hasErrors()) {
 			return "add-vaccinedate-form";
 		}
@@ -76,7 +76,7 @@ public class VaccineDateController {
 	}
 
 	@PostMapping("/updatenewvaccinedate")
-	public String updateVaccineDate(@Valid @ModelAttribute("updatevdate") @PathVariable VaccineDate vaccineDate,Errors error,Model model) {
+	public String updateVaccineDate(@Valid @ModelAttribute("updatevdate")  VaccineDate vaccineDate,Errors error,Model model) {
 		if(error.hasErrors()) {
 			return "update-vaccinedate-form";
 		}

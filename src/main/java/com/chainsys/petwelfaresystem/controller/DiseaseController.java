@@ -44,7 +44,7 @@ public class DiseaseController {
 	}
 
 	@PostMapping("/addnewdisease")
-	public String addNewDisease(@Valid @ModelAttribute("adddisease") @PathVariable Disease disease,Errors error) {
+	public String addNewDisease(@Valid @ModelAttribute("adddisease")  Disease disease,Errors error) {
 		if(error.hasErrors()) {
 			return "add-disease-form";
 		}
@@ -61,7 +61,7 @@ public class DiseaseController {
 	}
 
 	@PostMapping("/updatenewdisease")
-	public String updateDisease(@Valid @ModelAttribute("updatedisease") @PathVariable Disease disease,Errors error) {
+	public String updateDisease(@Valid @ModelAttribute("updatedisease")  Disease disease,Errors error) {
 		if(error.hasErrors()) {
 			return "update-disease-form";
 		}
