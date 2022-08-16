@@ -18,12 +18,13 @@
 
 				
 				<table>
+			
 				<caption></caption>
 					<tr>
-						<td><label for="petType">Pet Type</label></td>
-						<td><form:input path="petType" readonly="true" /></td>
-						<td><label for="petName">Pet Name</label></td>
-						<td><form:input path="petName" readonly="true" /></td>
+						<th><label for="petType">Pet Type</label></th>
+						<th><form:input path="petType" readonly="true" /></th>
+						<th><label for="petName">Pet Name</label></th>
+						<th><form:input path="petName" readonly="true" /></th>
 					</tr>
 				</table>
 				<br>
