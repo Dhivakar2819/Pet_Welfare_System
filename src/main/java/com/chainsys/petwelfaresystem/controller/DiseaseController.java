@@ -10,6 +10,7 @@ import org.springframework.ui.Model;
 import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -43,7 +44,7 @@ public class DiseaseController {
 	}
 
 	@PostMapping("/addnewdisease")
-	public String addNewDisease(@Valid @ModelAttribute("adddisease") Disease disease,Errors error) {
+	public String addNewDisease(@Valid @ModelAttribute("adddisease") @PathVariable Disease disease,Errors error) {
 		if(error.hasErrors()) {
 			return "add-disease-form";
 		}
@@ -60,7 +61,7 @@ public class DiseaseController {
 	}
 
 	@PostMapping("/updatenewdisease")
-	public String updateDisease(@Valid @ModelAttribute("updatedisease") Disease disease,Errors error) {
+	public String updateDisease(@Valid @ModelAttribute("updatedisease") @PathVariable Disease disease,Errors error) {
 		if(error.hasErrors()) {
 			return "update-disease-form";
 		}

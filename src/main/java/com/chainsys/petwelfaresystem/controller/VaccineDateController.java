@@ -12,6 +12,7 @@ import org.springframework.ui.Model;
 import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -52,7 +53,7 @@ public class VaccineDateController {
 	}
 
 	@PostMapping("/addnewvaccinedate")
-	public String addNewVaccineDate(@Valid @ModelAttribute("addvdate") VaccineDate vaccineDate,Errors error,Model model) {
+	public String addNewVaccineDate(@Valid @ModelAttribute("addvdate") @PathVariable VaccineDate vaccineDate,Errors error,Model model) {
 		if(error.hasErrors()) {
 			return "add-vaccinedate-form";
 		}
@@ -75,7 +76,7 @@ public class VaccineDateController {
 	}
 
 	@PostMapping("/updatenewvaccinedate")
-	public String updateVaccineDate(@Valid @ModelAttribute("updatevdate") VaccineDate vaccineDate,Errors error,Model model) {
+	public String updateVaccineDate(@Valid @ModelAttribute("updatevdate") @PathVariable VaccineDate vaccineDate,Errors error,Model model) {
 		if(error.hasErrors()) {
 			return "update-vaccinedate-form";
 		}

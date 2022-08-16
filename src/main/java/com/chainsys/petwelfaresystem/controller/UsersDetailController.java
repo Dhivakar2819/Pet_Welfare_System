@@ -10,6 +10,7 @@ import org.springframework.ui.Model;
 import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -42,7 +43,7 @@ public class UsersDetailController {
 	}
 
 	@PostMapping("/adduser")
-	public String addNewUsersDetail( @ModelAttribute("adduserdetail") UsersDetail userDetail,
+	public String addNewUsersDetail( @ModelAttribute("adduserdetail") @PathVariable UsersDetail userDetail,
 			Model model) {
 		
 			try {
@@ -64,7 +65,7 @@ public class UsersDetailController {
 	}
 
 	@PostMapping("/updateuser")
-	public String updateUsersDetail(@Valid @ModelAttribute("updateusersdetail") UsersDetail userDetail, Model model,
+	public String updateUsersDetail(@Valid @ModelAttribute("updateusersdetail") @PathVariable UsersDetail userDetail, Model model,
 			Errors errors) {
 		if (errors.hasErrors()) {
 			return "update-usersdetail-form";
@@ -112,7 +113,7 @@ public class UsersDetailController {
 	}
 
 	@PostMapping("/userlogin")
-	public String checkingAccess(@ModelAttribute("loginform") UsersDetail usersDetail, Model model) {
+	public String checkingAccess(@ModelAttribute("loginform") @PathVariable UsersDetail usersDetail, Model model) {
 		UsersDetail userDetail = userDetailServices.getUserByEmailAndPassword(usersDetail.getEmail(),
 				usersDetail.getPassword());
 		if

@@ -12,6 +12,7 @@ import org.springframework.ui.Model;
 import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -56,7 +57,7 @@ public class PetRecordsController {
 	}
 
 	@PostMapping("/addnewpetrecord")
-	public String addNewPetRecords(@Valid @ModelAttribute("addpetrecord") PetRecords petRecord,Model model,Errors error) {
+	public String addNewPetRecords(@Valid @ModelAttribute("addpetrecord") @PathVariable PetRecords petRecord,Model model,Errors error) {
 		if(error.hasErrors()) {
 			model.addAttribute("addresult","Failed");
 			return "add-petrecord-form";
@@ -78,7 +79,7 @@ public class PetRecordsController {
 	}
 
 	@PostMapping("/updatenewrecord")
-	public String updatePetRecords( @ModelAttribute("updatepetrecord") PetRecords petRecord,Model model) {
+	public String updatePetRecords( @ModelAttribute("updatepetrecord") @PathVariable PetRecords petRecord,Model model) {
 		try {
 		petRecordServices.save(petRecord);
 		model.addAttribute("updateresult","Updated successfully");

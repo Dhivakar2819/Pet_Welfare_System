@@ -9,6 +9,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -52,7 +53,7 @@ public class PetController {
 	}
 
 	@PostMapping("/addnewpet")
-	public String addNewPet(@ModelAttribute("addpet") Pet pet, Model model) {
+	public String addNewPet(@ModelAttribute("addpet") @PathVariable Pet pet, Model model) {
 		try {
 			model.addAttribute("userId", pet.getUserId());
 			petServices.save(pet);
@@ -73,7 +74,7 @@ public class PetController {
 	}
 
 	@PostMapping("/updatepets")
-	public String updatePet(@ModelAttribute("updatepet") Pet pet, Model model) {
+	public String updatePet(@ModelAttribute("updatepet") @PathVariable Pet pet, Model model) {
 		try {
 			petServices.save(pet);
 			model.addAttribute("userId", pet.getUserId());
