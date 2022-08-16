@@ -79,3 +79,10 @@ a,button{
     cursor: pointer;
     text-decoration:none;
 }
+.back{
+	font-size:10px;
+width:5%;
+position: absolute;
+     top:5%;
+    left: 5%;
+}

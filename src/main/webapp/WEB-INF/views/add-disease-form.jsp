@@ -14,6 +14,11 @@
 <div id="root" >
 		<div id="form">
 			<form:form action="addnewdisease" method="post" modelAttribute="adddisease" class="container" name="form">
+				<div>
+						<form:input path="id" 
+						title="Name can't be empty"
+						required="true" type="hidden"/>
+					</div>
 				<div class="form-control">
 					<label for="diseaseName">Disease Name</label>
 						<form:input path="diseaseName" name="diseaseName" onblur="diseaseNameCheck();"
@@ -41,7 +46,7 @@
 				</div>
 			</form:form>
 		</div><br>
-		<div><a href="/disease/admindiseaselist"><button>Back</button></a></div>
+		<div><a href="/disease/admindiseaselist"><button class="back">Back</button></a></div>
 	</div>
 	
 </body>

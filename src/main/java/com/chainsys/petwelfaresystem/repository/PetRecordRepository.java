@@ -8,7 +8,6 @@ import org.springframework.stereotype.Repository;
 
 import com.chainsys.petwelfaresystem.compositekey.PetRecordsCompositeKey;
 import com.chainsys.petwelfaresystem.model.PetRecords;
-import com.chainsys.petwelfaresystem.model.VaccineDate;
 @Repository
 public interface PetRecordRepository extends CrudRepository<PetRecords,PetRecordsCompositeKey>{
 	Optional<PetRecords> findById(PetRecordsCompositeKey id);

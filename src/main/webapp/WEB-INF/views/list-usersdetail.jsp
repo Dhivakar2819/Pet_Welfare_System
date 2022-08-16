@@ -33,7 +33,7 @@
 				</c:forEach>
 			</tbody>
 		</table><br>
-		<div><a href="/admin/index"><button>Back</button></a></div>
+		<div><a href="/admin/index"><button class="back">Back</button></a></div>
 	</div>
 </body>
 </html>

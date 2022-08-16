@@ -41,7 +41,7 @@
 					<form:button>Update</form:button>
 				</div>
 			</form:form>
-			<a href="/admin/adminlist">Back</a>
+			<a href="/admin/adminlist"><button  class="back">Back</button></a>
 			<div>${result}</div>
 		</div>
 	</div>

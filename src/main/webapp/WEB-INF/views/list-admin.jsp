@@ -33,7 +33,7 @@
 		</table>
 		<a href="/admin/addadmin"><button>Add Admin</button></a>
 		<div>${delete}</div>
-		<div><a href="/admin/index"><button>Back</button></a></div>
+		<div><a href="/admin/index"><button class="back">Back</button></a></div>
 	</div>
 </body>
 </html>

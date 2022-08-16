@@ -67,12 +67,11 @@
 				<br>
 				<div>
 					<form:button class="button">Add New Pet</form:button></div>
-					<div><form:button>
-						<a href="/usersdetail/getuserpet?id=${userId}">Back</a>
-					</form:button>
+					<div>
 				</div>
 			</form:form>
 			<br>
+			<a href="/usersdetail/getuserpet?id=${userId}"><button class="back">Back</button></a>
 			<div>${result}</div>
 
 		</div>

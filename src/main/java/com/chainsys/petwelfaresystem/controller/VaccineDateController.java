@@ -18,10 +18,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.chainsys.petwelfaresystem.compositekey.VaccineDateCompositeKey;
 import com.chainsys.petwelfaresystem.model.Pet;
-import com.chainsys.petwelfaresystem.model.UsersDetail;
 import com.chainsys.petwelfaresystem.model.VaccineDate;
 import com.chainsys.petwelfaresystem.services.PetServices;
-import com.chainsys.petwelfaresystem.services.UsersDetailServices;
 import com.chainsys.petwelfaresystem.services.VaccineDateServices;
 import com.chainsys.petwelfaresystem.services.VaccinesServices;
 

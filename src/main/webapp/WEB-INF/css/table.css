@@ -4,18 +4,10 @@ html, body {
 	height: 100%;
 }
 
-/* body {
-	margin: 0;
-	background: linear-gradient(45deg, #49a09d, #5f2c82);
-	font-family: sans-serif;
-	font-weight: 100;
-} */
- 
  body {
   background-image: url(https://www.petexperience.com.br/source/files/c/11573/BG_base_0003-215854_1920-1080-0-0.jpg); 
   background-size:1366px 768px;
   background-attachment: fixed;
-  background-size: cover;
   text-align: center;
   font-family: cursive;
 }
@@ -47,10 +39,11 @@ th, td ,tr{
     right: 50%;
 }
 .back{
-	position: absolute;
+	font-size:10px;
+width:5%;
+position: absolute;
      top:5%;
-    right: 5%;
-	
+    left: 5%;
 }
 label{
 	font-family: cursive;

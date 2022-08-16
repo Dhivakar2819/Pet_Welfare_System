@@ -31,7 +31,7 @@
 				</div>
 			</form:form>
 		</div><br>
-		<div><a href="/vaccine/adminvaccinelist"><button>Back</button></a></div>
+		<div><a href="/vaccine/adminvaccinelist"><button class="back">Back</button></a></div>
 	</div>
 	
 </body>

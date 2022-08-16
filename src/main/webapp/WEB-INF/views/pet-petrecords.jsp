@@ -7,10 +7,10 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>view Pet by Pet Records</title>
-<style><%@include file="/WEB-INF/css/table.css"%></s
+<style><%@include file="/WEB-INF/css/table.css"%>
 </style>
 </head>
-<body>
+<body><div>
 	<div class="container">
 		<div id="form">
 		<div  >
@@ -86,11 +86,11 @@
 			<div>
 				<a href="/petrecord/addformpetrecord?id=${petId}"><button>Add</button></a><br> <a
 					href="/disease/diseaselist"><button>Disease List</button></a>
-					<a href="/usersdetail/getuserpet?id=${userId}"><button>Back</button></a>
+					
 			</div>
 		
 		${delete}
-	</div></div>
+	</div></div><a href="/usersdetail/getuserpet?id=${userId}"><button class="back">Back</button></a></div>
 	<script type="text/javascript">
 		function ConfirmDelete() {
 			return confirm("Are you sure you want to delete?");

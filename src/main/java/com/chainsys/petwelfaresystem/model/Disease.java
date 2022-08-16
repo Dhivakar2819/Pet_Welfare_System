@@ -33,7 +33,7 @@ public class Disease {
 	private String medicine;
 	@NotNull
 	@Range(min=1,message="*Greater then zero")
-	private int price;
+	private float price;
 	@OneToMany(mappedBy="disease",fetch=FetchType.LAZY)
 	private List<PetRecords> petRecords;
 	
@@ -61,10 +61,10 @@ public class Disease {
 	public void setMedicine(String medicine) {
 		this.medicine = medicine;
 	}
-	public int getPrice() {
+	public float getPrice() {
 		return price;
 	}
-	public void setPrice(int price) {
+	public void setPrice(float price) {
 		this.price = price;
 	}
 	

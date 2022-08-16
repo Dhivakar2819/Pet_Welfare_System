@@ -80,9 +80,10 @@
 				<div>
 					<form:button>Update</form:button>
 				</div>
-				<form:button><a href="/usersdetail/getuserpet?id=${userId}">Back</a></form:button>
+				<form:button></form:button>
 			</form:form>
 		</div>
+		<a href="/usersdetail/getuserpet?id=${userId}"><button class="back">Back</button></a>
 	</div>
 	
 </body>

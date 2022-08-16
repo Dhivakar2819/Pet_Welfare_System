@@ -14,28 +14,14 @@
 	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
-
-	<div id="root">
-
-		<a href="/usersdetail/userloginpage"><button class="back">Log Out</button></a>
+<a href="/usersdetail/userloginpage"><button class="back">Log Out</button></a>
+<div class="container">
+		
 		<form:form action="" method="post" modelAttribute="getuser">
-			<div>
-				<label for="userName">User Name</label>
-				<div>
-					<form:input path="userName" readonly="true" />
-				</div>
-			</div>
-			<div>
-				<label for="email">E Mail Id</label>
-				<div>
-					<form:input path="email" readonly="true" />
-				</div>
-			</div>
-			<br>
+			
 		</form:form>
-	</div>
-	<div>
-		<table style="width: 90%" class="container">
+	
+		<table style="width: 90%" >
 			<caption></caption>
 			<thead>
 				<tr>
@@ -71,7 +57,7 @@
 				</c:forEach>
 				
 			</tbody>
-		</table>
+		</table></div>
 		<a href="/pet/addpet?userId=${userId}">
 								<button id="button">Add</button></a>
 		<script type="text/javascript">

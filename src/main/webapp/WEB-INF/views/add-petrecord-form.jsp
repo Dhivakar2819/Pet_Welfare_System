@@ -45,11 +45,13 @@
 				<br>
 				<div>
 					<form:button>Add New Pet Record</form:button>
-					<form:button><a href="/petrecord/getpetidinpetrecords?id=${petId}">Back</a></form:button>
+					
 				</div>
-				${addresult}${null}
+				
 			</form:form>
+			<a href="/petrecord/getpetidinpetrecords?id=${petId}"><button class="back">Back</button></a>
 		</div>
+		${addresult}${null}
 	</div>
 </body>
 </html>

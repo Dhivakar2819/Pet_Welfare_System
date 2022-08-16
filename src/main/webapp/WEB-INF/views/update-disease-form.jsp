@@ -45,7 +45,7 @@
 				</div>
 			</form:form>
 		</div><br>
-		<div><a href="/disease/admindiseaselist"><button>Back</button></a></div>
+		<div><a href="/disease/admindiseaselist"><button class="back">Back</button></a></div>
 	</div>
 	
 </body>

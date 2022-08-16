@@ -10,7 +10,7 @@
 <style><%@include file="/WEB-INF/css/table.css"%></s
 </style>
 </head>
-<body>
+<body><div>
 <div  class="container" >
 		<div id="form">
 			<form:form action="" method="post" modelAttribute="getpetid" >
@@ -61,9 +61,10 @@
 		</tbody>
 		</table>
 		<a href="/vaccinedate/addformvaccinedate?id=${petId}"><button>Add</button></a>
-		<a href="/usersdetail/getuserpet?id=${userId}"><button>Back</button></a>
+		
 	</div>
-	${delete}
+	${delete}</div>
+	<a href="/usersdetail/getuserpet?id=${userId}"><button class="back">Back</button></a>
 	</div>
 </body>
 </html>

@@ -19,6 +19,7 @@
 					<th>Breed Id</th>
 					<th>Breed Type</th>
 					<th>Update</th>
+					<th>Delete</th>
 					
 				</tr>
 			</thead>
@@ -28,6 +29,7 @@
 						<td>${breed.id}</td>
 						<td>${breed.breedType}</td>
 						<td><a href="/breed/updatebreed?brid=${breed.id}">Update</a></td>
+						<td><a href="/breed/deletebreed?brid=${breed.id}">Delete</a></td>
 						
 					</tr>
 				</c:forEach>
@@ -35,7 +37,7 @@
 		</table>
 		<br>
 		<div><a href="/breed/addbreed"><button>Add</button></a></div>
-		<div><a href="/admin/index"><button>Back</button></a></div>
+		<div><a href="/admin/index"><button class="back">Back</button></a></div>
 	</div>
 </body>
 </html>

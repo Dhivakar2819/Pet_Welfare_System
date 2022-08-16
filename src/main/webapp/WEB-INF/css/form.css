@@ -89,10 +89,11 @@ form h3{
     color: #080710;
 }
 
-/* button{
-	position: absolute;
-     bottom: 10%;
-    right: 50%;
-} */
-
+.back{
+	font-size:10px;
+width:5%;
+position: absolute;
+     top:5%;
+    left: 5%;
+}
 

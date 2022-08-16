@@ -41,10 +41,11 @@
 				<div>
 					<form:button>Update</form:button>
 				</div>
-				<form:button><a href="/pet/getvaccinebypetid?id=${petId}">Back</a></form:button><br>
-				${updateresult}
+				
 			</form:form>
+			<a href="/pet/getvaccinebypetid?id=${petId}"><button class="back">Back</button></a>
 		</div>
+		${updateresult}
 	</div>
 </body>
 </html>

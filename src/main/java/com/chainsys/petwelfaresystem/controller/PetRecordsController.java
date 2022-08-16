@@ -10,7 +10,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.Errors;
-import org.springframework.validation.ObjectError;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -50,9 +49,9 @@ public class PetRecordsController {
 		Pet pet=petServices.findById(id);
 		model.addAttribute("disease", diseaseServices.getAllDisease());
 		model.addAttribute("addpetrecord", petRecord);
+		model.addAttribute("petId",petRecord.getPetId());
+		petRecord.setPetId(id);
 		model.addAttribute("petId",pet.getPetId());
-		pet.setPetId(id);
-		model.addAttribute("petId",petRecord.getPet());
 		return "add-petrecord-form";
 	}
 

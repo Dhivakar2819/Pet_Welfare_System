@@ -26,7 +26,7 @@
 				</div>
 			</form:form>
 		</div><br>
-		<div><a href="/breed/adminbreedlist"><button>Back</button></a></div>
+		<div><a href="/breed/adminbreedlist"><button class="back">Back</button></a></div>
 	</div>
 	
 </body>
