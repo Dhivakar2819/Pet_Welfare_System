@@ -7,8 +7,10 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Find Breed</title>
+<style><%@include file="/WEB-INF/css/table.css"%>
+</style>
 <body>
-<div id="root">
+<div class="container">
 		<div id="form">
 			<form:form action="" method="post" modelAttribute="findbreedbyid">
 				<div>

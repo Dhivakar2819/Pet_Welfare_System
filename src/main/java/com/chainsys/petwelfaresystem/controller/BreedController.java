@@ -13,13 +13,17 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.chainsys.petwelfaresystem.dto.PetBreedDTO;
 import com.chainsys.petwelfaresystem.model.Breed;
+import com.chainsys.petwelfaresystem.model.Pet;
 import com.chainsys.petwelfaresystem.services.BreedServices;
+import com.chainsys.petwelfaresystem.services.PetServices;
 
 @Controller
 @RequestMapping("/breed")
 public class BreedController {
 	@Autowired
 	BreedServices breedServices;
+	@Autowired
+	PetServices petServices;
 	
 	@GetMapping("/breedlist")
 	public String getFindAll(Model model) {
@@ -71,7 +75,6 @@ public class BreedController {
 	{
 		Breed breed=breedServices.findById(id);
 		model.addAttribute("findbreedbyid",breed);
-//		model.addAttribute("userId", breed.)
 		return "find-breed-by-id";
 	}
 	@GetMapping("/getbreedpet")

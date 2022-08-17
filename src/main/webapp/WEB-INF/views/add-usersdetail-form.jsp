@@ -34,7 +34,7 @@
 					<label for="password">Password</label>
 					<form:input path="password"
 						title='Password must begin with letter and contain atleast one number and must have atleast 8 characters'
-						required="true" placeholder="Enter the password" type="password"
+						required="true" placeholder="Password@123" type="password"
 						pattern="^(?=.*[A-Za-z])(?=.*\\d)(?=.*[@$!%*#?&])[A-Za-z\\d@$!%*#?&]{8,}$"
 						name="password" onblur="passwordCheck();"/>
 					

@@ -7,7 +7,7 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Breed List</title>
-<style><%@include file="/WEB-INF/css/table.css"%></s
+<style><%@include file="/WEB-INF/css/table.css"%>
 </style>
 </head>
 <body>

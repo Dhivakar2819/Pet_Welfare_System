@@ -1,13 +1,13 @@
 @charset "ISO-8859-1";
 
 html, body {
-	height: 100%;
+	height: 80%;
 }
 
  body {
   background-image: url(https://www.petexperience.com.br/source/files/c/11573/BG_base_0003-215854_1920-1080-0-0.jpg); 
   background-size:1366px 768px;
-  background-attachment: fixed;
+  background-attachment: fixed; 
   text-align: center;
   font-family: cursive;
 }
@@ -20,13 +20,14 @@ html, body {
 
 table {
 	width: 80%;
+	height: 80%;
 	border-collapse: collapse;
 	overflow: hidden;
 	box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
 }
 
 th, td ,tr{
-	padding: 15px;
+	padding: 10px;
 	background-color: rgba(255, 255, 255, 0.2);
 	color: black;
 	text-align: center;
