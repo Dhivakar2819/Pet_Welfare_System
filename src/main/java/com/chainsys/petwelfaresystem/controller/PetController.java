@@ -33,6 +33,8 @@ public class PetController {
 	@Autowired
 	VaccinesServices vaccineServices;
 	private static final String USERID="userId";
+	private static final String ADDFORM="add-pet-form";
+	private static final String UPDATEFORM="update-pet-form";
 	
 	@GetMapping("/petlist")
 	public String getFindAllPet(Model model) {
@@ -49,7 +51,7 @@ public class PetController {
 		pet.setUserId(id);
 		model.addAttribute(USERID, pet.getUserId());
 		model.addAttribute("petId", pet.getPetId());
-		return "add-pet-form";
+		return ADDFORM;
 	}
 
 	@PostMapping("/addnewpet")
@@ -58,9 +60,9 @@ public class PetController {
 			model.addAttribute(USERID, pet.getUserId());
 			petServices.save(pet);
 			model.addAttribute("result", "Pet records added successfully");
-			return "add-pet-form";
+			return ADDFORM;
 		}catch(Exception er) {
-			return "add-pet-form";
+			return ADDFORM;
 		}
 	}
 
@@ -70,7 +72,7 @@ public class PetController {
 		model.addAttribute("breed", breedServices.getAllBreed());
 		model.addAttribute("updatepet", pet);
 		model.addAttribute(USERID, pet.getUserId());
-		return "update-pet-form";
+		return UPDATEFORM;
 	}
 
 	@PostMapping("/updatepets")
@@ -78,9 +80,9 @@ public class PetController {
 		try {
 			petServices.save(pet);
 			model.addAttribute(USERID, pet.getUserId());
-			return "update-pet-form";
+			return UPDATEFORM;
 		}catch(Exception er) {
-			return "update-pet-form"; 
+			return UPDATEFORM; 
 		}
 	}
 
@@ -104,7 +106,7 @@ public class PetController {
 		model.addAttribute("getpetid", dto.getPet());
 		model.addAttribute("vaccinelist", dto.getVaccineDateList());
 		model.addAttribute("petId", dto.getPet().getPetId());
-		model.addAttribute("userId", dto.getPet().getUserId());
+		model.addAttribute(USERID, dto.getPet().getUserId());
 		List<Vaccines> vaccine= vaccineServices.getAllVaccines();
 		List<Vaccines> vaccinelist=new ArrayList<>();
 			for(int i=0;i<dto.getVaccineDateList().size();i++) {

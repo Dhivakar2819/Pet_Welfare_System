@@ -34,6 +34,7 @@ public class VaccineDateController {
 	private PetServices petServices;
 	private static final String ADDFORM="add-vaccinedate-form";
 	private static final String UPDATEFORM="update-vaccinedate-form";
+	private static final String PETID="petId";
 	@GetMapping("/vaccinedatelist")
 	public String getFindAllVaccineDate(Model model) {
 		List<VaccineDate> list = vaccineDateServices.getVaccineDate();
@@ -48,7 +49,7 @@ public class VaccineDateController {
 		Pet pet=petServices.findById(id);
 		model.addAttribute("vaccine",vaccineService.getAllVaccines());
 		model.addAttribute("addvdate", vaccineDate);
-		model.addAttribute("petId",pet.getPetId());
+		model.addAttribute(PETID,pet.getPetId());
 		vaccineDate.setPetId(id);
 		return ADDFORM;
 	}
@@ -59,7 +60,7 @@ public class VaccineDateController {
 			return "ADDFORM";
 		}
 		else {
-		model.addAttribute("petId", vaccineDate.getPetId());
+		model.addAttribute(PETID, vaccineDate.getPetId());
 		vaccineDateServices.save(vaccineDate);
 		model.addAttribute("addresult", "Added successfully");
 		return "ADDFORM";}
@@ -69,7 +70,7 @@ public class VaccineDateController {
 	public String showUpdateVaccineDate(@RequestParam("id") int id,@RequestParam("vid")int vid, Model model) {
 		VaccineDateCompositeKey vaccineDateCompositeKey=new VaccineDateCompositeKey(id, vid);
 		model.addAttribute("vaccine",vaccineService.getAllVaccines());
-		model.addAttribute("petId",vaccineDateCompositeKey.getPetId());
+		model.addAttribute(PETID,vaccineDateCompositeKey.getPetId());
 		Optional<VaccineDate> vaccineDate = vaccineDateServices.findById(vaccineDateCompositeKey);
 		model.addAttribute("updatevdate", vaccineDate);
 		vaccineDateCompositeKey.setPetId(id);
@@ -82,7 +83,7 @@ public class VaccineDateController {
 			return UPDATEFORM;
 		}
 		else {
-		model.addAttribute("petId", vaccineDate.getPetId());	
+		model.addAttribute(PETID, vaccineDate.getPetId());	
 		vaccineDateServices.save(vaccineDate);
 		model.addAttribute("updateresult", "Updated successfully");
 		return UPDATEFORM;}

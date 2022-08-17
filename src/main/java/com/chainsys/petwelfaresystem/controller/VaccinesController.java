@@ -23,6 +23,8 @@ import com.chainsys.petwelfaresystem.services.VaccinesServices;
 public class VaccinesController {
 	@Autowired
 	VaccinesServices vaccineServices;
+	private static final String ADDFORM="add-vaccine-form";
+	private static final String UPDATEFORM="update-vaccine-form";
 
 	@GetMapping("/vaccinelist")
 	public String getFindAllVaccine(Model model) {
@@ -40,35 +42,35 @@ public class VaccinesController {
 	public String showAddVaccine(Model model) {
 		Vaccines vaccine = new Vaccines();
 		model.addAttribute("addvaccine", vaccine);
-		return "add-vaccine-form";
+		return ADDFORM;
 	}
 
 	@PostMapping("/addnewvaccine")
 	public String addNewVaccine(@Valid @ModelAttribute("addvaccine")  Vaccines vac,Errors error,Model model) {
 		if(error.hasErrors()) {
-			return "add-vaccine-form";
+			return ADDFORM;
 		}
 		else {
 		vaccineServices.save(vac);
 		model.addAttribute("addresult", "Added successfully");
-		return "add-vaccine-form";}
+		return ADDFORM;}
 	}
 
 	@GetMapping("/updateformvaccine")
 	public String showUpdateVaccine(@RequestParam("vacid") int id, Model model) {
 		Vaccines vaccine = vaccineServices.findById(id);
 		model.addAttribute("updatevaccine", vaccine);
-		return "update-vaccine-form";
+		return UPDATEFORM;
 	}
 
 	@PostMapping("/updatevaccines")
 	public String updateVaccines(@Valid @ModelAttribute("updatevaccine")  Vaccines vac,Errors error,Model model) {
 		if(error.hasErrors()) {
-			return "update-vaccine-form";
+			return UPDATEFORM;
 		}else {
 		vaccineServices.save(vac);
 		model.addAttribute("updateresult", "Updated successfully");
-		return "update-vaccine-form";}
+		return UPDATEFORM;}
 	}
 
 	@GetMapping("/deletevaccine")

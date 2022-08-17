@@ -34,6 +34,9 @@ public class PetRecordsController {
 	PetServices petServices;
 	@Autowired
 	DiseaseServices diseaseServices;
+	private static final String ADDFORM="add-petrecord-form";
+	private static final String UPDATEFORM="update-petrecord-form";
+	private static final String PETID="petId";
 
 	@GetMapping("/petrecordlist")
 	public String getFindAllPetRecord(Model model) {
@@ -49,23 +52,23 @@ public class PetRecordsController {
 		Pet pet=petServices.findById(id);
 		model.addAttribute("disease", diseaseServices.getAllDisease());
 		model.addAttribute("addpetrecord", petRecord);
-		model.addAttribute("petId",petRecord.getPetId());
+		model.addAttribute(PETID,petRecord.getPetId());
 		petRecord.setPetId(id);
-		model.addAttribute("petId",pet.getPetId());
-		return "add-petrecord-form";
+		model.addAttribute(PETID,pet.getPetId());
+		return ADDFORM;
 	}
 
 	@PostMapping("/addnewpetrecord")
 	public String addNewPetRecords(@Valid @ModelAttribute("addpetrecord")  PetRecords petRecord,Model model,Errors error) {
 		if(error.hasErrors()) {
 			model.addAttribute("addresult","Failed");
-			return "add-petrecord-form";
+			return ADDFORM;
 		}
 		else {
-		model.addAttribute("petId",petRecord.getPetId());
+		model.addAttribute(PETID,petRecord.getPetId());
 		petRecordServices.save(petRecord);
 		model.addAttribute("addresult","Added successfully");
-		return "add-petrecord-form";}
+		return ADDFORM;}
 	}
 
 	@GetMapping("/updateformpetrecord")
@@ -74,7 +77,7 @@ public class PetRecordsController {
 		model.addAttribute("disease", diseaseServices.getAllDisease());
 		Optional<PetRecords> petRecord = petRecordServices.findById(petRecordsCompositeKey);
 		model.addAttribute("updatepetrecord", petRecord);
-		return "update-petrecord-form";
+		return UPDATEFORM;
 	}
 
 	@PostMapping("/updatenewrecord")
@@ -82,10 +85,10 @@ public class PetRecordsController {
 		try {
 		petRecordServices.save(petRecord);
 		model.addAttribute("updateresult","Updated successfully");
-		return "update-petrecord-form";}
+		return UPDATEFORM;}
 		catch(Exception er) {
 			model.addAttribute("updateresult","Failed");
-			return "update-petrecord-form";
+			return UPDATEFORM;
 		}
 	}
 
@@ -123,7 +126,7 @@ public class PetRecordsController {
 		}}
 		model.addAttribute("totalAmount", totalAmount);
 		model.addAttribute("diseasePrice",diseaseList);
-		model.addAttribute("petId", dto.getPet().getPetId());
+		model.addAttribute(PETID, dto.getPet().getPetId());
 		return "pet-petrecords";}
 		catch(Exception er) {
 			model.addAttribute("null", "No record found.Kindly add your pet details");

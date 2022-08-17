@@ -26,6 +26,9 @@ public class UsersDetailController {
 	UsersDetailServices userDetailServices;
 	@Autowired
 	private BreedServices breedServices;
+	private static final String ADDFORM="add-usersdetail-form";
+	private static final String UPDATEFORM="update-usersdetail-form";
+	private static final String PETID="petId";
 
 	@GetMapping("/userdetaillist")
 	public String getFindAllUsersDetail(Model model) {
@@ -38,7 +41,7 @@ public class UsersDetailController {
 	public String showAddUsersDetail(Model model) {
 		UsersDetail userDetail = new UsersDetail();
 		model.addAttribute("adduserdetail", userDetail);
-		return "add-usersdetail-form";
+		return ADDFORM;
 	}
 
 	@PostMapping("/adduser")
@@ -48,10 +51,10 @@ public class UsersDetailController {
 			try {
 				userDetailServices.save(userDetail);
 				model.addAttribute("result", "Registration completed successfully");
-				return "add-usersdetail-form";
+				return ADDFORM;
 			} catch (Exception er) {
 				model.addAttribute("message", "this email is already exist");
-				return "add-usersdetail-form";
+				return ADDFORM;
 			
 		}
 	}
@@ -60,22 +63,22 @@ public class UsersDetailController {
 	public String showUpdateUsersDetail(@RequestParam("userid") int id, Model model) {
 		UsersDetail userDetail = userDetailServices.findById(id);
 		model.addAttribute("updateusersdetail", userDetail);
-		return "update-usersdetail-form";
+		return UPDATEFORM;
 	}
 
 	@PostMapping("/updateuser")
 	public String updateUsersDetail(@Valid @ModelAttribute("updateusersdetail")  UsersDetail userDetail, Model model,
 			Errors errors) {
 		if (errors.hasErrors()) {
-			return "update-usersdetail-form";
+			return UPDATEFORM;
 		} else {
 			try {
 				userDetailServices.save(userDetail);
 				model.addAttribute("result", "Update completed successfully");
-				return "redirect:/usersdetail/userloginpage";
+				return UPDATEFORM;
 			} catch (Exception er) {
 				model.addAttribute("message", "this email is already exist");
-				return "redirect:/usersdetail/userdetaillist";
+				return UPDATEFORM;
 			}
 		}
 	}
