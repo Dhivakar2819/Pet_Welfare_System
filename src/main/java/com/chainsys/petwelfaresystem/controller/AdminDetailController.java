@@ -63,13 +63,13 @@ public class AdminDetailController {
 	}
 
 	@PostMapping("/updateadmindetain")
-	public String updateAdminDetail(@Valid @ModelAttribute("updateadmin")  AdminDetail admin, Model model,
+	public String updateAdminDetail(@Valid @ModelAttribute("updateadmin")  AdminDetail adminDetail, Model model,
 			Errors errors) {
 		if (errors.hasErrors()) {
 			return UPDATEFORM;
 		} else {
 			try {
-				adminDetailServices.save(admin);
+				adminDetailServices.save(adminDetail);
 				model.addAttribute("result", "Admin registration completed successfully");
 				return UPDATEFORM;
 			} catch (Exception er) {
@@ -102,9 +102,9 @@ public class AdminDetailController {
 	}
 
 	@PostMapping("/adminloginpage")
-	public String checkingAccess(@ModelAttribute("adminlogins")  AdminDetail admin, Model model) {
-		AdminDetail adminDetails = adminDetailServices.getEmailAndAdminPassword(admin.getEmail(),
-				admin.getAdminPassword());
+	public String checkingAccess(@ModelAttribute("adminlogins")  AdminDetail adminDetail, Model model) {
+		AdminDetail adminDetails = adminDetailServices.getEmailAndAdminPassword(adminDetail.getEmail(),
+				adminDetail.getAdminPassword());
 		if (adminDetails != null) {
 
 			return "redirect:/admin/index";
