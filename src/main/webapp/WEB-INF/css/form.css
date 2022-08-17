@@ -84,3 +84,10 @@ form {
 	top: 5%;
 	left: 5%;
 }
+.add {
+	font-size: 10px;
+	width: 10%;
+	position: absolute;
+	bottom: 5%;
+	left: 50%;
+}

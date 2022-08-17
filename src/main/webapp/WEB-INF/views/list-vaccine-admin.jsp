@@ -18,6 +18,7 @@
 				<tr>
 					<th>Vaccine Name</th>
 					<th>Update</th>
+					<th>Delete</th>
 				</tr>
 			</thead>
 			<tbody>
@@ -25,11 +26,12 @@
 					<tr>
 						<td>${vaccine.vaccineName}</td>
 						<td><a href="/vaccine/updateformvaccine?vacid=${vaccine.vaccineId}">Update</a></td>
+						<td><a href="/vaccine/deletevaccine?vacid=${vaccine.vaccineId}">Delete</a></td>
 					</tr>
 				</c:forEach>
 			</tbody>
 		</table>
-		<a href="/vaccine/addformvaccine"><button>Add</button></a><br>
+		<a href="/vaccine/addformvaccine"><button class="add">Add</button></a><br>
 		<div><a href="/admin/index"><button class="back">Back</button></a></div>
 	</div>
 </body>

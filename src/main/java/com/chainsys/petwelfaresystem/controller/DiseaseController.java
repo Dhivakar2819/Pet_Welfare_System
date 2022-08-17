@@ -23,6 +23,8 @@ import com.chainsys.petwelfaresystem.services.DiseaseServices;
 public class DiseaseController {
 	@Autowired
 	DiseaseServices diseaseService;
+	
+	private static final String LIST="redirect:/disease/admindiseaselist";
 	@GetMapping("/diseaselist")
 	public String getFindDisease(Model model) {
 		List<Disease> listDisease=diseaseService.getDisease();
@@ -49,7 +51,7 @@ public class DiseaseController {
 		}
 		else {
 		diseaseService.save(disease);
-		return "redirect:/disease/admindiseaselist";}
+		return LIST;}
 	}
 	
 	@GetMapping("/updateformdisease")
@@ -66,14 +68,14 @@ public class DiseaseController {
 		}
 		else {
 		diseaseService.save(disease);
-		return "redirect:/disease/admindiseaselist";}
+		return LIST;}
 	}
 	
 	
 	@GetMapping("/deletedisease")
 	public String deleteDisease(@RequestParam("disid") int id) {
 		diseaseService.deleteById(id);
-		return "redirect:/disease/diseaselist";
+		return LIST;
 	}
 	
 	@GetMapping("/getdisease")

@@ -77,7 +77,7 @@ public class VaccinesController {
 	public String deleteVaccines(@RequestParam("vacid") int id,Model model) {
 		vaccineServices.deleteById(id);
 		model.addAttribute("delete","Deletes successfully");
-		return "list-pet-vaccine";
+		return "redirect:/vaccine/adminvaccinelist";
 	}
 
 	@GetMapping("/getvaccine")

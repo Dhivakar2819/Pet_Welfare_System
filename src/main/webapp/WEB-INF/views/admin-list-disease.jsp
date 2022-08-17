@@ -21,6 +21,7 @@
 					<th>Medicine</th>
 					<th>Price</th>
 					<th>Update</th>
+					<th>Delete</th>
 					
 				</tr>
 			</thead>
@@ -32,11 +33,12 @@
 						<td>${disease.medicine}</td>
 						<td>${disease.price}</td>
 						<td><a href="/disease/updateformdisease?disid=${disease.id}">Update</a></td>
+						<td><a href="/disease/deletedisease?disid=${disease.id}">Delete</a></td>
 					</tr>
 				</c:forEach>
 			</tbody>
 		</table><br>
-		<div align="center"><a href="/disease/addformdisease"><button>Add</button></a></div><br>
+		<div align="center"><a href="/disease/addformdisease"><button class="add">Add</button></a></div><br>
 		<div><a href="/admin/index"><button class="back">Back</button></a></div>
 	</div>
 </body>

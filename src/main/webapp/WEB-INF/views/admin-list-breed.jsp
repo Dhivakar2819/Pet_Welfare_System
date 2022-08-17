@@ -36,7 +36,7 @@
 			</tbody>
 		</table>
 		<br>
-		<div><a href="/breed/addbreed"><button>Add</button></a></div>
+		<div><a href="/breed/addbreed"><button class="add">Add</button></a></div>
 		<div><a href="/admin/index"><button class="back">Back</button></a></div>
 	</div>
 </body>

@@ -66,7 +66,7 @@ public class BreedController {
 	@GetMapping("/deletebreed")
 	public String deleteBreed(@RequestParam("brid") int id) {
 		breedServices.deleteById(id);
-		return "redirect:/breed/breedlist";
+		return "redirect:/breed/adminbreedlist";
 	}
 	
 	@GetMapping("/getbreed")
