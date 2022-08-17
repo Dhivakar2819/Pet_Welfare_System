@@ -15,7 +15,6 @@
 		<div id="form">
 			<form:form action="addnewpet" method="post" modelAttribute="addpet" class="container" name="form">
 				<div class="form-control">
-					<label for="userId">User Id</label>
 						<form:input path="userId" title="Id must be number"
 							pattern="^[0-9]+$" required="true" type="hidden"/>
 					<form:errors path="userId" cssClass="text-danger" />
