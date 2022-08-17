@@ -31,7 +31,7 @@ let emailCheck = function() {
 }
 
 let passwordCheck = function() {
-    let nameRegex = /^(?=.*[A-Za-z])(?=.*\\d)(?=.*[@$!%*#?&])[A-Za-z\\d@$!%*#?&]{8,}$/;
+    let nameRegex = /^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&-+=()])(?=\\S+$).{8, 20}$/;
     if(!document.form.password.value.match(nameRegex)){
            if(alert("Password must begin with letter and contain atleast one number and must have atleast 8 characters")){ 
                 document.form.password.focus();
