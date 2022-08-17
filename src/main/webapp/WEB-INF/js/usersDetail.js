@@ -45,7 +45,7 @@ let passwordCheck = function() {
   
 }
 let phoneNoCheck = function() {
-    let nameRegex = /[0-9]{10}/;
+    let nameRegex = /\d{10}/;
     if(!document.form.phoneNo.value.match(nameRegex)){
            if(alert("Phone number must have 10 digits")){ 
                 document.form.phoneNo.focus();
