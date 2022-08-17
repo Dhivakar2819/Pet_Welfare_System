@@ -28,7 +28,6 @@ public class UsersDetailController {
 	private BreedServices breedServices;
 	private static final String ADDFORM="add-usersdetail-form";
 	private static final String UPDATEFORM="update-usersdetail-form";
-	private static final String PETID="petId";
 
 	@GetMapping("/userdetaillist")
 	public String getFindAllUsersDetail(Model model) {

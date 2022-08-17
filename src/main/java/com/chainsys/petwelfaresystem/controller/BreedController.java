@@ -13,7 +13,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.chainsys.petwelfaresystem.dto.PetBreedDTO;
 import com.chainsys.petwelfaresystem.model.Breed;
-import com.chainsys.petwelfaresystem.model.Pet;
 import com.chainsys.petwelfaresystem.services.BreedServices;
 import com.chainsys.petwelfaresystem.services.PetServices;
 
