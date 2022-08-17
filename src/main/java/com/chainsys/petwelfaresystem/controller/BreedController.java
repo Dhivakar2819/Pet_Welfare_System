@@ -7,7 +7,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -44,7 +43,7 @@ public class BreedController {
 	@PostMapping("/addbreed")
 	public String addNewBreed(@ModelAttribute("addbreeds")  Breed breed) {
 		breedServices.save(breed);
-		return "redirect:/breed/adminbreedlist";
+		return "redirect:/breed/addbreed";
 	}
 	
 	@GetMapping("/updatebreed")
@@ -54,10 +53,10 @@ public class BreedController {
 		return "update-breed-form";
 	}
 
-	@PostMapping("/updatebreed")
+	@PostMapping("/updatebreeds")
 	public String updateBreed(@ModelAttribute("updatebreeds")  Breed breed) {
 		breedServices.save(breed);
-		return "redirect:/breed/adminbreedlist";
+		return "redirect:/breed/updatebreed";
 	}
 	
 	

@@ -10,7 +10,6 @@ import org.springframework.ui.Model;
 import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -48,7 +47,7 @@ public class AdminDetailController {
 			try {
 				adminDetailServices.save(adminDetail);
 				model.addAttribute("result", "Admin registration completed successfully");
-				return ADDFORM;
+				return "redirect:/admin/addadmin";
 			} catch (Exception er) {
 				model.addAttribute("message", "this email is already exist");
 				return ADDFORM;

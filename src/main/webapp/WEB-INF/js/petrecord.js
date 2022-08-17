@@ -1,7 +1,7 @@
 /**
  * 
  */
- var observationCheck = function() {
+ let observationCheck = function() {
     if(document.form.observation.value == ""){
            if(alert("Observation cannot be blank")){ 
                 document.form.observation.focus();

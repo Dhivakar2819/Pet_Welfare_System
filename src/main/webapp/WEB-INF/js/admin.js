@@ -1,8 +1,8 @@
 /**
  * 
  */
- var adminNameCheck = function() {
-    var nameRegex = new RegExp("^[a-zA-Z\s]+$");
+ let adminNameCheck = function() {
+    let nameRegex = new RegExp("^[a-zA-Z\s]+$");
     if(!document.form.adminName.value.match(nameRegex)){
            if(alert("Name can't be empty and must contain only alphabets")){ 
                 document.form.adminName.focus();
@@ -15,8 +15,8 @@
    } 
   
 }
-var emailCheck = function() {
-    var nameRegex = new RegExp("^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+$");
+let emailCheck = function() {
+    let nameRegex = new RegExp("^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+$");
     if(!document.form.email.value.match(nameRegex)){
            if(alert("Email not in the correct format")){ 
                 document.form.email.focus();
@@ -30,8 +30,8 @@ var emailCheck = function() {
   
 }
 
-var passwordCheck = function() {
-    var nameRegex = new RegExp("^(?=.*[A-Za-z])(?=.*\\d)(?=.*[@$!%*#?&])[A-Za-z\\d@$!%*#?&]{8,}$");
+let passwordCheck = function() {
+    let nameRegex = new RegExp("^(?=.*[A-Za-z])(?=.*\\d)(?=.*[@$!%*#?&])[A-Za-z\\d@$!%*#?&]{8,}$");
     if(!document.form.password.value.match(nameRegex)){
            if(alert("Password must begin with letter and contain atleast one number and must have atleast 8 characters")){ 
                 document.form.password.focus();

@@ -12,7 +12,6 @@ import org.springframework.ui.Model;
 import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -33,6 +32,8 @@ public class VaccineDateController {
 	VaccinesServices vaccineService;
 	@Autowired
 	private PetServices petServices;
+	private static final String ADDFORM="add-vaccinedate-form";
+	private static final String UPDATEFORM="update-vaccinedate-form";
 	@GetMapping("/vaccinedatelist")
 	public String getFindAllVaccineDate(Model model) {
 		List<VaccineDate> list = vaccineDateServices.getVaccineDate();
@@ -49,19 +50,19 @@ public class VaccineDateController {
 		model.addAttribute("addvdate", vaccineDate);
 		model.addAttribute("petId",pet.getPetId());
 		vaccineDate.setPetId(id);
-		return "add-vaccinedate-form";
+		return ADDFORM;
 	}
 
 	@PostMapping("/addnewvaccinedate")
 	public String addNewVaccineDate(@Valid @ModelAttribute("addvdate")  VaccineDate vaccineDate,Errors error,Model model) {
 		if(error.hasErrors()) {
-			return "add-vaccinedate-form";
+			return "ADDFORM";
 		}
 		else {
 		model.addAttribute("petId", vaccineDate.getPetId());
 		vaccineDateServices.save(vaccineDate);
 		model.addAttribute("addresult", "Added successfully");
-		return "add-vaccinedate-form";}
+		return "ADDFORM";}
 	}
 
 	@GetMapping("/updateformvaccinedate")
@@ -72,19 +73,19 @@ public class VaccineDateController {
 		Optional<VaccineDate> vaccineDate = vaccineDateServices.findById(vaccineDateCompositeKey);
 		model.addAttribute("updatevdate", vaccineDate);
 		vaccineDateCompositeKey.setPetId(id);
-		return "update-vaccinedate-form";
+		return UPDATEFORM;
 	}
 
 	@PostMapping("/updatenewvaccinedate")
 	public String updateVaccineDate(@Valid @ModelAttribute("updatevdate")  VaccineDate vaccineDate,Errors error,Model model) {
 		if(error.hasErrors()) {
-			return "update-vaccinedate-form";
+			return UPDATEFORM;
 		}
 		else {
 		model.addAttribute("petId", vaccineDate.getPetId());	
 		vaccineDateServices.save(vaccineDate);
 		model.addAttribute("updateresult", "Updated successfully");
-		return "update-vaccinedate-form";}
+		return UPDATEFORM;}
 	}
 
 	@GetMapping("/deletevaccinedate")

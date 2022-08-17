@@ -1,8 +1,8 @@
 /**
  * 
  */
- var diseaseNameCheck = function() {
-    var nameRegex = new RegExp("^[a-zA-Z\s]+$");
+ let diseaseNameCheck = function() {
+    let nameRegex = new RegExp("^[a-zA-Z\s]+$");
     if(!document.form.diseaseName.value.match(nameRegex)){
            if(alert("Disease name can't be empty and must contain only alphabets")){ 
                 document.form.diseaseName.focus();
@@ -14,8 +14,8 @@
        return false;
    } 
 }
-var medicineCheck = function() {
-    var nameRegex = new RegExp("^[a-zA-Z\s]+$");
+let medicineCheck = function() {
+    let nameRegex = new RegExp("^[a-zA-Z\s]+$");
     if(!document.form.medicine.value.match(nameRegex)){
            if(alert("Medicine can't be empty or must contain only alphabets")){ 
                 document.form.medicine.focus();
@@ -27,8 +27,8 @@ var medicineCheck = function() {
        return false;
    } 
 }
-var priceCheck = function() {
-    var nameRegex = new RegExp("\d+\.?\d");
+let priceCheck = function() {
+    let nameRegex = new RegExp("\d+\.?\d");
     if(!document.form.price.value.match(nameRegex)){
            if(alert("Price can't be empty or must contain only alphabets")){ 
                 document.form.price.focus();

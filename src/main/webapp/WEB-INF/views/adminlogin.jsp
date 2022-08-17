@@ -11,26 +11,21 @@
 </style>
 </head>
 <body >
-	<div class="background">
-		<div id="form">
-			<form:form action="adminloginpage" method="post"
-				modelAttribute="adminlogins">
+	<div class="background"></div>
+			<form:form action="adminloginpage" method="post" modelAttribute="adminlogins">
 				<h3>Admin Login</h3>
 				
 						<label for="email">Admin Mail Id</label>
-						<form:input path="email" plcaeholder="example@domain.com" id="email" />
+						<form:input path="email" plcaeholder="example@domain.com" id="email"/>
 						
 							<label for="adminPassword">Password</label>
 								<form:input path="adminPassword" type="password"
 									placeholder="Password" id="password"/>
-					<div>
 						<form:button>Sign in </form:button>
 						
-					</div><br>
+					<br>
 					${signin}
 			</form:form>
 
-		</div>
-	</div>
 </body>
 </html>

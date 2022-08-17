@@ -12,7 +12,7 @@
 <body>
 <div id="root">
 		<div id="form">
-			<form:form action="updatebreed" method="post" modelAttribute="updatebreeds" class="container" name="form">
+			<form:form action="updatebreeds" method="post" modelAttribute="updatebreeds" class="container" name="form">
 				<div>
 						<form:input path="id" 
 						title="Name can't be empty" 
