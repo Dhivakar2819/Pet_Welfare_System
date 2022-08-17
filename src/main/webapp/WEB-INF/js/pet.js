@@ -2,7 +2,7 @@
  * 
  */
  let petNameCheck = function() {
-    let nameRegex = new RegExp("^[a-zA-Z\s]+$");
+    let nameRegex = /^[a-zA-Z\s]+$/;
     if(!document.form.petName.value.match(nameRegex)){
            if(alert("Pet name can't be empty and must contain only alphabets")){ 
                 document.form.petName.focus();
