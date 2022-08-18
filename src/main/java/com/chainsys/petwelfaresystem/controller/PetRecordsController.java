@@ -37,6 +37,7 @@ public class PetRecordsController {
 	private static final String ADDFORM="add-petrecord-form";
 	private static final String UPDATEFORM="update-petrecord-form";
 	private static final String PETID="petId";
+	private static final String RESULT="addresult";
 
 	@GetMapping("/petrecordlist")
 	public String getFindAllPetRecord(Model model) {
@@ -61,15 +62,15 @@ public class PetRecordsController {
 	@PostMapping("/addnewpetrecord")
 	public String addNewPetRecords(@Valid @ModelAttribute("addpetrecord")  PetRecords petRecord,Model model,Errors error) {
 		if(error.hasErrors()) {
-			model.addAttribute("addresult","Failed");
+			model.addAttribute(RESULT,"Failed");
 			return ADDFORM;
 		}
 		else {try {
 		model.addAttribute(PETID,petRecord.getPetId());
 		petRecordServices.save(petRecord);
-		model.addAttribute("addresult","Added successfully");
+		model.addAttribute(RESULT,"Added successfully");
 		return ADDFORM;}catch(Exception er) {
-			model.addAttribute("addresult","Observ date can't be null");
+			model.addAttribute(RESULT,"Observ date can't be null");
 			return ADDFORM;
 		}}
 	}
