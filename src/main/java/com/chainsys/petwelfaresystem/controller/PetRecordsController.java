@@ -76,6 +76,7 @@ public class PetRecordsController {
 		PetRecordsCompositeKey petRecordsCompositeKey = new PetRecordsCompositeKey(id, disid);
 		model.addAttribute("disease", diseaseServices.getAllDisease());
 		Optional<PetRecords> petRecord = petRecordServices.findById(petRecordsCompositeKey);
+		model.addAttribute(PETID, petRecordsCompositeKey.getPetId());
 		model.addAttribute("updatepetrecord", petRecord);
 		return UPDATEFORM;
 	}
@@ -83,6 +84,7 @@ public class PetRecordsController {
 	@PostMapping("/updatenewrecord")
 	public String updatePetRecords( @ModelAttribute("updatepetrecord")  PetRecords petRecord,Model model) {
 		try {
+			model.addAttribute(PETID,petRecord.getPetId());
 		petRecordServices.save(petRecord);
 		model.addAttribute("updateresult","Updated successfully");
 		return UPDATEFORM;}

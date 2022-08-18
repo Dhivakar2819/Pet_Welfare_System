@@ -39,7 +39,7 @@
 				</c:forEach>
 			</tbody>
 		</table><br>
-		<div align="center"><a href="/disease/addformdisease"><button class="add">Add</button></a></div><br>
+		<div><a href="/disease/addformdisease"><button class="add">Add</button></a></div><br>
 		<div><a href="/admin/index" class="back"><em class="fa fa-arrow-circle-o-left" style="font-size:36px"></em></a></div>
 	</div>
 </body>
