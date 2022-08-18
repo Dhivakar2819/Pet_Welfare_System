@@ -45,13 +45,14 @@ public class DiseaseController {
 	}
 
 	@PostMapping("/addnewdisease")
-	public String addNewDisease(@Valid @ModelAttribute("adddisease")  Disease disease,Errors error) {
-		if(error.hasErrors()) {
-			return "add-disease-form";
-		}
-		else {
+	public String addNewDisease(@Valid @ModelAttribute("adddisease")  Disease disease,Model model) {
+		try{
 		diseaseService.save(disease);
 		return LIST;}
+		catch(Exception er) {
+			model.addAttribute("resulr", "Failed");
+			return "add-disease-form";
+		}
 	}
 	
 	@GetMapping("/updateformdisease")

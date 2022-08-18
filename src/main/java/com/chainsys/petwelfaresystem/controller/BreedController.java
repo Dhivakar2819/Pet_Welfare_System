@@ -59,7 +59,7 @@ public class BreedController {
 	@PostMapping("/updatebreeds")
 	public String updateBreed(@ModelAttribute("updatebreeds")  Breed breed) {
 		breedServices.save(breed);
-		return "redirect:/breed/updatebreed";
+		return "redirect:/breed/adminbreedlist";
 	}
 	
 	

@@ -64,11 +64,14 @@ public class PetRecordsController {
 			model.addAttribute("addresult","Failed");
 			return ADDFORM;
 		}
-		else {
+		else {try {
 		model.addAttribute(PETID,petRecord.getPetId());
 		petRecordServices.save(petRecord);
 		model.addAttribute("addresult","Added successfully");
-		return ADDFORM;}
+		return ADDFORM;}catch(Exception er) {
+			model.addAttribute("addresult","Observ date can't be null");
+			return ADDFORM;
+		}}
 	}
 
 	@GetMapping("/updateformpetrecord")

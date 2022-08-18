@@ -15,18 +15,17 @@
 <div id="root">
 		<div id="form">
 			<form:form action="addnewvaccine" method="post" modelAttribute="addvaccine" class="container" name="form">
-				<div><form:input path="vaccineId" type="hidden"/></div>
 				<div class="form-control">
 					<label for="vaccineName">Vaccine Name</label>
 						<form:input path="vaccineName" name="vaccineName" onblur="vaccineNameCheck();"
 						title="Name can't be empty "
-						 required="true" pattern="^[a-zA-Z\s]+$"
+						 required="true" pattern="^[a-zA-z\s]+$"
 						 placeholder="Enter the vaccine name"/>
-					 <form:errors path="vaccineName" cssClass="text-danger" />
 				</div><br>
 				<div>
 					<form:button>Add New Vaccine</form:button>
 				</div>
+				${result}
 			</form:form>
 		</div><br>
 		<div><a href="/vaccine/adminvaccinelist" class="back"><em class="fa fa-arrow-circle-o-left" style="font-size:36px"></em></a></div>

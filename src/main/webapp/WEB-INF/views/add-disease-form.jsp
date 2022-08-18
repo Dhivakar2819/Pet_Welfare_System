@@ -14,11 +14,7 @@
 <div id="root" >
 		<div id="form">
 			<form:form action="addnewdisease" method="post" modelAttribute="adddisease" class="container" name="form">
-				<div>
-						<form:input path="id" 
-						title="Name can't be empty"
-						required="true" type="hidden"/>
-					</div>
+				
 				<div class="form-control">
 					<label for="diseaseName">Disease Name</label>
 						<form:input path="diseaseName" name="diseaseName" onblur="diseaseNameCheck();"
@@ -29,7 +25,7 @@
 				<div class="form-control">
 					<label for="medicine">Medicine</label>
 						<form:input path="medicine" name="medicine" onblur="medicineCheck();"
-						title="Medicine can't be empty" pattern="^[a-zA-Z\s]+$"
+						title="Medicine can't be empty" pattern=""
 						 required="true" placeholder="Enter the medicine"/>
 					<form:errors path="medicine" cssClass="text-danger" />
 				</div>
@@ -37,12 +33,13 @@
 					<label for="price">Price </label>
 						<form:input path="price" name="price" onblur="priceCheck();"
 						title="Amount must be number" 
-						pattern="\d+\.?\d" placeholder="Enter the price" />
+						pattern="^[0-9]*(.[0-9]*)?$" placeholder="Enter the price" />
 					<form:errors path="price" cssClass="text-danger" />
 				</div>
 				<br>
 				<div >
 					<form:button>Add Disease</form:button>
+					${result}
 				</div>
 			</form:form>
 		</div><br>

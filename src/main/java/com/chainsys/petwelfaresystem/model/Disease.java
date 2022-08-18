@@ -22,7 +22,6 @@ public class Disease {
 	@Id
 	@Column(name="disease_id")
 	@NotNull
-	@Range(min=1,message="*Greater then zero")
 	@GeneratedValue(strategy = GenerationType.AUTO, generator = "disease_id")
     @SequenceGenerator(name = "disease_id", sequenceName = "disease_id",  allocationSize = 1)
 	private int  id;

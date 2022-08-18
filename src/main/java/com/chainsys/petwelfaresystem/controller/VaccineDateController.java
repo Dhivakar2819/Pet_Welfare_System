@@ -60,11 +60,15 @@ public class VaccineDateController {
 		if(error.hasErrors()) {
 			return "ADDFORM";
 		}
-		else {
+		else {try {
 		model.addAttribute(PETID, vaccineDate.getPetId());
 		vaccineDateServices.save(vaccineDate);
 		model.addAttribute("addresult", "Added successfully");
 		return ADDFORM;}
+		catch(Exception er) {
+			model.addAttribute("addresult", "Failed");
+			return UPDATEFORM;
+		}}
 	}
 
 	@GetMapping("/updateformvaccinedate")
@@ -83,11 +87,15 @@ public class VaccineDateController {
 		if(error.hasErrors()) {
 			return UPDATEFORM;
 		}
-		else {
+		else {try {
 		model.addAttribute(PETID, vaccineDate.getPetId());	
 		vaccineDateServices.save(vaccineDate);
 		model.addAttribute("updateresult", "Updated successfully");
 		return UPDATEFORM;}
+		catch(Exception er) {
+			model.addAttribute("updateresult", "Failed");
+			return UPDATEFORM;
+		}}
 	}
 
 	@GetMapping("/deletevaccinedate")

@@ -30,7 +30,7 @@
 				<div class="form-control">
 					<label for="medicine">Medicine</label>
 						<form:input path="medicine" name="medicine" onblur="medicineCheck();"
-						title="Medicine can't be empty" pattern="^[a-zA-z\s]+$"
+						title="Medicine can't be empty" pattern=""
 						 required="true" placeholder="Enter the medicine"/>
 					<form:errors path="medicine" cssClass="text-danger" />
 				</div>

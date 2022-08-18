@@ -30,6 +30,7 @@
 				<div>
 					<form:button>Update</form:button>
 				</div>
+				${updateresult}
 			</form:form>
 		</div><br>
 		<div><a href="/vaccine/adminvaccinelist" class="back"><em class="fa fa-arrow-circle-o-left" style="font-size:36px"></em></a></div>
