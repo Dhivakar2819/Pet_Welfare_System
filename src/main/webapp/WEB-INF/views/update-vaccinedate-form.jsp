@@ -14,7 +14,6 @@
 		<div id="form">
 			<form:form action="updatenewvaccinedate" method="post" modelAttribute="updatevdate" class="container" name="form">
 				<div>
-					<label for="petId">Pet Id</label>
 					<div>
 						<form:input path="petId" 
 						title="Id must be number" 

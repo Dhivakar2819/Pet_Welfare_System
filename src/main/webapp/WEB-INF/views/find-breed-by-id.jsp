@@ -22,5 +22,6 @@
 			</form:form>
 		</div>
 	</div>
+	<button class="back" onclick="history.back()">Back</button>
 </body>
 </html>

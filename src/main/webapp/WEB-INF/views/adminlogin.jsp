@@ -7,7 +7,7 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Login</title>
-<style><%@include file="/WEB-INF/css/login.css"%></s
+<style><%@include file="/WEB-INF/css/login.css"%>
 </style>
 </head>
 <body >
@@ -26,6 +26,7 @@
 					<br>
 					${signin}
 			</form:form>
+			
 
 </body>
 </html>

@@ -14,4 +14,8 @@ public class IndexController {
 		model.addAttribute("indexlist");
 		return "index";
 	}
+	@GetMapping("/home")
+	public String getHome() {
+		return "home";
+	}
 }
