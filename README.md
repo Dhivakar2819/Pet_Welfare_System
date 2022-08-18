@@ -9,8 +9,8 @@ Pet welfare system is a project about the way of taking care of pets.The user ca
 
 # General Information
 
-1.This project is used to maintain the pets records.
-2.In this site,where we can add,delete and update the data's of the admin ,user and pet.
+1. This project is used to maintain the pets records.
+2. In this site,where we can add,delete and update the data's of the admin ,user and pet.
 
 # Project Flow
 
