@@ -49,7 +49,7 @@
 				</div>
 				<div class="form-control">
 					<label for="dob">Date of Birth</label>
-						<form:input path="dob" type="date" />
+						<form:input path="dob" type="date" name="dob" onblur="checkDate();" />
 				</div>
 				<div class="form-control">
 					<label for="gender">Gender</label>
@@ -61,7 +61,7 @@
 				</div>
 				<div class="form-control">
 					<label for="dateofOwnership">Date of Ownership</label>
-						<form:input path="dateofOwnership" type="date" />
+						<form:input path="dateofOwnership" name="dateofOwnership" type="date" onblur="checkDateOwner();"/>
 				</div>
 				<br>
 				<div>

@@ -59,7 +59,7 @@ public class PetController {
 		try {
 			model.addAttribute(USERID, pet.getUserId());
 			petServices.save(pet);
-			model.addAttribute("result", "Pet records added successfully");
+			model.addAttribute("result", "Pet added successfully");
 			return ADDFORM;
 		}catch(Exception er) {
 			return ADDFORM;
@@ -80,6 +80,7 @@ public class PetController {
 		try {
 			petServices.save(pet);
 			model.addAttribute(USERID, pet.getUserId());
+			model.addAttribute("result", "Pet updated successfully");
 			return UPDATEFORM;
 		}catch(Exception er) {
 			return UPDATEFORM; 

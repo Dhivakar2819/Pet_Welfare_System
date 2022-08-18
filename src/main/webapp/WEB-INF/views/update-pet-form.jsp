@@ -85,6 +85,6 @@
 		</div>
 		<a href="/usersdetail/getuserpet?id=${userId}"><button class="back">Back</button></a>
 	</div>
-	
+	${result}
 </body>
 </html>

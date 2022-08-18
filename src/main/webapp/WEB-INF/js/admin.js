@@ -1,7 +1,7 @@
 /**
  * 
  */
- let adminNameCheck = function() {
+ function adminNameCheck() {
     let nameRegex = /^[a-zA-Z\s]+$/;
     if(!document.form.adminName.value.match(nameRegex)){
            if(alert("Name can't be empty and must contain only alphabets")){ 
@@ -15,7 +15,7 @@
    } 
   
 }
-let emailCheck = function() {
+function emailCheck() {
     let nameRegex = /^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+$/;
     if(!document.form.email.value.match(nameRegex)){
            if(alert("Email not in the correct format")){ 
@@ -30,7 +30,7 @@ let emailCheck = function() {
   
 }
 
-let passwordCheck = function() {
+function passwordCheck() {
     let nameRegex = /^(?=.*[A-Za-z])(?=.*\\d)(?=.*[@$!%*#?&])[A-Za-z\\d@$!%*#?&]{8,}$/;
     if(!document.form.password.value.match(nameRegex)){
            if(alert("Password must begin with letter and contain atleast one number and must have atleast 8 characters")){ 
