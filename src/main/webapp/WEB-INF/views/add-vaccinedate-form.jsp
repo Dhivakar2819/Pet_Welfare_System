@@ -8,6 +8,7 @@
 <meta charset="ISO-8859-1">
 <title>Add Vaccine Date</title>
 <style><%@include file="/WEB-INF/css/form.css"%></style>
+<script><%@include file="/WEB-INF/js/vaccineDate.js"%></script>
 </head>
 <body>
 <div id="root">
@@ -33,7 +34,8 @@
                                 </div>
 				<div class="form-control">
 					<label for="vaccinationDate">Vaccine Date</label>
-						<form:input path="vaccinationDate" type="date" />
+						<form:input path="vaccinationDate" type="date" 
+						id="vaccinationDate" onblur="vaccineDateCheck()"/>
 					<form:errors path="vaccinationDate" cssClass="text-danger" required="required"/>
 				</div><br>
 				<div>

@@ -62,7 +62,8 @@
 				</div>
 				<div class="form-control">
 					<label for="dob">Date of Birth</label>
-						<form:input path="dob" type="date"/>
+						<form:input path="dob" type="date"
+						name="dob" onblur="checkDate();"/>
 					<form:errors path="dob" cssClass="text-danger" />
 				</div>
 				<div class="form-control">
@@ -73,7 +74,8 @@
 					</div>
 					<div class="form-control">
 					<label for="dateofOwnership">Date of Ownership</label>
-						<form:input path="dateofOwnership" type="date" />
+						<form:input path="dateofOwnership" type="date" 
+						name="dateofOwnership" onblur="checkDateOwner();"/>
 					<form:errors path="dateofOwnership" cssClass="text-danger" />
 				</div>
 				<br>

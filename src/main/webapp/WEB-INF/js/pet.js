@@ -22,7 +22,7 @@ function checkDate() {
 		dt2 = Date.parse(dob);
 	
 	if (dt2 > dt1) {
-		alert("Date must be in the past");
+		alert("Date must be in the past or present");
 	}
 }
 function checkDateOwner() {
@@ -33,7 +33,7 @@ function checkDateOwner() {
 		dt2 = Date.parse(date);
 	if (dt2 >= dt1) {
 
-		alert("Date must be in the past");
+		alert("Date must be in the past or present");
 	}
 	else if (dob > date) {
 		alert("Date must be above the date of birth")

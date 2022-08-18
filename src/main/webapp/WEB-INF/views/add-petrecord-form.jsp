@@ -31,7 +31,8 @@
                             </form:select></div>
 				<div class="form-control">
 					<label for="dateObserv">Observe date</label>
-						<form:input path="dateObserv" type="date"/>
+						<form:input path="dateObserv" type="date"
+						name="dateObserv" onblur="dateObservCheck();"/>
 				</div>
 				<div class="form-control">
 					<label for="observation">Observation</label>
@@ -40,7 +41,8 @@
 				</div>
 				<div class="form-control">
 					<label for="recoverDate">Recover Date</label>
-						<form:input path="recoverDate" type="date"/>
+						<form:input path="recoverDate" type="date"
+						name="recoverDate" onblur="recoverDateCheck();"/>
 				</div>
 				<br>
 				<div>

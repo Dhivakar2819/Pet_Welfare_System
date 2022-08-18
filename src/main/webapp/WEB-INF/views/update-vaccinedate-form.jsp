@@ -35,7 +35,8 @@
                                 </div>
 				<div class="form-control">
 					<label for="vaccinationDate">Vaccine Date</label>
-						<form:input path="vaccinationDate" type="date" />
+						<form:input path="vaccinationDate" type="date" 
+						name="vaccinationDate" onblur="vaccineDateCheck()"/>
 					<form:errors path="vaccinationDate" cssClass="text-danger" required="required"/>
 				</div><br>
 				<div>

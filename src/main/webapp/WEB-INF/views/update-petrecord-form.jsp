@@ -33,7 +33,8 @@
                             <form:errors path="diseaseId" cssClass="text-danger" /></div>
 				<div class="form-control">
 					<label for="dateObserv">Observe date</label>
-						<form:input path="dateObserv" type="date"/>
+						<form:input path="dateObserv" type="date"
+						name="dateObserv" onblur="dateObservCheck();"/>
 					<form:errors path="dateObserv" cssClass="text-danger" />
 				</div>
 				<div class="form-control">
@@ -43,7 +44,8 @@
 				</div>
 				<div class="form-control">
 					<label for="recoverDate">Recover Date</label>
-						<form:input path="recoverDate" type="date"/>
+						<form:input path="recoverDate" type="date"
+						name="recoverDate" onblur="recoverDateCheck();"/>
 					<form:errors path="recoverDate" cssClass="text-danger" />
 				</div>
 				<br>

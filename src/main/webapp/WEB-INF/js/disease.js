@@ -1,7 +1,7 @@
 /**
  * 
  */
- let diseaseNameCheck = function() {
+ function diseaseNameCheck () {
     let nameRegex = /^[a-zA-Z\s]+$/;
     if(!document.form.diseaseName.value.match(nameRegex)){
            if(alert("Disease name can't be empty and must contain only alphabets")){ 
@@ -14,7 +14,7 @@
        return false;
    } 
 }
-let medicineCheck = function() {
+function medicineCheck() {
     let nameRegex = /^[a-zA-Z\s]+$/;
     if(!document.form.medicine.value.match(nameRegex)){
            if(alert("Medicine can't be empty or must contain only alphabets")){ 
@@ -27,7 +27,7 @@ let medicineCheck = function() {
        return false;
    } 
 }
-let priceCheck = function() {
+function priceCheck() {
     let nameRegex = /\d+\.?\d/;
     if(!document.form.price.value.match(nameRegex)){
            if(alert("Price can't be empty or must contain only alphabets")){ 

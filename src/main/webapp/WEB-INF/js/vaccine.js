@@ -1,7 +1,7 @@
 /**
  * 
  */
- let vaccineNameCheck = function() {
+ function vaccineNameCheck() {
 		 let nameRegex = /^[a-zA-Z\s]+$/;
 		 if(!document.form.vaccineName.value.match(nameRegex)){
 				if(alert("Vaccine name can't be empty and must contain only alphabets")){ 
