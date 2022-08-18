@@ -15,7 +15,10 @@
 <div  class="container" >
 		<div id="form">
 			<form:form action="" method="post" modelAttribute="getpetid" >
-				<table><tr>
+				<table>
+				<caption></caption>
+				<tr><th></th></tr>
+				<tr>
 				<td>
 					<label for="petType">Pet Type</label>
 					
@@ -50,6 +53,7 @@
 			</tbody>
 		</table><br>
 		<table>
+		<caption></caption>
 		<thead>
 		<tr><th>Vaccine name</th></tr>
 		</thead>
