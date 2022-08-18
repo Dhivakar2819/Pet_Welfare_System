@@ -27,7 +27,6 @@ Pet welfare system is a project about the way of taking care of pets.The user ca
 
 1. DataBase Connectivity
 2. DataBase Relational data Handling.
-    Lookup relation.
     One to many relation.
 3. Exception Handling with try and catch.
 4. Form validation in frontend level.
