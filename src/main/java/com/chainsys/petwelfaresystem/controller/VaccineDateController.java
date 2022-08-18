@@ -56,6 +56,7 @@ public class VaccineDateController {
 
 	@PostMapping("/addnewvaccinedate")
 	public String addNewVaccineDate(@Valid @ModelAttribute("addvdate")  VaccineDate vaccineDate,Errors error,Model model) {
+		
 		if(error.hasErrors()) {
 			return "ADDFORM";
 		}
@@ -63,7 +64,7 @@ public class VaccineDateController {
 		model.addAttribute(PETID, vaccineDate.getPetId());
 		vaccineDateServices.save(vaccineDate);
 		model.addAttribute("addresult", "Added successfully");
-		return "ADDFORM";}
+		return ADDFORM;}
 	}
 
 	@GetMapping("/updateformvaccinedate")

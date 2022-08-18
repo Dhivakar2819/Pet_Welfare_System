@@ -7,6 +7,7 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>view Pet by Pet Records</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <style><%@include file="/WEB-INF/css/table.css"%>
 </style>
 </head>
@@ -91,7 +92,7 @@
 			</div>
 		
 		${delete}
-	</div></div><a href="/usersdetail/getuserpet?id=${userId}"><button class="back">Back</button></a></div>
+	</div></div><a href="/usersdetail/getuserpet?id=${userId}" class="back"><em class="fa fa-arrow-circle-o-left" style="font-size:36px"></em></a></div>
 	<script type="text/javascript">
 		function ConfirmDelete() {
 			return confirm("Are you sure you want to delete?");

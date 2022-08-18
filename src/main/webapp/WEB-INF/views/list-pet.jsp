@@ -7,7 +7,8 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Pet List</title>
-<style><%@include file="/WEB-INF/css/table.css"%></s
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style><%@include file="/WEB-INF/css/table.css"%>
 </style>
 </head>
 <body>
@@ -35,7 +36,7 @@
 				</c:forEach>
 			</tbody>
 		</table><br>
-		<div><a href="/admin/index"><button  class="back">Back</button></a></div>
+		<div><a href="/admin/index" class="back"><em class="fa fa-arrow-circle-o-left" style="font-size:36px"></em></a></div>
 	</div>
 </body>
 </html>

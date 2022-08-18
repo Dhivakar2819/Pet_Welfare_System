@@ -47,6 +47,7 @@ public class VaccinesController {
 
 	@PostMapping("/addnewvaccine")
 	public String addNewVaccine(@Valid @ModelAttribute("addvaccine")  Vaccines vac,Errors error,Model model) {
+		
 		if(error.hasErrors()) {
 			return ADDFORM;
 		}

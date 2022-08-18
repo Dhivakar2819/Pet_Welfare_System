@@ -33,5 +33,6 @@
 			</form:form>
 		</div>
 	</div>
+	<button class="back" onclick="history.back()"><em class="fa fa-arrow-circle-o-left" style="font-size:36px"></em></button>
 </body>
 </html>

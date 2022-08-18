@@ -6,6 +6,7 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Add Vaccine</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <style><%@include file="/WEB-INF/css/form.css"%>
 </style>
 <script><%@include file="/WEB-INF/js/vaccine.js"%></script>
@@ -28,7 +29,7 @@
 				</div>
 			</form:form>
 		</div><br>
-		<div><a href="/vaccine/adminvaccinelist"><button class="back">Back</button></a></div>
+		<div><a href="/vaccine/adminvaccinelist" class="back"><em class="fa fa-arrow-circle-o-left" style="font-size:36px"></em></a></div>
 	</div>
 	
 </body>

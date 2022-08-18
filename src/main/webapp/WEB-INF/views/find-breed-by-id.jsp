@@ -7,6 +7,7 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Find Breed</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <style><%@include file="/WEB-INF/css/table.css"%>
 </style>
 <body>
@@ -22,6 +23,6 @@
 			</form:form>
 		</div>
 	</div>
-	<button class="back" onclick="history.back()">Back</button>
+	<button class="back" onclick="history.back()" ><em class="fa fa-arrow-circle-o-left"  style="font-size:36px"></em></button>
 </body>
 </html>

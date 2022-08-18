@@ -7,6 +7,7 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Update Pet</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <style><%@include file="/WEB-INF/css/form.css"%></style>
 <script><%@include file="/WEB-INF/js/pet.js"%></script>
 </head>
@@ -85,7 +86,7 @@
 				<form:button></form:button>
 			</form:form>
 		</div>
-		<a href="/usersdetail/getuserpet?id=${userId}"><button class="back">Back</button></a>
+		<a href="/usersdetail/getuserpet?id=${userId}" class="back"><em class="fa fa-arrow-circle-o-left" style="font-size:36px"></em></a>
 	</div>
 	${result}
 </body>

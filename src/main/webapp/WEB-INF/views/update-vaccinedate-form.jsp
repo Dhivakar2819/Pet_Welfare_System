@@ -7,6 +7,7 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Update Vaccine Date</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <style><%@include file="/WEB-INF/css/form.css"%></s</style>
 </head>
 <body>
@@ -43,7 +44,7 @@
 				</div>
 				
 			</form:form>
-			<a href="/pet/getvaccinebypetid?id=${petId}"><button class="back">Back</button></a>
+			<a href="/pet/getvaccinebypetid?id=${petId}" class="back"><em class="fa fa-arrow-circle-o-left" style="font-size:36px"></em></a>
 		</div>
 		${updateresult}
 	</div>
