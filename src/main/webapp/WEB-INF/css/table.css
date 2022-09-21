@@ -11,22 +11,41 @@ html, body {
   text-align: center;
   font-family: cursive;
 }
+.grid-container {
+  display: grid;
+  grid-template-columns: auto auto;
+  top: 50%;
+	left: 50%;
+	padding: 10px;
+	margin-left:80px;
+	margin-right:80px;
+	margin-top: 80px;
+	margin-bottom: 80px;
+}
+.grid-item td {
+	height : 10px;
+}
+
 .container {
-	position: absolute;
 	top: 50%;
 	left: 50%;
-	transform: translate(-50%, -50%);
+	margin-left:80px;
+	margin-right:80px;
+	margin-top: 80px;
+	margin-bottom: 80px;
 }
 
-table {
-	width: 80%;
-	height: 80%;
+table{
+	width:100%;
 	border-collapse: collapse;
-	overflow: hidden;
 	box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
 }
+th{
+	width:auto;
+	height: auto;
+}
 
-th, td ,tr{
+td ,tr{
 	padding: 10px;
 	background-color: rgba(255, 255, 255, 0.2);
 	color: black;
@@ -46,14 +65,23 @@ position: absolute;
      top:5%;
     left: 5%;
 }
+.logout{
+	
+	font-size:10px;
+width:5%;
+position: absolute;
+     top:5%;
+    right: 5%;
+
+}
 .add {
 	font-size: 15px;
 	width: 6%;
 	height:3%;
-	position: absolute;
-	bottom: 5%;
 	left: 50%;
 }
 label{
 	font-family: cursive;
 }
+
+

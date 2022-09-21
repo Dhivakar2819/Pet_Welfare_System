@@ -12,8 +12,8 @@
 </style>
 </head>
 <body><div>
-<div  class="container" >
-		<div id="form">
+<div>
+		<div class="container">
 			<form:form action="" method="post" modelAttribute="getpetid" >
 				<table>
 				<caption></caption>
@@ -32,26 +32,8 @@
 					</table><br>
 			</form:form>
 		</div>
-	<div id="vaccinelist">
-		<table >
-		<caption></caption>
-			<thead>
-				<tr >
-					<th>Vaccine Date</th>
-					<th>Update Vaccine date</th>
-					<th>Delete Vaccine Date</th>
-				</tr>
-			</thead>
-			<tbody>
-				<c:forEach var="vdate" items="${vaccinelist}">
-					<tr>
-						<td>${vdate.vaccinationDate}</td>
-						<td><a href="/vaccinedate/updateformvaccinedate?id=${vdate.petId}&vid=${vdate.vaccineId}">Update</a></td>
-						<td><a href="/vaccinedate/deletevaccinedate?id=${vdate.petId}&vid=${vdate.vaccineId}">Delete</a></td>
-					</tr>
-				</c:forEach>
-			</tbody>
-		</table><br>
+	<div class="grid-container">
+	<div>
 		<table>
 		<caption></caption>
 		<thead>
@@ -64,12 +46,35 @@
 						</tr></c:forEach>
 						
 		</tbody>
-		</table>
-		<a href="/vaccinedate/addformvaccinedate?id=${petId}"><button>Add</button></a>
+		</table></div>
+	<div>
+		<table>
+		<caption></caption>
+			<thead>
+				<tr >
+					<th>Vaccine Date</th>
+					<th>Update Vaccine date</th>
+					<th>Delete Vaccine Date</th>
+				</tr>
+			</thead>
+			<tbody>
+				<c:forEach var="vdate"  items="${vaccinelist}" >
+					<tr>
+						<td>${vdate.vaccinationDate}</td>
+						<td><a href="/vaccinedate/updateformvaccinedate?id=${vdate.petId}&vid=${vdate.vaccineId}">Update</a></td>
+						<td><a href="/vaccinedate/deletevaccinedate?id=${vdate.petId}&vid=${vdate.vaccineId}"
+						onclick="if (confirm('Are you sure you want to delete?')) form.action='/Config?pg=FIBiller&amp;cmd=delete'; else return false;">Delete</a></td>
+					</tr>
+				</c:forEach>
+			</tbody>
+		</table></div>
+		
 		
 	</div>
 	${delete}</div>
-	<a href="/usersdetail/getuserpet?id=${userId}" class="back"><em class="fa fa-arrow-circle-o-left" style="font-size:36px"></em></a>
+	
 	</div>
+	<a href="/usersdetail/getuserpet" class="back"><em class="fa fa-arrow-circle-o-left" style="font-size:36px"></em></a>
+	<a href="/vaccinedate/addformvaccinedate?id=${petId}"><button>Add</button></a>
 </body>
 </html>

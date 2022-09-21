@@ -3,6 +3,8 @@ package com.chainsys.petwelfaresystem.controller;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -44,11 +46,13 @@ public class PetController {
 	}
 
 	@GetMapping("/addpet")
-	public String showAddPet(@RequestParam("userId") int id, Model model) {
+	public String showAddPet(HttpServletRequest request, Model model) {
 		Pet pet = new Pet();
 		model.addAttribute("breed", breedServices.getAllBreed());
 		model.addAttribute("addpet", pet);
-		pet.setUserId(id);
+		HttpSession session = request.getSession();
+		int userId = (int) session.getAttribute(USERID);
+		pet.setUserId(userId);
 		model.addAttribute(USERID, pet.getUserId());
 		model.addAttribute("petId", pet.getPetId());
 		return ADDFORM;
@@ -91,7 +95,7 @@ public class PetController {
 	public String deletePet(@RequestParam("petid") int id, Model model) {
 		Pet pet = petServices.findById(id);
 		petServices.deleteById(id);
-		return "redirect:/usersdetail/getuserpet?id=" + pet.getUserId();
+		return "redirect:/usersdetail/getuserpet";
 	}
 
 	@GetMapping("/getpet")

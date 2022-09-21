@@ -2,6 +2,8 @@ package com.chainsys.petwelfaresystem.controller;
 
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -96,10 +98,12 @@ public class UsersDetailController {
 	}
 
 	@GetMapping("/getuserpet")
-	public String getUserDetailAndPet(@RequestParam("id") int id, Model model) {
+	public String getUserDetailAndPet(HttpServletRequest request, Model model) {
 
 		model.addAttribute("breedname", breedServices);
-		UsersDetailPetDTO dto = userDetailServices.getUsersAndPet(id);
+		HttpSession session = request.getSession();
+		int userId = (int) session.getAttribute("userId");
+		UsersDetailPetDTO dto = userDetailServices.getUsersAndPet(userId);
 		model.addAttribute("getuser", dto.getUsersdetail());
 		model.addAttribute("petlist", dto.getPetlist());
 		model.addAttribute("userId",dto.getUsersdetail().getUserId());
@@ -114,12 +118,17 @@ public class UsersDetailController {
 	}
 
 	@PostMapping("/userlogin")
-	public String checkingAccess(@ModelAttribute("loginform")  UsersDetail usersDetail, Model model) {
+	public String checkingAccess(@ModelAttribute("loginform")  UsersDetail usersDetail, Model model,HttpSession session) {
 		UsersDetail userDetail = userDetailServices.getUserByEmailAndPassword(usersDetail.getEmail(),
 				usersDetail.getPassword());
 		if
 		(userDetail != null) {
-			return "redirect:/usersdetail/getuserpet?id=" + userDetail.getUserId();
+			if(userDetail.getRole().equals("Admin")) {
+				return "redirect:/admin/index";
+			}
+			else {
+				 session.setAttribute("userId",userDetail.getUserId());
+			return "redirect:/usersdetail/getuserpet"; }
 		} else
 			return "redirect:/usersdetail/userloginpage";
 	}

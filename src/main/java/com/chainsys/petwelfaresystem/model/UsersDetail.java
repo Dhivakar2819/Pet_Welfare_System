@@ -43,6 +43,8 @@ public class UsersDetail {
 	@Column(name="address")
 	@NotBlank
 	private String address;
+	@Column(name="role")
+	private String role;
 	
 	@OneToMany(mappedBy="usersdetail",fetch=FetchType.LAZY)
 	private List<Pet> pet;
@@ -88,6 +90,12 @@ public class UsersDetail {
 	}
 	public void setAddress(String address) {
 		this.address = address;
+	}
+	public String getRole() {
+		return role;
+	}
+	public void setRole(String role) {
+		this.role = role;
 	}
 	
 	

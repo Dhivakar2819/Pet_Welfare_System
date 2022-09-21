@@ -12,8 +12,8 @@
 </style>
 </head>
 <body>
-	<div id="table root">
-		<table class="container">
+	<div class="container">
+		<table >
 		<caption></caption>
 			<thead>
 				<tr>
@@ -31,10 +31,10 @@
 					</tr>
 				</c:forEach>
 			</tbody>
-		</table>
+		</table></div>
 		<a href="/admin/addadmin"><button>Add Admin</button></a>
 		<div>${delete}</div>
 		<div><a href="/admin/index" class="back"><em class="fa fa-arrow-circle-o-left" style="font-size:36px"></em></a></div>
-	</div>
+	
 </body>
 </html>

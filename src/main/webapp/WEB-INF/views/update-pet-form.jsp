@@ -86,7 +86,7 @@
 				<form:button></form:button>
 			</form:form>
 		</div>
-		<a href="/usersdetail/getuserpet?id=${userId}" class="back"><em class="fa fa-arrow-circle-o-left" style="font-size:36px"></em></a>
+		<a href="/usersdetail/getuserpet" class="back"><em class="fa fa-arrow-circle-o-left" style="font-size:36px"></em></a>
 	</div>
 	${result}
 </body>

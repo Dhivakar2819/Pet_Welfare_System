@@ -21,8 +21,9 @@
 		<div><a href="/vaccine/adminvaccinelist"><button>Vaccine</button></a></div><br>
 		<div><a href="/petrecord/petrecordlist"><button>Pet Records</button></a></div><br>
 		<div><a href="/usersdetail/userdetaillist"><button >User Detail</button></a></div><br>
-		<div><a href="/admin/adminlist"><button>Admin</button></a></div>
+
 	<br>
-	<div><a href="/admin/adminlogin"><button class="logout" title="log out">Log out</button></a></div></div>
+	<div><a href="/usersdetail/userloginpage"><button class="logout" title="log out"
+	onclick="if (confirm('Are you sure you want to logout?')) form.action='/Config?pg=FIBiller&amp;cmd=delete'; else return false;">Log out</button></a></div></div>
 </body>
 </html>

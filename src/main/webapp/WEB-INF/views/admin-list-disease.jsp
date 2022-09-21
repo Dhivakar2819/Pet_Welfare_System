@@ -12,8 +12,8 @@
 </style>
 </head>
 <body>
-	<div id="table root">
-		<table  class="container">
+	<div class="container">
+		<table  >
 		<caption></caption>
 			<thead>
 				<tr>
@@ -34,13 +34,15 @@
 						<td>${disease.medicine}</td>
 						<td>${disease.price}</td>
 						<td><a href="/disease/updateformdisease?disid=${disease.id}">Update</a></td>
-						<td><a href="/disease/deletedisease?disid=${disease.id}">Delete</a></td>
+						<td><a href="/disease/deletedisease?disid=${disease.id}"
+						onclick="if (confirm('Are you sure you want to delete?')) form.action='/Config?pg=FIBiller&amp;cmd=delete'; else return false;">Delete</a></td>
 					</tr>
 				</c:forEach>
 			</tbody>
 		</table><br>
-		<div><a href="/disease/addformdisease"><button class="add">Add</button></a></div><br>
+		
 		<div><a href="/admin/index" class="back"><em class="fa fa-arrow-circle-o-left" style="font-size:36px"></em></a></div>
 	</div>
+	<div><a href="/disease/addformdisease"><button class="add">Add</button></a></div><br>
 </body>
 </html>

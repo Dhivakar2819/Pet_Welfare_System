@@ -58,7 +58,7 @@
 						required="true" placeholder="Enter the address" pattern="^[a-zA-Z0-9\s,. '-]{3,}$" name="address"
 						onblur="addressCheck();"/>
 				</div>
-
+					<form:input path="Role" value="User" type="hidden"/>
 				<div>
 					<form:button class="button">Registration</form:button>
 				</div>

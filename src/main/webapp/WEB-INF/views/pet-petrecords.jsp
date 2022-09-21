@@ -10,11 +10,9 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <style><%@include file="/WEB-INF/css/table.css"%>
 </style>
-</head>
-<body><div>
-	<div class="container">
-		<div id="form">
-		<div  >
+</head><div>
+		<div class="container">
+		
 			<form:form action="" method="post" modelAttribute="getpet">
 
 				
@@ -31,7 +29,34 @@
 				<br>
 			</form:form>
 		</div>
-		<div id="table root">
+		
+		
+		<div class="grid-container">
+		<div class="grid-item">
+			<table>
+				<caption></caption>
+				<thead>
+					<tr>
+						<th>Disease</th>
+						<th>Medicine Name</th>
+						<th>Price</th>
+					</tr>
+				</thead><tbody>
+				<c:forEach var="diseasePrice" items="${diseasePrice}">
+					<br>
+					<tr>
+						<td>${diseasePrice.diseaseName}</td>
+						<td>${diseasePrice.medicine}</td>
+						<td>${diseasePrice.price}</td>
+					</tr>
+
+				</c:forEach>
+				
+				</tbody>
+			</table></div>
+		
+		
+		<div class="grid-item">
 			<table >
 				<caption></caption>
 				<thead>
@@ -39,7 +64,6 @@
 						<th>Observe Date</th>
 						<th>Observation</th>
 						<th>Recover date</th>
-						<th>Disease Id</th>
 						<th>Update</th>
 						<th>Delete</th>
 					</tr>
@@ -52,51 +76,28 @@
 							<td>${petrecords.recoverDate}</td>
 
 							<td><a
-								href="/disease/getdisease?disid=${petrecords.diseaseId}">Disease
-									Detail</a></td>
-							<td><a
 								href="/petrecord/updateformpetrecord?prid=${petrecords.petId}&diseaseid=${petrecords.diseaseId}">Update</a></td>
 							<td><a
-								href="/petrecord/deletepetrecord?prid=${petrecords.petId}&diseaseid=${petrecords.diseaseId}">Delete</a></td>
+								href="/petrecord/deletepetrecord?prid=${petrecords.petId}&diseaseid=${petrecords.diseaseId}"
+								onclick="if (confirm('Are you sure you want to delete?')) form.action='/Config?pg=FIBiller&amp;cmd=delete'; else return false;">Delete</a></td>
 						</tr>
-					</c:forEach>
+					</c:forEach></tbody>
 			</table>
-			<br>
-			<table>
-				<caption><h5>Medicine Cost</h5></caption>
-				<thead>
-					<tr>
-						<th>Medicine Name</th>
-						<th>Price</th>
-					</tr>
-				</thead>
-				<c:forEach var="diseasePrice" items="${diseasePrice}">
-					<br>
-					<tr>
-						<td>${diseasePrice.medicine}</td>
-						<td>${diseasePrice.price}</td>
-					</tr>
-
-				</c:forEach>
-				<tr>
-					<td>total Amount</td>
-					<td>${totalAmount}</td>
-				</tr>
-				</tbody>
-			</table></div>
+			</div>
+			</div>
+			
+				<div><h4>Total Amount  :  ${totalAmount}</h4></div>
+				
 			<br> <br>
 			<div>
 				<a href="/petrecord/addformpetrecord?id=${petId}"><button>Add</button></a><br> <a
 					href="/disease/diseaselist"><button>Disease List</button></a>
 					
 			</div>
+			
 		
-		${delete}
-	</div></div><a href="/usersdetail/getuserpet?id=${userId}" class="back"><em class="fa fa-arrow-circle-o-left" style="font-size:36px"></em></a></div>
-	<script type="text/javascript">
-		function ConfirmDelete() {
-			return confirm("Are you sure you want to delete?");
-		}
-	</script>
+		<div>${delete}</div></div>
+<a href="/usersdetail/getuserpet" class="back"><em class="fa fa-arrow-circle-o-left" style="font-size:36px"></em></a>
+	
 </body>
 </html>

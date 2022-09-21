@@ -12,8 +12,8 @@
 </style>
 </head>
 <body >
-	<div id="table root" >
-		<table class="container">
+	<div class="container" >
+		<table >
 		<caption></caption>
 			<thead>
 				<tr>
@@ -27,13 +27,14 @@
 					<tr>
 						<td>${vaccine.vaccineName}</td>
 						<td><a href="/vaccine/updateformvaccine?vacid=${vaccine.vaccineId}">Update</a></td>
-						<td><a href="/vaccine/deletevaccine?vacid=${vaccine.vaccineId}">Delete</a></td>
+						<td><a href="/vaccine/deletevaccine?vacid=${vaccine.vaccineId}"
+						onclick="if (confirm('Are you sure you want to delete?')) form.action='/Config?pg=FIBiller&amp;cmd=delete'; else return false;">Delete</a></td>
 					</tr>
 				</c:forEach>
 			</tbody>
-		</table>
+		</table></div>
 		<a href="/vaccine/addformvaccine"><button class="add">Add</button></a><br>
 		<div><a href="/admin/index" class="back"><em class="fa fa-arrow-circle-o-left" style="font-size:36px"></em></a></div>
-	</div>
+	
 </body>
 </html>

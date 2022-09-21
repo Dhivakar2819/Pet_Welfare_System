@@ -50,7 +50,7 @@
 				</div>
 				<div class="form-control">
 					<label for="dob">Date of Birth</label>
-						<form:input path="dob" type="date" name="dob" onblur="checkDate();" />
+						<form:input path="dob" type="date" name="dob" onblur="checkDate();" onsubmit="checkDate();"/>
 				</div>
 				<div class="form-control">
 					<label for="gender">Gender</label>
@@ -62,17 +62,17 @@
 				</div>
 				<div class="form-control">
 					<label for="dateofOwnership">Date of Ownership</label>
-						<form:input path="dateofOwnership" name="dateofOwnership" type="date" onblur="checkDateOwner();"/>
+						<form:input path="dateofOwnership" name="dateofOwnership" type="date" onblur="checkDateOwner();" onsubmit="checkDateOwner();"/>
 				</div>
 				<br>
-				<div>
+				<div><div>${result}</div>
 					<form:button class="button">Add New Pet</form:button></div>
 					<div>
 				</div>
 			</form:form>
 			<br>
-			<a href="/usersdetail/getuserpet?id=${userId}" class="back"><em class="fa fa-arrow-circle-o-left" style="font-size:36px"></em></a>
-			<div>${result}</div>
+			<a href="/usersdetail/getuserpet" class="back"><em class="fa fa-arrow-circle-o-left" style="font-size:36px"></em></a>
+			
 
 		</div>
 	</div>

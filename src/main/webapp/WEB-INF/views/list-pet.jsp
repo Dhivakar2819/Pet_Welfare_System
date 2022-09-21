@@ -12,8 +12,8 @@
 </style>
 </head>
 <body>
-	<div id="table root">
-		<table  class="container">
+<div class="container">
+		<table>
 		<caption></caption>
 			<thead>
 				<tr>
@@ -37,6 +37,6 @@
 			</tbody>
 		</table><br>
 		<div><a href="/admin/index" class="back"><em class="fa fa-arrow-circle-o-left" style="font-size:36px"></em></a></div>
-	</div>
+		</div>
 </body>
 </html>

@@ -8,20 +8,22 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Add User Detail</title>
-<style><%@include file="/WEB-INF/css/table.css"%></s
+<style><%@include file="/WEB-INF/css/table.css"%>
 </style>
 <link rel="stylesheet"
 	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
-<a href="/usersdetail/userloginpage"><button class="back">Log Out</button></a>
+<a href="/usersdetail/userloginpage"><em class="fa fa-sign-out logout" style="font-size:36px" title="Log out"
+onclick="if (confirm('Are you sure you want to logout?')) form.action='/Config?pg=FIBiller&amp;cmd=delete'; else return false;"></em></a>
 <div class="container">
 		
 		<form:form action="" method="post" modelAttribute="getuser">
 			
 		</form:form>
 	
-		<table style="width: 90%" >
+		<table  >
 			<caption></caption>
 			<thead>
 				<tr>
@@ -30,7 +32,7 @@
 					<th>Date of Birth</th>
 					<th>Gender</th>
 					<th>Date of Ownership</th>
-					<th>Breed</th>
+					
 					<th>Pet Records</th>
 					<th>Vaccine</th>
 					<th>Update</th>
@@ -46,24 +48,20 @@
 						<td>${pet.dob}</td>
 						<td>${pet.gender}</td>
 						<td>${pet.dateofOwnership}</td>
-						<td><a href="/breed/getbreed?brid=${pet.breedId}">Breed</a></td>
+						
 						<td><a href="/petrecord/getpetidinpetrecords?id=${pet.petId}">Pet
 								Records</a></td>
 						<td><a href="/pet/getvaccinebypetid?id=${pet.petId}">Vaccine
 						</a></td>
 						<td><a href="/pet/updateformpet?petid=${pet.petId}">Update</a></td>
 						<td><a href="/pet/deletepet?petid=${pet.petId}"
-							onclick="ConfirmDelete()">delete</a></td>
+							onclick="if (confirm('Are you sure you want to delete?')) form.action='/Config?pg=FIBiller&amp;cmd=delete'; else return false;">delete</a></td>
 				</c:forEach>
 				
 			</tbody>
 		</table></div>
 		<a href="/pet/addpet?userId=${userId}">
 								<button id="button">Add</button></a>
-		<script type="text/javascript">
-			function ConfirmDelete() {
-				return confirm("Are you sure you want to delete?");
-			}
-		</script>
+		
 </body>
 </html>

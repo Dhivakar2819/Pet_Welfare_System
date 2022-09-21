@@ -16,7 +16,7 @@
     </div>
     <form:form action="userlogin" method="post"
 				modelAttribute="loginform">
-        <h3>User Login</h3>
+        <h3>Login</h3>
 
         <label for="email">E mail</label>
         <form:input path="email" type="text" placeholder="Email" id="email"/>

@@ -12,12 +12,11 @@
 <title>Breed List</title>
 </head>
 <body>
-	<div id="table root" >
-		<table  class="container">
+<div class="container">
+		<table>
 		<caption></caption>
 			<thead>
 				<tr>
-					<th>Breed Id</th>
 					<th>Breed Type</th>
 					<th>Update</th>
 					<th>Delete</th>
@@ -27,18 +26,19 @@
 			<tbody>
 				<c:forEach var="breed" items="${allbreeds}">
 					<tr>
-						<td>${breed.id}</td>
 						<td>${breed.breedType}</td>
 						<td><a href="/breed/updatebreed?brid=${breed.id}">Update</a></td>
-						<td><a href="/breed/deletebreed?brid=${breed.id}">Delete</a></td>
+						<td><a href="/breed/deletebreed?brid=${breed.id}"
+						onclick="if (confirm('Are you sure you want to delete?')) form.action='/Config?pg=FIBiller&amp;cmd=delete'; else return false;">Delete</a></td>
 						
 					</tr>
 				</c:forEach>
 			</tbody>
 		</table>
 		<br>
-		<div><a href="/breed/addbreed"><button class="add">Add</button></a></div>
+		
 		<div><a href="/admin/index" class="back"><em class="fa fa-arrow-circle-o-left" style="font-size:36px"></em></a></div>
 	</div>
+	<div><a href="/breed/addbreed"><button class="add">Add</button></a></div>
 </body>
 </html>

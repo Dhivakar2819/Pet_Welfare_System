@@ -12,8 +12,8 @@
 </style>
 </head>
 <body>
-	<div id="table root">
-		<table class="container">
+	<div class="container">
+		<table>
 		<caption></caption>
 			<thead>
 				<tr>
